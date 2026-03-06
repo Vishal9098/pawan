@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Dog Carpet & Tile | Home Cleaning Services</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fcfcfc;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: #0f1e3a;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: #b6a25c;
+        }
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #e0e7ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.2s;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #b6a25c;
+            color: white;
+        }
+        .nav-cta {
+            background: #b6a25c;
+            color: #0f1e3a !important;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-cta:hover {
+            background: #c7b16b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(182,162,92,0.4);
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #0f1e3a 0%, #1b2c4e 100%);
+            color: white;
+            padding: 60px 0 80px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1 1 400px;
+        }
+        .hero-badge {
+            background: rgba(182,162,92,0.15);
+            border: 1px solid rgba(182,162,92,0.4);
+            color: #b6a25c;
+            font-weight: 600;
+            padding: 8px 22px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span {
+            color: #b6a25c;
+        }
+        .hero-content p {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0 20px;
+        }
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #b6a25c;
+        }
+        .stat-item p {
+            font-size: 14px;
+            color: #a0b3d9;
+            margin: 0;
+        }
+        .hero-image {
+            flex: 1 1 400px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.8s;
+        }
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== TRUST STRIP ===== */
+        .trust-strip {
+            background: white;
+            padding: 30px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+        .trust-icons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .trust-item i {
+            font-size: 24px;
+            color: #b6a25c;
+            background: #f5efe3;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin: 70px 0 30px;
+        }
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0f1e3a;
+        }
+        .section-title p {
+            color: #5f6b7a;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+        .gold-underline {
+            width: 80px;
+            height: 4px;
+            background: #b6a25c;
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== SERVICE GRID (HOME PAGE) ===== */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 30px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #f0f2f6;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: #b6a25c;
+            box-shadow: 0 25px 45px rgba(182,162,92,0.15);
+        }
+        .service-icon {
+            background: #f7f2e9;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            color: #b6a25c;
+            transition: 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: #b6a25c;
+            color: white;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: #5d6b82;
+            font-size: 15px;
+        }
+
+        /* ===== ABOUT PREVIEW ===== */
+        .about-preview {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: #f8fafc;
+            border-radius: 60px;
+            padding: 50px;
+            margin: 70px 0;
+            flex-wrap: wrap;
+        }
+        .about-preview .text {
+            flex: 1 1 300px;
+        }
+        .about-preview h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0f1e3a;
+        }
+        .about-preview p {
+            font-size: 18px;
+            color: #334155;
+            margin: 25px 0 30px;
+        }
+        .about-preview .image {
+            flex: 1 1 300px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .about-preview img {
+            width: 100%;
+            display: block;
+        }
+        .btn-gold {
+            background: #b6a25c;
+            color: #0f1e3a;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            box-shadow: 0 15px 25px -8px #b6a25c;
+        }
+        .btn-gold:hover {
+            background: #9f8c4c;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px -5px #b6a25c;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #b6a25c;
+            color: #0f1e3a;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            margin-left: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline:hover {
+            background: #b6a25c;
+            color: white;
+        }
+
+        /* ===== LOCATIONS CHIPS ===== */
+        .locations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 40px 0 60px;
+        }
+        .loc-chip {
+            background: #f0ede3;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e293b;
+        }
+        .loc-chip i {
+            color: #b6a25c;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, #0f1e3a, #1f3460);
+            border-radius: 50px;
+            padding: 60px;
+            color: white;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .cta-banner h2 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+        .cta-banner p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .cta-banner .btn-gold {
+            background: #b6a25c;
+            color: #0f1e3a;
+            font-size: 20px;
+            padding: 18px 50px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f1e3a;
+            color: #d1dae6;
+            padding: 60px 0 30px;
+            margin-top: 70px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 26px;
+            border-left: 3px solid #b6a25c;
+            padding-left: 16px;
+        }
+        .footer-col p {
+            color: #a7b5cc;
+            margin-bottom: 22px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin: 14px 0;
+        }
+        .footer-col ul li a {
+            color: #b1c0d9;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #b6a25c;
+            padding-left: 4px;
+        }
+        .social-gold a {
+            display: inline-block;
+            background: #1e3460;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 44px;
+            margin-right: 12px;
+            transition: 0.2s;
+        }
+        .social-gold a:hover {
+            background: #b6a25c;
+            transform: translateY(-4px);
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e3460;
+            margin-top: 50px;
+            padding-top: 30px;
+            color: #7b8aa3;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero-content h1 { font-size: 42px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .about-preview { flex-direction: column; }
+            .cta-banner { padding: 40px 20px; }
+            .cta-banner h2 { font-size: 32px; }
+            .btn-outline { margin-left: 0; margin-top: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navigation -->
+    <nav>
+        <div class="container nav-row">
+            <div class="logo">MAD DOG <span>Carpet & Tile</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="tel:9702007677" class="nav-cta"><i class="fas fa-phone-alt"></i> (970) 200-7677</a>
+            <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="far fa-clock"></i> 24/7 emergency service</span>
+                <h1>Premium <span>home cleaning</span> services in Loveland</h1>
+                <p>Eco‑friendly, professional, and thorough. We clean carpets, tile, upholstery, air ducts, and more — so you can breathe easier.</p>
+                <div>
+                    <a href="#" class="btn-gold">Get free quote</a>
+                    <a href="#" class="btn-outline">View services</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><h3>15+</h3><p>years</p></div>
+                    <div class="stat-item"><h3>5k+</h3><p>homes</p></div>
+                    <div class="stat-item"><h3>24/7</h3><p>support</p></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="cleaning team">
+            </div>
+        </div>
+    </section>
+
+    <!-- trust strip -->
+    <div class="trust-strip">
+        <div class="container trust-icons">
+            <div class="trust-item"><i class="fas fa-leaf"></i> Eco‑friendly</div>
+            <div class="trust-item"><i class="fas fa-tag"></i> 20% veteran discount</div>
+            <div class="trust-item"><i class="fas fa-clock"></i> 24/7 emergency</div>
+            <div class="trust-item"><i class="fas fa-star"></i> 5‑star rated</div>
+        </div>
+    </div>
+
+    <!-- services section (home page) -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Our home cleaning services</h2>
+            <p>We take care of every surface, from floor to ceiling — with eco‑friendly care.</p>
+            <div class="gold-underline"></div>
+        </div>
+
+        <div class="service-grid">
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-couch"></i></div>
+                <h3>Carpet cleaning</h3>
+                <p>Deep steam cleaning, stain removal, deodorizing</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-border-all"></i></div>
+                <h3>Tile & grout</h3>
+                <p>Restore shine, deep clean & seal</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-wind"></i></div>
+                <h3>Air duct cleaning</h3>
+                <p>Improve indoor air quality, remove allergens</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-chair"></i></div>
+                <h3>Upholstery cleaning</h3>
+                <p>Sofas, chairs, fabric refresh</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-dog"></i></div>
+                <h3>Pet stain & odor</h3>
+                <p>Neutralize even old accidents</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-tint"></i></div>
+                <h3>Deep cleaning</h3>
+                <p>Whole‑home deep clean service</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-building"></i></div>
+                <h3>Commercial cleaning</h3>
+                <p>Offices, retail, restaurants</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-icon"><i class="fas fa-water"></i></div>
+                <h3>Flood restoration</h3>
+                <p>Emergency water extraction</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- about preview -->
+    <div class="container about-preview">
+        <div class="text">
+            <h2>Locally owned, eco‑conscious</h2>
+            <p>Mad Dog Carpet & Tile has been serving Loveland and Northern Colorado since 2010. We combine high‑end equipment with sustainable practices — because a clean home shouldn't cost the earth.</p>
+            <a href="#" class="btn-gold">Read our story</a>
+        </div>
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="about us">
+        </div>
+    </div>
+
+    <!-- locations / areas we serve -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Communities we serve</h2>
+            <p>We're proud to be your local cleaning experts.</p>
+            <div class="gold-underline"></div>
+        </div>
+        <div class="locations-grid">
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Downtown Loveland</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Mariana Butte</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Boyd Lake</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> The Lakes at Centerra</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Van de Water</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Seven Lakes</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Blackbird Knolls</span>
+            <span class="loc-chip"><i class="fas fa-map-pin"></i> Boulder</span>
+        </div>
+    </div>
+
+    <!-- call to action banner -->
+    <div class="container cta-banner">
+        <h2>Ready for a fresher, cleaner home?</h2>
+        <p>Schedule your appointment today — we'll arrive on time, with all equipment and eco‑friendly products.</p>
+        <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call (970) 200-7677</a>
+        <p style="margin-top: 20px; font-size: 16px; opacity: 0.8;">or <a href="#" style="color: #b6a25c; text-decoration: underline;">book online</a></p>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>MAD DOG CARPET & TILE</h4>
+                <p>Professional, eco‑friendly cleaning for homes and businesses. 24/7 emergency service.</p>
+                <div class="social-gold">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SERVICES</h4>
+                <ul>
+                    <li><a href="#">Carpet cleaning</a></li>
+                    <li><a href="#">Tile & grout</a></li>
+                    <li><a href="#">Air duct cleaning</a></li>
+                    <li><a href="#">Upholstery</a></li>
+                    <li><a href="#">Deep cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><i class="fas fa-phone" style="color:#b6a25c;"></i> (970) 200-7677</li>
+                    <li><i class="fas fa-envelope" style="color:#b6a25c;"></i> hello@maddogcarpet.com</li>
+                    <li><i class="fas fa-map-marker-alt" style="color:#b6a25c;"></i> 5620 Wild Plum Dr, Loveland, CO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>© 2026 Mad Dog Carpet & Tile – All rights reserved. | Designed for a cleaner home</p>
+        </div>
+    </footer>
+
+    <!-- dummy mobile menu script -->
+    <script>
+        document.querySelector('.mobile-menu')?.addEventListener('click', ()=> alert('mobile menu (demo)'));
+    </script>
+</body>
+</html>

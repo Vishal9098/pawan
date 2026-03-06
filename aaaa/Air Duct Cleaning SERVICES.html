@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Duct Cleaning | Mad Dog Carpet & Tile</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts Poppins (same style) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* subtle pattern background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== back link ===== */
+        .back-home {
+            display: inline-block;
+            margin: 30px 0 10px;
+            color: #a08c4a;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .back-home i {
+            margin-right: 8px;
+        }
+        .back-home:hover {
+            color: #8a773c;
+            transform: translateX(-5px);
+        }
+
+        /* ===== page header with animation ===== */
+        .page-header {
+            text-align: center;
+            margin: 30px 0 40px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s ease forwards;
+        }
+        .page-header h1 {
+            font-size: 52px;
+            font-weight: 700;
+            color: #0a2f75;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        .page-header h1 span {
+            color: #b6a25c;
+        }
+        .page-header p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* ===== HERO / featured image (with zoom animation) ===== */
+        .duct-hero {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 60px;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInScale 1.2s ease 0.2s forwards;
+        }
+        .hero-image {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 8s ease;
+        }
+        .hero-image:hover img {
+            transform: scale(1.1);
+        }
+        .hero-image::after {
+            content: "✓ breathe cleaner air";
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(182, 162, 92, 0.9);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            font-size: 16px;
+        }
+
+        /* ===== intro description (slide left) ===== */
+        .intro-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin: 80px 0;
+            flex-wrap: wrap;
+        }
+        .intro-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: slideLeft 1s ease 0.3s forwards;
+        }
+        .intro-text h2 {
+            font-size: 38px;
+            font-weight: 600;
+            color: #0a2f75;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        .intro-text p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+        .intro-badge {
+            background: #b6a25c;
+            color: white;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(182,162,92,0.3);
+        }
+        .intro-image {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateX(40px);
+            animation: slideRight 1s ease 0.3s forwards;
+        }
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s;
+        }
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== SERVICE FEATURES grid with cards ===== */
+        .features-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            color: #0a2f75;
+            margin: 60px 0 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 50px 0 80px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+            border: 1px solid rgba(182,162,92,0.2);
+        }
+        .feature-card:nth-child(1) { animation-delay: 0.6s; }
+        .feature-card:nth-child(2) { animation-delay: 0.7s; }
+        .feature-card:nth-child(3) { animation-delay: 0.8s; }
+        .feature-card:nth-child(4) { animation-delay: 0.9s; }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 45px rgba(182,162,92,0.2);
+            border-color: #b6a25c;
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0ede3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: #b6a25c;
+            transition: 0.4s;
+        }
+        .feature-card:hover .feature-icon {
+            background: #b6a25c;
+            color: white;
+        }
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .feature-card p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* ===== WHY AIR DUCT CLEANING (left-right) ===== */
+        .why-duct {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: #f5f5f5;
+            border-radius: 50px;
+            padding: 50px;
+            margin: 70px 0;
+            opacity: 0;
+            transform: scale(0.98);
+            animation: fadeInScale 1s ease 1s forwards;
+        }
+        .why-duct-content {
+            flex: 1;
+        }
+        .why-duct-content h2 {
+            font-size: 38px;
+            font-weight: 600;
+            color: #0a2f75;
+            margin-bottom: 20px;
+        }
+        .why-duct-content ul {
+            list-style: none;
+        }
+        .why-duct-content li {
+            margin: 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .why-duct-content li i {
+            color: #b6a25c;
+            font-size: 24px;
+            width: 30px;
+        }
+        .why-duct-image {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .why-duct-image img {
+            width: 100%;
+            height: auto;
+            transition: 0.8s;
+        }
+        .why-duct-image:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+        /* ===== CTA button ===== */
+        .cta-wrap {
+            text-align: center;
+            margin: 60px 0 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 1.3s forwards;
+        }
+        .btn-gold {
+            background: #b6a25c;
+            color: white;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(182,162,92,0.4);
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+        .btn-gold:hover {
+            background: #9f8c4c;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(182,162,92,0.5);
+            border-color: white;
+        }
+
+        /* ===== floating back to top ===== */
+        .fab-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: #b6a25c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(182,162,92,0.4);
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 99;
+            border: 2px solid rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+        .fab-top:hover {
+            transform: scale(1.15) translateY(-5px);
+            background: #8a773c;
+        }
+
+        /* ===== animations keyframes ===== */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ===== responsive ===== */
+        @media (max-width: 992px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-duct { flex-direction: column; }
+        }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 38px; }
+            .intro-section { flex-direction: column; }
+            .features-grid { grid-template-columns: 1fr; }
+            .why-duct { padding: 30px; }
+            .fab-top { width: 45px; height: 45px; font-size: 20px; bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- floating back to top -->
+    <a href="#" class="fab-top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <div class="container">
+
+        <!-- back link -->
+        <a href="javascript:history.back()" class="back-home"><i class="fas fa-arrow-left"></i> Back to Services</a>
+
+        <!-- header with animation -->
+        <div class="page-header">
+            <h1><span>Air Duct</span> Cleaning</h1>
+            <p>Professional air duct cleaning • improve indoor air quality • eco‑friendly</p>
+        </div>
+
+        <!-- hero image large (air duct cleaning specific) -->
+        <div class="duct-hero">
+            <div class="hero-image">
+                <!-- air duct cleaning image (technician cleaning ducts) -->
+                <img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=2070&auto=format&fit=crop" alt="Air duct cleaning service">
+            </div>
+        </div>
+
+        <!-- intro text + small image -->
+        <div class="intro-section">
+            <div class="intro-text">
+                <h2>Breathe cleaner, healthier air</h2>
+                <p>Your HVAC system circulates air throughout your home every day. Over time, dust, pollen, mold, and debris accumulate in your air ducts. Our professional air duct cleaning removes these contaminants, improving airflow, reducing allergens, and helping your system run efficiently.</p>
+                <span class="intro-badge"><i class="fas fa-leaf"></i> 100% eco‑friendly</span>
+            </div>
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1631778691137-5c08a9d60069?q=80&w=2070&auto=format&fit=crop" alt="air duct cleaning process">
+            </div>
+        </div>
+
+        <!-- features / service highlights -->
+        <h2 class="features-title">Air duct cleaning <span style="color:#b6a25c;">advantages</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-wind"></i></div>
+                <h3>Improved airflow</h3>
+                <p>Clean ducts allow air to move freely, reducing strain on your HVAC system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-broom"></i></div>
+                <h3>Debris removal</h3>
+                <p>Powerful vacuum equipment removes dust, pet hair, and construction debris.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+                <h3>Allergen reduction</h3>
+                <p>Eliminates pollen, mold spores, and dust mites for allergy relief.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Eco-friendly process</h3>
+                <p>We use safe, non-toxic cleaning agents and HEPA filtration.</p>
+            </div>
+        </div>
+
+        <!-- why choose air duct cleaning -->
+        <div class="why-duct">
+            <div class="why-duct-content">
+                <h2>Why professional air duct cleaning?</h2>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Reduces indoor air pollution</li>
+                    <li><i class="fas fa-check-circle"></i> Eliminates musty odors</li>
+                    <li><i class="fas fa-check-circle"></i> Improves HVAC efficiency (lowers energy bills)</li>
+                    <li><i class="fas fa-check-circle"></i> Removes mold & bacteria</li>
+                    <li><i class="fas fa-check-circle"></i> Recommended every 3‑5 years</li>
+                </ul>
+            </div>
+            <div class="why-duct-image">
+                <img src="https://images.unsplash.com/photo-1631778691132-5f99ae9c3a8d?q=80&w=2070&auto=format&fit=crop" alt="clean air ducts">
+            </div>
+        </div>
+
+        <!-- call to action button -->
+        <div class="cta-wrap">
+            <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a>
+            <p style="margin-top: 20px; color: #777; font-size: 16px;">or <a href="/schedule-quote" style="color:#b6a25c; text-decoration:underline;">schedule online</a></p>
+        </div>
+
+        <!-- small footer note -->
+        <div style="text-align: center; margin: 40px 0 20px; font-size: 14px; color: #aaa;">
+            <i class="fas fa-certificate" style="color:#b6a25c;"></i> Mad Dog Carpet & Tile – NADCA certified air duct cleaners
+        </div>
+    </div>
+
+    <script>
+        // any additional animation or smoothness (not required)
+    </script>
+</body>
+</html>

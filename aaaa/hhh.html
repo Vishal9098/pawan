@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Home Cleaning | Professional Cleaning Services</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fcfcfc;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== NAVIGATION WITH MOBILE MENU ===== */
+        nav {
+            background: #0f1e3a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+        .logo span {
+            color: #b6a25c;
+        }
+        
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            color: #e0e7ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.2s;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #b6a25c;
+            color: white;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 260px;
+            border-radius: 16px;
+            padding: 12px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 1000;
+            margin-top: 10px;
+            border: 1px solid #f0e9dc;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 5px;
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            color: #1e293b !important;
+            border-bottom: none !important;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .dropdown-menu a:hover {
+            background: #f5efe3;
+            color: #b6a25c !important;
+            padding-left: 25px;
+        }
+        .dropdown-menu i {
+            width: 20px;
+            color: #b6a25c;
+        }
+
+        .nav-cta {
+            background: #b6a25c;
+            color: #0f1e3a !important;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .nav-cta:hover {
+            background: #c7b16b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(182,162,92,0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .mobile-menu:hover {
+            background: #b6a25c;
+        }
+        .mobile-menu.active {
+            background: #b6a25c;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .mobile-nav-overlay.active {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            transition: 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.2);
+        }
+        .mobile-nav-menu.active {
+            left: 0;
+        }
+        .mobile-nav-header {
+            background: #0f1e3a;
+            color: white;
+            padding: 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .mobile-nav-header span {
+            color: #b6a25c;
+        }
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        .mobile-nav-items {
+            padding: 20px;
+        }
+        .mobile-nav-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+        }
+        .mobile-nav-item:hover {
+            color: #b6a25c;
+            padding-left: 5px;
+        }
+        .mobile-nav-item i {
+            width: 25px;
+            color: #b6a25c;
+        }
+        .mobile-dropdown-content {
+            padding-left: 37px;
+            display: none;
+        }
+        .mobile-dropdown-content.show {
+            display: block;
+        }
+        .mobile-dropdown-item {
+            padding: 12px 0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mobile-dropdown-item:hover {
+            color: #b6a25c;
+        }
+        .mobile-dropdown-item i {
+            width: 20px;
+            color: #b6a25c;
+        }
+
+        /* ===== SLIDER SECTION ===== */
+        .slider-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(15,30,58,0.9) 0%, rgba(15,30,58,0.6) 50%, rgba(15,30,58,0.3) 100%);
+            z-index: 1;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 700px;
+            margin-left: 10%;
+            padding: 40px;
+        }
+        .slide-content h1 {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .slide-content h1 span {
+            color: #b6a25c;
+        }
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .slider-btn {
+            background: #b6a25c;
+            color: #0f1e3a;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .slider-btn:hover {
+            background: #c7b16b;
+            transform: translateY(-3px);
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .slider-arrow:hover {
+            background: #b6a25c;
+        }
+        .slider-arrow.prev {
+            left: 20px;
+        }
+        .slider-arrow.next {
+            right: 20px;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dot.active {
+            background: #b6a25c;
+            transform: scale(1.2);
+        }
+
+        /* ===== TRUST STRIP ===== */
+        .trust-strip {
+            background: white;
+            padding: 25px 0;
+            border-bottom: 1px solid #edf0f5;
+            margin-bottom: 30px;
+        }
+        .trust-icons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 15px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 14px;
+        }
+        .trust-item i {
+            font-size: 20px;
+            color: #b6a25c;
+            background: #f5efe3;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== SERVICE DETAIL SECTION ===== */
+        .service-detail {
+            padding: 40px 0;
+            background: white;
+            border-radius: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+        .service-detail.hidden {
+            display: none;
+        }
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .detail-header h1 {
+            font-size: 42px;
+            color: #0f1e3a;
+        }
+        .detail-header h1 span {
+            color: #b6a25c;
+        }
+        .detail-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .detail-text {
+            flex: 1 1 350px;
+        }
+        .detail-text h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .detail-text p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .detail-text ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .detail-text li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+        .detail-text li i {
+            color: #b6a25c;
+            font-size: 20px;
+        }
+        .detail-image {
+            flex: 1 1 350px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .detail-image img {
+            width: 100%;
+            display: block;
+        }
+        .back-home {
+            display: inline-block;
+            margin: 0 0 15px 0;
+            color: #b6a25c;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .back-home i {
+            margin-right: 8px;
+        }
+        .btn-gold {
+            background: #b6a25c;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-gold:hover {
+            background: #9f8c4c;
+            transform: translateY(-3px);
+        }
+
+        /* ===== HOME PAGE SERVICES GRID ===== */
+        #homeContent {
+            display: block;
+        }
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f1e3a;
+        }
+        .section-title p {
+            color: #5f6b7a;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 8px auto 0;
+        }
+        .gold-underline {
+            width: 60px;
+            height: 3px;
+            background: #b6a25c;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #f0f2f6;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #b6a25c;
+        }
+        .service-icon {
+            background: #f7f2e9;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #b6a25c;
+            transition: 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: #b6a25c;
+            color: white;
+        }
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* ===== LOCATIONS CHIPS ===== */
+        .locations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0 40px;
+        }
+        .loc-chip {
+            background: #f0ede3;
+            padding: 10px 22px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1e293b;
+            font-size: 14px;
+        }
+        .loc-chip i {
+            color: #b6a25c;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, #0f1e3a, #1f3460);
+            border-radius: 40px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta-banner h2 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .cta-banner p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 15px auto;
+        }
+
+        /* ===== ABOUT PREVIEW ===== */
+        .about-preview {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: #f8fafc;
+            border-radius: 50px;
+            padding: 40px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        .about-preview .text {
+            flex: 1 1 280px;
+        }
+        .about-preview h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f1e3a;
+        }
+        .about-preview p {
+            font-size: 16px;
+            color: #334155;
+            margin: 20px 0 25px;
+        }
+        .about-preview .image {
+            flex: 1 1 280px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .about-preview img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f1e3a;
+            color: #d1dae6;
+            padding: 50px 0 25px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-left: 3px solid #b6a25c;
+            padding-left: 12px;
+        }
+        .footer-col p {
+            color: #a7b5cc;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a {
+            color: #b1c0d9;
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .footer-col ul li a:hover {
+            color: #b6a25c;
+            padding-left: 4px;
+        }
+        .social-gold a {
+            display: inline-block;
+            background: #1e3460;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            margin-right: 10px;
+            transition: 0.2s;
+            font-size: 16px;
+        }
+        .social-gold a:hover {
+            background: #b6a25c;
+            transform: translateY(-4px);
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e3460;
+            margin-top: 40px;
+            padding-top: 25px;
+            color: #7b8aa3;
+            font-size: 13px;
+        }
+
+        /* ===== FULLY MOBILE RESPONSIVE (2 COLUMNS ON MOBILE) ===== */
+        @media (max-width: 1024px) {
+            .service-grid { 
+                grid-template-columns: repeat(3, 1fr); 
+            }
+            .footer-grid { 
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { 
+                display: none; 
+            }
+            .mobile-menu { 
+                display: flex; 
+            }
+            
+            .slider-container { 
+                height: 450px; 
+            }
+            .slide-content { 
+                margin-left: 5%; 
+                padding: 20px; 
+            }
+            .slide-content h1 { 
+                font-size: 32px; 
+            }
+            .slide-content p { 
+                font-size: 15px; 
+                margin-bottom: 20px; 
+            }
+            .slider-btn { 
+                padding: 10px 24px; 
+                font-size: 14px; 
+            }
+            .slider-arrow { 
+                width: 35px; 
+                height: 35px; 
+                font-size: 16px; 
+            }
+            
+            /* 2 COLUMNS ON MOBILE - FIXED */
+            .service-grid { 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 15px; 
+            }
+            .service-card { 
+                padding: 20px 15px; 
+            }
+            .service-icon { 
+                width: 60px; 
+                height: 60px; 
+                font-size: 26px; 
+                margin-bottom: 15px; 
+            }
+            .service-card h3 { 
+                font-size: 16px; 
+            }
+            
+            .trust-item { 
+                flex-direction: column; 
+                text-align: center; 
+                font-size: 12px; 
+            }
+            .trust-item i { 
+                margin-bottom: 5px; 
+                width: 35px; 
+                height: 35px; 
+                font-size: 16px; 
+            }
+            
+            .footer-grid { 
+                grid-template-columns: 1fr; 
+                gap: 25px; 
+            }
+            .about-preview { 
+                flex-direction: column; 
+                padding: 25px; 
+            }
+            .cta-banner { 
+                padding: 30px 20px; 
+            }
+            .cta-banner h2 { 
+                font-size: 28px; 
+            }
+            .detail-grid { 
+                flex-direction: column; 
+                gap: 25px; 
+            }
+            .detail-header h1 { 
+                font-size: 32px; 
+            }
+            .detail-text h2 { 
+                font-size: 24px; 
+            }
+            .slider-arrow.prev { 
+                left: 10px; 
+            }
+            .slider-arrow.next { 
+                right: 10px; 
+            }
+            .dot { 
+                width: 8px; 
+                height: 8px; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slider-container { 
+                height: 380px; 
+            }
+            .slide-content h1 { 
+                font-size: 26px; 
+            }
+            .slide-content p { 
+                font-size: 14px; 
+            }
+            .slider-btn { 
+                padding: 8px 20px; 
+                font-size: 13px; 
+            }
+            .section-title h2 { 
+                font-size: 28px; 
+            }
+            .service-grid { 
+                gap: 12px; 
+            }
+            .service-card { 
+                padding: 15px 10px; 
+            }
+            .service-icon { 
+                width: 50px; 
+                height: 50px; 
+                font-size: 22px; 
+            }
+            .service-card h3 { 
+                font-size: 14px; 
+            }
+            .loc-chip { 
+                padding: 8px 16px; 
+                font-size: 12px; 
+            }
+            .cta-banner h2 { 
+                font-size: 24px; 
+            }
+            .cta-banner p { 
+                font-size: 14px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileMenu()"></div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            HOME <span>CLEANING</span>
+            <div class="mobile-nav-close" onclick="closeMobileMenu()">✕</div>
+        </div>
+        <div class="mobile-nav-items">
+            <div class="mobile-nav-item" onclick="closeMobileMenu(); showHome()">
+                <i class="fas fa-home"></i> Home
+            </div>
+            <div class="mobile-nav-item" id="mobileServicesToggle">
+                <i class="fas fa-cog"></i> Services <i class="fas fa-chevron-down" style="margin-left: auto; font-size: 14px;"></i>
+            </div>
+            <div class="mobile-dropdown-content" id="mobileServicesDropdown">
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('airduct')">
+                    <i class="fas fa-wind"></i> Air Duct Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('deep')">
+                    <i class="fas fa-tint"></i> Deep Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('tile')">
+                    <i class="fas fa-border-all"></i> Tile Floor Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('carpet')">
+                    <i class="fas fa-couch"></i> Carpet Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('upholstery')">
+                    <i class="fas fa-chair"></i> Upholstery Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('pet')">
+                    <i class="fas fa-dog"></i> Pet Stain & Odor
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('commercial')">
+                    <i class="fas fa-building"></i> Commercial Cleaning
+                </div>
+                <div class="mobile-dropdown-item" onclick="closeMobileMenu(); showService('flood')">
+                    <i class="fas fa-water"></i> Flood Restoration
+                </div>
+            </div>
+            <div class="mobile-nav-item" onclick="closeMobileMenu(); showHome()">
+                <i class="fas fa-info-circle"></i> About
+            </div>
+            <div class="mobile-nav-item" onclick="closeMobileMenu(); showHome()">
+                <i class="fas fa-phone-alt"></i> Contact
+            </div>
+            <div style="margin-top: 30px; padding: 15px; background: #f5efe3; border-radius: 12px; text-align: center;">
+                <a href="tel:9702007677" style="color: #0f1e3a; font-weight: 700; text-decoration: none; display: block;">
+                    <i class="fas fa-phone-alt" style="color: #b6a25c;"></i> (970) 200-7677
+                </a>
+                <p style="font-size: 12px; margin-top: 8px; color: #666;">24/7 emergency service</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- navigation with dropdown -->
+    <nav>
+        <div class="container nav-row">
+            <div class="logo" onclick="showHome()">HOME <span>CLEANING</span></div>
+            <ul class="nav-links">
+                <li><a onclick="showHome()">Home</a></li>
+                <li class="dropdown">
+                    <a>Services <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a onclick="showService('airduct')"><i class="fas fa-wind"></i> Air Duct Cleaning</a>
+                        <a onclick="showService('deep')"><i class="fas fa-tint"></i> Deep Cleaning</a>
+                        <a onclick="showService('tile')"><i class="fas fa-border-all"></i> Tile Floor Cleaning</a>
+                        <a onclick="showService('carpet')"><i class="fas fa-couch"></i> Carpet Cleaning</a>
+                        <a onclick="showService('upholstery')"><i class="fas fa-chair"></i> Upholstery Cleaning</a>
+                        <a onclick="showService('pet')"><i class="fas fa-dog"></i> Pet Stain & Odor</a>
+                        <a onclick="showService('commercial')"><i class="fas fa-building"></i> Commercial Cleaning</a>
+                        <a onclick="showService('flood')"><i class="fas fa-water"></i> Flood Restoration</a>
+                    </div>
+                </li>
+                <li><a onclick="showHome()">About</a></li>
+                <li><a onclick="showHome()">Contact</a></li>
+            </ul>
+            <a href="tel:9702007677" class="nav-cta"><i class="fas fa-phone-alt"></i> (970) 200-7677</a>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SLIDER SECTION -->
+    <div class="slider-section">
+        <div class="slider-container" id="slider">
+            <div class="slider-wrapper">
+                <!-- Slide 1 -->
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop')">
+                    <div class="slide-content">
+                        <h1>Premium <span>home cleaning</span> services in Loveland</h1>
+                        <p>Eco‑friendly, professional, and thorough. We clean carpets, tile, upholstery, air ducts, and more — so you can breathe easier.</p>
+                        <button class="slider-btn" onclick="showService('carpet')">Get free quote</button>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop')">
+                    <div class="slide-content">
+                        <h1>Deep <span>cleaning</span> for a healthier home</h1>
+                        <p>Remove embedded dirt, allergens, and bacteria. Perfect for move-in/move-out or seasonal deep cleans.</p>
+                        <button class="slider-btn" onclick="showService('deep')">Explore deep cleaning</button>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop')">
+                    <div class="slide-content">
+                        <h1>Fresh <span>carpets</span> start here</h1>
+                        <p>Hot water extraction removes stains, dirt, and allergens. Safe for kids and pets.</p>
+                        <button class="slider-btn" onclick="showService('carpet')">Learn more</button>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=2070&auto=format&fit=crop')">
+                    <div class="slide-content">
+                        <h1>Breathe easier with <span>air duct</span> cleaning</h1>
+                        <p>Remove dust, pollen, and mold from your HVAC system. Improve efficiency and air quality.</p>
+                        <button class="slider-btn" onclick="showService('airduct')">Learn more</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider arrows -->
+            <div class="slider-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></div>
+            <div class="slider-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></div>
+            <!-- Slider dots -->
+            <div class="slider-dots" id="sliderDots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOME PAGE CONTENT -->
+    <div id="homeContent">
+        <!-- trust strip -->
+        <div class="trust-strip">
+            <div class="container trust-icons">
+                <div class="trust-item"><i class="fas fa-leaf"></i> Eco‑friendly</div>
+                <div class="trust-item"><i class="fas fa-tag"></i> 20% veteran discount</div>
+                <div class="trust-item"><i class="fas fa-clock"></i> 24/7 emergency</div>
+                <div class="trust-item"><i class="fas fa-star"></i> 5‑star rated</div>
+            </div>
+        </div>
+
+        <!-- services section -->
+        <div class="container">
+            <div class="section-title">
+                <h2>Our home cleaning services</h2>
+                <p>We take care of every surface, from floor to ceiling — with eco‑friendly care.</p>
+                <div class="gold-underline"></div>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card" onclick="showService('airduct')">
+                    <div class="service-icon"><i class="fas fa-wind"></i></div>
+                    <h3>Air Duct Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('deep')">
+                    <div class="service-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Deep Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('tile')">
+                    <div class="service-icon"><i class="fas fa-border-all"></i></div>
+                    <h3>Tile Floor Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('carpet')">
+                    <div class="service-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Carpet Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('upholstery')">
+                    <div class="service-icon"><i class="fas fa-chair"></i></div>
+                    <h3>Upholstery Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('pet')">
+                    <div class="service-icon"><i class="fas fa-dog"></i></div>
+                    <h3>Pet Stain & Odor</h3>
+                </div>
+                <div class="service-card" onclick="showService('commercial')">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Commercial Cleaning</h3>
+                </div>
+                <div class="service-card" onclick="showService('flood')">
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
+                    <h3>Flood Restoration</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- about preview -->
+        <div class="container about-preview">
+            <div class="text">
+                <h2>Locally owned, eco‑conscious</h2>
+                <p>Home Cleaning has been serving Loveland and Northern Colorado since 2010. We combine high‑end equipment with sustainable practices — because a clean home shouldn't cost the earth.</p>
+                <button class="btn-gold" onclick="showHome()">Read our story</button>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="about us">
+            </div>
+        </div>
+
+        <!-- locations / areas we serve -->
+        <div class="container">
+            <div class="section-title">
+                <h2>Communities we serve</h2>
+                <p>We're proud to be your local cleaning experts.</p>
+                <div class="gold-underline"></div>
+            </div>
+            <div class="locations-grid">
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Downtown Loveland</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Mariana Butte</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Boyd Lake</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> The Lakes at Centerra</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Van de Water</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Seven Lakes</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Blackbird Knolls</span>
+                <span class="loc-chip"><i class="fas fa-map-pin"></i> Boulder</span>
+            </div>
+        </div>
+
+        <!-- call to action banner -->
+        <div class="container cta-banner">
+            <h2>Ready for a fresher, cleaner home?</h2>
+            <p>Schedule your appointment today — we'll arrive on time, with all equipment and eco‑friendly products.</p>
+            <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call (970) 200-7677</a>
+        </div>
+    </div>
+
+    <!-- SERVICE DETAIL PAGES (all hidden by default) -->
+    <div id="airductDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Air Duct</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Breathe cleaner, healthier air</h2>
+                    <p>Your HVAC system circulates air throughout your home every day. Over time, dust, pollen, mold, and debris accumulate in your air ducts. Our professional air duct cleaning removes these contaminants, improving airflow, reducing allergens, and helping your system run efficiently.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Removes dust, pollen, and mold</li>
+                        <li><i class="fas fa-check-circle"></i> Improves HVAC efficiency by up to 30%</li>
+                        <li><i class="fas fa-check-circle"></i> Reduces allergens and musty odors</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly, non-toxic process</li>
+                        <li><i class="fas fa-check-circle"></i> Certified technicians</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=2070&auto=format&fit=crop" alt="Air duct cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deep Cleaning Detail -->
+    <div id="deepDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Deep</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Revitalize your home from top to bottom</h2>
+                    <p>Our deep cleaning service goes far beyond surface cleaning. We remove embedded dirt, allergens, and bacteria from carpets, upholstery, and hard-to-reach areas. Using hot water extraction and eco‑safe products, we restore freshness and extend the life of your furnishings. Perfect for move-in/move-out or seasonal deep cleans.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Deep extraction from carpet fibers</li>
+                        <li><i class="fas fa-check-circle"></i> Stain pre-treatment and removal</li>
+                        <li><i class="fas fa-check-circle"></i> Fast drying (2-4 hours)</li>
+                        <li><i class="fas fa-check-circle"></i> Allergen and bacteria removal</li>
+                        <li><i class="fas fa-check-circle"></i> Upholstery and furniture included</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="Deep cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tile Floor Cleaning Detail -->
+    <div id="tileDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Tile Floor</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Restore the natural beauty of your tile</h2>
+                    <p>Our tile floor cleaning service removes embedded dirt, grime, and soap residue, bringing back the original luster. We use high‑pressure steam cleaning and eco‑safe detergents that are safe for families and pets. Grout is deep cleaned and sealed to prevent future stains.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Deep grout cleaning with rotary scrubbers</li>
+                        <li><i class="fas fa-check-circle"></i> Stain removal (oil, wine, rust)</li>
+                        <li><i class="fas fa-check-circle"></i> Protective sealing for long-lasting shine</li>
+                        <li><i class="fas fa-check-circle"></i> Quick drying (under 1 hour)</li>
+                        <li><i class="fas fa-check-circle"></i> Safe for all tile types</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=2070&auto=format&fit=crop" alt="Tile cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carpet Cleaning Detail -->
+    <div id="carpetDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Carpet</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Fresh, deep-cleaned carpets</h2>
+                    <p>Our hot water extraction (steam cleaning) removes dirt, stains, and allergens, leaving your carpets fresh and healthy. We use eco-friendly products safe for kids and pets. Our truck-mounted units provide stronger suction and faster drying.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Stain removal (coffee, wine, pet stains)</li>
+                        <li><i class="fas fa-check-circle"></i> Deodorizing and allergen removal</li>
+                        <li><i class="fas fa-check-circle"></i> Protects carpet fibers</li>
+                        <li><i class="fas fa-check-circle"></i> Quick drying (2-4 hours)</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly, non-toxic solutions</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop" alt="Carpet cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upholstery Cleaning Detail -->
+    <div id="upholsteryDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Upholstery</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Refresh your furniture</h2>
+                    <p>We clean sofas, chairs, and fabric furniture, removing dirt, stains, and odors with gentle yet effective methods. Our low-moisture process prevents over-wetting and damage to fabrics.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Fabric-safe cleaning for all materials</li>
+                        <li><i class="fas fa-check-circle"></i> Stain & odor removal</li>
+                        <li><i class="fas fa-check-circle"></i> Quick drying (usually 2-3 hours)</li>
+                        <li><i class="fas fa-check-circle"></i> Protects fabric from future stains</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly products</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=2070&auto=format&fit=crop" alt="Upholstery cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pet Stain & Odor Detail -->
+    <div id="petDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Pet Stain & Odor</span> Removal</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Say goodbye to pet accidents permanently</h2>
+                    <p>Specialized enzymes neutralize pet stains and odors at the molecular level, leaving your home fresh and clean. We treat both the stain and the source, ensuring pets aren't attracted back to the same spot.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Enzyme treatment breaks down urine crystals</li>
+                        <li><i class="fas fa-check-circle"></i> Removes both fresh and old stains</li>
+                        <li><i class="fas fa-check-circle"></i> Eliminates odors completely</li>
+                        <li><i class="fas fa-check-circle"></i> Safe for pets and families</li>
+                        <li><i class="fas fa-check-circle"></i> Works on carpets, upholstery, and tile</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1601758228040-f896b34b9c7f?q=80&w=2070&auto=format&fit=crop" alt="Pet stain removal">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commercial Cleaning Detail -->
+    <div id="commercialDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Commercial</span> Cleaning</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Professional spaces, spotless results</h2>
+                    <p>We clean offices, retail stores, and restaurants, ensuring a healthy environment for employees and customers. We work after hours to avoid disruption, and all products are eco-friendly and safe for high-traffic areas.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Flexible scheduling (nights/weekends)</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly, commercial-grade products</li>
+                        <li><i class="fas fa-check-circle"></i> Fully insured and bonded</li>
+                        <li><i class="fas fa-check-circle"></i> Carpet, tile, and upholstery for businesses</li>
+                        <li><i class="fas fa-check-circle"></i> Customized maintenance plans</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for free estimate</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop" alt="Commercial cleaning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flood Restoration Detail -->
+    <div id="floodDetail" class="service-detail hidden">
+        <div class="container">
+            <a onclick="showHome()" class="back-home"><i class="fas fa-arrow-left"></i> Back to all services</a>
+            <div class="detail-header">
+                <h1><span>Flood</span> Restoration</h1>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>24/7 emergency water removal</h2>
+                    <p>We respond immediately to floods, extracting water and drying your property to prevent mold and structural damage. Our team is on call 24/7/365. We work directly with insurance companies to streamline the process.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Rapid response within 1-2 hours</li>
+                        <li><i class="fas fa-check-circle"></i> Powerful water extraction</li>
+                        <li><i class="fas fa-check-circle"></i> Industrial drying & dehumidification</li>
+                        <li><i class="fas fa-check-circle"></i> Mold prevention treatment</li>
+                        <li><i class="fas fa-check-circle"></i> Direct insurance billing</li>
+                    </ul>
+                    <a href="tel:9702007677" class="btn-gold">Call for emergency service</a>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?q=80&w=2070&auto=format&fit=crop" alt="Flood restoration">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>HOME CLEANING</h4>
+                <p>Professional, eco‑friendly cleaning for homes and businesses. 24/7 emergency service. Family-owned since 2010.</p>
+                <div class="social-gold">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a onclick="showHome()">Home</a></li>
+                    <li><a onclick="showHome()">About us</a></li>
+                    <li><a onclick="showHome()">Services</a></li>
+                    <li><a onclick="showHome()">Locations</a></li>
+                    <li><a onclick="showHome()">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SERVICES</h4>
+                <ul>
+                    <li><a onclick="showService('carpet')">Carpet cleaning</a></li>
+                    <li><a onclick="showService('tile')">Tile & grout</a></li>
+                    <li><a onclick="showService('airduct')">Air duct cleaning</a></li>
+                    <li><a onclick="showService('upholstery')">Upholstery</a></li>
+                    <li><a onclick="showService('deep')">Deep cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><i class="fas fa-phone" style="color:#b6a25c;"></i> (970) 200-7677</li>
+                    <li><i class="fas fa-envelope" style="color:#b6a25c;"></i> hello@homecleaning.com</li>
+                    <li><i class="fas fa-map-marker-alt" style="color:#b6a25c;"></i> 5620 Wild Plum Dr, Loveland, CO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>© 2026 Home Cleaning – All rights reserved. | Designed for a cleaner home</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Service detail functions
+        function showService(service) {
+            document.getElementById('homeContent').style.display = 'none';
+            const details = document.querySelectorAll('.service-detail');
+            details.forEach(detail => detail.classList.add('hidden'));
+            const selected = document.getElementById(service + 'Detail');
+            if (selected) {
+                selected.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            closeMobileMenu();
+        }
+
+        function showHome() {
+            document.getElementById('homeContent').style.display = 'block';
+            const details = document.querySelectorAll('.service-detail');
+            details.forEach(detail => detail.classList.add('hidden'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileNavMenu');
+            const overlay = document.getElementById('mobileNavOverlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileNavMenu');
+            const overlay = document.getElementById('mobileNavOverlay');
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile services dropdown toggle
+        document.getElementById('mobileServicesToggle').addEventListener('click', function() {
+            const dropdown = document.getElementById('mobileServicesDropdown');
+            dropdown.classList.toggle('show');
+            const icon = this.querySelector('.fa-chevron-down');
+            if (dropdown.classList.contains('show')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    </script>
+</body>
+</html>
