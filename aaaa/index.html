@@ -1308,8 +1308,8 @@
 <div class="navContainer">
   <nav class="navContent">
     <ul id="navTopLevel" data-mobile-nav-label="Menu" data-mobile-nav-style="side" data-mobile-nav-reveal="fullscreen" data-mobile-nav-animation="retreat" data-mobile-nav-trigger="icon"  data-mobile-nav-icon-position="right" data-home-nav-collapse-min="1" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-      <li><a href="#" onclick="showHome(); return false;" class="selected" itemprop="url"><span class="currArrow">▸</span>Home</a></li>
-      <li><a href="#" onclick="showAbout(); return false;" itemprop="url">About Us</a></li>
+      <li><a href="#" onclick="showHome(); return false;" id="home-link" class="selected" itemprop="url"><span class="currArrow">▸</span>Home</a></li>
+      <li><a href="#" onclick="showAbout(); return false;" id="about-link" itemprop="url">About Us</a></li>
       <li class="has-dropdown">
         <span class="navLabel">Services <span class="dropArrow">▾</span></span>
         <ul class="subNav">
@@ -1505,7 +1505,7 @@
                   We combine eco-friendly practices with innovative techniques to provide 
                   the best floor cleaning services.
                 </p>
-                <a href="#" class="about-btn" onclick="showContact(); return false;">Call Us Today</a>
+                <a href="#" class="about-btn" onclick="showAbout(); return false;">Learn More About Us</a>
               </div>
             </div>
           </section>
@@ -1541,6 +1541,173 @@
           </section>
         </div>
 
+        <!-- ABOUT US PAGE -->
+        <div id="about-page" class="page">
+          <div class="container">
+            <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            
+            <div class="page-header">
+              <h1><span>About</span> Our Company</h1>
+              <p>Family-owned, eco-conscious, and dedicated to pristine floors since 2010</p>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="about-section" style="background: linear-gradient(135deg, #0f1e3a 0%, #1b2c4e 100%); color: white; padding: 60px; border-radius: 40px; margin-bottom: 60px;">
+              <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+                <div style="flex: 1 1 400px;">
+                  <h2 style="font-size: 42px; margin-bottom: 20px; color: white;">Mad Dog Carpet & Tile</h2>
+                  <p style="font-size: 18px; opacity: 0.9; margin-bottom: 30px;">We're not just another cleaning company – we're your neighbors in Loveland, passionate about delivering exceptional results with eco-friendly practices. Since 2010, we've been helping homes and businesses shine.</p>
+                  <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                    <div><h3 style="font-size: 36px; color: #b6a25c;">15+</h3><p>Years Experience</p></div>
+                    <div><h3 style="font-size: 36px; color: #b6a25c;">5k+</h3><p>Homes Cleaned</p></div>
+                    <div><h3 style="font-size: 36px; color: #b6a25c;">24/7</h3><p>Emergency Service</p></div>
+                  </div>
+                </div>
+                <div style="flex: 1 1 400px; border-radius: 30px; overflow: hidden;">
+                  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=900&auto=format&fit=crop" alt="Our team" style="width: 100%; display: block;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Mission Section -->
+            <div style="display: flex; align-items: center; gap: 50px; margin: 80px 0; flex-wrap: wrap; background: #f8fafc; border-radius: 50px; padding: 50px;">
+              <div style="flex: 1 1 400px;">
+                <h2 style="font-size: 38px; color: #0f1e3a; margin-bottom: 25px;">Our Mission</h2>
+                <p style="font-size: 18px; color: #334155; margin-bottom: 20px;">To provide exceptional cleaning services that not only transform your space but also protect your family and the environment. We believe a clean home shouldn't come at the cost of the earth.</p>
+                <p style="font-size: 18px; color: #334155; margin-bottom: 20px;">Every service we offer uses eco-friendly, non-toxic products that are safe for children, pets, and sensitive individuals – without compromising on cleaning power.</p>
+                <p><i class="fas fa-check-circle" style="color: #b6a25c;"></i> 100% satisfaction guaranteed</p>
+              </div>
+              <div style="flex: 1 1 400px; border-radius: 30px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=900&auto=format&fit=crop" alt="Our mission" style="width: 100%; display: block;">
+              </div>
+            </div>
+
+            <!-- Values Section -->
+            <div style="text-align: center; margin: 80px 0;">
+              <h2 style="font-size: 42px; color: #0f1e3a; margin-bottom: 20px;">Our Core Values</h2>
+              <p style="font-size: 18px; color: #5f6b7a; margin-bottom: 30px;">The principles that guide everything we do</p>
+              <div style="width: 80px; height: 4px; background: #b6a25c; margin: 0 auto 40px; border-radius: 2px;"></div>
+              
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                <div style="background: white; border-radius: 30px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f0f2f6;">
+                  <div style="background: #f7f2e9; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 40px; color: #b6a25c;"><i class="fas fa-leaf"></i></div>
+                  <h3 style="font-size: 22px; margin-bottom: 15px;">Eco-Friendly</h3>
+                  <p style="color: #5d6b82;">We use only green, non-toxic products safe for your family and the planet.</p>
+                </div>
+                <div style="background: white; border-radius: 30px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f0f2f6;">
+                  <div style="background: #f7f2e9; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 40px; color: #b6a25c;"><i class="fas fa-hand-holding-heart"></i></div>
+                  <h3 style="font-size: 22px; margin-bottom: 15px;">Integrity</h3>
+                  <p style="color: #5d6b82;">Honest pricing, transparent communication, and reliable service.</p>
+                </div>
+                <div style="background: white; border-radius: 30px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f0f2f6;">
+                  <div style="background: #f7f2e9; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 40px; color: #b6a25c;"><i class="fas fa-star"></i></div>
+                  <h3 style="font-size: 22px; margin-bottom: 15px;">Excellence</h3>
+                  <p style="color: #5d6b82;">We never cut corners – your satisfaction is our top priority.</p>
+                </div>
+                <div style="background: white; border-radius: 30px; padding: 40px 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f0f2f6;">
+                  <div style="background: #f7f2e9; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 40px; color: #b6a25c;"><i class="fas fa-clock"></i></div>
+                  <h3 style="font-size: 22px; margin-bottom: 15px;">24/7 Availability</h3>
+                  <p style="color: #5d6b82;">Emergencies don't wait, and neither do we. Always here when you need us.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline -->
+            <div style="background: #f8fafc; border-radius: 50px; padding: 60px; margin: 80px 0;">
+              <h2 style="text-align: center; font-size: 42px; color: #0f1e3a; margin-bottom: 50px;">Our Journey</h2>
+              <div style="position: relative; max-width: 800px; margin: 0 auto;">
+                <div style="position: absolute; width: 4px; background: #b6a25c; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                
+                <div style="padding: 10px 40px; position: relative; width: 50%; left: 0;">
+                  <div style="position: absolute; width: 20px; height: 20px; background: white; border: 4px solid #b6a25c; border-radius: 50%; right: -10px; top: 15px;"></div>
+                  <div style="padding: 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+                    <h3 style="color: #b6a25c;">2010</h3>
+                    <h4>Humble Beginnings</h4>
+                    <p>Started as a one-man operation in Loveland with a single truck and a dream.</p>
+                  </div>
+                </div>
+                
+                <div style="padding: 10px 40px; position: relative; width: 50%; left: 50%;">
+                  <div style="position: absolute; width: 20px; height: 20px; background: white; border: 4px solid #b6a25c; border-radius: 50%; left: -10px; top: 15px;"></div>
+                  <div style="padding: 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+                    <h3 style="color: #b6a25c;">2014</h3>
+                    <h4>Eco-Friendly Commitment</h4>
+                    <p>Transitioned to 100% green, non-toxic cleaning products.</p>
+                  </div>
+                </div>
+                
+                <div style="padding: 10px 40px; position: relative; width: 50%; left: 0;">
+                  <div style="position: absolute; width: 20px; height: 20px; background: white; border: 4px solid #b6a25c; border-radius: 50%; right: -10px; top: 15px;"></div>
+                  <div style="padding: 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+                    <h3 style="color: #b6a25c;">2018</h3>
+                    <h4>Expansion</h4>
+                    <p>Grew to a team of 12 professionals and added commercial services.</p>
+                  </div>
+                </div>
+                
+                <div style="padding: 10px 40px; position: relative; width: 50%; left: 50%;">
+                  <div style="position: absolute; width: 20px; height: 20px; background: white; border: 4px solid #b6a25c; border-radius: 50%; left: -10px; top: 15px;"></div>
+                  <div style="padding: 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+                    <h3 style="color: #b6a25c;">2022</h3>
+                    <h4>5,000+ Homes</h4>
+                    <p>Celebrated cleaning over 5,000 homes and 200+ commercial spaces.</p>
+                  </div>
+                </div>
+                
+                <div style="padding: 10px 40px; position: relative; width: 50%; left: 0;">
+                  <div style="position: absolute; width: 20px; height: 20px; background: white; border: 4px solid #b6a25c; border-radius: 50%; right: -10px; top: 15px;"></div>
+                  <div style="padding: 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+                    <h3 style="color: #b6a25c;">Today</h3>
+                    <h4>Still Growing</h4>
+                    <p>Proudly serving all of Northern Colorado with the same dedication.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Section -->
+            <div style="margin: 80px 0; text-align: center;">
+              <h2 style="font-size: 42px; color: #0f1e3a; margin-bottom: 20px;">Meet Our Team</h2>
+              <p style="font-size: 18px; color: #5f6b7a; margin-bottom: 30px;">The friendly faces behind your clean home</p>
+              <div style="width: 80px; height: 4px; background: #b6a25c; margin: 0 auto 40px; border-radius: 2px;"></div>
+              
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="background: white; border-radius: 30px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
+                  <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 5px solid #f5efe3;">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="John Smith" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <h3 style="font-size: 22px;">John Smith</h3>
+                  <p style="color: #b6a25c; font-weight: 600; margin-bottom: 15px;">Founder & CEO</p>
+                  <p style="color: #5d6b82;">15+ years experience. Passionate about eco-friendly cleaning.</p>
+                </div>
+                <div style="background: white; border-radius: 30px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
+                  <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 5px solid #f5efe3;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Sarah Johnson" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <h3 style="font-size: 22px;">Sarah Johnson</h3>
+                  <p style="color: #b6a25c; font-weight: 600; margin-bottom: 15px;">Operations Manager</p>
+                  <p style="color: #5d6b82;">Ensures every job meets our high standards.</p>
+                </div>
+                <div style="background: white; border-radius: 30px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
+                  <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 5px solid #f5efe3;">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" alt="Mike Davis" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <h3 style="font-size: 22px;">Mike Davis</h3>
+                  <p style="color: #b6a25c; font-weight: 600; margin-bottom: 15px;">Lead Technician</p>
+                  <p style="color: #5d6b82;">10+ years in carpet and tile cleaning.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="background: linear-gradient(135deg, #0f1e3a, #1f3460); border-radius: 50px; padding: 60px; color: white; text-align: center; margin: 60px 0;">
+              <h2 style="font-size: 42px; margin-bottom: 20px;">Ready to experience the Mad Dog difference?</h2>
+              <p style="font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 30px;">Join thousands of happy customers who trust us with their homes and businesses.</p>
+              <a href="tel:9702007677" class="btn-gold" style="background: #b6a25c; color: #0f1e3a;"><i class="fas fa-phone-alt"></i> Call (970) 200-7677</a>
+            </div>
+          </div>
+        </div>
+
         <!-- DEEP CLEANING PAGE -->
         <div id="deep-cleaning-page" class="page">
           <div class="container">
@@ -1549,13 +1716,11 @@
               <h1><span>Deep</span> Cleaning</h1>
               <p>Professional deep cleaning • carpet, upholstery & more • eco‑friendly</p>
             </div>
-
             <div class="service-hero">
               <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=900&auto=format&fit=crop" alt="Deep cleaning">
               </div>
             </div>
-
             <div class="intro-section">
               <div class="intro-text">
                 <h2>Revitalize your home with deep cleaning</h2>
@@ -1566,47 +1731,13 @@
                 <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=900&auto=format&fit=crop" alt="deep cleaning process">
               </div>
             </div>
-
-            <h2 class="features-title">Deep cleaning <span style="color:#b6a25c;">advantages</span></h2>
+            <div class="features-title">Deep cleaning <span style="color:#b6a25c;">advantages</span></div>
             <div class="features-grid">
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-broom"></i></div>
-                <h3>Deep extraction</h3>
-                <p>Powerful truck‑mounted units extract dirt from deep within carpet fibers and padding.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-spray-can"></i></div>
-                <h3>Pre‑treatment</h3>
-                <p>Specialized solutions break down stubborn stains and high‑traffic soil before cleaning.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                <h3>Fast drying</h3>
-                <p>Our process leaves carpets slightly damp, typically dry in 2‑4 hours.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-                <h3>Allergen removal</h3>
-                <p>Eliminates dust mites, pollen, and pet dander for a healthier home.</p>
-              </div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-broom"></i></div><h3>Deep extraction</h3><p>Powerful truck‑mounted units extract dirt from deep within carpet fibers.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-spray-can"></i></div><h3>Pre‑treatment</h3><p>Specialized solutions break down stubborn stains before cleaning.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-wind"></i></div><h3>Fast drying</h3><p>Our process leaves carpets slightly damp, typically dry in 2‑4 hours.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-virus"></i></div><h3>Allergen removal</h3><p>Eliminates dust mites, pollen, and pet dander for a healthier home.</p></div>
             </div>
-
-            <div class="why-service">
-              <div class="why-service-content">
-                <h2>Why professional deep cleaning?</h2>
-                <ul>
-                  <li><i class="fas fa-check-circle"></i> Removes hidden dirt & bacteria</li>
-                  <li><i class="fas fa-check-circle"></i> Eliminates odors at the source</li>
-                  <li><i class="fas fa-check-circle"></i> Extends carpet & furniture life</li>
-                  <li><i class="fas fa-check-circle"></i> Recommended before moving in/out</li>
-                  <li><i class="fas fa-check-circle"></i> Safe for kids & pets</li>
-                </ul>
-              </div>
-              <div class="why-service-image">
-                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=900&auto=format&fit=crop" alt="deep cleaned carpet">
-              </div>
-            </div>
-
             <div class="cta-wrap">
               <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a>
             </div>
@@ -1621,13 +1752,11 @@
               <h1><span>Tile Floor</span> Cleaning</h1>
               <p>Professional tile & grout cleaning • restore shine • eco‑friendly</p>
             </div>
-
             <div class="service-hero">
               <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=900&auto=format&fit=crop" alt="Tile cleaning">
               </div>
             </div>
-
             <div class="intro-section">
               <div class="intro-text">
                 <h2>Restore the natural beauty of your tile</h2>
@@ -1638,47 +1767,13 @@
                 <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=900&auto=format&fit=crop" alt="tile cleaning process">
               </div>
             </div>
-
-            <h2 class="features-title">Tile cleaning <span style="color:#b6a25c;">advantages</span></h2>
+            <div class="features-title">Tile cleaning <span style="color:#b6a25c;">advantages</span></div>
             <div class="features-grid">
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-border-all"></i></div>
-                <h3>Deep grout cleaning</h3>
-                <p>Rotary scrubbers remove dirt deep from grout lines, then sealed to resist future stains.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-tint"></i></div>
-                <h3>Stain removal</h3>
-                <p>Oil, wine, rust – our treatment lifts even the toughest spots without damaging tile.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Protective sealing</h3>
-                <p>We apply a breathable sealant that keeps tile and grout looking fresh for months.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h3>Quick drying</h3>
-                <p>Our low‑moisture system means floors are dry in under an hour.</p>
-              </div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-border-all"></i></div><h3>Deep grout cleaning</h3><p>Rotary scrubbers remove dirt deep from grout lines, then sealed.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-tint"></i></div><h3>Stain removal</h3><p>Oil, wine, rust – our treatment lifts even the toughest spots.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Protective sealing</h3><p>Breathable sealant keeps tile and grout looking fresh for months.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Quick drying</h3><p>Floors are dry in under an hour.</p></div>
             </div>
-
-            <div class="why-service">
-              <div class="why-service-content">
-                <h2>Why professional tile cleaning?</h2>
-                <ul>
-                  <li><i class="fas fa-check-circle"></i> Eliminates bacteria & allergens</li>
-                  <li><i class="fas fa-check-circle"></i> Prevents grout from crumbling</li>
-                  <li><i class="fas fa-check-circle"></i> Brings back original color</li>
-                  <li><i class="fas fa-check-circle"></i> Safer than harsh DIY chemicals</li>
-                  <li><i class="fas fa-check-circle"></i> Increases longevity of floor</li>
-                </ul>
-              </div>
-              <div class="why-service-image">
-                <img src="https://images.unsplash.com/photo-1625604020225-ebd6a334fd1e?q=80&w=900&auto=format&fit=crop" alt="clean tile floor">
-              </div>
-            </div>
-
             <div class="cta-wrap">
               <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a>
             </div>
@@ -1693,13 +1788,11 @@
               <h1><span>Upholstery</span> Cleaning</h1>
               <p>Professional upholstery cleaning • sofas, chairs & more • eco‑friendly</p>
             </div>
-
             <div class="service-hero">
               <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=900&auto=format&fit=crop" alt="Upholstery cleaning">
               </div>
             </div>
-
             <div class="intro-section">
               <div class="intro-text">
                 <h2>Refresh your furniture</h2>
@@ -1710,47 +1803,13 @@
                 <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=900&auto=format&fit=crop" alt="upholstery process">
               </div>
             </div>
-
-            <h2 class="features-title">Upholstery cleaning <span style="color:#b6a25c;">advantages</span></h2>
+            <div class="features-title">Upholstery cleaning <span style="color:#b6a25c;">advantages</span></div>
             <div class="features-grid">
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-couch"></i></div>
-                <h3>Fabric-safe cleaning</h3>
-                <p>Gentle yet effective methods safe for all fabric types.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-dog"></i></div>
-                <h3>Pet stain removal</h3>
-                <p>Specialized enzyme treatments for pet accidents.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                <h3>Odor elimination</h3>
-                <p>Removes musty smells and pet odors at the source.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h3>Quick drying</h3>
-                <p>Usually dry in 2-3 hours – no waiting all day.</p>
-              </div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-couch"></i></div><h3>Fabric-safe cleaning</h3><p>Gentle yet effective methods safe for all fabric types.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-dog"></i></div><h3>Pet stain removal</h3><p>Specialized enzyme treatments for pet accidents.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-wind"></i></div><h3>Odor elimination</h3><p>Removes musty smells and pet odors at the source.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Quick drying</h3><p>Usually dry in 2-3 hours.</p></div>
             </div>
-
-            <div class="why-service">
-              <div class="why-service-content">
-                <h2>Why professional upholstery cleaning?</h2>
-                <ul>
-                  <li><i class="fas fa-check-circle"></i> Extends life of furniture</li>
-                  <li><i class="fas fa-check-circle"></i> Removes deep-seated dirt</li>
-                  <li><i class="fas fa-check-circle"></i> Eliminates allergens</li>
-                  <li><i class="fas fa-check-circle"></i> Restores original appearance</li>
-                  <li><i class="fas fa-check-circle"></i> Protects fabric investment</li>
-                </ul>
-              </div>
-              <div class="why-service-image">
-                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=900&auto=format&fit=crop" alt="clean upholstery">
-              </div>
-            </div>
-
             <div class="cta-wrap">
               <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a>
             </div>
@@ -1765,13 +1824,11 @@
               <h1><span>Air Duct</span> Cleaning</h1>
               <p>Professional air duct cleaning • improve indoor air quality • eco‑friendly</p>
             </div>
-
             <div class="service-hero">
               <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=900&auto=format&fit=crop" alt="Air duct cleaning">
               </div>
             </div>
-
             <div class="intro-section">
               <div class="intro-text">
                 <h2>Breathe cleaner, healthier air</h2>
@@ -1782,54 +1839,20 @@
                 <img src="https://images.unsplash.com/photo-1631778691137-5c08a9d60069?q=80&w=900&auto=format&fit=crop" alt="air duct cleaning process">
               </div>
             </div>
-
-            <h2 class="features-title">Air duct cleaning <span style="color:#b6a25c;">advantages</span></h2>
+            <div class="features-title">Air duct cleaning <span style="color:#b6a25c;">advantages</span></div>
             <div class="features-grid">
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                <h3>Improved airflow</h3>
-                <p>Clean ducts allow air to move freely, reducing strain on your HVAC system.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-broom"></i></div>
-                <h3>Debris removal</h3>
-                <p>Powerful vacuum equipment removes dust, pet hair, and construction debris.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-                <h3>Allergen reduction</h3>
-                <p>Eliminates pollen, mold spores, and dust mites for allergy relief.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Eco-friendly process</h3>
-                <p>We use safe, non-toxic cleaning agents and HEPA filtration.</p>
-              </div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-wind"></i></div><h3>Improved airflow</h3><p>Clean ducts allow air to move freely, reducing strain on HVAC.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-broom"></i></div><h3>Debris removal</h3><p>Powerful vacuum removes dust, pet hair, and construction debris.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-virus"></i></div><h3>Allergen reduction</h3><p>Eliminates pollen, mold spores, and dust mites.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3>Eco-friendly process</h3><p>Safe, non-toxic cleaning agents and HEPA filtration.</p></div>
             </div>
-
-            <div class="why-service">
-              <div class="why-service-content">
-                <h2>Why professional air duct cleaning?</h2>
-                <ul>
-                  <li><i class="fas fa-check-circle"></i> Reduces indoor air pollution</li>
-                  <li><i class="fas fa-check-circle"></i> Eliminates musty odors</li>
-                  <li><i class="fas fa-check-circle"></i> Improves HVAC efficiency</li>
-                  <li><i class="fas fa-check-circle"></i> Removes mold & bacteria</li>
-                  <li><i class="fas fa-check-circle"></i> Recommended every 3‑5 years</li>
-                </ul>
-              </div>
-              <div class="why-service-image">
-                <img src="https://images.unsplash.com/photo-1631778691132-5f99ae9c3a8d?q=80&w=900&auto=format&fit=crop" alt="clean air ducts">
-              </div>
-            </div>
-
             <div class="cta-wrap">
               <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a>
             </div>
           </div>
         </div>
 
-        <!-- PET STAIN REMOVAL PAGE (quick version) -->
+        <!-- PET STAIN PAGE -->
         <div id="pet-stain-page" class="page">
           <div class="container">
             <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
@@ -1922,6 +1945,18 @@
     function showHome() {
       document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
       document.getElementById('home-page').classList.add('active');
+      // Update active nav link
+      document.getElementById('home-link').classList.add('selected');
+      document.getElementById('about-link').classList.remove('selected');
+      window.scrollTo(0, 0);
+    }
+
+    function showAbout() {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById('about-page').classList.add('active');
+      // Update active nav link
+      document.getElementById('about-link').classList.add('selected');
+      document.getElementById('home-link').classList.remove('selected');
       window.scrollTo(0, 0);
     }
 
@@ -1953,11 +1988,6 @@
       document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
       document.getElementById('pet-stain-page').classList.add('active');
       window.scrollTo(0, 0);
-    }
-
-    function showAbout() {
-      alert('About Us page');
-      showHome();
     }
 
     function showEmergency() {
