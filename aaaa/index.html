@@ -201,7 +201,7 @@
       padding: 8px 12px;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 30px;
       font-weight: bold;
       transition: all 0.3s;
       text-align: center;
@@ -334,10 +334,26 @@
       }
     }
 
+    @media (max-width: 600px) {
+      .topbar-left span {
+        display: none;
+      }
+      .topbar {
+        justify-content: center;
+        text-align: center;
+      }
+      .nav-btns .schedule-btn {
+        display: none;
+      }
+      .nav-btns .call-btn {
+        padding: 8px 18px;
+      }
+    }
+
     /* ---------- HERO SECTION (unchanged) ---------- */
     .hero {
-      min-height: 70vh;            /* flexible height */
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+      min-height: 70vh;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                   url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
       background-size: cover;
       background-position: center;
@@ -355,9 +371,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(28px, 8vw, 60px);   /* fluid typography */
+      font-size: clamp(28px, 8vw, 60px);
       margin-bottom: 20px;
-      font-weight: 500;
       line-height: 1.2;
     }
 
@@ -389,9 +404,9 @@
       color: #fff;
       font-weight: bold;
       border-radius: 6px;
-      transition: all 0.3s;
-      flex: 1 1 180px;
-      font-size: 16px;
+      transition: 0.3s;
+      flex: 1 1 170px;
+      font-size: 15px;
     }
 
     /* ---------- FEATURES SECTION (unchanged) ---------- */
@@ -427,7 +442,6 @@
       color: #d4af37;
       font-size: clamp(24px, 6vw, 36px);
       letter-spacing: 2px;
-      font-weight: 500;
       line-height: 1.4;
     }
 
@@ -455,7 +469,6 @@
 
     .services-intro h2 {
       font-size: clamp(32px, 7vw, 48px);
-      font-weight: 500;
       margin-bottom: 20px;
     }
 
@@ -471,19 +484,19 @@
     .services-grid {
       background: #f5f5f5;
       display: grid;
-      grid-template-columns: 1fr;    /* 1 column on mobile */
+      grid-template-columns: 1fr;
       gap: 20px;
       padding: 30px 20px 50px;
     }
 
     .service-card {
       position: relative;
-      height: 300px;                 /* reduced for mobile */
+      height: 300px;
       overflow: hidden;
       border-radius: 12px;
       cursor: pointer;
       max-width: 600px;
-      margin: 0 auto;                /* center on large screens */
+      margin: 0 auto;
       width: 100%;
     }
 
@@ -543,7 +556,7 @@
     }
 
     .gold-bar {
-      display: none; /* decorative, hidden on mobile – can be enabled for desktop */
+      display: none;
     }
 
     .about-content {
@@ -553,7 +566,6 @@
 
     .about-content h2 {
       font-size: clamp(32px, 7vw, 48px);
-      font-weight: 500;
       margin-bottom: 20px;
     }
 
@@ -573,7 +585,6 @@
       font-weight: bold;
       display: inline-block;
       border-radius: 6px;
-      transition: 0.3s;
     }
 
     /* ---------- WHY CHOOSE (unchanged) ---------- */
@@ -598,7 +609,6 @@
 
     .why-text h2 {
       font-size: clamp(40px, 8vw, 56px);
-      font-weight: 500;
       margin-bottom: 20px;
     }
 
@@ -634,7 +644,6 @@
       max-height: 450px;
       object-fit: cover;
       border-radius: 10px;
-      transition: transform 0.3s;
     }
 
     /* ---------- CTA SECTION (unchanged) ---------- */
@@ -686,7 +695,6 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 6px;
-      transition: 0.3s;
       flex: 1 1 200px;
     }
 
@@ -713,7 +721,7 @@
 
     .circle-grid {
       display: grid;
-      grid-template-columns: 1fr;    /* 1 column mobile */
+      grid-template-columns: 1fr;
       gap: 35px;
       max-width: 400px;
       margin: 0 auto;
@@ -721,7 +729,6 @@
 
     .circle-card {
       cursor: pointer;
-      transition: transform 0.3s;
     }
 
     .circle-card img {
@@ -732,7 +739,6 @@
       object-fit: cover;
       margin: 0 auto 20px;
       border: 3px solid #d4af37;
-      transition: 0.3s;
     }
 
     .circle-card h3 {
@@ -775,7 +781,6 @@
 
     .footer-links a:hover {
       color: #d4af37;
-      text-decoration: underline;
     }
 
     .hours p {
@@ -787,89 +792,24 @@
       text-decoration: none;
     }
 
-    /* ---------- MEDIA QUERIES (larger screens, unchanged) ---------- */
     @media (min-width: 600px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .circle-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-        gap: 30px;
-      }
-      .navbar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 20px 30px;
-      }
-      .nav-btns {
-        width: auto;
-      }
-      .topbar {
-        text-align: right;
-        padding: 8px 40px;
-      }
-      .gold-bar {
-        display: block;  /* show gold bar on tablet/desktop */
-      }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .circle-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
     }
 
     @media (min-width: 900px) {
-      .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-        padding: 60px;
-      }
-      .circle-grid {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: none;
-        gap: 40px;
-      }
-      .about-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      .why-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        padding: 80px 60px;
-      }
-      .footer-links {
-        justify-content: flex-start;
-      }
-      .hero {
-        min-height: 85vh;
-      }
-      .service-card {
-        height: 380px;
-      }
-    }
-
-    /* larger desktop fine-tuning */
-    @media (min-width: 1200px) {
-      .desktop-nav ul {
-        gap: 28px;
-      }
-      .hero h1 {
-        font-size: 60px;
-      }
-    }
-
-    /* touch optimization – remove delay */
-    .dropdown-menu li a,
-    .buttons a,
-    .call-btn,
-    .schedule-btn {
-      touch-action: manipulation;
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+      .circle-grid { grid-template-columns: repeat(4, 1fr); max-width: none; }
+      .about-container { grid-template-columns: 1fr 1fr; }
+      .why-container { grid-template-columns: 1fr 1fr; }
+      .footer { flex-direction: row; justify-content: space-between; text-align: left; }
     }
   </style>
 </head>
 <body>
-  <!-- TOP NUMBER BAR (exactly like reference) -->
-  <div class="topbar">
+
+  <!-- TOP BAR (exactly like reference) -->
+  <!-- <div class="topbar">
     <div class="topbar-left">
       <span>📍 5620 Wild Plum Dr, Loveland</span>
       <span>⏰ Open 24/7</span>
@@ -878,7 +818,7 @@
       <a href="#">⭐ Leave Review</a>
       <a href="tel:+19702007677" class="call-now-btn">📞 (970) 200-7677</a>
     </div>
-  </div>
+  </div> -->
 
   <!-- NAVBAR with hamburger (exactly like reference) -->
   <header class="navbar">
@@ -914,10 +854,10 @@
       </ul>
     </div>
     
-    <div class="nav-btns">
+    <!-- <div class="nav-btns">
       <a class="call-btn" href="tel:+19702007677">📞 Call</a>
       <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule</a>
-    </div>
+    </div> -->
   </header>
 
   <!-- Mobile Menu (hidden by default) -->
