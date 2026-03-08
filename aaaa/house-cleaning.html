@@ -640,6 +640,199 @@ font-size:32px;
 }
 
 }
+
+/* ===== SERVICE SECTIONS ===== */
+
+.section-clean{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:70px;
+padding:90px 8%;
+background:#f5f5f5;
+color:#333;
+flex-wrap:wrap;
+}
+
+/* alternate layout */
+.section-clean:nth-child(even){
+flex-direction:row-reverse;
+}
+
+/* image side */
+
+.clean-img{
+flex:1;
+min-width:320px;
+}
+
+.clean-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:3px;
+}
+
+/* text side */
+
+.clean-text{
+flex:1;
+min-width:320px;
+text-align:center;
+}
+
+/* heading */
+
+.clean-text h2{
+font-size:48px;
+font-weight:500;
+margin-bottom:25px;
+color:#222;
+}
+
+/* paragraph */
+
+.clean-text p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:25px;
+color:#555;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* bullet list */
+
+.clean-text ul{
+list-style:disc;
+max-width:420px;
+margin:0 auto 35px;
+text-align:left;
+color:#555;
+font-size:19px;
+}
+
+.clean-text li{
+margin-bottom:12px;
+}
+
+/* buttons */
+
+.clean-btn{
+background:#a9985a;
+color:#fff;
+padding:15px 36px;
+text-decoration:none;
+font-weight:bold;
+border-radius:3px;
+display:inline-block;
+margin:6px;
+transition:0.3s;
+}
+
+.clean-btn:hover{
+background:#8f7f47;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width:900px){
+
+.section-clean{
+flex-direction:column;
+padding:60px 20px;
+text-align:center;
+gap:40px;
+}
+
+.clean-text h2{
+font-size:34px;
+}
+
+.clean-text p{
+font-size:18px;
+}
+
+.clean-text ul{
+text-align:left;
+}
+
+}
+/* ===== WHY CLEANING SECTION ===== */
+
+.why-cleaning{
+background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+position:relative;
+color:#fff;
+}
+
+/* dark overlay */
+
+.why-overlay{
+background:rgba(0,0,0,0.55);
+padding:100px 20px;
+text-align:center;
+max-width:100%;
+}
+
+/* heading */
+
+.why-overlay h2{
+font-size:48px;
+font-weight:500;
+margin-bottom:25px;
+}
+
+/* paragraph */
+
+.why-overlay p{
+font-size:20px;
+line-height:1.8;
+max-width:900px;
+margin:auto;
+margin-bottom:40px;
+}
+
+/* buttons */
+
+.why-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.why-buttons a{
+background:#a9985a;
+color:#fff;
+padding:16px 34px;
+text-decoration:none;
+font-weight:bold;
+border-radius:3px;
+transition:0.3s;
+}
+
+.why-buttons a:hover{
+background:#8f7f47;
+}
+
+/* responsive */
+
+@media(max-width:900px){
+
+.why-overlay h2{
+font-size:34px;
+}
+
+.why-overlay p{
+font-size:18px;
+}
+
+}
   </style>
 </head>
 <body>
@@ -655,7 +848,7 @@ font-size:32px;
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li class="dropdown">
           <a href="#">Services ▾</a>
           <ul class="dropdown-menu">
@@ -663,13 +856,13 @@ font-size:32px;
             <li><a href="#">Tile Cleaning</a></li>
             <li><a href="#">Upholstery Cleaning</a></li>
             <li><a href="#">Pet Stain Removal</a></li>
-            <li><a href="#">Commercial Cleaning</a></li>
+            <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
           </ul>
         </li>
         <li><a href="#">Locations</a></li>
-        <li><a href="#">Emergency Floor Cleaning</a></li>
-        <li><a href="#">Commercial Cleaning</a></li>
-        <li><a href="#">House Cleaning</a></li>
+        <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
+        <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
+        <li><a href="house-cleaning.html">House Cleaning</a></li>
         <li><a href="#">More</a></li>
       </ul>
     </nav>
@@ -775,6 +968,128 @@ For homes that need extra care, our <b>deep cleaning services</b> include:
 
 <div class="clean-img">
 <img src="https://images.unsplash.com/photo-1582582494700-1a5f52fefc7c?auto=format&fit=crop&w=1600&q=80">
+</div>
+
+</section>
+<section class="section-clean">
+
+<div class="clean-img">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80">
+</div>
+
+<div class="clean-text">
+
+<h2>Move-In/Move-Out Cleaning</h2>
+
+<p>
+Moving? Our <b>move-out cleaning services</b> ensure you leave your space spotless.
+Includes:
+</p>
+
+<ul>
+<li>Thorough scrubbing of all surfaces</li>
+<li>Cabinet and drawer cleaning</li>
+<li><b>Window cleaning</b> (inside and outside)</li>
+<li>Floor stain removal</li>
+</ul>
+
+<a href="#" class="clean-btn">Call Us Today</a>
+<a href="#" class="clean-btn">Get a Quote</a>
+
+</div>
+
+</section>
+
+<section class="section-clean">
+
+<div class="clean-text">
+
+<h2>Professional Carpet & Rug Cleaning</h2>
+
+<p>
+Our expert <b>carpet cleaners</b> remove dirt, allergens, and pet stains using
+advanced steam cleaning technology. <b>Best carpet cleaner company near me?</b>
+You’ve found it!
+</p>
+
+<a href="#" class="clean-btn">Call Us Today</a>
+<a href="#" class="clean-btn">Get a Quote</a>
+
+</div>
+
+<div class="clean-img">
+<img src="https://images.unsplash.com/photo-1616628182506-4d7db5c2f5c8?auto=format&fit=crop&w=1600&q=80">
+</div>
+
+</section>
+
+<section class="section-clean">
+
+<div class="clean-img">
+<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80">
+</div>
+
+<div class="clean-text">
+
+<h2>Window Cleaning Services</h2>
+
+<p>
+We provide <b>residential window cleaning</b> to enhance your home's curb appeal.
+Our window cleaning service includes:
+</p>
+
+<ul>
+<li>Interior and exterior glass cleaning</li>
+<li>Window frame and track cleaning</li>
+<li>Screen washing</li>
+</ul>
+
+<a href="#" class="clean-btn">Call Us Today</a>
+<a href="#" class="clean-btn">Get a Quote</a>
+
+</div>
+
+</section>
+
+<section class="section-clean">
+
+<div class="clean-text">
+
+<h2>Green Cleaning Services</h2>
+
+<p>
+We care about your family and the environment. Our <b>green cleaning services</b>
+use eco-friendly, non-toxic products that are safe for kids, pets,
+and the planet.
+</p>
+
+<a href="#" class="clean-btn">Call Us Today</a>
+<a href="#" class="clean-btn">Get a Quote</a>
+
+</div>
+
+<div class="clean-img">
+<img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80">
+</div>
+
+</section>
+<section class="why-cleaning">
+
+<div class="why-overlay">
+
+<h2>Why Regular House Cleaning Matters</h2>
+
+<p>
+Regular <b>home cleaning</b> prevents dust accumulation, reduces allergens, and improves indoor air
+quality. Studies show that a clean home boosts mental well-being and productivity.
+Our <b>professional cleaning services</b> ensure a hygienic and comfortable living space.
+</p>
+
+<div class="why-buttons">
+<a href="#">Get A Quote</a>
+<a href="#">Call Us to Schedule</a>
+</div>
+
 </div>
 
 </section>

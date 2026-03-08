@@ -37,10 +37,31 @@
     .topbar {
       background: #111;
       color: #fff;
-      text-align: center;          /* center on small screens */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px 20px;
-      font-size: 15px;
+      font-size: 14px;
       width: 100%;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-left span {
+      color: #d4af37;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .topbar a {
@@ -48,15 +69,22 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
-      display: inline-block;
-      padding: 4px 0;
+    }
+
+    .call-now-btn {
+      background: #d4af37;
+      color: #000 !important;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 14px;
     }
 
     /* ---------- NAVBAR (mobile first) ---------- */
     .navbar {
       display: flex;
-      flex-direction: column;      /* stacked on mobile */
+      flex-direction: row;
       align-items: center;
+      justify-content: space-between;
       padding: 15px 20px;
       background: #000;
       border-bottom: 1px solid #222;
@@ -64,7 +92,8 @@
       top: 0;
       z-index: 1000;
       width: 100%;
-      gap: 15px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -72,47 +101,145 @@
       font-size: 26px;
       font-weight: bold;
       transition: transform 0.3s;
-      text-align: center;
     }
 
     .logo:hover {
       transform: scale(1.03);
     }
 
-    /* navigation list – scrollable if needed, but we wrap */
-    .navbar nav {
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #d4af37;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 3px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
       width: 100%;
-      overflow-x: auto;            /* allow horizontal scroll on very small if many items */
-      -webkit-overflow-scrolling: touch;
+      background: #111;
+      border-radius: 10px;
+      margin-top: 10px;
+      padding: 10px 0;
     }
 
-    .navbar ul {
-      display: flex;
-      flex-wrap: wrap;             /* allows wrapping on mobile */
-      justify-content: center;
-      align-items: center;
-      gap: 12px 16px;
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu ul {
       list-style: none;
-      padding: 5px 0;
-      min-width: fit-content;
+      padding: 0;
     }
 
-    .navbar a {
+    .mobile-menu li {
+      width: 100%;
+      text-align: left;
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .mobile-menu a:hover {
+      background: #222;
+      color: #d4af37;
+    }
+
+    /* Mobile dropdown */
+    .mobile-dropdown {
+      position: relative;
+    }
+
+    .mobile-dropdown-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      cursor: pointer;
+    }
+
+    .mobile-dropdown-header span {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .mobile-dropdown-header .arrow {
+      color: #d4af37;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+
+    .mobile-dropdown.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .mobile-dropdown-menu {
+      display: none;
+      background: #1a1a1a;
+      padding: 5px 0;
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-menu {
+      display: block;
+    }
+
+    .mobile-dropdown-menu a {
+      padding-left: 35px !important;
+      font-size: 15px !important;
+    }
+
+    /* Desktop navigation - hidden on mobile */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .desktop-nav a {
       text-decoration: none;
       color: #fff;
       font-size: 15px;
       transition: color 0.3s;
-      padding: 6px 0;
-      white-space: nowrap;         /* keep items in one line – they wrap anyway */
+      white-space: nowrap;
+    }
+
+    .desktop-nav a:hover {
+      color: #d4af37;
+    }
+
+    /* Desktop dropdown */
+    .desktop-dropdown {
       position: relative;
     }
 
-    /* dropdown container – mobile friendly */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
+    .desktop-dropdown-menu {
       position: absolute;
       top: 100%;
       left: 50%;
@@ -128,19 +255,18 @@
       z-index: 1001;
     }
 
-    .dropdown-menu li {
+    .desktop-dropdown-menu li {
       padding: 8px 20px;
       text-align: left;
     }
 
-    .dropdown-menu li a {
+    .desktop-dropdown-menu li a {
       white-space: nowrap;
       display: block;
       font-size: 14px;
     }
 
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
+    .desktop-dropdown:hover .desktop-dropdown-menu {
       display: flex;
     }
 
@@ -149,21 +275,18 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      width: 100%;
+      gap: 8px;
     }
 
     .call-btn, .schedule-btn {
-      padding: 12px 18px;
+      padding: 8px 12px;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
       transition: all 0.3s;
       text-align: center;
-      flex: 1 1 auto;
-      min-width: 140px;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .call-btn {
@@ -172,6 +295,39 @@
 
     .schedule-btn {
       background: #b79a5c;
+    }
+
+    /* Hide mobile elements on desktop, hide desktop elements on mobile */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .desktop-nav {
+        display: none;
+      }
+      
+      .topbar-left span {
+        display: none;
+      }
+      
+      .topbar {
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu {
+        display: none !important;
+      }
+      
+      .hamburger {
+        display: none !important;
+      }
+      
+      .desktop-nav {
+        display: flex;
+      }
     }
 
     /* ---------- HERO SECTION ---------- */
@@ -643,10 +799,6 @@
         justify-content: space-between;
         padding: 20px 30px;
       }
-      .navbar nav {
-        width: auto;
-        overflow: visible;
-      }
       .nav-btns {
         width: auto;
       }
@@ -694,7 +846,7 @@
 
     /* larger desktop fine-tuning */
     @media (min-width: 1200px) {
-      .navbar ul {
+      .desktop-nav ul {
         gap: 28px;
       }
       .hero h1 {
@@ -714,38 +866,83 @@
 <body>
   <!-- TOP NUMBER BAR -->
   <div class="topbar">
-    Call Now: <a href="tel:+19702007677">(970) 200-7677</a>
+    <div class="topbar-left">
+      <span>📍 5620 Wild Plum Dr, Loveland</span>
+      <span>⏰ Open 24/7</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">⭐ Leave Review</a>
+      <a href="tel:+19702007677" class="call-now-btn">📞 (970) 200-7677</a>
+    </div>
   </div>
 
   <!-- NAVBAR (fully responsive) -->
   <header class="navbar">
     <div class="logo" onclick="window.location.href='#'">MAD DOG</div>
-    <nav>
+    
+    <!-- Hamburger Icon for Mobile -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- Desktop Navigation (unchanged) -->
+    <div class="desktop-nav">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
-        <li class="dropdown">
+        <li class="desktop-dropdown">
           <a href="#">Services ▾</a>
-          <ul class="dropdown-menu">
+          <ul class="desktop-dropdown-menu">
             <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
-            <li><a href="PetStainRemoval.html"> Pet Stain Removal</a></li>
+            <li><a href="PetStainRemoval.html">Pet Stain Removal</a></li>
             <li><a href="#">Upholstery Cleaning</a></li>
-            <li><a href="#">Pet Stain Removal</a></li>
+            <li><a href="#">Air Duct Cleaning</a></li>
             <li><a href="#">Commercial Cleaning</a></li>
           </ul>
         </li>
         <li><a href="#">Locations</a></li>
-        <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
-        <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
+        <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
+        <li><a href="CommercialCleaning.html">Commercial</a></li>
         <li><a href="house-cleaning.html">House Cleaning</a></li>
         <li><a href="#">More</a></li>
       </ul>
-    </nav>
+    </div>
+    
     <div class="nav-btns">
-      <a class="call-btn" href="tel:+19702007677">📞 Call Us</a>
-      <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule Service</a>
+      <a class="call-btn" href="tel:+19702007677">📞 Call</a>
+      <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule</a>
     </div>
   </header>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li class="mobile-dropdown" id="mobileServices">
+        <div class="mobile-dropdown-header">
+          <span>Services</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="mobile-dropdown-menu">
+          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
+          <a href="PetStainRemoval.html">Pet Stain Removal</a>
+          <a href="#">Upholstery Cleaning</a>
+          <a href="#">Air Duct Cleaning</a>
+          <a href="#">Commercial Cleaning</a>
+        </div>
+      </li>
+      <li><a href="#">Locations</a></li>
+      <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
+      <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
+      <li><a href="house-cleaning.html">House Cleaning</a></li>
+      <li><a href="#">More</a></li>
+      <li><a href="#">⭐ Leave Review</a></li>
+      <li><a href="#">📍 Locations</a></li>
+    </ul>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -895,5 +1092,34 @@
       <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+    }
+    
+    // Mobile dropdown toggle
+    const mobileServices = document.getElementById('mobileServices');
+    if (mobileServices) {
+      mobileServices.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+      });
+    }
+    
+    // Close mobile menu when clicking on a link (optional)
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

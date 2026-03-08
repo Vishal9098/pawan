@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,7 @@
     body {
       background: #000;
       color: #fff;
-      overflow-x: hidden;  /* prevent unwanted horizontal scroll */
+      overflow-x: hidden;
       width: 100%;
     }
 
@@ -31,7 +31,7 @@
     .topbar {
       background: #111;
       color: #fff;
-      text-align: center;        /* centered on small screens */
+      text-align: center;
       padding: 10px 20px;
       font-size: 15px;
       width: 100%;
@@ -48,7 +48,7 @@
     /* ---------- NAVBAR – fully responsive with fixed dropdown ---------- */
     .navbar {
       display: flex;
-      flex-direction: column;     /* stack on mobile */
+      flex-direction: column;
       align-items: center;
       padding: 15px 20px;
       background: #000;
@@ -77,13 +77,17 @@
 
     .navbar ul {
       display: flex;
-      flex-wrap: wrap;           /* items wrap on small screens */
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       gap: 12px 16px;
       list-style: none;
       padding: 5px 0;
       min-width: fit-content;
+    }
+
+    .navbar li {
+      position: relative;
     }
 
     .navbar a {
@@ -93,6 +97,7 @@
       transition: color 0.3s;
       padding: 6px 0;
       white-space: nowrap;
+      display: inline-block;
     }
 
     .navbar a:hover {
@@ -100,10 +105,6 @@
     }
 
     /* DROPDOWN – fixed for mobile & desktop */
-    .dropdown {
-      position: relative;
-    }
-
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -111,17 +112,19 @@
       transform: translateX(-50%);
       background: #111;
       list-style: none;
-      min-width: 200px;
+      min-width: 220px;
       display: none;
       flex-direction: column;
       border: 1px solid #333;
       border-radius: 6px;
       padding: 8px 0;
       z-index: 1001;
+      margin-top: 5px;
     }
 
     .dropdown-menu li {
       padding: 8px 20px;
+      width: 100%;
     }
 
     .dropdown-menu li a {
@@ -129,16 +132,29 @@
       display: block;
       white-space: nowrap;
       font-size: 14px;
+      padding: 5px 0;
     }
 
     .dropdown-menu li a:hover {
       color: #d4af37;
     }
 
-    /* show dropdown on hover (desktop) and on tap (mobile via :focus-within) */
-    .dropdown:hover .dropdown-menu,
+    /* Show dropdown on hover (desktop) */
+    .dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+
+    /* Also show when the link is focused (for keyboard/tap) */
     .dropdown:focus-within .dropdown-menu {
       display: flex;
+    }
+
+    /* Arrow indicator for dropdown */
+    .dropdown > a::after {
+      content: " ▼";
+      font-size: 10px;
+      display: inline-block;
+      margin-left: 4px;
     }
 
     /* nav buttons */
@@ -173,7 +189,7 @@
 
     /* ---------- HERO ---------- */
     .hero {
-      min-height: 70vh;          /* flexible height */
+      min-height: 70vh;
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                   url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
       background-size: cover;
@@ -290,7 +306,7 @@
     /* ---------- COMMITMENT section (grid reversed for mobile) ---------- */
     .commitment {
       display: grid;
-      grid-template-columns: 1fr;    /* stacked on mobile */
+      grid-template-columns: 1fr;
       width: 100%;
     }
 
@@ -396,7 +412,7 @@
 
     @media (min-width: 900px) {
       .commitment {
-        grid-template-columns: 1fr 1fr;  /* side by side on desktop */
+        grid-template-columns: 1fr 1fr;
       }
       .footer {
         flex-direction: row;
@@ -445,19 +461,19 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li class="dropdown">
-          <a href="#">Services ▾</a>
+          <a href="#">Services</a>
           <ul class="dropdown-menu">
             <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
             <li><a href="#">Tile Cleaning</a></li>
             <li><a href="#">Upholstery Cleaning</a></li>
             <li><a href="#">Pet Stain Removal</a></li>
             <li><a href="#">Commercial Cleaning</a></li>
+            <li><a href="#">Air Duct Cleaning</a></li>
           </ul>
         </li>
         <li><a href="#">Locations</a></li>
         <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
         <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
-        <!-- <li><a href="">Commercial Cleaning</a></li> -->
         <li><a href="#">House Cleaning</a></li>
         <li><a href="#">More</a></li>
       </ul>
@@ -496,7 +512,6 @@
 
   <!-- SERVICES INTRO -->
   <section class="services-intro">
-   
     <h2>Our Floor Cleaning Services</h2>
     <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care.</p>
   </section>
@@ -539,5 +554,41 @@
       <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
     </div>
   </footer>
+
+  <!-- Small script to ensure dropdown works on touch devices -->
+  <script>
+    // This makes dropdown work on mobile touch
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdowns = document.querySelectorAll('.dropdown');
+      
+      dropdowns.forEach(function(dropdown) {
+        var link = dropdown.querySelector('a');
+        
+        // For touch devices, toggle dropdown on click
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            // Close other dropdowns
+            dropdowns.forEach(function(d) {
+              if (d !== dropdown) {
+                d.classList.remove('active');
+              }
+            });
+            // Toggle current
+            dropdown.classList.toggle('active');
+          }
+        });
+      });
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+          dropdowns.forEach(function(d) {
+            d.classList.remove('active');
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
