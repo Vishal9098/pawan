@@ -432,6 +432,162 @@
       .desktop-nav ul { gap: 28px; }
       .hero h1 { font-size: 60px; }
     }
+
+    .commitment {
+  background:#f4f4f4;
+  padding:80px 0;
+}
+
+.commitment-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+}
+
+.commitment-img img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+}
+
+.commitment-img{
+  flex:1;
+}
+
+.commitment-text{
+  flex:1;
+  padding:60px;
+  text-align:center;
+}
+
+.commitment-text h2{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.commitment-text p{
+  color:#555;
+  line-height:1.7;
+  margin-bottom:30px;
+}
+
+.btn{
+  background:#bda462;
+  color:#fff;
+  padding:14px 28px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.schedule{
+  background-image:url("https://picsum.photos/1920/900");
+  background-size:cover;
+  background-position:center;
+  padding:140px 0;
+  text-align:center;
+  position:relative;
+}
+
+.schedule::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.65);
+}
+
+.schedule-content{
+  position:relative;
+  color:#fff;
+  max-width:800px;
+  margin:auto;
+}
+
+.schedule h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.schedule p{
+  font-size:18px;
+  margin-bottom:30px;
+}
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+/* dropdown */
+.dropdown{
+  position:relative;
+  cursor:pointer;
+}
+
+.dropdown-header{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.arrow{
+  font-size:12px;
+}
+
+/* menu */
+.dropdown-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  width:200px;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu li{
+  list-style:none;
+}
+
+.dropdown-menu a{
+  display:block;
+  padding:10px 15px;
+  text-decoration:none;
+  color:#333;
+}
+
+.dropdown-menu a:hover{
+  background:#f5f5f5;
+}
+
+/* desktop hover */
+@media (min-width:768px){
+  .dropdown:hover .dropdown-menu{
+    display:block;
+  }
+}
+
+/* mobile style */
+@media (max-width:768px){
+
+.nav-menu{
+  flex-direction:column;
+}
+
+.dropdown-menu{
+  position:static;
+  width:100%;
+}
+
+.dropdown.active .dropdown-menu{
+  display:block;
+}
+
+}
   </style>
 </head>
 <body>
@@ -474,11 +630,7 @@
       </ul>
     </div>
     
-    <!-- Action Buttons -->
-    <!-- <div class="nav-btns">
-      <a class="call-btn" href="tel:+19702007677">📞 Call</a>
-      <a class="schedule-btn" href="#" onclick="alert('Schedule service form')">📅 Schedule</a>
-    </div> -->
+
 
     <!-- Hamburger Icon (mobile only) -->
     <div class="hamburger" id="hamburger">
@@ -493,19 +645,27 @@
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="aboutus.html">About Us</a></li>
-      <li class="mobile-dropdown" id="mobileServices">
-        <div class="mobile-dropdown-header">
-          <span>Services</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="mobile-dropdown-menu">
-          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
-          <a href="#">Pet Stain Removal</a>
-          <a href="#">Upholstery Cleaning</a>
-          <a href="#">Air Duct Cleaning</a>
-          <a href="#">Commercial Cleaning</a>
-        </div>
-      </li>
+      <ul class="nav-menu">
+
+<li class="dropdown" id="servicesDropdown">
+
+  <div class="dropdown-header">
+    <span>Services</span>
+    <span class="arrow">▼</span>
+  </div>
+
+  <ul class="dropdown-menu">
+    <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
+    <li><a href="#">Pet Stain Removal</a></li>
+    <li><a href="#">Upholstery Cleaning</a></li>
+    <li><a href="#">Air Duct Cleaning</a></li>
+    <li><a href="#">Commercial Cleaning</a></li>
+  </ul>
+
+</li>
+
+</ul>
+     
       <li><a href="#">Locations</a></li>
       <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
       <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
@@ -547,42 +707,47 @@
     <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
   </section>
 
-  <section class="services-grid">
-    <div class="service-card" onclick="alert('Deep cleaning')"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Deep Cleaning"><div class="overlay"><h3>Deep Cleaning for Sofas and Couches</h3></div></div>
-    <div class="service-card" onclick="alert('Stain removal')"><img src="https://images.unsplash.com/photo-1558317374-067fb5f30001" alt="Stain Removal"><div class="overlay"><h3>Stain Removal</h3></div></div>
-    <div class="service-card" onclick="alert('Pet stain')"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1" alt="Pet Stain"><div class="overlay"><h3>Pet Stain and Odor Removal</h3></div></div>
-    <div class="service-card" onclick="alert('Tile cleaning')"><img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1" alt="Tile Cleaning"><div class="overlay"><h3>Tile Cleaning</h3></div></div>
-  </section>
+ <section class="commitment">
+  <div class="commitment-container">
 
-  <section class="about-company">
-    <div class="about-container">
-      <div class="about-image"><img src="https://images.unsplash.com/photo-1558317374-067fb5f30001" alt="About"></div>
-      <div class="about-content"><h2>About Our Floor Cleaning Company</h2><p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile is committed to delivering top-notch results that exceed expectations.</p><a href="#" class="about-btn" onclick="alert('Call us')">📞 Call Us Today</a></div>
+    <div class="commitment-img">
+      <img src="https://picsum.photos/800/600" alt="random image">
     </div>
-  </section>
 
-  <section class="why-choose">
-    <div class="why-container">
-      <div class="why-text"><h2>Why Choose Us</h2><p>Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention to detail, and dedication to customer satisfaction.</p><a href="#" class="why-btn" onclick="alert('Schedule')">📞 Call Us to Schedule</a></div>
-      <div class="why-images"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a" alt="Why Choose Us"></div>
+    <div class="commitment-text">
+      <h2>Our Commitment</h2>
+      <p>
+        We take pride in using environmentally safe products and innovative
+        techniques to ensure thorough and impeccable cleaning for your floors.
+        Trust our professional floor cleaners to transform your living space
+        with care and expertise.
+      </p>
+
+      <a href="#" class="btn">Get A Quote</a>
     </div>
-  </section>
 
-  <section class="cta-section">
-    <h2>Schedule a Cleaning Today</h2><p>We guarantee that you will be satisfied with the results.</p>
-    <div class="cta-buttons"><a href="#">📋 Get A Quote</a><a href="tel:+19702007677">📞 Call Us to Schedule</a></div>
-  </section>
+  </div>
+</section>
 
-  <section class="neighborhoods">
-    <h2>Key neighborhoods where we offer carpet cleaning in Loveland, CO</h2>
-    <p>We provide <b>carpet cleaning in Loveland, CO</b>, covering key neighborhoods like <b>Downtown Loveland, Mariana Butte, Boyd Lake, and The Lakes at Centerra.</b></p>
-    <div class="circle-grid">
-      <div class="circle-card"><img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" alt="Blackbird"><h3>Blackbird Nolls Loveland, CO</h3><p>Peaceful neighborhood with parks.</p></div>
-      <div class="circle-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Boyd Lake"><h3>Boyd Lake, Loveland, CO</h3><p>Scenic neighborhood near water views.</p></div>
-      <div class="circle-card"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Seven Lakes"><h3>Seven Lakes, Loveland, CO</h3><p>Tranquil neighborhood surrounded by nature.</p></div>
-      <div class="circle-card"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Mariana Butte"><h3>Mariana Butte, Loveland, CO</h3><p>Scenic landscapes and beautiful homes.</p></div>
-    </div>
-  </section>
+<section class="schedule">
+  <div class="schedule-content">
+
+    <h2>Schedule a Cleaning Today</h2>
+
+    <p>
+      Experience the difference of Mad Dog Carpet & Tile —
+      where eco-friendly cleaning meets professional excellence.
+    </p>
+
+    <a href="#" class="btn">Get A Quote</a>
+
+  </div>
+</section>
+
+  
+
+  
+ 
 
   <footer class="footer">
     <div><p>©2024 Mad Dog Carpet & Tile® - All rights reserved.</p></div>
@@ -605,13 +770,33 @@
     }
 
     // Mobile dropdown toggle
-    const mobileServices = document.getElementById('mobileServices');
-    if (mobileServices) {
-      mobileServices.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-      });
-    }
+ // Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('active');
+  });
+}
+
+// Services dropdown (mobile)
+const dropdown = document.getElementById("servicesDropdown");
+
+if (dropdown) {
+  dropdown.querySelector(".dropdown-header").addEventListener("click", () => {
+    dropdown.classList.toggle("active");
+  });
+}
+
+// Close mobile menu when a link is clicked
+const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+mobileLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+  });
+});
 
     // Close mobile menu when a link is clicked
     const mobileLinks = document.querySelectorAll('.mobile-menu a');
