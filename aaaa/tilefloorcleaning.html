@@ -17,7 +17,7 @@
     body {
       background: #000;
       color: #fff;
-      overflow-x: hidden;  /* prevent unwanted horizontal scroll */
+      overflow-x: hidden;
       width: 100%;
     }
 
@@ -27,140 +27,177 @@
       display: block;
     }
 
-    /* ---------- TOP BAR (mobile first) ---------- */
+    /* ---------- TOP BAR (exactly like reference) ---------- */
     .topbar {
       background: #111;
       color: #fff;
-      text-align: center;        /* centered on small screens */
-      padding: 10px 20px;
-      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      font-size: 14px;
       width: 100%;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-left span {
+      color: #d4af37;
+      font-size: 13px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .topbar a {
       color: #d4af37;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
-      padding: 4px 0;
+      transition: color 0.3s;
+      font-size: 13px;
     }
 
-    /* ---------- NAVBAR – fully responsive with fixed dropdown ---------- */
+    .call-now-btn {
+      background: #d4af37;
+      color: #000 !important;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ---------- NAVBAR with hamburger (same as reference) ---------- */
     .navbar {
       display: flex;
-      flex-direction: column;     /* stack on mobile */
       align-items: center;
-      padding: 15px 20px;
+      justify-content: space-between;
+      padding: 12px 20px;
       background: #000;
       border-bottom: 1px solid #222;
       position: sticky;
       top: 0;
       z-index: 1000;
-      gap: 15px;
       width: 100%;
+      flex-wrap: wrap;
     }
 
     .logo {
       color: #d4af37;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: bold;
       cursor: pointer;
-      transition: transform 0.2s;
     }
 
-    /* navigation wrapper – allows horizontal scroll only if needed */
-    .navbar nav {
+    /* Hamburger menu (mobile only) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
       width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      height: 3px;
+      background: #d4af37;
+      border-radius: 3px;
+      transition: 0.3s;
     }
 
-    .navbar ul {
+    /* Desktop navigation */
+    .desktop-nav {
       display: flex;
-      flex-wrap: wrap;           /* items wrap on small screens */
-      justify-content: center;
       align-items: center;
-      gap: 12px 16px;
-      list-style: none;
-      padding: 5px 0;
-      min-width: fit-content;
+      gap: 25px;
     }
 
-    .navbar a {
+    .desktop-nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .desktop-nav a {
       text-decoration: none;
       color: #fff;
       font-size: 15px;
       transition: color 0.3s;
-      padding: 6px 0;
       white-space: nowrap;
     }
 
-    .navbar a:hover {
+    .desktop-nav a:hover {
       color: #d4af37;
     }
 
-    /* DROPDOWN – fixed for mobile & desktop */
-    .dropdown {
+    /* Desktop dropdown */
+    .desktop-dropdown {
       position: relative;
     }
 
-    .dropdown-menu {
+    .desktop-dropdown > a::after {
+      content: " ▾";
+      font-size: 12px;
+    }
+
+    .desktop-dropdown-menu {
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: #111;
       list-style: none;
+      padding: 8px 0;
       min-width: 200px;
       display: none;
       flex-direction: column;
       border: 1px solid #333;
       border-radius: 6px;
-      padding: 8px 0;
       z-index: 1001;
     }
 
-    .dropdown-menu li {
+    .desktop-dropdown-menu li {
       padding: 8px 20px;
     }
 
-    .dropdown-menu li a {
-      color: #fff;
-      display: block;
-      white-space: nowrap;
+    .desktop-dropdown-menu a {
       font-size: 14px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
     }
 
-    .dropdown-menu li a:hover {
-      color: #d4af37;
-    }
-
-    /* show dropdown on hover (desktop) and on tap (mobile via :focus-within) */
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
+    .desktop-dropdown:hover .desktop-dropdown-menu {
       display: flex;
     }
 
-    /* nav buttons */
+    /* Action buttons */
     .nav-btns {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
+      gap: 10px;
     }
 
     .call-btn, .schedule-btn {
-      padding: 12px 18px;
-      color: #fff;
+      padding: 8px 16px;
+      color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 30px;
       font-weight: bold;
+      font-size: 14px;
       transition: 0.3s;
-      text-align: center;
-      flex: 1 1 auto;
-      min-width: 140px;
-      font-size: 16px;
+      white-space: nowrap;
     }
 
     .call-btn {
@@ -171,9 +208,130 @@
       background: #b79a5c;
     }
 
-    /* ---------- HERO ---------- */
+    /* Mobile menu (hidden by default) */
+    .mobile-menu {
+      display: none;
+      width: 100%;
+      background: #111;
+      border-radius: 12px;
+      margin-top: 12px;
+      padding: 8px 0;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+    }
+
+    .mobile-menu li {
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 16px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .mobile-menu a:active {
+      background: #222;
+      color: #d4af37;
+    }
+
+    /* Mobile dropdown */
+    .mobile-dropdown-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      cursor: pointer;
+    }
+
+    .mobile-dropdown-header span {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .mobile-dropdown-header .arrow {
+      color: #d4af37;
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+
+    .mobile-dropdown.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .mobile-dropdown-menu {
+      display: none;
+      background: #1a1a1a;
+      padding: 5px 0;
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-menu {
+      display: block;
+    }
+
+    .mobile-dropdown-menu a {
+      padding-left: 35px !important;
+      font-size: 15px !important;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .desktop-nav {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-btns .call-btn, 
+      .nav-btns .schedule-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .hamburger {
+        display: none !important;
+      }
+      .mobile-menu {
+        display: none !important;
+      }
+      .desktop-nav {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-left span {
+        display: none;
+      }
+      .topbar {
+        justify-content: center;
+        text-align: center;
+      }
+      .nav-btns .schedule-btn {
+        display: none;
+      }
+      .nav-btns .call-btn {
+        padding: 8px 18px;
+      }
+    }
+
+    /* ---------- HERO SECTION (unchanged) ---------- */
     .hero {
-      min-height: 70vh;          /* flexible height */
+      min-height: 70vh;
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                   url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
       background-size: cover;
@@ -211,7 +369,6 @@
       font-size: clamp(14px, 3vw, 18px);
     }
 
-    /* HERO BUTTONS */
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -231,9 +388,9 @@
       font-size: 15px;
     }
 
-    /* ---------- FEATURES ---------- */
+    /* ---------- FEATURES (unchanged) ---------- */
     .features {
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                   url('https://source.unsplash.com/1600x900/?clean-carpet,room');
       background-size: cover;
       background-position: center;
@@ -267,12 +424,26 @@
       line-height: 1.4;
     }
 
-    /* ---------- SERVICES INTRO ---------- */
+    /* ---------- SERVICES INTRO (unchanged) ---------- */
     .services-intro {
       background: #f5f5f5;
       color: #333;
       text-align: center;
       padding: 70px 20px;
+    }
+
+    .services-intro .stars {
+      color: #d4af37;
+      font-size: 40px;
+      letter-spacing: 6px;
+      margin-bottom: 10px;
+    }
+
+    .services-intro .experience {
+      color: #d4af37;
+      font-size: 14px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
     }
 
     .services-intro h2 {
@@ -285,56 +456,182 @@
       margin: 0 auto;
       font-size: clamp(16px, 4vw, 20px);
       line-height: 1.7;
+      color: #555;
     }
 
-    /* ---------- COMMITMENT section (grid reversed for mobile) ---------- */
-    .commitment {
+    /* ---------- SERVICES GRID (unchanged) ---------- */
+    .services-grid {
+      background: #f5f5f5;
       display: grid;
-      grid-template-columns: 1fr;    /* stacked on mobile */
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 30px 20px 50px;
+    }
+
+    .service-card {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      max-width: 600px;
+      margin: 0 auto;
       width: 100%;
     }
 
-    .commit-img img {
+    .service-card img {
       width: 100%;
-      height: auto;
-      max-height: 500px;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .overlay h3 {
+      color: #fff;
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* ---------- TILE SECTIONS (unchanged) ---------- */
+    .tile-section {
+      background: #eaeaea;
+      padding: 100px 0;
+    }
+
+    .tile-section.grey {
+      background: #eaeaea;
+    }
+
+    .tile-container {
+      width: 90%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .tile-container.reverse {
+      direction: rtl;
+    }
+
+    .tile-container.reverse .tile-text {
+      direction: ltr;
+    }
+
+    .tile-img img {
+      width: 100%;
+      height: 550px;
       object-fit: cover;
     }
 
-    .commit-text {
-      background: #efefef;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    .tile-text {
       text-align: center;
-      padding: 60px 20px;
       color: #333;
+      padding: 40px;
     }
 
-    .commit-text h2 {
-      font-size: clamp(32px, 7vw, 48px);
-      margin-bottom: 20px;
-    }
-
-    .commit-text p {
-      font-size: clamp(16px, 4vw, 20px);
-      line-height: 1.8;
-      max-width: 500px;
+    .tile-text h2 {
+      font-size: 48px;
       margin-bottom: 30px;
     }
 
-    .commit-btn {
-      background: #a9975b;
-      color: #fff;
-      padding: 16px 36px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      display: inline-block;
+    .tile-text p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
-    /* ---------- FOOTER (mobile first) ---------- */
+    .tile-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #a9975b;
+      color: #fff;
+      padding: 16px 40px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .tile-btn.dark {
+      background: #000;
+      border: 4px solid #a9975b;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .tile-container {
+        grid-template-columns: 1fr;
+      }
+      .tile-img img {
+        height: 400px;
+      }
+      .tile-text h2 {
+        font-size: 34px;
+      }
+    }
+
+    /* ---------- CTA CLEANING (unchanged) ---------- */
+    .cta-cleaning {
+      background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+                  url("https://images.unsplash.com/photo-1584622781564-1d987f7333c1");
+      background-size: cover;
+      background-position: center;
+      padding: 140px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-overlay {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .cta-cleaning h2 {
+      font-size: 54px;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .cta-cleaning p {
+      font-size: 22px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .cta-cleaning span {
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 35px;
+      background: #d4af37;
+      color: #000;
+      padding: 16px 40px;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: #c6a86b;
+    }
+
+    /* ---------- FOOTER (unchanged) ---------- */
     .footer {
       background: #000;
       color: #fff;
@@ -373,31 +670,7 @@
       text-decoration: none;
     }
 
-    /* ---------- MEDIA QUERIES (tablet / desktop) ---------- */
-    @media (min-width: 700px) {
-      .navbar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 20px 30px;
-      }
-      .navbar nav {
-        width: auto;
-        overflow: visible;
-      }
-      .nav-btns {
-        width: auto;
-      }
-      .topbar {
-        text-align: right;
-        padding: 8px 40px;
-      }
-    }
-
     @media (min-width: 900px) {
-      .commitment {
-        grid-template-columns: 1fr 1fr;  /* side by side on desktop */
-      }
       .footer {
         flex-direction: row;
         justify-content: space-between;
@@ -406,18 +679,6 @@
       }
       .footer-links {
         justify-content: flex-start;
-      }
-      .hero {
-        min-height: 85vh;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .navbar ul {
-        gap: 28px;
-      }
-      .hero h1 {
-        font-size: 60px;
       }
     }
 
@@ -428,350 +689,34 @@
     .schedule-btn {
       touch-action: manipulation;
     }
-      /* ---------- FEATURES SECTION ---------- */
-    .features {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('https://source.unsplash.com/1600x900/?clean-carpet,room');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .badges img {
-      width: 90px;
-      height: 90px;
-      background: #d4af37;
-      padding: 18px;
-      border-radius: 50%;
-      transition: transform 0.3s;
-      cursor: pointer;
-      max-width: 100%;
-    }
-
-    .features h2 {
-      color: #d4af37;
-      font-size: clamp(24px, 6vw, 36px);
-      letter-spacing: 2px;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    /* ---------- SERVICES INTRO ---------- */
-    .services-intro {
-      background: #f5f5f5;
-      color: #333;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .services-intro .stars {
-      color: #d4af37;
-      font-size: 40px;
-      letter-spacing: 6px;
-      margin-bottom: 10px;
-    }
-
-    .services-intro .experience {
-      color: #d4af37;
-      font-size: 14px;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
-    }
-
-    .services-intro h2 {
-      font-size: clamp(32px, 7vw, 48px);
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-
-    .services-intro p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: clamp(16px, 4vw, 20px);
-      line-height: 1.7;
-      color: #555;
-    }
-
-    /* ---------- SERVICES GRID (mobile first) ---------- */
-    .services-grid {
-      background: #f5f5f5;
-      display: grid;
-      grid-template-columns: 1fr;    /* 1 column on mobile */
-      gap: 20px;
-      padding: 30px 20px 50px;
-    }
-
-    .service-card {
-      position: relative;
-      height: 300px;                 /* reduced for mobile */
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      max-width: 600px;
-      margin: 0 auto;                /* center on large screens */
-      width: 100%;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 15px;
-    }
-
-    .overlay h3 {
-      color: #fff;
-      font-size: clamp(24px, 7vw, 34px);
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    .tile-section{
-background:#eaeaea;
-padding:100px 0;
-}
-
-.tile-container{
-width:90%;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-gap:60px;
-}
-
-.tile-container.reverse{
-direction:rtl;
-}
-
-.tile-container.reverse .tile-text{
-direction:ltr;
-}
-
-.tile-img img{
-width:100%;
-height:550px;
-object-fit:cover;
-}
-
-.tile-text{
-text-align:center;
-color:#333;
-padding:40px;
-}
-
-.tile-text h2{
-font-size:48px;
-margin-bottom:30px;
-}
-
-.tile-text p{
-font-size:20px;
-line-height:1.8;
-margin-bottom:20px;
-}
-
-.tile-btn{
-display:inline-block;
-margin-top:20px;
-background:#a9975b;
-color:#fff;
-padding:16px 40px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.tile-btn.dark{
-background:#000;
-border:4px solid #a9975b;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.tile-container{
-grid-template-columns:1fr;
-}
-
-.tile-img img{
-height:400px;
-}
-
-.tile-text h2{
-font-size:34px;
-}
-
-}
-
-.tile-section{
-background:#eaeaea;
-padding:100px 0;
-}
-
-.tile-container{
-width:90%;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-gap:60px;
-}
-
-.tile-container.reverse{
-direction:rtl;
-}
-
-.tile-container.reverse .tile-text{
-direction:ltr;
-}
-
-.tile-img img{
-width:100%;
-height:550px;
-object-fit:cover;
-}
-
-.tile-text{
-text-align:center;
-color:#333;
-padding:40px;
-}
-
-.tile-text h2{
-font-size:48px;
-margin-bottom:30px;
-}
-
-.tile-text p{
-font-size:20px;
-line-height:1.8;
-margin-bottom:20px;
-}
-
-.tile-btn{
-display:inline-block;
-margin-top:20px;
-background:#a9975b;
-color:#fff;
-padding:16px 40px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.tile-btn.dark{
-background:#000;
-border:4px solid #a9975b;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.tile-container{
-grid-template-columns:1fr;
-}
-
-.tile-img img{
-height:400px;
-}
-
-.tile-text h2{
-font-size:34px;
-}
-
-}
-.cta-cleaning{
-
-background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
-url("https://images.unsplash.com/photo-1584622781564-1d987f7333c1");
-
-background-size:cover;
-background-position:center;
-
-padding:140px 20px;
-text-align:center;
-color:#fff;
-
-}
-
-.cta-overlay{
-max-width:900px;
-margin:auto;
-}
-
-.cta-cleaning h2{
-font-size:54px;
-margin-bottom:25px;
-font-weight:500;
-}
-
-.cta-cleaning p{
-font-size:22px;
-line-height:1.8;
-margin-bottom:20px;
-}
-
-.cta-cleaning span{
-color:#d4af37;
-font-weight:bold;
-}
-
-.cta-btn{
-display:inline-block;
-margin-top:35px;
-background:#d4af37;
-color:#000;
-padding:16px 40px;
-font-size:18px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
-
-.cta-btn:hover{
-background:#c6a86b;
-}
   </style>
 </head>
 <body>
 
-  <!-- TOPBAR -->
+  <!-- TOP BAR (exactly like reference) -->
   <div class="topbar">
-    Call Now: <a href="tel:+19702007677">(970) 200-7677</a>
+    <div class="topbar-left">
+      <span>📍 5620 Wild Plum Dr, Loveland</span>
+      <span>⏰ Open 24/7</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">⭐ Leave Review</a>
+      <a href="tel:+19702007677" class="call-now-btn">📞 (970) 200-7677</a>
+    </div>
   </div>
 
-  <!-- NAVBAR – with fully functional dropdown (mobile & desktop) -->
+  <!-- NAVBAR with hamburger (exactly like reference) -->
   <header class="navbar">
     <div class="logo" onclick="window.location.href='#'">MAD DOG</div>
-    <nav>
+    
+    <!-- Desktop Navigation (visible on large screens) -->
+    <div class="desktop-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="#">About Us</a></li>
-        <li class="dropdown">
-          <a href="#">Services ▾</a>
-          <ul class="dropdown-menu">
+        <li class="desktop-dropdown">
+          <a href="#">Services</a>
+          <ul class="desktop-dropdown-menu">
             <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
             <li><a href="#">Tile Cleaning</a></li>
             <li><a href="#">Upholstery Cleaning</a></li>
@@ -785,12 +730,48 @@ background:#c6a86b;
         <li><a href="#">House Cleaning</a></li>
         <li><a href="#">More</a></li>
       </ul>
-    </nav>
+    </div>
+    
+    <!-- Action Buttons -->
     <div class="nav-btns">
-      <a class="call-btn" href="tel:+19702007677">📞 Call Us</a>
-      <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule Service</a>
+      <a class="call-btn" href="tel:+19702007677">📞 Call</a>
+      <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule</a>
+    </div>
+
+    <!-- Hamburger Icon (mobile only) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </header>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li class="mobile-dropdown" id="mobileServices">
+        <div class="mobile-dropdown-header">
+          <span>Services</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="mobile-dropdown-menu">
+          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
+          <a href="#">Tile Cleaning</a>
+          <a href="#">Upholstery Cleaning</a>
+          <a href="#">Pet Stain Removal</a>
+          <a href="#">Commercial Cleaning</a>
+        </div>
+      </li>
+      <li><a href="#">Locations</a></li>
+      <li><a href="#">Emergency Floor Cleaning</a></li>
+      <li><a href="#">Commercial Cleaning</a></li>
+      <li><a href="#">House Cleaning</a></li>
+      <li><a href="#">More</a></li>
+      <li><a href="#">⭐ Leave Review</a></li>
+    </ul>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -819,182 +800,82 @@ background:#c6a86b;
   </section>
 
   <!-- SERVICES INTRO -->
- <section class="services-intro">
+  <section class="services-intro">
     <div class="stars" onclick="alert('Read our 5-star reviews')">★★★★★</div>
     <div class="experience">5 STAR EXPERIENCE</div>
     <h2>Our Floor Cleaning Services</h2>
     <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
   </section>
 
+  <!-- SERVICES GRID -->
+
+
+  <!-- TILE SECTIONS (unchanged) -->
+  <section class="tile-section">
+    <div class="tile-container">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Tile Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Expert tile floor cleaning by trained professionals</h2>
+        <p>At Mad Dog Carpet & Tile, we pride ourselves on our team of highly skilled and experienced professionals who are experts in tile floor cleaning services. Our technicians undergo rigorous training to ensure they are well-versed in the latest techniques and technologies for tile cleaning.</p>
+        <p>When you choose our services, you can rest assured that your tile floors are in the hands of knowledgeable professionals who will treat them with the care and attention they deserve.</p>
+        <a href="#" class="tile-btn">Call Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-section grey">
+    <div class="tile-container reverse">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Tile Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Personalized tile floor cleaning for outstanding results</h2>
+        <p>We understand that every tile floor is different, and what works for one may not work for another. That's why at Mad Dog Carpet & Tile, we offer customized tile floor cleaning services tailored to meet the unique needs of your floors.</p>
+        <p>Our technicians will assess the condition of your tile flooring, identify problem areas, and develop a personalized cleaning plan to ensure the best results.</p>
+        <a href="#" class="tile-btn dark">Call Us Today</a>
+      </div>
+    </div>
+  </section>
 
   <section class="tile-section">
+    <div class="tile-container">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Eco Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Eco-friendly technology for safe and effective tile cleaning</h2>
+        <p>To deliver superior tile cleaning service, we utilize advanced equipment and high-quality, eco-friendly cleaning products. Our state-of-the-art cleaning tools and technology allow us to remove dirt, grime, and stains from your tile floors effectively without causing any damage.</p>
+        <p>Additionally, our eco-friendly cleaning products are safe for your family, pets, and the environment, ensuring a healthy and sustainable cleaning solution for your home.</p>
+        <a href="#" class="tile-btn">Call Us Today</a>
+      </div>
+    </div>
+  </section>
 
-<div class="tile-container">
+  <section class="tile-section grey">
+    <div class="tile-container reverse">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" alt="Customer Service">
+      </div>
+      <div class="tile-text">
+        <h2>Mad Dog Exceptional Customer Service</h2>
+        <p>At Mad Dog Carpet & Tile, we believe in providing exceptional customer service to ensure a seamless and satisfying experience for our clients. From your initial inquiry to the completion of the tile cleaning service, our team is dedicated to addressing your needs and exceeding your expectations.</p>
+        <p>We strive to build long-lasting relationships with our customers based on trust, reliability, and quality service. When you choose Mad Dog Carpet & Tile, you can expect professionalism and commitment to excellence every step of the way.</p>
+        <a href="#" class="tile-btn dark">Schedule a Service</a>
+      </div>
+    </div>
+  </section>
 
-<div class="tile-img">
-<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea">
-</div>
-
-<div class="tile-text">
-
-<h2>Expert tile floor cleaning by trained professionals</h2>
-
-<p>
-At Mad Dog Carpet & Tile, we pride ourselves on our team of highly
-skilled and experienced professionals who are experts in tile floor
-cleaning services. Our technicians undergo rigorous training to ensure
-they are well-versed in the latest techniques and technologies for tile
-cleaning.
-</p>
-
-<p>
-When you choose our services, you can rest assured that your tile floors
-are in the hands of knowledgeable professionals who will treat them with
-the care and attention they deserve.
-</p>
-
-<a href="#" class="tile-btn">Call Us Today</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="tile-section grey">
-
-<div class="tile-container reverse">
-
-<div class="tile-img">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-</div>
-
-<div class="tile-text">
-
-<h2>Personalized tile floor cleaning for outstanding results</h2>
-
-<p>
-We understand that every tile floor is different, and what works for one
-may not work for another. That's why at Mad Dog Carpet & Tile, we offer
-customized tile floor cleaning services tailored to meet the unique
-needs of your floors.
-</p>
-
-<p>
-Our technicians will assess the condition of your tile flooring,
-identify problem areas, and develop a personalized cleaning plan to
-ensure the best results.
-</p>
-
-<a href="#" class="tile-btn dark">Call Us Today</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ECO FRIENDLY SECTION -->
-
-<section class="tile-section">
-
-<div class="tile-container">
-
-<div class="tile-img">
-<img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
-</div>
-
-<div class="tile-text">
-
-<h2>Eco-friendly technology for safe and effective tile cleaning</h2>
-
-<p>
-To deliver superior tile cleaning service, we utilize advanced equipment
-and high-quality, eco-friendly cleaning products. Our state-of-the-art
-cleaning tools and technology allow us to remove dirt, grime, and stains
-from your tile floors effectively without causing any damage.
-</p>
-
-<p>
-Additionally, our eco-friendly cleaning products are safe for your
-family, pets, and the environment, ensuring a healthy and sustainable
-cleaning solution for your home.
-</p>
-
-<a href="#" class="tile-btn">Call Us Today</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- CUSTOMER SERVICE SECTION -->
-
-<section class="tile-section grey">
-
-<div class="tile-container reverse">
-
-<div class="tile-img">
-<img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b">
-</div>
-
-<div class="tile-text">
-
-<h2>Mad Dog Exceptional Customer Service</h2>
-
-<p>
-At Mad Dog Carpet & Tile, we believe in providing exceptional customer
-service to ensure a seamless and satisfying experience for our clients.
-From your initial inquiry to the completion of the tile cleaning service,
-our team is dedicated to addressing your needs and exceeding your
-expectations.
-</p>
-
-<p>
-We strive to build long-lasting relationships with our customers based
-on trust, reliability, and quality service. When you choose Mad Dog
-Carpet & Tile, you can expect professionalism and commitment to
-excellence every step of the way.
-</p>
-
-<a href="#" class="tile-btn dark">Schedule a Service</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="cta-cleaning">
-
-<div class="cta-overlay">
-
-<h2>Schedule a Tile Floor Cleaning Today</h2>
-
-<p>
-Mad Dog Carpet & Tile is your trusted partner for top-notch tile floor cleaning
-services in the Loveland/Berthoud area. We guarantee a cleaning experience that
-will leave your tile floors looking immaculate. Say goodbye to dull, dirty tile
-floors and hello to a fresh, rejuvenated look for your home.
-</p>
-
-<p>
-<span>Contact</span> Mad Dog Carpet & Tile today to schedule your tile floor
-cleaning service and discover the difference our commitment to quality can make
-for your floors.
-</p>
-
-<a href="#" class="cta-btn">Get A Free Quote</a>
-
-</div>
-
-</section>
- 
-
+  <!-- CTA CLEANING -->
+  <section class="cta-cleaning">
+    <div class="cta-overlay">
+      <h2>Schedule a Tile Floor Cleaning Today</h2>
+      <p>Mad Dog Carpet & Tile is your trusted partner for top-notch tile floor cleaning services in the Loveland/Berthoud area. We guarantee a cleaning experience that will leave your tile floors looking immaculate. Say goodbye to dull, dirty tile floors and hello to a fresh, rejuvenated look for your home.</p>
+      <p><span>Contact</span> Mad Dog Carpet & Tile today to schedule your tile floor cleaning service and discover the difference our commitment to quality can make for your floors.</p>
+      <a href="#" class="cta-btn">Get A Free Quote</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -1022,5 +903,34 @@ for your floors.
       <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+    }
+    
+    // Mobile dropdown toggle
+    const mobileServices = document.getElementById('mobileServices');
+    if (mobileServices) {
+      mobileServices.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+      });
+    }
+    
+    // Close mobile menu when a link is clicked
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -33,18 +33,18 @@
       -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
     }
 
-    /* ---------- TOP BAR (mobile first) ---------- */
+    /* ---------- TOP BAR (exactly like reference) ---------- */
     .topbar {
       background: #111;
       color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 8px 20px;
       font-size: 14px;
       width: 100%;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 8px;
     }
 
     .topbar-left {
@@ -56,12 +56,14 @@
 
     .topbar-left span {
       color: #d4af37;
+      font-size: 13px;
     }
 
     .topbar-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .topbar a {
@@ -69,59 +71,149 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
+      font-size: 13px;
     }
 
     .call-now-btn {
       background: #d4af37;
       color: #000 !important;
-      padding: 5px 15px;
+      padding: 5px 14px;
       border-radius: 30px;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    /* ---------- NAVBAR (mobile first) ---------- */
+    /* ---------- NAVBAR with hamburger (same as reference) ---------- */
     .navbar {
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
+      padding: 12px 20px;
       background: #000;
       border-bottom: 1px solid #222;
       position: sticky;
       top: 0;
       z-index: 1000;
       width: 100%;
-      gap: 10px;
       flex-wrap: wrap;
     }
 
     .logo {
       color: #d4af37;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: bold;
-      transition: transform 0.3s;
+      cursor: pointer;
     }
 
-    .logo:hover {
-      transform: scale(1.03);
-    }
-
-    /* Hamburger menu for mobile */
+    /* Hamburger menu (mobile only) */
     .hamburger {
       display: none;
       flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
       cursor: pointer;
-      padding: 5px;
     }
 
     .hamburger span {
-      width: 28px;
+      width: 100%;
       height: 3px;
       background: #d4af37;
-      margin: 3px 0;
-      transition: 0.3s;
       border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* Desktop navigation */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .desktop-nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    .desktop-nav a:hover {
+      color: #d4af37;
+    }
+
+    /* Desktop dropdown */
+    .desktop-dropdown {
+      position: relative;
+    }
+
+    .desktop-dropdown > a::after {
+      content: " ▾";
+      font-size: 12px;
+    }
+
+    .desktop-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111;
+      list-style: none;
+      padding: 8px 0;
+      min-width: 200px;
+      display: none;
+      flex-direction: column;
+      border: 1px solid #333;
+      border-radius: 6px;
+      z-index: 1001;
+    }
+
+    .desktop-dropdown-menu li {
+      padding: 8px 20px;
+      text-align: left;
+    }
+
+    .desktop-dropdown-menu li a {
+      white-space: nowrap;
+      display: block;
+      font-size: 14px;
+    }
+
+    .desktop-dropdown:hover .desktop-dropdown-menu {
+      display: flex;
+    }
+
+    /* nav buttons row */
+    .nav-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .call-btn, .schedule-btn {
+      padding: 8px 12px;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: all 0.3s;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .call-btn {
+      background: #c6a86b;
+    }
+
+    .schedule-btn {
+      background: #b79a5c;
     }
 
     /* Mobile menu */
@@ -209,96 +301,8 @@
       font-size: 15px !important;
     }
 
-    /* Desktop navigation - hidden on mobile */
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .desktop-nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-
-    .desktop-nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 15px;
-      transition: color 0.3s;
-      white-space: nowrap;
-    }
-
-    .desktop-nav a:hover {
-      color: #d4af37;
-    }
-
-    /* Desktop dropdown */
-    .desktop-dropdown {
-      position: relative;
-    }
-
-    .desktop-dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #111;
-      list-style: none;
-      padding: 8px 0;
-      min-width: 200px;
-      display: none;
-      flex-direction: column;
-      border: 1px solid #333;
-      border-radius: 6px;
-      z-index: 1001;
-    }
-
-    .desktop-dropdown-menu li {
-      padding: 8px 20px;
-      text-align: left;
-    }
-
-    .desktop-dropdown-menu li a {
-      white-space: nowrap;
-      display: block;
-      font-size: 14px;
-    }
-
-    .desktop-dropdown:hover .desktop-dropdown-menu {
-      display: flex;
-    }
-
-    /* nav buttons row */
-    .nav-btns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .call-btn, .schedule-btn {
-      padding: 8px 12px;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: all 0.3s;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .call-btn {
-      background: #c6a86b;
-    }
-
-    .schedule-btn {
-      background: #b79a5c;
-    }
-
     /* Hide mobile elements on desktop, hide desktop elements on mobile */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .hamburger {
         display: flex;
       }
@@ -316,7 +320,7 @@
       }
     }
 
-    @media (min-width: 769px) {
+    @media (min-width: 1025px) {
       .mobile-menu {
         display: none !important;
       }
@@ -330,7 +334,7 @@
       }
     }
 
-    /* ---------- HERO SECTION ---------- */
+    /* ---------- HERO SECTION (unchanged) ---------- */
     .hero {
       min-height: 70vh;            /* flexible height */
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
@@ -390,7 +394,7 @@
       font-size: 16px;
     }
 
-    /* ---------- FEATURES SECTION ---------- */
+    /* ---------- FEATURES SECTION (unchanged) ---------- */
     .features {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                   url('https://source.unsplash.com/1600x900/?clean-carpet,room');
@@ -427,7 +431,7 @@
       line-height: 1.4;
     }
 
-    /* ---------- SERVICES INTRO ---------- */
+    /* ---------- SERVICES INTRO (unchanged) ---------- */
     .services-intro {
       background: #f5f5f5;
       color: #333;
@@ -463,7 +467,7 @@
       color: #555;
     }
 
-    /* ---------- SERVICES GRID (mobile first) ---------- */
+    /* ---------- SERVICES GRID (unchanged) ---------- */
     .services-grid {
       background: #f5f5f5;
       display: grid;
@@ -508,7 +512,7 @@
       line-height: 1.3;
     }
 
-    /* ---------- ABOUT COMPANY (mobile first) ---------- */
+    /* ---------- ABOUT COMPANY (unchanged) ---------- */
     .about-company {
       background: #f5f5f5;
       padding: 60px 20px;
@@ -572,7 +576,7 @@
       transition: 0.3s;
     }
 
-    /* ---------- WHY CHOOSE (mobile first) ---------- */
+    /* ---------- WHY CHOOSE (unchanged) ---------- */
     .why-choose {
       background: #efefef;
       padding: 60px 20px;
@@ -633,7 +637,7 @@
       transition: transform 0.3s;
     }
 
-    /* ---------- CTA SECTION ---------- */
+    /* ---------- CTA SECTION (unchanged) ---------- */
     .cta-section {
       background: url('https://images.unsplash.com/photo-1584622781564-1d987f7333c1');
       background-size: cover;
@@ -686,7 +690,7 @@
       flex: 1 1 200px;
     }
 
-    /* ---------- NEIGHBORHOODS ---------- */
+    /* ---------- NEIGHBORHOODS (unchanged) ---------- */
     .neighborhoods {
       background: url('https://source.unsplash.com/1600x900/?carpet,livingroom');
       background-size: cover;
@@ -743,7 +747,7 @@
       max-width: 280px;
     }
 
-    /* ---------- FOOTER (mobile first) ---------- */
+    /* ---------- FOOTER (unchanged) ---------- */
     .footer {
       background: #000;
       color: #fff;
@@ -783,7 +787,7 @@
       text-decoration: none;
     }
 
-    /* ---------- MEDIA QUERIES (larger screens) ---------- */
+    /* ---------- MEDIA QUERIES (larger screens, unchanged) ---------- */
     @media (min-width: 600px) {
       .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -864,7 +868,7 @@
   </style>
 </head>
 <body>
-  <!-- TOP NUMBER BAR -->
+  <!-- TOP NUMBER BAR (exactly like reference) -->
   <div class="topbar">
     <div class="topbar-left">
       <span>📍 5620 Wild Plum Dr, Loveland</span>
@@ -876,7 +880,7 @@
     </div>
   </div>
 
-  <!-- NAVBAR (fully responsive) -->
+  <!-- NAVBAR with hamburger (exactly like reference) -->
   <header class="navbar">
     <div class="logo" onclick="window.location.href='#'">MAD DOG</div>
     
@@ -887,7 +891,7 @@
       <span></span>
     </div>
     
-    <!-- Desktop Navigation (unchanged) -->
+    <!-- Desktop Navigation -->
     <div class="desktop-nav">
       <ul>
         <li><a href="#">Home</a></li>
@@ -1113,7 +1117,7 @@
       });
     }
     
-    // Close mobile menu when clicking on a link (optional)
+    // Close mobile menu when clicking on a link
     const mobileLinks = document.querySelectorAll('.mobile-menu a');
     mobileLinks.forEach(link => {
       link.addEventListener('click', function() {
