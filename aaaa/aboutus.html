@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Mad Dog Carpet & Tile</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+body{
+background:#000;
+color:#fff;
+line-height:1.6;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:#111;
+padding:8px 60px;
+text-align:right;
+font-size:14px;
+}
+
+.topbar a{
+color:#d4af37;
+text-decoration:none;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:#000;
+border-bottom:1px solid #333;
+}
+
+.logo{
+color:#d4af37;
+font-size:22px;
+font-weight:bold;
+}
+
+.navbar ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.navbar ul li a{
+color:#fff;
+text-decoration:none;
+font-size:15px;
+}
+
+.navbar ul li a:hover{
+color:#d4af37;
+}
+
+.nav-btns{
+display:flex;
+gap:10px;
+}
+
+.call-btn,
+.schedule-btn{
+padding:10px 18px;
+text-decoration:none;
+color:#fff;
+font-size:14px;
+}
+
+.call-btn{
+background:#c6a86b;
+}
+
+.schedule-btn{
+background:#b79a5c;
+}
+
+
+/* ABOUT HERO */
+
+.about-hero{
+background:url("https://source.unsplash.com/1600x900/?carpet,livingroom") center/cover no-repeat;
+text-align:center;
+padding:140px 20px;
+position:relative;
+}
+
+.about-overlay{
+background:rgba(0,0,0,0.75);
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.about-hero h1{
+font-size:56px;
+margin-bottom:25px;
+}
+
+.about-hero p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+}
+
+.about-hero span{
+color:#d4af37;
+}
+
+.about-btn{
+display:inline-block;
+margin-top:35px;
+background:#fff;
+color:#000;
+padding:14px 35px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.about-badges{
+margin-top:50px;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.about-badges img{
+width:80px;
+filter:brightness(0) invert(1);
+}
+
+
+/* MISSION */
+
+.mission-section{
+background:#f5f5f5;
+color:#333;
+text-align:center;
+padding:120px 20px;
+}
+
+.stars{
+color:#d4af37;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.experience{
+color:#d4af37;
+letter-spacing:4px;
+margin-bottom:30px;
+font-size:14px;
+}
+
+.mission-section h2{
+font-size:46px;
+margin:30px 0 15px;
+}
+
+.mission-text{
+max-width:800px;
+margin:auto;
+font-size:22px;
+}
+
+
+/* COMMITMENT */
+
+.commitment{
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.commit-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.commit-text{
+background:#efefef;
+color:#333;
+padding:120px 80px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.commit-text h2{
+font-size:44px;
+margin-bottom:20px;
+}
+
+.commit-text p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.commit-btn{
+background:#a9975b;
+color:#fff;
+padding:14px 35px;
+text-decoration:none;
+}
+
+
+/* CTA */
+
+.cta-banner{
+background:url("https://images.unsplash.com/photo-1584622781564-1d987f7333c1") center/cover no-repeat;
+text-align:center;
+padding:140px 20px;
+position:relative;
+}
+
+.cta-banner::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.cta-banner h2,
+.cta-banner p,
+.cta-banner a{
+position:relative;
+}
+
+.cta-banner h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.cta-banner p{
+font-size:22px;
+margin-bottom:40px;
+}
+
+.cta-banner a{
+background:#d4af37;
+color:#000;
+padding:15px 40px;
+text-decoration:none;
+font-weight:bold;
+}
+
+
+/* FOOTER */
+
+.footer{
+background:#000;
+color:#fff;
+padding:80px 60px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+border-top:2px solid #d4af37;
+}
+
+.footer-links{
+margin-bottom:20px;
+}
+
+.footer-links a{
+color:#fff;
+text-decoration:none;
+margin-right:15px;
+}
+
+.footer-links a:hover{
+color:#d4af37;
+}
+
+.hours p{
+margin:5px 0;
+}
+
+.footer a{
+color:#d4af37;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+.commitment{
+grid-template-columns:1fr;
+}
+
+.commit-text{
+padding:80px 30px;
+}
+
+.about-hero h1{
+font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+Call Now: <a href="tel:+19702007677">(970) 200-7677</a>
+</div>
+
+
+<!-- HEADER -->
+
+<header class="navbar">
+
+<div class="logo">MAD DOG</div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Locations</a></li>
+<li><a href="#">Commercial Cleaning</a></li>
+<li><a href="#">House Cleaning</a></li>
+</ul>
+</nav>
+
+<div class="nav-btns">
+<a class="call-btn" href="tel:+19702007677">Call Us</a>
+<a class="schedule-btn" href="#">Schedule Service</a>
+</div>
+
+</header>
+
+
+<!-- ABOUT HERO -->
+
+<section class="about-hero">
+
+<div class="about-overlay">
+
+<h1>About Mad Dog Carpet and Tile Cleaning – Your Trusted Cleaning Company in Loveland</h1>
+
+<p>
+<span>Mad Dog Carpet and Tile Cleaning</span> is the premier cleaning company in Loveland dedicated to helping homeowners maintain clean and allergen-free spaces.
+</p>
+
+<a href="#" class="about-btn">Get a Quote</a>
+
+<div class="about-badges">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+<img src="https://cdn-icons-png.flaticon.com/512/535/535239.png">
+<img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png">
+<img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MISSION -->
+
+<section class="mission-section">
+
+<div class="stars">★★★★★</div>
+<p class="experience">5 STAR EXPERIENCE</p>
+
+<h2>Our Mission</h2>
+
+<p class="mission-text">
+At Mad Dog Carpet & Tile, our mission is to bring luxury and
+sophistication to your home through specialized floor cleaning.
+</p>
+
+<h2>Our Vision</h2>
+
+<p class="mission-text">
+We envision homes that radiate elegance through impeccably
+maintained floors and innovative cleaning solutions.
+</p>
+
+</section>
+
+
+<!-- COMMITMENT -->
+
+<section class="commitment">
+
+<div class="commit-img">
+<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1">
+</div>
+
+<div class="commit-text">
+
+<h2>Our Commitment</h2>
+
+<p>
+We use eco-friendly products and advanced techniques to deliver
+impeccable cleaning results for your floors.
+</p>
+
+<a href="#" class="commit-btn">Get A Quote</a>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta-banner">
+
+<h2>Schedule a Cleaning Today</h2>
+
+<p>Experience the difference of Mad Dog Carpet & Tile.</p>
+
+<a href="#">Get A Quote</a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div>
+<p>©2024 Mad Dog Carpet & Tile® - All rights reserved.</p>
+</div>
+
+<div>
+
+<div class="footer-links">
+<a href="#">Home</a>
+<a href="#">Free Quote</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms</a>
+<a href="#">Contact</a>
+</div>
+
+<p>Address: 5620 Wild Plum Dr, Loveland, CO</p>
+
+<div class="hours">
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+</div>
+
+<p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
