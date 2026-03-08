@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency Flood Cleaning</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia,serif;
+background:#f4f4f4;
+}
+
+/* BUTTON */
+
+.btn{
+background:#b79f59;
+color:white;
+padding:15px 35px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin-top:20px;
+}
+
+.btn:hover{
+background:#9c874c;
+}
+
+/* HERO */
+
+.hero{
+background:url("https://picsum.photos/1920/900?random=1") center/cover no-repeat;
+padding:180px 20px;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+position:relative;
+max-width:1100px;
+margin:auto;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.badges{
+margin-top:70px;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.badges img{
+width:120px;
+}
+
+/* INFO BOX */
+
+.info-section{
+background:url("https://picsum.photos/1920/900?random=2") center/cover no-repeat;
+padding:120px 20px;
+}
+
+.info-box{
+background:#ece9e5;
+max-width:1100px;
+margin:auto;
+padding:70px;
+text-align:center;
+}
+
+.info-box p{
+font-size:22px;
+line-height:1.8;
+color:#555;
+margin-bottom:40px;
+}
+
+.info-box span{
+color:#b79f59;
+font-weight:bold;
+}
+
+/* TEAM SECTION */
+
+.team{
+background:#ece9e5;
+padding:120px 20px;
+}
+
+.team-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.team-image{
+flex:1;
+}
+
+.team-image img{
+width:100%;
+}
+
+.team-content{
+flex:1;
+text-align:center;
+}
+
+.team-content h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.team-content p{
+font-size:20px;
+line-height:1.8;
+color:#555;
+margin-bottom:30px;
+}
+
+/* SOLUTION SECTION */
+
+.solution{
+background:#f4f4f4;
+padding:120px 20px;
+}
+
+.solution-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.solution-text{
+flex:1;
+text-align:center;
+}
+
+.solution-text h2{
+font-size:46px;
+margin-bottom:20px;
+}
+
+.solution-text p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:30px;
+color:#555;
+}
+
+.solution-images{
+flex:1;
+display:flex;
+gap:20px;
+}
+
+.solution-images img{
+width:50%;
+}
+
+/* EXPERT BOX */
+
+.expert{
+background:black;
+padding:120px 20px;
+}
+
+.expert-box{
+background:#ece9e5;
+max-width:1100px;
+margin:auto;
+padding:70px;
+text-align:center;
+}
+
+.expert-box h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.expert-box p{
+font-size:20px;
+color:#555;
+margin-bottom:30px;
+}
+
+/* CONTACT CTA */
+
+.contact{
+background:url("https://picsum.photos/1920/900?random=5") center/cover no-repeat;
+padding:180px 20px;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.contact::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.contact-content{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.contact h2{
+font-size:50px;
+margin-bottom:30px;
+}
+
+.contact p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:36px;
+}
+
+.team-container,
+.solution-container{
+flex-direction:column;
+}
+
+.solution-images{
+flex-direction:column;
+}
+
+.solution-images img{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>OPEN 24/7/365 FOR EMERGENCY FLOODING CLEANING</h1>
+
+<div class="hero-buttons">
+<a class="btn" href="#">Get a Quote</a>
+<a class="btn" href="#">Call Us to Schedule</a>
+</div>
+
+<div class="badges">
+
+<img src="https://picsum.photos/200?random=10">
+<img src="https://picsum.photos/200?random=11">
+<img src="https://picsum.photos/200?random=12">
+<img src="https://picsum.photos/200?random=13">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- INFO BOX -->
+
+<section class="info-section">
+
+<div class="info-box">
+
+<p>
+
+At <span>Mad Dog Carpet & Tile</span>, we understand the urgency and stress that come with flooding and water damage.  
+Our experienced team provides 24/7 emergency floor cleaning services across Northern Colorado.
+
+</p>
+
+<a class="btn" href="#">Get A Quote</a>
+<a class="btn" href="#">Call Us to Schedule</a>
+
+</div>
+
+</section>
+
+
+
+<!-- TEAM -->
+
+<section class="team">
+
+<div class="team-container">
+
+<div class="team-image">
+<img src="https://picsum.photos/900/700?random=20">
+</div>
+
+<div class="team-content">
+
+<h2>Professional Team Ready to Assist You</h2>
+
+<p>
+
+Our dedicated team is committed to delivering fast and reliable emergency floor cleaning services when you need them most.
+
+</p>
+
+<a class="btn" href="#">Call Us Today</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SOLUTIONS -->
+
+<section class="solution">
+
+<div class="solution-container">
+
+<div class="solution-text">
+
+<h2>Comprehensive Emergency Floor Cleaning Solutions</h2>
+
+<p>
+
+From water extraction and drying to sanitization and deodorization, we restore your property quickly after flooding incidents.
+
+</p>
+
+<a class="btn" href="#">Get A Quote</a>
+
+</div>
+
+<div class="solution-images">
+
+<img src="https://picsum.photos/400/500?random=30">
+<img src="https://picsum.photos/400/500?random=31">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- EXPERT -->
+
+<section class="expert">
+
+<div class="expert-box">
+
+<h2>Emergency Floor Cleaning Experts You Can Depend On</h2>
+
+<p>
+
+Our professionals provide reliable and efficient emergency cleaning services 24/7 throughout Northern Colorado.
+
+</p>
+
+<a class="btn" href="#">Call Us Today</a>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT CTA -->
+
+<section class="contact">
+
+<div class="contact-content">
+
+<h2>Contact Mad Dog Carpet & Tile for Emergency Floor Cleaning Services</h2>
+
+<p>
+
+Don't wait until it's too late to address emergency cleaning needs.  
+Our team is ready to help restore your home quickly and safely.
+
+</p>
+
+<a class="btn" href="#">Call Us: (970) 200-7677</a>
+
+</div>
+
+</section>
+
+
+</body>
+</html>

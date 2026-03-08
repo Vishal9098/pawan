@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Mad Dog Carpet and Tile Cleaning - Complete Website</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Professional Carpet Cleaning Loveland services! We remove stains, dirt, and allergens for a fresh, clean home. Book your cleaning today!">
+    <meta name="keywords" content="carpet cleaning loveland">
+    <meta name="format-detection" content="telephone=yes">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .headerAndNavContainer {
+            background: #111;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .headerAndNavContent {
+            padding: 10px 15px;
+        }
+
+        .headerAndNavContentInner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            max-height: 45px;
+            width: auto;
+        }
+
+        /* ===== MOBILE MENU BUTTON ===== */
+        .mobile-menu-btn {
+            display: block;
+            background: #25D366;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+            border: none;
+        }
+
+        .mobile-menu-btn i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===== MOBILE NAVIGATION ===== */
+        .navContainer {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100vh;
+            background: #111;
+            z-index: 1002;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .navContainer.active {
+            right: 0;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+        }
+
+        .nav-overlay.active {
+            display: block;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1003;
+        }
+
+        #navTopLevel {
+            list-style: none;
+            margin-top: 50px;
+        }
+
+        #navTopLevel > li {
+            border-bottom: 1px solid #333;
+        }
+
+        #navTopLevel > li > a,
+        .navLabel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .navLabel {
+            cursor: pointer;
+        }
+
+        .navLabel i {
+            transition: transform 0.3s;
+        }
+
+        .navLabel.active i {
+            transform: rotate(180deg);
+        }
+
+        /* ===== DROPDOWN STYLES ===== */
+        .subNav {
+            display: none;
+            list-style: none;
+            background: #222;
+            padding: 10px 0;
+        }
+
+        .subNav.show {
+            display: block;
+        }
+
+        .subNav li a {
+            display: block;
+            padding: 12px 30px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+        }
+
+        .subNav li:last-child a {
+            border-bottom: none;
+        }
+
+        .subNav li a:hover {
+            color: #25D366;
+            background: #2a2a2a;
+        }
+
+        /* ===== CALL BUTTONS IN MOBILE ===== */
+        .mobile-buttons {
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .mobile-buttons .button {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .mobile-buttons .button:last-child {
+            margin-bottom: 0;
+        }
+
+        .button {
+            background: #25D366;
+            color: #fff !important;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button-outline {
+            background: transparent;
+            border: 2px solid #fff;
+        }
+
+        .button-outline:hover {
+            background: #fff;
+            color: #333 !important;
+        }
+
+        /* ===== PAGE CONTAINERS ===== */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px;
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ===== TABLET STYLES ===== */
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .navContainer {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                padding: 0;
+                right: auto;
+            }
+
+            #navTopLevel {
+                display: flex;
+                margin-top: 0;
+                gap: 15px;
+            }
+
+            #navTopLevel > li {
+                border-bottom: none;
+            }
+
+            #navTopLevel > li > a,
+            .navLabel {
+                padding: 10px 0;
+                font-size: 13px;
+            }
+
+            .subNav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 200px;
+                background: #222;
+                border-radius: 8px;
+                display: none;
+            }
+
+            .has-dropdown {
+                position: relative;
+            }
+
+            .has-dropdown:hover .subNav {
+                display: block !important;
+            }
+
+            .mobile-buttons {
+                display: flex;
+                gap: 10px;
+                padding: 0;
+                border-bottom: none;
+            }
+
+            .close-menu,
+            .nav-overlay {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="siteWrapper">
+        <!-- Header -->
+        <div class="headerAndNavContainer">
+            <div class="headerAndNavContent">
+                <div class="headerAndNavContentInner">
+                    <div class="logo">
+                        <a href="#" onclick="showHome(); return false;">
+                            <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c3d6eac07a864eb8b2cc3848e658c6f6/1/5feFb8zhrk/mad%20dog.png?dpr=2" alt="Mad Dog Carpet & Tile">
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <!-- Navigation -->
+                    <div class="navContainer" id="mobileNav">
+                        <button class="close-menu" onclick="toggleMenu()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
+                        <!-- Mobile Call Buttons -->
+                        <div class="mobile-buttons">
+                            <a href="tel:9702007677" class="button" onclick="toggleMenu()">
+                                <i class="fas fa-phone-alt"></i> Call Us
+                            </a>
+                            <a href="#" onclick="showQuote(); toggleMenu(); return false;" class="button button-outline">
+                                Schedule
+                            </a>
+                        </div>
+
+                        <ul id="navTopLevel">
+                            <li><a href="#" onclick="showHome(); toggleMenu(); return false;">Home</a></li>
+                            <li><a href="#" onclick="showAbout(); toggleMenu(); return false;">About Us</a></li>
+                            <li class="has-dropdown">
+                                <span class="navLabel" onclick="toggleDropdown(this, event)">
+                                    Services <i class="fas fa-chevron-down"></i>
+                                </span>
+                                <ul class="subNav">
+                                    <li><a href="#" onclick="showTileFloorCleaning(); toggleMenu(); return false;">Tile Floor Cleaning</a></li>
+                                    <li><a href="#" onclick="showPetStainRemoval(); toggleMenu(); return false;">Pet Stain Removal</a></li>
+                                    <li><a href="#" onclick="showUpholsteryCleaning(); toggleMenu(); return false;">Upholstery Cleaning</a></li>
+                                    <li><a href="#" onclick="showDeepCleaning(); toggleMenu(); return false;">Deep Cleaning</a></li>
+                                    <li><a href="#" onclick="showAirDuctCleaning(); toggleMenu(); return false;">Air Duct Cleaning</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <span class="navLabel" onclick="toggleDropdown(this, event)">
+                                    Locations <i class="fas fa-chevron-down"></i>
+                                </span>
+                                <ul class="subNav">
+                                    <li><a href="#" onclick="showLocation('boulder'); toggleMenu(); return false;">Boulder</a></li>
+                                    <li><a href="#" onclick="showLocation('loveland'); toggleMenu(); return false;">Loveland</a></li>
+                                    <li><a href="#" onclick="showLocation('fort collins'); toggleMenu(); return false;">Fort Collins</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" onclick="showEmergency(); toggleMenu(); return false;">Emergency</a></li>
+                            <li><a href="#" onclick="showCommercialCleaning(); toggleMenu(); return false;">Commercial</a></li>
+                            <li><a href="#" onclick="showHouseCleaning(); toggleMenu(); return false;">House Cleaning</a></li>
+                            <li><a href="#" onclick="showReview(); toggleMenu(); return false;">Review</a></li>
+                            <li class="has-dropdown">
+                                <span class="navLabel" onclick="toggleDropdown(this, event)">
+                                    More <i class="fas fa-chevron-down"></i>
+                                </span>
+                                <ul class="subNav">
+                                    <li><a href="#" onclick="showBlog(); toggleMenu(); return false;">Blog</a></li>
+                                    <li><a href="#" onclick="showContact(); toggleMenu(); return false;">Contact Us</a></li>
+                                    <li><a href="#" onclick="showQuote(); toggleMenu(); return false;">Free Quote</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Overlay for mobile menu -->
+                    <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page active">
+            <!-- Home page content from your original index.html -->
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="home-frame"></iframe>
+            <script>
+                document.getElementById('home-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+<div class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop') center/cover; padding:50px 15px; color:#fff;">
+    <div class="container"><div class="hero-subtitle" style="color:#25D366;">OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</div>
+    <h1 class="hero-title">MAD DOG CARPET & TILE<br>EXCEPTIONAL CUSTOMER SERVICE</h1>
+    <p>Providing Professional Floor Cleaning Services in Loveland, Northern Colorado</p>
+    <div class="hero-buttons"><a href="#" class="button">Get A Quote</a> <a href="tel:9702007677" class="button button-outline">Call Now</a></div></div>
+</div>
+<div class="feature-badges" style="display:flex; gap:15px; padding:20px;">
+    <div class="badge-item">20% DISCOUNT FOR VETERANS</div>
+    <div class="badge-item highlight">ECO-FRIENDLY</div>
+    <div class="badge-item">24/7 EMERGENCY</div>
+    <div class="badge-item highlight">LOCAL OWNED</div>
+</div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="about-frame"></iframe>
+            <script>
+                document.getElementById('about-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    body { font-family: 'Poppins', sans-serif; margin:0; padding:0; }
+    .about-hero { height:100vh; background:url('https://picsum.photos/1600/900?random=1') center/cover; position:relative; display:flex; align-items:center; justify-content:center; color:white; }
+    .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); }
+    .about-content { position:relative; z-index:2; max-width:1000px; text-align:center; padding:20px; }
+    .about-content h1 { font-size:52px; margin-bottom:30px; }
+    .badge { width:130px; height:130px; border-radius:50%; background:black; border:4px solid #d4af37; display:inline-flex; align-items:center; justify-content:center; margin:10px; }
+    .mission-section { padding:120px 20px; text-align:center; }
+    .stars { color:#d4af37; font-size:40px; }
+</style>
+</head>
+<body>
+    <section class="about-hero"><div class="overlay"></div><div class="about-content"><h1>About Mad Dog Carpet and Tile Cleaning</h1><p>Your trusted cleaning company in Loveland</p></div></section>
+    <section class="mission-section"><div class="stars">★★★★★</div><h2>Our Mission</h2><p>To bring luxury and sophistication to your home.</p></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- AIR DUCT CLEANING PAGE -->
+        <div id="air-duct-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="airduct-frame"></iframe>
+            <script>
+                document.getElementById('airduct-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; margin:0; background:#fafafa; }
+        .container { max-width:1200px; margin:0 auto; padding:20px; }
+        .page-header { text-align:center; margin:40px 0; animation:fadeUp 1s ease; }
+        .page-header h1 { font-size:52px; color:#0a2f75; }
+        .page-header h1 span { color:#b6a25c; }
+        .duct-hero { display:flex; justify-content:center; margin:40px 0; }
+        .hero-image { max-width:900px; border-radius:30px; overflow:hidden; box-shadow:0 30px 50px rgba(0,0,0,0.2); }
+        .hero-image img { width:100%; display:block; }
+        .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin:50px 0; }
+        .feature-card { background:white; border-radius:30px; padding:30px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.05); }
+        .feature-icon { width:80px; height:80px; background:#f0ede3; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:36px; color:#b6a25c; }
+        .btn-gold { background:#b6a25c; color:white; padding:18px 50px; border-radius:60px; text-decoration:none; display:inline-block; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+        @media (max-width:768px) { .features-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header"><h1><span>Air Duct</span> Cleaning</h1><p>Professional air duct cleaning • improve indoor air quality • eco‑friendly</p></div>
+        <div class="duct-hero"><div class="hero-image"><img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=2070&auto=format&fit=crop" alt="Air duct cleaning"></div></div>
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-wind"></i></div><h3>Improved airflow</h3><p>Clean ducts allow air to move freely.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-broom"></i></div><h3>Debris removal</h3><p>Removes dust, pet hair, and debris.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-virus"></i></div><h3>Allergen reduction</h3><p>Eliminates pollen and dust mites.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3>Eco-friendly</h3><p>Safe, non-toxic cleaning.</p></div>
+        </div>
+        <div style="text-align:center; margin:60px 0;"><a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call for free estimate</a></div>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- COMMERCIAL CLEANING PAGE -->
+        <div id="commercial-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="commercial-frame"></iframe>
+            <script>
+                document.getElementById('commercial-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { margin:0; font-family:Georgia, serif; background:#f4f4f4; }
+        .hero { height:100vh; background:url('https://picsum.photos/1600/900?random=8') center/cover; position:relative; display:flex; align-items:center; justify-content:center; color:white; }
+        .hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); }
+        .hero-content { position:relative; z-index:2; text-align:center; }
+        .hero-content h1 { font-size:70px; margin-bottom:40px; }
+        .buttons a { background:#b79f59; color:white; padding:16px 36px; text-decoration:none; display:inline-block; margin:10px; }
+        .badge { width:140px; height:140px; border-radius:50%; background:black; border:5px solid #b79f59; display:inline-flex; align-items:center; justify-content:center; margin:10px; }
+        .cleaning-section { padding:80px 0; background:#efefef; }
+        .container { max-width:1200px; margin:auto; display:flex; gap:60px; align-items:center; flex-wrap:wrap; }
+        .image-box { flex:1; }
+        .image-box img { width:100%; }
+        .content { flex:1; text-align:center; }
+        .content h2 { font-size:48px; }
+        @media(max-width:768px){ .hero-content h1{font-size:36px;} .container{flex-direction:column;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div class="hero-content"><h1>COMMERCIAL CLEANING SERVICES</h1><div class="buttons"><a href="#">Get a Quote</a><a href="#">Call Us</a></div></div></section>
+    <section class="cleaning-section"><div class="container"><div class="image-box"><img src="https://picsum.photos/700/600?random=4"></div><div class="content"><h2>Comprehensive Cleaning Solutions</h2><p>Your trusted partner for commercial cleaning.</p><a href="tel:9702007677" class="buttons" style="display:inline-block;">Call Us Today</a></div></div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- DEEP CLEANING PAGE -->
+        <div id="deep-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="deep-frame"></iframe>
+            <script>
+                document.getElementById('deep-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #b39a58; }
+        body { font-family:'Poppins',sans-serif; margin:0; background:#f9f9f9; }
+        .hero { background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop') center/cover; min-height:90vh; display:flex; align-items:center; justify-content:center; color:white; }
+        .hero h1 { font-size:64px; }
+        .btn { background:var(--gold); color:white; padding:14px 32px; border-radius:50px; text-decoration:none; display:inline-block; margin:8px; }
+        .section { padding:80px 20px; }
+        .flex-container { display:flex; gap:60px; align-items:center; flex-wrap:wrap; max-width:1200px; margin:auto; }
+        .text-col { flex:1; }
+        .text-col h2 { font-size:42px; }
+        .image-col { flex:1; }
+        .image-col img { width:100%; border-radius:20px; }
+        .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; max-width:1200px; margin:auto; }
+        .service-card { background:white; padding:40px; text-align:center; border-radius:15px; }
+        @media (max-width:768px){ .hero h1{font-size:36px;} .services-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div><h1>PROFESSIONAL DEEP CLEANING SERVICES</h1><a href="tel:9702007677" class="btn">Call Us: (970) 200-7677</a></div></section>
+    <section class="section"><div class="flex-container"><div class="text-col"><h2>Why Choose Our Deep Cleaning?</h2><p>Comprehensive cleaning for kitchens, bathrooms, carpets & more.</p></div><div class="image-col"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=800&auto=format&fit=crop"></div></div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- EMERGENCY PAGE -->
+        <div id="emergency-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="emergency-frame"></iframe>
+            <script>
+                document.getElementById('emergency-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family:Georgia,serif; margin:0; background:#f4f4f4; }
+        .hero { background:url('https://picsum.photos/1920/900?random=1') center/cover; padding:180px 20px; text-align:center; color:white; position:relative; }
+        .hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); }
+        .hero-content { position:relative; }
+        .hero h1 { font-size:60px; }
+        .btn { background:#b79f59; color:white; padding:15px 35px; text-decoration:none; display:inline-block; margin:10px; }
+        .info-box { background:#ece9e5; max-width:1100px; margin:auto; padding:70px; text-align:center; }
+        @media(max-width:768px){ .hero h1{font-size:36px;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div class="hero-content"><h1>OPEN 24/7/365 FOR EMERGENCY FLOODING CLEANING</h1><div><a class="btn" href="tel:9702007677">Call Now: (970) 200-7677</a></div></div></section>
+    <section style="padding:80px 20px;"><div class="info-box"><p>At Mad Dog Carpet & Tile, we provide 24/7 emergency floor cleaning services.</p></div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- HOUSE CLEANING PAGE -->
+        <div id="house-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="house-frame"></iframe>
+            <script>
+                document.getElementById('house-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:Georgia, serif; background:#f4f4f4; }
+        .hero { min-height:100vh; background:url('https://picsum.photos/1920/1080?random=1') center/cover; position:relative; display:flex; align-items:center; justify-content:center; color:white; }
+        .hero::before { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.6); }
+        .hero-content { position:relative; max-width:1000px; text-align:center; padding:20px; }
+        .hero-content h1 { font-size:60px; }
+        .buttons a { background:#b79f59; color:white; padding:14px 32px; text-decoration:none; display:inline-block; margin:10px; }
+        .badge { width:120px; height:120px; border-radius:50%; background:black; border:5px solid #b79f59; display:inline-flex; align-items:center; justify-content:center; margin:10px; }
+        .standard-section { background:#e9e6e2; padding:100px 20px; }
+        .standard-container { max-width:1200px; margin:auto; display:flex; gap:60px; align-items:center; flex-wrap:wrap; }
+        @media(max-width:768px){ .hero-content h1{font-size:36px;} .standard-container{flex-direction:column;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div class="hero-content"><h1>HOUSE CLEANING SERVICES IN LOVELAND</h1><div class="buttons"><a href="#">Get a Quote</a><a href="tel:9702007677">Call Us</a></div></div></section>
+    <section class="standard-section"><div class="standard-container"><div class="standard-image"><img src="https://picsum.photos/800/600?random=20" style="width:100%;"></div><div class="standard-content"><h2>Standard House Cleaning</h2><p>Ideal for regular maintenance cleaning.</p><a href="tel:9702007677" class="buttons" style="display:inline-block;">Call Us Today</a></div></div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- PET STAIN REMOVAL PAGE -->
+        <div id="pet-stain-removal-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="pet-frame"></iframe>
+            <script>
+                document.getElementById('pet-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family:Georgia, serif; margin:0; }
+        .hero { background:url('https://picsum.photos/1920/900?random=1') center/cover; padding:140px 20px; text-align:center; color:white; position:relative; }
+        .hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); }
+        .hero-content { position:relative; }
+        .hero h1 { font-size:64px; }
+        .btn { background:#b39a58; color:white; padding:14px 28px; text-decoration:none; display:inline-block; margin:10px; }
+        .section { padding:120px 20px; background:#f2f2f2; }
+        .container { max-width:1200px; margin:auto; display:flex; gap:60px; align-items:center; flex-wrap:wrap; }
+        .text { flex:1; }
+        .image { flex:1; }
+        .image img { width:100%; }
+        @media(max-width:768px){ .hero h1{font-size:36px;} .container{flex-direction:column;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div class="hero-content"><h1>EXPERT PET STAIN REMOVAL SERVICES</h1><div><a href="#" class="btn">Get a Quote</a><a href="tel:9702007677" class="btn">Call Us</a></div></div></section>
+    <section class="section"><div class="container"><div class="text"><h2>Why Choose Our Pet Stain Removal?</h2><p>Advanced enzyme cleaning technology removes urine, vomit, and odors.</p></div><div class="image"><img src="https://picsum.photos/800/600?random=2"></div></div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- TILE FLOOR CLEANING PAGE -->
+        <div id="tile-floor-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="tile-frame"></iframe>
+            <script>
+                document.getElementById('tile-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family:'Poppins',sans-serif; margin:0; background:#f9f9f9; }
+        .container { max-width:1200px; margin:0 auto; padding:20px; }
+        .page-header { text-align:center; padding:30px 0; }
+        .page-header h1 { font-size:48px; color:#333; }
+        .page-header h1 span { color:#25D366; }
+        .service-image { width:100%; border-radius:20px; margin:20px 0; }
+        .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin:40px 0; }
+        .feature-card { background:white; padding:25px; text-align:center; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+        .feature-icon { width:70px; height:70px; background:#f0ede3; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px; font-size:30px; color:#25D366; }
+        .button { background:#25D366; color:white; padding:15px 30px; text-decoration:none; border-radius:5px; display:inline-block; }
+        @media (max-width:768px){ .features-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header"><h1><span>Tile Floor</span> Cleaning</h1></div>
+        <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=900&auto=format&fit=crop" class="service-image">
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-border-all"></i></div><h3>Deep Grout Cleaning</h3><p>Powerful cleaning removes dirt and bacteria.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-tint"></i></div><h3>Stain Removal</h3><p>Remove tough stains.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Grout Sealing</h3><p>Protect from future stains.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Quick Drying</h3><p>Dry in under an hour.</p></div>
+        </div>
+        <div style="text-align:center; margin:40px 0;"><a href="tel:9702007677" class="button"><i class="fas fa-phone-alt"></i> Call for Free Estimate: (970) 200-7677</a></div>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- UPHOLSTERY CLEANING PAGE -->
+        <div id="upholstery-cleaning-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="upholstery-frame"></iframe>
+            <script>
+                document.getElementById('upholstery-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #b39a58; }
+        body { font-family:'Poppins',sans-serif; margin:0; }
+        .hero { background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=2070&auto=format&fit=crop') center/cover; padding:120px 20px; text-align:center; color:white; }
+        .hero h1 { font-size:64px; }
+        .btn { background:var(--gold); color:white; padding:14px 32px; border-radius:50px; text-decoration:none; display:inline-block; margin:8px; }
+        .section { padding:80px 20px; }
+        .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; max-width:1200px; margin:auto; }
+        .card { background:white; border-radius:15px; overflow:hidden; }
+        .card-top { height:260px; overflow:hidden; }
+        .card-top img { width:100%; height:100%; object-fit:cover; }
+        .card p { padding:20px; }
+        @media (max-width:768px){ .hero h1{font-size:36px;} .grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <section class="hero"><div><h1>EXPERT UPHOLSTERY CLEANING SERVICES</h1><div><a href="tel:9702007677" class="btn">Call Us: (970) 200-7677</a></div></div></section>
+    <section class="section"><div class="grid">
+        <div class="card"><div class="card-top"><img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=600&auto=format&fit=crop"></div><p>Deep Cleaning for Sofas</p></div>
+        <div class="card"><div class="card-top"><img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=600&auto=format&fit=crop"></div><p>Stain Removal</p></div>
+        <div class="card"><div class="card-top"><img src="https://images.unsplash.com/photo-1601758228040-f896b34b9c7f?q=80&w=600&auto=format&fit=crop"></div><p>Pet Stain & Odor Removal</p></div>
+        <div class="card"><div class="card-top"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=600&auto=format&fit=crop"></div><p>Steam Cleaning</p></div>
+    </div></section>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- REVIEW PAGE -->
+        <div id="review-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="review-frame"></iframe>
+            <script>
+                document.getElementById('review-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<body style="font-family:'Poppins',sans-serif; text-align:center; padding:50px;">
+    <h1><span style="color:#25D366;">Leave a</span> Review</h1>
+    <div style="background:#f5f5f5; border-radius:20px; padding:40px; max-width:600px; margin:auto;">
+        <p>We value your feedback! Please review your experience.</p>
+        <div><a href="#" style="background:#25D366; color:white; padding:10px 20px; display:inline-block; margin:5px; text-decoration:none;">Google Review</a></div>
+        <p>Call us: <strong><a href="tel:9702007677">(970) 200-7677</a></strong></p>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- BLOG PAGE -->
+        <div id="blog-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="blog-frame"></iframe>
+            <script>
+                document.getElementById('blog-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<body style="font-family:'Poppins',sans-serif; text-align:center; padding:50px;">
+    <h1><span style="color:#25D366;">Our</span> Blog</h1>
+    <div style="background:#f5f5f5; border-radius:20px; padding:50px;">
+        <p>Blog coming soon! Check back for cleaning tips and updates.</p>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="contact-frame"></iframe>
+            <script>
+                document.getElementById('contact-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<body style="font-family:'Poppins',sans-serif; padding:50px;">
+    <h1 style="text-align:center;"><span style="color:#25D366;">Contact</span> Us</h1>
+    <div style="background:#f5f5f5; border-radius:20px; padding:40px; max-width:600px; margin:auto;">
+        <p><i class="fas fa-phone" style="color:#25D366;"></i> <a href="tel:9702007677">(970) 200-7677</a></p>
+        <p>5620 Wild Plum Dr, Loveland, CO 80537</p>
+        <p>Open 24/7/365</p>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- QUOTE PAGE -->
+        <div id="quote-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="quote-frame"></iframe>
+            <script>
+                document.getElementById('quote-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<body style="font-family:'Poppins',sans-serif; text-align:center; padding:50px;">
+    <h1><span style="color:#25D366;">Free</span> Quote</h1>
+    <div style="background:#f5f5f5; border-radius:20px; padding:40px;">
+        <p>Call us today for a free, no-obligation quote.</p>
+        <a href="tel:9702007677" style="background:#25D366; color:white; padding:20px 40px; text-decoration:none; display:inline-block; font-size:24px;">Call Now: (970) 200-7677</a>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- LOCATION PAGE -->
+        <div id="location-page" class="page">
+            <iframe src="about:blank" style="width:100%; height:100vh; border:none;" id="location-frame"></iframe>
+            <script>
+                document.getElementById('location-frame').srcdoc = `<!DOCTYPE html>
+<html>
+<body style="font-family:'Poppins',sans-serif; text-align:center; padding:50px;">
+    <h1><span style="color:#25D366;" id="location-name">Location</span> Services</h1>
+    <div style="background:#f5f5f5; border-radius:20px; padding:40px;">
+        <p id="location-description">Serving this area with professional cleaning services.</p>
+        <a href="tel:9702007677" style="background:#25D366; color:white; padding:10px 20px; text-decoration:none;">Call for Service</a>
+    </div>
+</body>
+</html>`;
+            </script>
+        </div>
+
+        <!-- Footer -->
+        <div class="footerContainer" style="background:#111; color:#ccc; padding:40px 15px;">
+            <div class="container">
+                <div style="text-align:center;">
+                    <p>©2024 Mad Dog Carpet & Tile - All rights reserved.</p>
+                    <p>5620 Wild Plum Dr, Loveland, CO 80537</p>
+                    <p><a href="tel:9702007677" style="color:#25D366;">+1 970-200-7677</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <a href="tel:9702007677" style="position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:24px; text-decoration:none; z-index:99;">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Functions
+        function toggleMenu() {
+            const nav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('navOverlay');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            if (!nav.classList.contains('active')) {
+                document.querySelectorAll('.subNav.show').forEach(sub => {
+                    sub.classList.remove('show');
+                });
+                document.querySelectorAll('.navLabel.active').forEach(label => {
+                    label.classList.remove('active');
+                });
+            }
+        }
+
+        function toggleDropdown(element, event) {
+            event.stopPropagation();
+            const subNav = element.nextElementSibling;
+            subNav.classList.toggle('show');
+            element.classList.toggle('active');
+        }
+
+        // Page Switching Functions - All pages active now
+        function showHome() {
+            hideAllPages();
+            document.getElementById('home-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showAbout() {
+            hideAllPages();
+            document.getElementById('about-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showTileFloorCleaning() {
+            hideAllPages();
+            document.getElementById('tile-floor-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showPetStainRemoval() {
+            hideAllPages();
+            document.getElementById('pet-stain-removal-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showUpholsteryCleaning() {
+            hideAllPages();
+            document.getElementById('upholstery-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showDeepCleaning() {
+            hideAllPages();
+            document.getElementById('deep-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showAirDuctCleaning() {
+            hideAllPages();
+            document.getElementById('air-duct-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showCommercialCleaning() {
+            hideAllPages();
+            document.getElementById('commercial-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showHouseCleaning() {
+            hideAllPages();
+            document.getElementById('house-cleaning-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showEmergency() {
+            hideAllPages();
+            document.getElementById('emergency-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showReview() {
+            hideAllPages();
+            document.getElementById('review-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showBlog() {
+            hideAllPages();
+            document.getElementById('blog-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showContact() {
+            hideAllPages();
+            document.getElementById('contact-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showQuote() {
+            hideAllPages();
+            document.getElementById('quote-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showSchedule() {
+            alert('Please call 970-200-7677 to schedule service');
+        }
+
+        function showLocation(loc) {
+            hideAllPages();
+            document.getElementById('location-page').classList.add('active');
+            
+            // Update location name in iframe
+            const iframe = document.getElementById('location-frame');
+            iframe.onload = function() {
+                const doc = iframe.contentDocument || iframe.contentWindow.document;
+                const nameEl = doc.getElementById('location-name');
+                const descEl = doc.getElementById('location-description');
+                if (nameEl) nameEl.textContent = loc.charAt(0).toUpperCase() + loc.slice(1);
+                if (descEl) descEl.textContent = `Mad Dog Carpet & Tile proudly serves ${loc} and surrounding areas. Call us at (970) 200-7677 for a free quote!`;
+            };
+            
+            window.scrollTo(0, 0);
+        }
+
+        function hideAllPages() {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+        }
+
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                const nav = document.getElementById('mobileNav');
+                const overlay = document.getElementById('navOverlay');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                
+                // Hide all mobile dropdowns
+                document.querySelectorAll('.subNav.show').forEach(sub => {
+                    sub.classList.remove('show');
+                });
+                document.querySelectorAll('.navLabel.active').forEach(label => {
+                    label.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

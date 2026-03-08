@@ -1,806 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Mad Dog Carpet & Tile</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #fcfcfc;
-            color: #222;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Mad Dog Carpet Cleaning</title>
 
-        /* ===== NAVIGATION ===== */
-        nav {
-            background: #0f1e3a;
-            padding: 18px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        .nav-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.5px;
-            cursor: pointer;
-        }
-        .logo span {
-            color: #b6a25c;
-        }
-        .nav-links {
-            display: flex;
-            gap: 36px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: #e0e7ff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: 0.2s;
-            padding-bottom: 6px;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            border-bottom-color: #b6a25c;
-            color: white;
-        }
-        .nav-cta {
-            background: #b6a25c;
-            color: #0f1e3a !important;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 15px;
-            text-decoration: none;
-            transition: 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .nav-cta:hover {
-            background: #c7b16b;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(182,162,92,0.4);
-        }
-        .mobile-menu {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
+<style>
 
-        /* ===== PAGE HEADER ===== */
-        .page-header {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
-        .page-header h1 {
-            font-size: 52px;
-            font-weight: 800;
-            color: #0f1e3a;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-        .page-header h1 span {
-            color: #b6a25c;
-        }
-        .page-header p {
-            font-size: 18px;
-            color: #5f6b7a;
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-        .gold-underline {
-            width: 80px;
-            height: 4px;
-            background: #b6a25c;
-            margin: 20px auto 0;
-            border-radius: 2px;
-        }
+body{
+margin:0;
+font-family:Georgia, serif;
+background:#f4f4f4;
+}
 
-        /* ===== BACK LINK ===== */
-        .back-home {
-            display: inline-block;
-            margin: 30px 0 10px;
-            color: #b6a25c;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .back-home i {
-            margin-right: 8px;
-        }
-        .back-home:hover {
-            color: #8a773c;
-            transform: translateX(-5px);
-        }
+/* HERO SECTION */
 
-        /* ===== HERO SECTION ===== */
-        .about-hero {
-            background: linear-gradient(135deg, #0f1e3a 0%, #1b2c4e 100%);
-            border-radius: 40px;
-            padding: 60px;
-            margin: 30px 0 60px;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        .about-hero-content {
-            flex: 1 1 400px;
-            color: white;
-        }
-        .about-hero-content h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .about-hero-content p {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        .about-hero-image {
-            flex: 1 1 400px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        .about-hero-image img {
-            width: 100%;
-            display: block;
-            transition: transform 0.8s;
-        }
-        .about-hero-image:hover img {
-            transform: scale(1.05);
-        }
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 30px;
-        }
-        .stat-item h3 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #b6a25c;
-        }
-        .stat-item p {
-            font-size: 14px;
-            opacity: 0.8;
-            margin: 0;
-        }
+.about-hero{
+height:100vh;
+background:url("https://picsum.photos/1600/900?random=1") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+color:white;
+padding:20px;
+}
 
-        /* ===== MISSION SECTION ===== */
-        .mission-section {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            margin: 80px 0;
-            flex-wrap: wrap;
-            background: #f8fafc;
-            border-radius: 50px;
-            padding: 50px;
-        }
-        .mission-text {
-            flex: 1 1 400px;
-        }
-        .mission-text h2 {
-            font-size: 38px;
-            font-weight: 700;
-            color: #0f1e3a;
-            margin-bottom: 25px;
-        }
-        .mission-text p {
-            font-size: 18px;
-            color: #334155;
-            margin-bottom: 20px;
-        }
-        .mission-image {
-            flex: 1 1 400px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .mission-image img {
-            width: 100%;
-            display: block;
-        }
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+}
 
-        /* ===== VALUES SECTION ===== */
-        .values-section {
-            text-align: center;
-            margin: 80px 0;
-        }
-        .values-section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            color: #0f1e3a;
-            margin-bottom: 20px;
-        }
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .value-card {
-            background: white;
-            border-radius: 30px;
-            padding: 40px 25px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border: 1px solid #f0f2f6;
-        }
-        .value-card:hover {
-            transform: translateY(-12px);
-            border-color: #b6a25c;
-        }
-        .value-icon {
-            background: #f7f2e9;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 40px;
-            color: #b6a25c;
-        }
-        .value-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .value-card p {
-            color: #5d6b82;
-            font-size: 15px;
-        }
+.about-content{
+max-width:1000px;
+position:relative;
+z-index:2;
+}
 
-        /* ===== TEAM SECTION ===== */
-        .team-section {
-            margin: 80px 0;
-            text-align: center;
-        }
-        .team-section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            color: #0f1e3a;
-            margin-bottom: 20px;
-        }
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .team-card {
-            background: white;
-            border-radius: 30px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(182,162,92,0.15);
-        }
-        .team-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            border: 5px solid #f5efe3;
-        }
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .team-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        .team-card p {
-            color: #b6a25c;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        .team-social a {
-            display: inline-block;
-            margin: 0 8px;
-            color: #5d6b82;
-            font-size: 18px;
-            transition: 0.2s;
-        }
-        .team-social a:hover {
-            color: #b6a25c;
-            transform: translateY(-3px);
-        }
+.about-content h1{
+font-size:52px;
+line-height:1.2;
+margin-bottom:30px;
+}
 
-        /* ===== TIMELINE SECTION ===== */
-        .timeline-section {
-            background: #f8fafc;
-            border-radius: 50px;
-            padding: 60px;
-            margin: 80px 0;
-        }
-        .timeline-section h2 {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 700;
-            color: #0f1e3a;
-            margin-bottom: 50px;
-        }
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: #b6a25c;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 4px solid #b6a25c;
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        .timeline-item.left {
-            left: 0;
-        }
-        .timeline-item.right {
-            left: 50%;
-        }
-        .timeline-item.left::after {
-            right: -10px;
-        }
-        .timeline-item.right::after {
-            left: -10px;
-        }
-        .timeline-content {
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        .timeline-content h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #b6a25c;
-            margin-bottom: 5px;
-        }
-        .timeline-content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+.about-content p{
+font-size:20px;
+line-height:1.7;
+color:#ddd;
+margin-bottom:40px;
+}
 
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: linear-gradient(135deg, #0f1e3a, #1f3460);
-            border-radius: 50px;
-            padding: 60px;
-            color: white;
-            text-align: center;
-            margin: 60px 0;
-        }
-        .cta-section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .cta-section p {
-            font-size: 18px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        .btn-gold {
-            background: #b6a25c;
-            color: #0f1e3a;
-            padding: 16px 42px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-            box-shadow: 0 15px 25px -8px #b6a25c;
-            cursor: pointer;
-        }
-        .btn-gold:hover {
-            background: #9f8c4c;
-            transform: translateY(-3px);
-        }
+.about-content span{
+color:#d4af37;
+}
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: #0f1e3a;
-            color: #d1dae6;
-            padding: 60px 0 30px;
-            margin-top: 70px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 40px;
-        }
-        .footer-col h4 {
-            color: white;
-            font-size: 18px;
-            margin-bottom: 26px;
-            border-left: 3px solid #b6a25c;
-            padding-left: 16px;
-        }
-        .footer-col p {
-            color: #a7b5cc;
-            margin-bottom: 22px;
-        }
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin: 14px 0;
-        }
-        .footer-col ul li a {
-            color: #b1c0d9;
-            text-decoration: none;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .footer-col ul li a:hover {
-            color: #b6a25c;
-            padding-left: 4px;
-        }
-        .social-gold a {
-            display: inline-block;
-            background: #1e3460;
-            color: white;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 44px;
-            margin-right: 12px;
-            transition: 0.2s;
-        }
-        .social-gold a:hover {
-            background: #b6a25c;
-            transform: translateY(-4px);
-        }
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #1e3460;
-            margin-top: 50px;
-            padding-top: 30px;
-            color: #7b8aa3;
-            font-size: 14px;
-        }
+.quote-btn{
+background:white;
+color:black;
+padding:14px 28px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin-bottom:50px;
+transition:0.3s;
+}
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu { display: block; }
-            .values-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .about-hero { flex-direction: column; padding: 30px; }
-            .mission-section { flex-direction: column; padding: 30px; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item.right { left: 0; }
-            .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
-        }
-    </style>
+.quote-btn:hover{
+background:#d4af37;
+color:black;
+}
+
+.badges{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:35px;
+}
+
+.badge{
+width:130px;
+height:130px;
+border-radius:50%;
+background:black;
+border:4px solid #d4af37;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:13px;
+padding:10px;
+}
+
+/* MISSION SECTION */
+
+.mission-section{
+padding:120px 20px;
+text-align:center;
+background:white;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.stars{
+color:#d4af37;
+font-size:40px;
+letter-spacing:8px;
+margin-bottom:10px;
+}
+
+.experience{
+color:#c8a96a;
+letter-spacing:3px;
+font-size:14px;
+margin-bottom:40px;
+}
+
+.mission-section h2{
+font-size:44px;
+margin-bottom:20px;
+color:#222;
+}
+
+.vision-title{
+margin-top:70px;
+}
+
+.text{
+font-size:20px;
+line-height:1.8;
+color:#4a4a4a;
+}
+
+/* COMMITMENT SECTION */
+
+.commitment-section{
+display:flex;
+min-height:600px;
+background:#e9e7e4;
+}
+
+.commitment-image{
+width:50%;
+}
+
+.commitment-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.commitment-content{
+width:50%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:80px;
+}
+
+.commitment-content h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.commitment-content p{
+font-size:20px;
+line-height:1.7;
+color:#4a4a4a;
+max-width:550px;
+margin-bottom:40px;
+}
+
+/* SCHEDULE SECTION */
+
+.schedule-section{
+height:500px;
+background:url("https://picsum.photos/1600/900?random=10") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+color:white;
+}
+
+.schedule-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+}
+
+.schedule-content{
+position:relative;
+z-index:2;
+max-width:800px;
+padding:20px;
+}
+
+.schedule-content h2{
+font-size:56px;
+margin-bottom:20px;
+font-weight:500;
+}
+
+.schedule-content p{
+font-size:22px;
+line-height:1.6;
+color:#ddd;
+margin-bottom:40px;
+}
+
+.schedule-btn{
+background:#c9b06a;
+color:black;
+padding:16px 36px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:0.3s;
+display:inline-block;
+}
+
+.schedule-btn:hover{
+background:#b89c4c;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.about-content h1{
+font-size:30px;
+}
+
+.about-content p{
+font-size:16px;
+}
+
+.badge{
+width:90px;
+height:90px;
+font-size:11px;
+}
+
+.mission-section h2{
+font-size:30px;
+}
+
+.text{
+font-size:16px;
+}
+
+.stars{
+font-size:28px;
+}
+
+.commitment-section{
+flex-direction:column;
+}
+
+.commitment-image,
+.commitment-content{
+width:100%;
+}
+
+.commitment-content{
+padding:40px 20px;
+}
+
+.schedule-content h2{
+font-size:34px;
+}
+
+.schedule-content p{
+font-size:16px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-    <!-- navigation -->
-    <nav>
-        <div class="container nav-row">
-            <div class="logo" onclick="goHome()">MAD DOG <span>Carpet & Tile</span></div>
-            <ul class="nav-links">
-                <li><a onclick="goHome()">Home</a></li>
-                <li><a onclick="window.location.href='about.html'" class="active">About Us</a></li>
-                <li><a onclick="goToServices()">Services</a></li>
-                <li><a onclick="goToLocations()">Locations</a></li>
-                <li><a onclick="goToContact()">Contact</a></li>
-            </ul>
-            <a href="tel:9702007677" class="nav-cta"><i class="fas fa-phone-alt"></i> (970) 200-7677</a>
-            <div class="mobile-menu" onclick="alert('Mobile menu would open')"><i class="fas fa-bars"></i></div>
-        </div>
-    </nav>
 
-    <!-- main content -->
-    <div class="container">
-        <!-- back link -->
-        <a href="#" onclick="goHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+<!-- HERO SECTION -->
 
-        <!-- page header -->
-        <div class="page-header">
-            <h1><span>About</span> Our Company</h1>
-            <p>Family-owned, eco-conscious, and dedicated to pristine floors since 2010</p>
-            <div class="gold-underline"></div>
-        </div>
+<section class="about-hero">
 
-        <!-- hero section -->
-        <div class="about-hero">
-            <div class="about-hero-content">
-                <h2>Mad Dog Carpet & Tile</h2>
-                <p>We're not just another cleaning company – we're your neighbors in Loveland, passionate about delivering exceptional results with eco-friendly practices. Since 2010, we've been helping homes and businesses shine.</p>
-                <div class="hero-stats">
-                    <div class="stat-item"><h3>15+</h3><p>Years Experience</p></div>
-                    <div class="stat-item"><h3>5k+</h3><p>Homes Cleaned</p></div>
-                    <div class="stat-item"><h3>24/7</h3><p>Emergency Service</p></div>
-                </div>
-            </div>
-            <div class="about-hero-image">
-                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="Our team">
-            </div>
-        </div>
+<div class="overlay"></div>
 
-        <!-- mission section -->
-        <div class="mission-section">
-            <div class="mission-text">
-                <h2>Our Mission</h2>
-                <p>To provide exceptional cleaning services that not only transform your space but also protect your family and the environment. We believe a clean home shouldn't come at the cost of the earth.</p>
-                <p>Every service we offer uses eco-friendly, non-toxic products that are safe for children, pets, and sensitive individuals – without compromising on cleaning power.</p>
-                <p><i class="fas fa-check-circle" style="color: #b6a25c;"></i> 100% satisfaction guaranteed</p>
-            </div>
-            <div class="mission-image">
-                <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="Our mission">
-            </div>
-        </div>
+<div class="about-content">
 
-        <!-- values section -->
-        <div class="values-section">
-            <h2>Our Core Values</h2>
-            <p>The principles that guide everything we do</p>
-            <div class="gold-underline" style="margin-bottom: 30px;"></div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Eco-Friendly</h3>
-                    <p>We use only green, non-toxic products safe for your family and the planet.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>Integrity</h3>
-                    <p>Honest pricing, transparent communication, and reliable service.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-star"></i></div>
-                    <h3>Excellence</h3>
-                    <p>We never cut corners – your satisfaction is our top priority.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-clock"></i></div>
-                    <h3>24/7 Availability</h3>
-                    <p>Emergencies don't wait, and neither do we. Always here when you need us.</p>
-                </div>
-            </div>
-        </div>
+<h1>
+About Mad Dog Carpet and Tile Cleaning – Your Trusted Cleaning Company in Loveland
+</h1>
 
-        <!-- timeline / history -->
-        <div class="timeline-section">
-            <h2>Our Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2010</h3>
-                        <h4>Humble Beginnings</h4>
-                        <p>Started as a one-man operation in Loveland with a single truck and a dream.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2014</h3>
-                        <h4>Eco-Friendly Commitment</h4>
-                        <p>Transitioned to 100% green, non-toxic cleaning products.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2018</h3>
-                        <h4>Expansion</h4>
-                        <p>Grew to a team of 12 professionals and added commercial services.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2022</h3>
-                        <h4>5,000+ Homes</h4>
-                        <p>Celebrated cleaning over 5,000 homes and 200+ commercial spaces.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Today</h3>
-                        <h4>Still Growing</h4>
-                        <p>Proudly serving all of Northern Colorado with the same dedication.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<p>
+<span>Mad Dog Carpet and Tile Cleaning</span> is the premier cleaning company in Loveland, dedicated to helping homeowners maintain clean, fresh, and allergen-free spaces.
+</p>
 
-        <!-- team section -->
-        <div class="team-section">
-            <h2>Meet Our Team</h2>
-            <p>The friendly faces behind your clean home</p>
-            <div class="gold-underline" style="margin-bottom: 30px;"></div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="John Smith">
-                    </div>
-                    <h3>John Smith</h3>
-                    <p>Founder & CEO</p>
-                    <p style="color: #5d6b82; font-size: 14px;">15+ years experience. Passionate about eco-friendly cleaning.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Sarah Johnson">
-                    </div>
-                    <h3>Sarah Johnson</h3>
-                    <p>Operations Manager</p>
-                    <p style="color: #5d6b82; font-size: 14px;">Ensures every job meets our high standards.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" alt="Mike Davis">
-                    </div>
-                    <h3>Mike Davis</h3>
-                    <p>Lead Technician</p>
-                    <p style="color: #5d6b82; font-size: 14px;">10+ years in carpet and tile cleaning.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<a href="#" class="quote-btn">Get a Quote</a>
 
-        <!-- cta section -->
-        <div class="cta-section">
-            <h2>Ready to experience the Mad Dog difference?</h2>
-            <p>Join thousands of happy customers who trust us with their homes and businesses.</p>
-            <a href="tel:9702007677" class="btn-gold"><i class="fas fa-phone-alt"></i> Call (970) 200-7677</a>
-            <p style="margin-top: 20px; font-size: 16px; opacity: 0.8;">or <a href="#" onclick="alert('Schedule online')" style="color: #b6a25c; text-decoration: underline;">book online</a></p>
-        </div>
-    </div>
+<div class="badges">
 
-    <!-- footer -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>MAD DOG CARPET & TILE</h4>
-                <p>Professional, eco‑friendly cleaning for homes and businesses. 24/7 emergency service. Family-owned since 2010.</p>
-                <div class="social-gold">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>EXPLORE</h4>
-                <ul>
-                    <li><a onclick="goHome()">Home</a></li>
-                    <li><a onclick="window.location.href='about.html'">About us</a></li>
-                    <li><a onclick="goToServices()">Services</a></li>
-                    <li><a onclick="goToLocations()">Locations</a></li>
-                    <li><a onclick="goToContact()">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>SERVICES</h4>
-                <ul>
-                    <li><a onclick="goToService('carpet')">Carpet cleaning</a></li>
-                    <li><a onclick="goToService('tile')">Tile & grout</a></li>
-                    <li><a onclick="goToService('airduct')">Air duct cleaning</a></li>
-                    <li><a onclick="goToService('upholstery')">Upholstery</a></li>
-                    <li><a onclick="goToService('deep')">Deep cleaning</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>CONTACT</h4>
-                <ul>
-                    <li><i class="fas fa-phone" style="color:#b6a25c;"></i> (970) 200-7677</li>
-                    <li><i class="fas fa-envelope" style="color:#b6a25c;"></i> hello@maddogcarpet.com</li>
-                    <li><i class="fas fa-map-marker-alt" style="color:#b6a25c;"></i> 5620 Wild Plum Dr, Loveland, CO</li>
-                </ul>
-            </div>
-        </div>
-        <div class="container copyright">
-            <p>© 2026 Mad Dog Carpet & Tile – All rights reserved. | Designed for a cleaner home</p>
-        </div>
-    </footer>
+<div class="badge">Serving<br>Northern Colorado</div>
+<div class="badge">20% Discount<br>For Veterans</div>
+<div class="badge">Locally Owned<br>& Operated</div>
+<div class="badge">Eco Friendly<br>Products</div>
 
-    <script>
-        // Navigation functions
-        function goHome() {
-            window.location.href = 'index.html';
-        }
-        
-        function goToServices() {
-            alert('Services page - would navigate to services.html');
-        }
-        
-        function goToLocations() {
-            alert('Locations page');
-        }
-        
-        function goToContact() {
-            alert('Contact page');
-        }
-        
-        function goToService(service) {
-            alert(service + ' service page');
-        }
-    </script>
+</div>
+
+</div>
+
+</section>
+
+<!-- MISSION SECTION -->
+
+<section class="mission-section">
+
+<div class="container">
+
+<div class="stars">★★★★★</div>
+
+<p class="experience">5 STAR EXPERIENCE</p>
+
+<h2>Our Mission</h2>
+
+<p class="text">
+At Mad Dog Carpet & Tile, our mission is to bring luxury and sophistication to your home through our specialized floor cleaning services.
+</p>
+
+<h2 class="vision-title">Our Vision</h2>
+
+<p class="text">
+We envision a future where every home radiates elegance and comfort through impeccably maintained floors.
+</p>
+
+</div>
+
+</section>
+
+<!-- COMMITMENT SECTION -->
+
+<section class="commitment-section">
+
+<div class="commitment-image">
+<img src="https://picsum.photos/900/800?random=2">
+</div>
+
+<div class="commitment-content">
+
+<h2>Our Commitment</h2>
+
+<p>
+We take pride in using environmentally safe products and innovative techniques to ensure thorough and impeccable cleaning.
+</p>
+
+<a href="#" class="quote-btn">Get A Quote</a>
+
+</div>
+
+</section>
+
+<!-- SCHEDULE SECTION -->
+
+<section class="schedule-section">
+
+<div class="schedule-overlay"></div>
+
+<div class="schedule-content">
+
+<h2>Schedule a Cleaning Today</h2>
+
+<p>
+Experience the difference of Mad Dog Carpet & Tile — where eco-friendly cleaning meets professional excellence.
+</p>
+
+<a href="#" class="schedule-btn">Get A Quote</a>
+
+</div>
+
+</section>
+
 </body>
 </html>
