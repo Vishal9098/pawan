@@ -6,6 +6,68 @@
     <title>Mad Dog Carpet & Tile Cleaning</title>
     <style>
         /* ===== RESET & BASE ===== */
+        /* HERO SECTION */
+.hero-section{
+    position: relative;
+    background: url("https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop") center/cover no-repeat;
+    min-height: 520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+}
+
+.hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+    position:relative;
+    max-width:900px;
+    z-index:2;
+}
+
+.hero-content p{
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-size:38px;
+    font-weight:700;
+    color:#e2c27c;
+    margin-bottom:25px;
+    letter-spacing:2px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+.hero-btn{
+    background:#bfa463;
+    padding:14px 24px;
+    color:white;
+    font-weight:600;
+    border-radius:4px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#a89055;
+}
         * {
             margin: 0;
             padding: 0;
@@ -816,6 +878,10 @@
                 display: block;
             }
             
+            .mobile-menu {
+                display: block;
+            }
+            
             .pageTitle {
                 font-size: 28px;
             }
@@ -897,7 +963,7 @@
                             <div class="headerContainer">
                                 <header class="headerContent">
                                     <h1 class="logo">
-                                        <a href="/" onclick="loadPage('home'); return false;">
+                                        <a href="#" onclick="loadPage('home'); return false;">
                                             <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c3d6eac07a864eb8b2cc3848e658c6f6/1/5feFb8zhrk/mad%20dog.png?dpr=3" alt="Mad Dog Carpet &amp; Tile">
                                         </a>
                                     </h1>
@@ -922,6 +988,8 @@
                                             <span class="navLabel">Locations <span class="dropArrow">▾</span></span>
                                             <ul class="subNav">
                                                 <li><a href="#" onclick="loadPage('boulder'); return false;">Boulder</a></li>
+                                                <li><a href="#" onclick="loadPage('loveland'); return false;">Loveland</a></li>
+                                                <li><a href="#" onclick="loadPage('fortcollins'); return false;">Fort Collins</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#" onclick="loadPage('emergency'); return false;" id="nav-emergency">Emergency</a></li>
@@ -934,6 +1002,8 @@
                                                 <li><a href="#" onclick="loadPage('blog'); return false;">Blog</a></li>
                                                 <li><a href="#" onclick="loadPage('contact'); return false;">Contact Us</a></li>
                                                 <li><a href="#" onclick="loadPage('quote'); return false;">Free Quote</a></li>
+                                                <li><a href="#" onclick="loadPage('privacy'); return false;">Privacy Policy</a></li>
+                                                <li><a href="#" onclick="loadPage('terms'); return false;">Terms</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="tel:9702007677" class="button navButton">Call Us: (970) 200-7677</a></li>
@@ -980,6 +1050,8 @@
                             </div>
                             <ul class="subNav-mobile">
                                 <li><a href="#" onclick="loadPage('boulder'); toggleMobileMenu(); return false;">Boulder</a></li>
+                                <li><a href="#" onclick="loadPage('loveland'); toggleMobileMenu(); return false;">Loveland</a></li>
+                                <li><a href="#" onclick="loadPage('fortcollins'); toggleMobileMenu(); return false;">Fort Collins</a></li>
                             </ul>
                         </li>
                         <li><a href="#" onclick="loadPage('emergency'); toggleMobileMenu(); return false;">Emergency Floor Cleaning</a></li>
@@ -994,6 +1066,8 @@
                                 <li><a href="#" onclick="loadPage('blog'); toggleMobileMenu(); return false;">Blog</a></li>
                                 <li><a href="#" onclick="loadPage('contact'); toggleMobileMenu(); return false;">Contact Us</a></li>
                                 <li><a href="#" onclick="loadPage('quote'); toggleMobileMenu(); return false;">Free Quote</a></li>
+                                <li><a href="#" onclick="loadPage('privacy'); toggleMobileMenu(); return false;">Privacy Policy</a></li>
+                                <li><a href="#" onclick="loadPage('terms'); toggleMobileMenu(); return false;">Terms</a></li>
                             </ul>
                         </li>
                         <li><a href="tel:9702007677" class="button navButton" style="text-align: center;">Call Us: (970) 200-7677</a></li>
@@ -1019,7 +1093,7 @@
                         <div class="footerInner">
                             <div class="socialIconsContainer">
                                 <ul class="socialIcons">
-                                    <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MadDogCarpetandTileCleaning" class="zocial facebook" aria-label="facebook">f</a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MadDogCarpetandTileCleaning" aria-label="facebook">f</a></li>
                                 </ul>
                             </div>
                             <div class="footer-links">
@@ -1053,11 +1127,17 @@
         </div>
     </div>
 
+    <!-- Floating Action Button -->
+    <a href="tel:9702007677" style="position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:24px; text-decoration:none; z-index:99; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+
     <script>
         // Page content data
         const pages = {
+
             home: {
-                title: 'Carpet Cleaning Loveland - Mad Dog Carpet and Tile Cleaning',
+                title: 'Home - Mad Dog Carpet & Tile Cleaning',
                 content: `
                     <div class="pageTitleContainer">
                         <div class="blockContent">
@@ -1194,16 +1274,11 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
                                 <div class="blockInnerContent">
-                                    <p><strong>What areas do you serve?</strong></p>
-                                    <p>We serve Loveland and all of Larimer County.</p>
-                                    <p><strong>How often should I clean my carpets?</strong></p>
-                                    <p>We recommend professional cleaning every 6-12 months.</p>
-                                    <p><strong>Do you use eco-friendly cleaning products?</strong></p>
-                                    <p>Yes, we use safe, eco-friendly solutions for all our services.</p>
-                                    <p><strong>Can you remove tough stains?</strong></p>
-                                    <p>Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
-                                    <p><strong>How long does carpet cleaning take?</strong></p>
-                                    <p>Most jobs are completed within 2-4 hours.</p>
+                                    <p><strong>What areas do you serve?</strong> We serve Loveland and all of Larimer County.</p>
+                                    <p><strong>How often should I clean my carpets?</strong> We recommend professional cleaning every 6-12 months.</p>
+                                    <p><strong>Do you use eco-friendly cleaning products?</strong> Yes, we use safe, eco-friendly solutions for all our services.</p>
+                                    <p><strong>Can you remove tough stains?</strong> Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
+                                    <p><strong>How long does carpet cleaning take?</strong> Most jobs are completed within 2-4 hours.</p>
                                 </div>
                             </div>
                         </div>
@@ -1239,7 +1314,7 @@
                             <div class="itemsCollectionContent">
                                 <div class="item itemPreview">
                                     <div class="itemContent">
-                                        <h2 class="contentTitle">About Mad Dog Carpet and Tile Cleaning – Your Trusted Cleaning Company in Loveland</h2>
+                                        <h2 class="contentTitle">Your Trusted Cleaning Company in Loveland</h2>
                                         <div class="itemInnerContent">
                                             <p>Mad Dog Carpet and Tile Cleaning is the premier cleaning company in Loveland, dedicated to helping small business owners and homeowners maintain clean, fresh, and allergen-free spaces.</p>
                                             <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
@@ -1259,13 +1334,13 @@
                                     <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 Star"></div>
                                     <div class="itemContent">
                                         <h2 class="contentTitle">Our Mission</h2>
-                                        <div class="itemInnerContent"><p>At Mad Dog Carpet & Tile, our mission is to bring a touch of luxury and sophistication to your home through our specialized floor cleaning services.</p></div>
+                                        <div class="itemInnerContent"><p>To bring a touch of luxury and sophistication to your home through our specialized floor cleaning services. With a focus on sustainable practices and meticulous attention to detail.</p></div>
                                     </div>
                                 </div>
                                 <div class="item itemPreview">
                                     <div class="itemContent">
                                         <h2 class="contentTitle">Our Vision</h2>
-                                        <div class="itemInnerContent"><p>We envision a future where every home radiates elegance and comfort through impeccably maintained floors.</p></div>
+                                        <div class="itemInnerContent"><p>We envision a future where every home radiates elegance and comfort through impeccably maintained floors, setting new standards in quality and sustainability.</p></div>
                                     </div>
                                 </div>
                             </div>
@@ -1273,11 +1348,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e6b27d39378d44b9b96b6a9e1945545a/1/4SoifmQp45JMgBnHndfLg/CTA_Area%20Rug.jpg?dpr=3" alt="pet stain"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2074&auto=format&fit=crop" alt="commitment"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Our Commitment</h2>
                                 <div class="blockInnerContent">
-                                    <p>We take pride in using environmentally safe products and innovative techniques to ensure thorough and impeccable cleaning for your floors.</p>
+                                    <p>We take pride in using environmentally safe products and innovative techniques to ensure thorough and impeccable cleaning for your floors. Trust our professional floor cleaners to transform your living space with care and expertise.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
                                 </div>
                             </div>
@@ -1297,7 +1372,7 @@
                 `
             },
             commercial: {
-                title: 'Commercial Cleaning Services - Mad Dog Carpet & Tile',
+                title: 'Commercial Cleaning - Mad Dog Carpet & Tile',
                 content: `
                     <div class="pageTitleContainer">
                         <div class="blockContent">
@@ -1333,7 +1408,7 @@
                                 <div class="item itemPreview">
                                     <div class="itemContent">
                                         <div class="itemInnerContent">
-                                            <p>Discover the exceptional difference of Mad Dog Carpet & Tile, your trusted provider of eco-friendly commercial cleaning services in Loveland, CO.</p>
+                                            <p>Discover the exceptional difference of Mad Dog Carpet & Tile, your trusted provider of eco-friendly commercial cleaning services in Loveland, CO. Our expert team specializes in maintaining the cleanliness and care of carpets, area rugs, and tile floors, ensuring your business environment is spotless and inviting.</p>
                                             <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
                                         </div>
                                     </div>
@@ -1343,11 +1418,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/eae6dbf7c56b416bb8d2f0ff651506e7/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning_IMG-1.png?dpr=3" alt="grout cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="commercial cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Comprehensive Cleaning Solutions</h2>
                                 <div class="blockInnerContent">
-                                    <p>At Mad Dog Carpet & Tile, we are your trusted partner for top-quality commercial cleaning services in Loveland, CO.</p>
+                                    <p>At Mad Dog Carpet & Tile, we are your trusted partner for top-quality commercial cleaning services in Loveland, CO. Our experienced team specializes in providing comprehensive floor cleaning solutions tailored to the unique needs of commercial properties.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
                                 </div>
                             </div>
@@ -1355,11 +1430,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutD hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae007117a0bc49838f0dcd978a8092a0/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning%20IMG-2.png?dpr=3" alt="steaming carpets"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9a4f3e5?q=80&w=2069&auto=format&fit=crop" alt="steaming carpets"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">All-Natural Carpet Cleaning Solutions for a Healthier Workplace</h2>
                                 <div class="blockInnerContent">
-                                    <p>We prioritize the health and well-being of your employees and clients by only using all-natural carpet cleaning solutions.</p>
+                                    <p>We prioritize the health and well-being of your employees and clients by only using all-natural carpet cleaning solutions that are safe for the environment and free of harsh chemicals.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
                                 </div>
                             </div>
@@ -1372,7 +1447,7 @@
                                     <div class="itemContent">
                                         <h2 class="contentTitle">State-of-the-Art Cleaning Equipment</h2>
                                         <div class="itemInnerContent">
-                                            <p>For consistent and exceptional results, we invest in the most advanced cleaning equipment.</p>
+                                            <p>For consistent and exceptional results, we invest in the most advanced cleaning equipment. We have a wide range of equipment that is designed to provide deep cleaning, faster drying times, and superior stain removal.</p>
                                             <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
                                         </div>
                                     </div>
@@ -1382,11 +1457,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cf9c64a203484760bbd57e9a02fb961a/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning%203.png?dpr=3" alt="buffing tiles"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop" alt="buffing tiles"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Customized Cleaning Solutions</h2>
                                 <div class="blockInnerContent">
-                                    <p>Our wide range of state-of-the-art tools is specifically designed to provide deep cleaning, faster drying times, and superior stain removal.</p>
+                                    <p>Our wide range of state-of-the-art tools is specifically designed to provide deep cleaning, faster drying times, and superior stain removal. Whether you have heavily soiled carpets or stubborn grout stains, we have the perfect solution to restore the exceptional cleanliness of your workspace.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
                                 </div>
                             </div>
@@ -1397,7 +1472,7 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Schedule a Commercial Cleaning Today</h2>
                                 <div class="blockInnerContent">
-                                    <p>When you partner with Mad Dog Carpet & Tile for your commercial cleaning services in Loveland, CO, you can expect professionalism, reliability, and outstanding results.</p>
+                                    <p>When you partner with Mad Dog Carpet & Tile for your commercial cleaning services in Loveland, CO, you can expect professionalism, reliability, and outstanding results. Our team is committed to providing superior floor cleaning solutions that not only enhance the beauty but also improve the cleanliness of your commercial space.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a></p>
                                 </div>
                             </div>
@@ -1406,7 +1481,7 @@
                 `
             },
             house: {
-                title: 'House Cleaning Services - Mad Dog Carpet & Tile',
+                title: 'House Cleaning - Mad Dog Carpet & Tile',
                 content: `
                     <div class="pageTitleContainer">
                         <div class="blockContent">
@@ -1446,7 +1521,7 @@
                                 <div class="item itemPreview">
                                     <div class="itemContent">
                                         <div class="itemInnerContent">
-                                            <p>At Mad Dog Carpet and Tile Cleaning, we specialize in providing top-notch house cleaning services to residents in Loveland and across Larimer County.</p>
+                                            <p>At Mad Dog Carpet and Tile Cleaning, we specialize in providing top-notch house cleaning services to residents in Loveland and across Larimer County. Whether you need residential cleaning for your home, a thorough deep cleaning service, or a seasonal spring cleaning service, we've got you covered.</p>
                                             <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
                                         </div>
                                     </div>
@@ -1459,14 +1534,14 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Our House Cleaning Services in Loveland, CO</h2>
                                 <div class="blockInnerContent">
-                                    <p>At Mad Dog Carpet & Tile, we take pride in delivering high-quality, detail-oriented cleaning services tailored to your home's needs.</p>
+                                    <p>At Mad Dog Carpet & Tile, we take pride in delivering high-quality, detail-oriented cleaning services tailored to your home's needs. Our team of experienced professionals ensures every corner is spotless, creating a healthier and more comfortable living environment.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e475439a4cd347adb3d68d60e38c48c3/1/4SoifmQp45JMgBnHndfLg/Untitled%20design%20%252823%2529.png?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=2070&auto=format&fit=crop" alt="standard cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Standard House Cleaning</h2>
                                 <div class="blockInnerContent">
@@ -1484,7 +1559,7 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutD hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/dd081cf88e0a461ca56e82eafc898891/1/4SoifmQp45JMgBnHndfLg/deep-cleaning-services--no-people%20%25281%2529.jpg?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="deep cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Deep Cleaning Services</h2>
                                 <div class="blockInnerContent">
@@ -1502,11 +1577,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b5bcf5bdee8545ae8e1acc7dbc29eea4/1/4SoifmQp45JMgBnHndfLg/residential-cleaning-service--without-people-face.jpg?dpr=3" alt="move cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="move cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Move-In/Move-Out Cleaning</h2>
                                 <div class="blockInnerContent">
-                                    <p>Moving? Our move-out cleaning services ensure you leave your space spotless.</p>
+                                    <p>Moving? Our move-out cleaning services ensure you leave your space spotless. Includes thorough scrubbing of all surfaces, cabinet and drawer cleaning, window cleaning (inside and outside), and floor stain removal.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us Today</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
                                 </div>
                             </div>
@@ -1558,11 +1633,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae34d91498d94133b10c69208382c2df/1/4SoifmQp45JMgBnHndfLg/Emergency%201.png?dpr=3" alt="emergency"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="emergency"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Professional Team Ready to Assist You</h2>
                                 <div class="blockInnerContent">
-                                    <p>Our dedicated team at Mad Dog Carpet & Tile is committed to providing prompt and professional emergency floor cleaning services when you need them most.</p>
+                                    <p>Our dedicated team at Mad Dog Carpet & Tile is committed to providing prompt and professional emergency floor cleaning services when you need them most. We understand the importance of acting quickly to minimize damage and ensure the safety of your property.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
                                 </div>
                             </div>
@@ -1570,11 +1645,11 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutD hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/d4fa7b9406f74c38a08e3681f492ed4c/1/4SoifmQp45JMgBnHndfLg/Emergency%202.png?dpr=3" alt="emergency"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="emergency cleanup"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Comprehensive Emergency Floor Cleaning Solutions</h2>
                                 <div class="blockInnerContent">
-                                    <p>From water extraction and drying to sanitization and deodorization, our emergency floor cleaning services cover all aspects of restoring your space.</p>
+                                    <p>From water extraction and drying to sanitization and deodorization, our emergency floor cleaning services cover all aspects of restoring your space after a flooding incident. We use advanced equipment and techniques to remove excess water, dry affected areas, and prevent mold growth.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
                                 </div>
                             </div>
@@ -1585,7 +1660,7 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Contact Mad Dog Carpet & Tile for Emergency Floor Cleaning Services</h2>
                                 <div class="blockInnerContent">
-                                    <p>Don't wait until it's too late to address emergency floor cleaning needs. Contact Mad Dog Carpet & Tile today for immediate assistance.</p>
+                                    <p>Don't wait until it's too late to address emergency floor cleaning needs. Contact Mad Dog Carpet & Tile today for immediate assistance and professional solutions to restore your space after a flooding incident. Our 24/7 emergency services ensure that help is always just a phone call away.</p>
                                     <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a></p>
                                 </div>
                             </div>
@@ -1603,12 +1678,24 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ef138729e0a54175a53d7e158b9e1719/1/4SoifmQp45JMgBnHiCNTW/CTA_Tile.jpg?dpr=3" alt="tile cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=2070&auto=format&fit=crop" alt="tile cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Professional Tile and Grout Cleaning</h2>
                                 <div class="blockInnerContent">
-                                    <p>Restore the beauty of your tile floors with our professional cleaning services. We remove dirt, grime, and mold from grout lines.</p>
+                                    <p>Restore the beauty of your tile floors with our professional cleaning services. We remove dirt, grime, and mold from grout lines, leaving your tiles looking like new. Our specialized equipment and eco-friendly solutions ensure deep cleaning without damaging your floors.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>We are proud to be the highest-rated tile cleaning service in Loveland!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1625,12 +1712,24 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e6b27d39378d44b9b96b6a9e1945545a/1/4SoifmQp45JMgBnHiCNTW/CTA_Area%20Rug.jpg?dpr=3" alt="pet stain"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=1974&auto=format&fit=crop" alt="pet stain removal"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Expert Pet Stain and Odor Removal</h2>
                                 <div class="blockInnerContent">
-                                    <p>Our specialized treatments neutralize pet odors and clean pet-related stains effectively.</p>
+                                    <p>Our specialized treatments neutralize pet odors and clean pet-related stains effectively. We use enzyme-based cleaners that break down urine, vomit, and feces at the molecular level, ensuring complete removal of stains and odors. Safe for pets and family!</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>Trusted by pet owners throughout Northern Colorado!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1647,12 +1746,24 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ced4aca1c6d6480ea970f6b6a65c3517/1/4SoifmQp45JMgBnHiCNTW/all-the-desks-raise-and-lower.jpg?dpr=3" alt="upholstery"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=2070&auto=format&fit=crop" alt="upholstery cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Professional Upholstery Cleaning</h2>
                                 <div class="blockInnerContent">
-                                    <p>Extend the life of your furniture with our professional upholstery cleaning services.</p>
+                                    <p>Extend the life of your furniture with our professional upholstery cleaning services. We remove embedded dirt, stains, and allergens from sofas, chairs, and mattresses using safe, eco-friendly products. Your furniture will look and feel like new!</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>We clean all fabric types with care!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1669,12 +1780,24 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/dd081cf88e0a461ca56e82eafc898891/1/4SoifmQp45JMgBnHndfLg/deep-cleaning-services--no-people%20%25281%2529.jpg?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop" alt="deep cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Deep Cleaning Services</h2>
                                 <div class="blockInnerContent">
-                                    <p>Our deep cleaning services go beyond the surface to remove embedded dirt and allergens.</p>
+                                    <p>Our deep cleaning services go beyond the surface to remove embedded dirt and allergens. We clean every nook and cranny, including baseboards, ceiling fans, inside cabinets, and more. Perfect for spring cleaning or preparing your home for special occasions.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>Trusted by homeowners throughout Loveland!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1691,12 +1814,24 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c439b94bbe714a17880e5f9ae3880182/1/4SoifmQp45JMgBnHiCNTW/Untitled%20design%20-%202024-05-07T123411.155.png?dpr=3" alt="air duct"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=2070&auto=format&fit=crop" alt="air duct cleaning"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Air Duct Cleaning Services</h2>
                                 <div class="blockInnerContent">
-                                    <p>Improve your indoor air quality with our professional air duct cleaning services.</p>
+                                    <p>Improve your indoor air quality with our professional air duct cleaning services. We remove dust, pollen, mold, and debris from your HVAC system, helping you breathe easier and reducing allergy symptoms. Clean air ducts also improve system efficiency and lower energy bills.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>NADCA certified air duct cleaners!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1713,12 +1848,92 @@
                     </div>
                     <div class="blockContainer">
                         <div class="blockContent layoutC hasImg">
-                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/fdd0d773af4e49b5b5aa612e8d01f026/1/4SoifmQpDrHbZJ6Vx93rk/Mapleton%20Hill?dpr=3" alt="boulder"></div>
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop" alt="boulder"></div>
                             <div class="blockText">
                                 <h2 class="contentTitle">Cleaning Services in Boulder, CO</h2>
                                 <div class="blockInnerContent">
-                                    <p>We provide professional cleaning services in Boulder and surrounding areas.</p>
+                                    <p>We provide professional cleaning services in Boulder and surrounding areas. Our team serves residential and commercial clients throughout Boulder County with the same eco-friendly, thorough service that has made us the trusted name in Loveland.</p>
                                     <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>Serving Boulder with the same quality service!</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            loveland: {
+                title: 'Loveland Cleaning Services - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Loveland Cleaning Services</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop" alt="loveland"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Cleaning Services in Loveland, CO</h2>
+                                <div class="blockInnerContent">
+                                    <p>Mad Dog Carpet & Tile is proud to be Loveland's premier cleaning service. We've been serving our neighbors in Loveland for years, providing top-quality carpet, tile, and upholstery cleaning with a commitment to eco-friendly practices and customer satisfaction.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>Your local Loveland cleaning experts!</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            fortcollins: {
+                title: 'Fort Collins Cleaning Services - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Fort Collins Cleaning Services</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2070&auto=format&fit=crop" alt="fort collins"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Cleaning Services in Fort Collins, CO</h2>
+                                <div class="blockInnerContent">
+                                    <p>We're proud to extend our professional cleaning services to Fort Collins and the surrounding area. Whether you need carpet cleaning for your home or commercial cleaning for your business, our team brings the same dedication and quality service to Fort Collins that has made us a trusted name in Northern Colorado.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 star"></div>
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent"><p>Serving Fort Collins with excellence!</p></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1738,11 +1953,9 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Request Your Free Quote Today</h2>
                                 <div class="blockInnerContent">
-                                    <p>Fill out the form below and we'll get back to you within 24 hours with a free quote for your cleaning needs.</p>
-                                    <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a> <a href="#" onclick="loadPage('home'); return false;" class="button">Back to Home</a></p>
-                                    <div style="background: #f0f0f0; padding: 30px; border-radius: 10px; margin-top: 20px;">
-                                        <p style="text-align: center;">Quote request form would be embedded here.</p>
-                                    </div>
+                                    <p>Call us today for a free, no-obligation quote for any of our cleaning services. We'll discuss your needs, provide a detailed estimate, and answer any questions you have. Our friendly team is ready to help!</p>
+                                    <p style="text-align: center; font-size: 24px; margin: 30px 0;"><a href="tel:9702007677" style="color: #25D366; font-weight: bold;">(970) 200-7677</a></p>
+                                    <p style="text-align: center;"><a href="#" onclick="loadPage('home'); return false;" class="button">Back to Home</a></p>
                                 </div>
                             </div>
                         </div>
@@ -1764,8 +1977,9 @@
                                 <div class="blockInnerContent">
                                     <p><strong>Phone:</strong> <a href="tel:9702007677">(970) 200-7677</a></p>
                                     <p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537</p>
-                                    <p><strong>Hours:</strong> Open 24/7/365</p>
-                                    <p><a href="tel:9702007677" class="button">Call Us Now</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                    <p><strong>Hours:</strong> Open 24/7/365 for emergencies</p>
+                                    <p><strong>Email:</strong> info@maddogcarpet.com</p>
+                                    <p style="margin-top: 30px;"><a href="tel:9702007677" class="button">Call Us Now</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
                                 </div>
                             </div>
                         </div>
@@ -1790,8 +2004,8 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Share Your Experience</h2>
                                 <div class="blockInnerContent">
-                                    <p>We value your feedback! Please take a moment to leave us a review on Google or Facebook.</p>
-                                    <p><a href="https://www.facebook.com/MadDogCarpetandTileCleaning" target="_blank" class="button">Review on Facebook</a></p>
+                                    <p>We value your feedback! Please take a moment to leave us a review on Google or Facebook. Your reviews help us improve and let others know about their experience with Mad Dog Carpet & Tile.</p>
+                                    <p style="margin-top: 30px;"><a href="https://www.facebook.com/MadDogCarpetandTileCleaning" target="_blank" class="button">Review on Facebook</a> <a href="#" class="button">Review on Google</a></p>
                                 </div>
                             </div>
                         </div>
@@ -1811,7 +2025,20 @@
                             <div class="blockText">
                                 <h2 class="contentTitle">Latest Articles</h2>
                                 <div class="blockInnerContent">
-                                    <p>Check back soon for cleaning tips and company news!</p>
+                                    <p>Check back soon for cleaning tips, company news, and helpful articles about maintaining your carpets, tile, and upholstery. We're working on some great content to help you keep your home looking its best!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p><em>Coming soon...</em></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1830,7 +2057,12 @@
                         <div class="blockContent layoutA">
                             <div class="blockText">
                                 <div class="blockInnerContent">
-                                    <p>Your privacy is important to us. This policy outlines how we collect, use, and protect your personal information.</p>
+                                    <p>Your privacy is important to us. This policy outlines how we collect, use, and protect your personal information when you use our services or visit our website.</p>
+                                    <p><strong>Information Collection:</strong> We collect information you provide directly to us, such as when you request a quote, schedule a service, or contact us.</p>
+                                    <p><strong>Use of Information:</strong> We use your information to provide and improve our services, communicate with you, and respond to your inquiries.</p>
+                                    <p><strong>Information Sharing:</strong> We do not sell, trade, or otherwise transfer your personal information to outside parties except as necessary to provide our services or comply with the law.</p>
+                                    <p><strong>Security:</strong> We implement reasonable security measures to protect your personal information.</p>
+                                    <p>For questions about our privacy policy, please contact us.</p>
                                 </div>
                             </div>
                         </div>
@@ -1850,6 +2082,12 @@
                             <div class="blockText">
                                 <div class="blockInnerContent">
                                     <p>Please read these terms and conditions carefully before using our services.</p>
+                                    <p><strong>Services:</strong> Mad Dog Carpet & Tile provides professional cleaning services as described on our website and in our communications with you.</p>
+                                    <p><strong>Pricing:</strong> Prices for services are provided in your quote and may vary based on the specific requirements of your job.</p>
+                                    <p><strong>Cancellations:</strong> Please provide at least 24 hours notice for cancellations or rescheduling.</p>
+                                    <p><strong>Liability:</strong> While we take the utmost care with your property, we are not liable for pre-existing damage or conditions beyond our control.</p>
+                                    <p><strong>Satisfaction Guarantee:</strong> We stand behind our work. If you're not satisfied with our services, please contact us within 24 hours and we'll make it right.</p>
+                                    <p>By using our services, you agree to these terms and conditions.</p>
                                 </div>
                             </div>
                         </div>
@@ -1896,6 +2134,15 @@
             const overlay = document.getElementById('overlay');
             menu.classList.toggle('active');
             overlay.classList.toggle('active');
+            
+            if (!menu.classList.contains('active')) {
+                document.querySelectorAll('.subNav-mobile.active').forEach(sub => {
+                    sub.classList.remove('active');
+                });
+                document.querySelectorAll('.navLabel-mobile.active').forEach(label => {
+                    label.classList.remove('active');
+                });
+            }
         }
 
         function toggleMobileSubmenu(element) {
