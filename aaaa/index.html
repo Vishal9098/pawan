@@ -2,24 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Mad Dog Carpet and Tile Cleaning - Complete Website</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Professional Carpet Cleaning Loveland services! We remove stains, dirt, and allergens for a fresh, clean home. Book your cleaning today!">
-    <meta name="keywords" content="carpet cleaning loveland">
-    <meta name="format-detection" content="telephone=yes">
-    
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Dog Carpet & Tile Cleaning</title>
     <style>
         /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -29,7 +26,10 @@
             background: #fff;
             overflow-x: hidden;
             width: 100%;
+            font-size: 16px;
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
         img {
             max-width: 100%;
@@ -37,10 +37,14 @@
             display: block;
         }
 
-        .container {
-            width: 100%;
-            padding: 0 15px;
-            margin: 0 auto;
+        a {
+            color: #25D366;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #1da956;
         }
 
         /* ===== HEADER & NAVIGATION ===== */
@@ -55,6 +59,8 @@
 
         .headerAndNavContent {
             padding: 10px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .headerAndNavContentInner {
@@ -64,131 +70,122 @@
             flex-wrap: wrap;
         }
 
+        .headerContainer {
+            flex: 0 0 auto;
+        }
+
+        .logo {
+            margin: 0;
+            line-height: 1;
+        }
+
         .logo img {
             max-height: 45px;
             width: auto;
         }
 
-        /* ===== MOBILE MENU BUTTON ===== */
-        .mobile-menu-btn {
-            display: block;
-            background: #25D366;
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1001;
-            position: relative;
-            border: none;
-        }
-
-        .mobile-menu-btn i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* ===== MOBILE NAVIGATION ===== */
+        /* Navigation Container */
         .navContainer {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            width: 280px;
-            height: 100vh;
-            background: #111;
-            z-index: 1002;
-            transition: right 0.3s ease;
-            overflow-y: auto;
-            padding: 20px 0;
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: flex-end;
         }
 
-        .navContainer.active {
-            right: 0;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-        }
-
-        .nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .navContent {
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1001;
-        }
-
-        .nav-overlay.active {
-            display: block;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1003;
         }
 
         #navTopLevel {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
             list-style: none;
-            margin-top: 50px;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
         }
 
         #navTopLevel > li {
-            border-bottom: 1px solid #333;
+            position: relative;
+            margin: 0;
         }
 
         #navTopLevel > li > a,
         .navLabel {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
+            padding: 10px 0;
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
-        }
-
-        .navLabel {
+            font-size: 14px;
+            transition: color 0.3s ease;
             cursor: pointer;
         }
 
-        .navLabel i {
-            transition: transform 0.3s;
+        #navTopLevel > li > a:hover,
+        .navLabel:hover {
+            color: #25D366;
         }
 
-        .navLabel.active i {
+        .dropArrow {
+            font-size: 18px;
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        #navTopLevel > li:hover .dropArrow {
             transform: rotate(180deg);
         }
 
-        /* ===== DROPDOWN STYLES ===== */
-        .subNav {
-            display: none;
-            list-style: none;
-            background: #222;
-            padding: 10px 0;
+        /* Selected/Active State */
+        #navTopLevel > li > a.selected {
+            color: #25D366;
         }
 
-        .subNav.show {
-            display: block;
+        .currArrow {
+            color: #25D366;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        /* Dropdown Menu */
+        .subNav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: #222;
+            border-radius: 8px;
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            list-style: none;
+        }
+
+        #navTopLevel > li:hover .subNav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .subNav li {
+            margin: 0;
+            padding: 0;
         }
 
         .subNav li a {
             display: block;
-            padding: 12px 30px;
+            padding: 12px 20px;
             color: #ccc;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
+            transition: all 0.3s ease;
             border-bottom: 1px solid #333;
         }
 
@@ -197,462 +194,523 @@
         }
 
         .subNav li a:hover {
-            color: #25D366;
-            background: #2a2a2a;
+            background: #25D366;
+            color: #fff;
         }
 
-        /* ===== CALL BUTTONS IN MOBILE ===== */
-        .mobile-buttons {
-            padding: 15px 20px;
-            border-bottom: 1px solid #333;
-        }
-
-        .mobile-buttons .button {
-            display: block;
-            text-align: center;
-            margin-bottom: 10px;
-            padding: 12px;
-            font-size: 14px;
-        }
-
-        .mobile-buttons .button:last-child {
-            margin-bottom: 0;
-        }
-
-        .button {
+        /* Navigation Buttons */
+        #navTopLevel .navButton {
             background: #25D366;
             color: #fff !important;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 500;
-            font-size: 14px;
-            border: none;
+            font-weight: 600;
+            font-size: 13px;
+            margin-left: 5px;
+            white-space: nowrap;
+            transition: background 0.3s ease;
+        }
+
+        #navTopLevel .navButton:hover {
+            background: #1da956;
+        }
+
+        /* Mobile Navigation Trigger */
+        #navTrigger {
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background: #25D366;
+            border-radius: 8px;
+            z-index: 1001;
+            color: white;
             cursor: pointer;
         }
 
-        .button-outline {
-            background: transparent;
-            border: 2px solid #fff;
-        }
-
-        .button-outline:hover {
-            background: #fff;
-            color: #333 !important;
-        }
-
-        /* ===== PAGE CONTAINERS ===== */
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
-        }
-
-        /* ===== PAGE HEADER ===== */
-        .page-header {
-            padding: 30px 15px;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        .page-header h1 span {
-            color: #25D366;
-        }
-
-        .back-home {
-            display: inline-flex;
+        .navIcon {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            margin: 15px;
-            color: #25D366;
-            text-decoration: none;
-            font-weight: 500;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
-        /* ===== FEATURES GRID ===== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 20px 15px;
+        .navIcon-svg--dotsVert {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
 
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #222;
+            z-index: 1000;
+            padding: 80px 20px 30px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            overflow-y: auto;
         }
 
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: #f0ede3;
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 30px;
-            color: #25D366;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1002;
         }
 
-        /* ===== SERVICE BADGE ===== */
-        .service-badge {
-            background: #f0ede3;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 30px 15px;
-            border-left: 4px solid #25D366;
+        .mobile-menu ul {
+            list-style: none;
         }
 
-        /* ===== SERVICE CTA ===== */
-        .service-cta {
-            text-align: center;
-            margin: 40px 0;
+        .mobile-menu li {
+            margin-bottom: 5px;
         }
 
-        .service-cta .button {
-            font-size: 18px;
-            padding: 15px 30px;
-        }
-
-        .service-image {
-            border-radius: 20px;
-            margin: 20px 15px;
-            width: calc(100% - 30px);
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .service-description {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #666;
-            margin: 20px 15px;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop') center/cover;
-            padding: 50px 15px;
+        .mobile-menu a {
+            display: block;
+            padding: 12px 15px;
             color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid #333;
+            transition: all 0.3s ease;
         }
 
-        .hero-subtitle {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            color: #25D366;
+        .mobile-menu a:hover,
+        .mobile-menu a.selected {
+            background: #25D366;
+            color: #fff;
+            padding-left: 25px;
         }
 
-        .hero-title {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 15px;
+        .mobile-menu .subNav-mobile {
+            display: none;
+            padding-left: 20px;
+            background: #1a1a1a;
         }
 
-        .hero-buttons {
+        .mobile-menu .subNav-mobile.active {
+            display: block;
+        }
+
+        .mobile-menu .navLabel-mobile {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* ===== SERVICES GRID ===== */
-        .services-grid-section {
-            padding: 40px 15px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .service-card {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 15px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            color: #fff;
+            font-size: 16px;
+            border-bottom: 1px solid #333;
             cursor: pointer;
         }
 
-        .service-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .mobile-menu .navLabel-mobile:hover {
+            background: #333;
         }
 
-        .service-card .overlay {
+        .mobile-menu .navLabel-mobile .dropArrow-mobile {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu .navLabel-mobile.active .dropArrow-mobile {
+            transform: rotate(180deg);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* ===== PAGE CONTAINERS ===== */
+        .pageContainer {
+            min-height: 500px;
+        }
+
+        .primaryAndSecondaryContainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .primaryAndSecondaryContent {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .primaryContentContainer {
+            flex: 1 1 100%;
+        }
+
+        .primaryContent {
+            padding: 0;
+        }
+
+        /* ===== BLOCK STYLES ===== */
+        .blockContainer {
+            margin-bottom: 40px;
+        }
+
+        .blockContent {
+            position: relative;
+        }
+
+        /* Page Title Block */
+        .pageTitleContainer {
+            text-align: center;
+            margin: 20px 0 30px;
+        }
+
+        .pageTitle {
+            font-size: 36px;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+        }
+
+        /* Text Block Styles */
+        .blockText {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contentTitle {
+            font-size: 28px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .maxWidth--content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blockInnerContent p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Layout C & D (Image + Text layouts) */
+        .layoutC, .layoutD {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .layoutC {
+            flex-direction: row;
+        }
+
+        .layoutD {
+            flex-direction: row-reverse;
+        }
+
+        .blockImg {
+            flex: 1 1 40%;
+            min-width: 300px;
+        }
+
+        .blockImg img, .blockImg iframe {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .blockImg iframe {
+            min-height: 315px;
+        }
+
+        .blockText {
+            flex: 1 1 50%;
+            min-width: 300px;
+        }
+
+        /* Items Collection / Simple List */
+        .itemsCollectionContainer .itemsCollectionContent {
+            margin: 0 auto;
+        }
+
+        .itemPreview {
+            margin-bottom: 30px;
+        }
+
+        .itemPreview .itemImg {
+            margin-bottom: 15px;
+        }
+
+        .itemPreview .itemImg img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .itemInnerContent .button {
+            display: inline-block;
+            background: #25D366;
+            color: #fff !important;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .itemInnerContent .button:hover {
+            background: #1da956;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Image Gallery */
+        .imageGallery .blockImg {
+            flex: 1 1 100%;
+        }
+
+        .galleryWrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .imgGridItem {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .imgGridItem a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .contentImg {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .imgGridItem:hover .contentImg {
+            transform: scale(1.05);
+        }
+
+        /* Image Effect Overlay */
+        .imgEffect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imgEffect-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .imgGridItem:hover .imgEffect-overlay {
+            opacity: 1;
+        }
+
+        .imgEffect-content {
             text-align: center;
+            color: white;
             padding: 20px;
         }
 
-        .service-card .overlay h3 {
-            color: white;
-            font-size: 22px;
-            font-weight: 500;
-        }
-
-        /* ===== FEATURE BADGES ===== */
-        .feature-badges {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding: 20px 15px;
-        }
-
-        .badge-item {
-            text-align: center;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .badge-item .percentage {
-            font-size: 32px;
-            font-weight: 700;
-            color: #25D366;
-        }
-
-        .badge-item.highlight {
-            background: #25D366;
-            color: #fff;
-        }
-
-        .badge-item.highlight .percentage {
-            color: #fff;
-        }
-
-        /* ===== WHY SECTION ===== */
-        .why-section {
-            padding: 40px 15px;
-            background: #f5f5f5;
-        }
-
-        .why-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .why-text h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .why-image {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .call-btn {
-            display: block;
-            text-align: center;
-            background: #25D366;
-            color: white;
-            padding: 16px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about-section {
-            padding: 40px 15px;
-        }
-
-        .about-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .about-text {
-            text-align: center;
-        }
-
-        .about-text h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .about-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        /* ===== AREAS SECTION ===== */
-        .areas-section {
-            position: relative;
-            padding: 60px 15px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://picsum.photos/1920/900?random=20') center/cover;
+        .imgEffect-content h3 {
+            font-size: 18px;
+            margin: 0;
             color: white;
         }
 
-        .areas-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .area-card {
-            text-align: center;
-        }
-
-        .area-card img {
-            width: 200px;
-            height: 200px;
+        /* Circle Images */
+        .circleImages .imgGridItem .contentImg {
             border-radius: 50%;
-            margin: 0 auto 15px;
+            aspect-ratio: 1/1;
             object-fit: cover;
         }
 
-        /* ===== FAQ SECTION ===== */
-        .faq-section {
-            padding: 80px 20px;
-            background: #f5f5f5;
+        .imgCaptionWrapper {
+            text-align: center;
         }
 
-        .faq-section .container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
+        .imgCaption {
+            margin-top: 15px;
         }
 
-        .faq-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-
-        .faq-image img {
-            width: 100%;
-            display: block;
-            position: relative;
-            z-index: 2;
-            transition: 0.6s;
-            border-radius: 4px;
-        }
-
-        .shape {
-            position: absolute;
-            width: 85%;
-            height: 85%;
-            background: #c9a84a;
-            left: -40px;
-            top: -40px;
-            z-index: 1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .image-caption-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.65);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 40px;
-            backdrop-filter: blur(3px);
-            border: 1px solid rgba(255,255,255,0.2);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 20px;
-            font-weight: 500;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-            pointer-events: none;
-        }
-
-        .image-caption-overlay span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .image-caption-overlay span::before {
-            content: "📍";
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .faq-content {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .faq-content h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-item h4 {
+        .imgCaption-title {
             font-size: 18px;
+            font-weight: 600;
+            color: #111;
             margin-bottom: 5px;
         }
 
-        /* ===== FOOTER ===== */
+        .imgCaption-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Animation Classes */
+        .blockAnim {
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .blockAnim--fade {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .blockAnim--fadeUp {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .blockAnim--fadeRight {
+            animation: fadeRight 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* FAQ Section Styles */
+        .faq-section .blockText p {
+            margin-bottom: 15px;
+        }
+
+        .faq-section .blockText strong {
+            color: #25D366;
+            font-weight: 600;
+        }
+
+        /* Schedule Section with Parallax */
+        .parallax-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .parallax-section .contentTitle {
+            color: white;
+        }
+
+        .parallax-section .blockInnerContent p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Map Container */
+        .map-container iframe {
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Jobber Form Container */
+        .jobber-form {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        /* ===== FOOTER STYLES ===== */
         .footerContainer {
             background: #111;
             color: #ccc;
-            padding: 40px 15px;
+            padding: 60px 20px 40px;
+            margin-top: 40px;
         }
 
-        .socialIconsContainer ul {
+        .footerInner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Social Icons */
+        .socialIconsContainer {
+            margin-bottom: 30px;
+        }
+
+        .socialIcons {
             display: flex;
             justify-content: center;
             gap: 15px;
             list-style: none;
-            margin-bottom: 25px;
+            padding: 0;
+            margin: 0;
         }
 
-        .socialIconsContainer a {
+        .socialIcons li {
+            margin: 0;
+        }
+
+        .socialIcons a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -663,26 +721,49 @@
             border-radius: 50%;
             text-decoration: none;
             font-size: 20px;
+            transition: all 0.3s ease;
         }
 
+        .socialIcons a:hover {
+            background: #25D366;
+            transform: translateY(-3px);
+        }
+
+        /* Footer Links */
         .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .footer-links a {
             color: #ccc;
             text-decoration: none;
+            margin: 0 10px;
             font-size: 14px;
+            transition: color 0.3s ease;
         }
 
-        .footer-info p {
+        .footer-links a:hover {
+            color: #25D366;
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .copyright p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Footer Address/Info */
+        .footer-info {
+            margin-bottom: 20px;
             text-align: center;
             font-size: 14px;
-            margin-bottom: 10px;
+            color: #aaa;
         }
 
         .footer-info a {
@@ -690,1690 +771,1143 @@
             text-decoration: none;
         }
 
-        /* ===== FLOATING ACTION BUTTON ===== */
-        .fab-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 55px;
-            height: 55px;
-            background: #25D366;
-            border-radius: 50%;
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .unstyledList {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 99;
-            text-decoration: none;
-        }
-
-        /* ===== EMERGENCY STYLES ===== */
-        .emergency-banner {
-            background: #d32f2f;
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 30px 15px;
-        }
-
-        .emergency-banner h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .emergency-banner .button {
-            background: white;
-            color: #d32f2f;
-            font-size: 24px;
-            padding: 20px 40px;
-        }
-
-        /* ===== ABOUT PAGE STYLES ===== */
-        .about-hero {
-            height: 100vh;
-            background: url("https://picsum.photos/1600/900?random=1") center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            color: white;
-            padding: 20px;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.75);
-        }
-
-        .about-content {
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-content h1 {
-            font-size: 52px;
-            line-height: 1.2;
-            margin-bottom: 30px;
-        }
-
-        .about-content p {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #ddd;
-            margin-bottom: 40px;
-        }
-
-        .badges {
-            display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 35px;
-        }
-
-        .badge {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: black;
-            border: 4px solid #d4af37;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            font-size: 13px;
-            padding: 10px;
+            gap: 10px 20px;
         }
 
-        .mission-section {
-            padding: 120px 20px;
-            text-align: center;
-            background: white;
-        }
-
-        .mission-section .container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .stars {
-            color: #d4af37;
-            font-size: 40px;
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-        }
-
-        .mission-section h2 {
-            font-size: 44px;
-            margin-bottom: 20px;
-        }
-
-        .text {
-            font-size: 20px;
-            line-height: 1.8;
-            color: #4a4a4a;
-        }
-
-        .commitment-section {
-            display: flex;
-            min-height: 600px;
-            background: #e9e7e4;
-        }
-
-        .commitment-image {
-            width: 50%;
-        }
-
-        .commitment-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .commitment-content {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px;
-        }
-
-        .commitment-content h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .schedule-section {
-            height: 500px;
-            background: url("https://picsum.photos/1600/900?random=10") center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
-
-        .schedule-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.75);
-        }
-
-        .schedule-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .schedule-content h2 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .schedule-content p {
-            font-size: 22px;
-            line-height: 1.6;
-            color: #ddd;
-            margin-bottom: 40px;
-        }
-
-        .schedule-btn {
-            background: #c9b06a;
-            color: black;
-            padding: 16px 36px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
+        .unstyledList li {
             display: inline-block;
+            color: #aaa;
         }
 
-        .schedule-btn:hover {
-            background: #b89c4c;
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1024px) {
+            .galleryWrapper {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        .quote-btn {
-            background: white;
-            color: black;
-            padding: 14px 28px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 50px;
-            transition: 0.3s;
+        @media (max-width: 992px) {
+            .layoutC, .layoutD {
+                flex-direction: column;
+            }
+            
+            .blockImg, .blockText {
+                flex: 1 1 100%;
+            }
         }
 
-        .quote-btn:hover {
-            background: #d4af37;
-            color: black;
-        }
-
-        /* ===== TABLET STYLES ===== */
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 42px;
-            }
-
-            .hero-buttons {
-                flex-direction: row;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .feature-badges {
-                flex-direction: row;
-                justify-content: center;
-            }
-
-            .badge-item {
-                min-width: 200px;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .areas-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .mobile-menu-btn {
+        @media (max-width: 768px) {
+            #navTopLevel {
                 display: none;
             }
-
-            .navContainer {
-                position: static;
-                width: auto;
-                height: auto;
-                background: transparent;
-                padding: 0;
-                right: auto;
+            
+            #navTrigger {
+                display: block;
             }
-
-            #navTopLevel {
-                display: flex;
-                margin-top: 0;
+            
+            .pageTitle {
+                font-size: 28px;
+            }
+            
+            .contentTitle {
+                font-size: 24px;
+            }
+            
+            .galleryWrapper {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
-
-            #navTopLevel > li {
-                border-bottom: none;
+            
+            .itemInnerContent .button {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
             }
-
-            #navTopLevel > li > a,
-            .navLabel {
-                padding: 10px 0;
-                font-size: 13px;
+            
+            .unstyledList {
+                flex-direction: column;
+                gap: 5px;
             }
-
-            .subNav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                min-width: 200px;
-                background: #222;
-                border-radius: 8px;
-                display: none;
+            
+            .footer-links a {
+                display: inline-block;
+                margin: 5px 10px;
             }
+        }
 
-            .has-dropdown {
-                position: relative;
+        @media (max-width: 480px) {
+            .galleryWrapper {
+                grid-template-columns: 1fr;
             }
-
-            .has-dropdown:hover .subNav {
-                display: block !important;
+            
+            .pageTitle {
+                font-size: 24px;
             }
-
-            .mobile-buttons {
-                display: flex;
-                gap: 10px;
-                padding: 0;
-                border-bottom: none;
+            
+            .contentTitle {
+                font-size: 20px;
             }
+            
+            .blockInnerContent p {
+                font-size: 14px;
+            }
+            
+            .socialIcons a {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
 
-            .close-menu,
-            .nav-overlay {
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .headerAndNavContainer,
+            .footerContainer,
+            #navTrigger,
+            .fab-top {
                 display: none !important;
             }
-
-            .why-container {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .about-container {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .faq-section .container {
-                flex-direction: row;
-            }
-        }
-
-        /* ===== DESKTOP STYLES ===== */
-        @media (min-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .areas-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-content h1 {
-                font-size: 30px;
-            }
-            .commitment-section {
-                flex-direction: column;
-            }
-            .commitment-image,
-            .commitment-content {
-                width: 100%;
-            }
-            .commitment-content {
-                padding: 40px 20px;
-            }
-            .schedule-content h2 {
-                font-size: 34px;
-            }
-            .service-image {
-                height: 250px;
-            }
-            .emergency-banner .button {
-                font-size: 18px;
-                padding: 15px 30px;
-            }
-        }
-
-        .text-center {
-            text-align: center;
-        }
-        
-        /* House Cleaning Page Styles */
-        .house-hero {
-            min-height: 100vh;
-            background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 80px 20px;
-        }
-        
-        .house-hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .house-hero-content {
-            position: relative;
-            max-width: 1000px;
-        }
-        
-        .house-hero-content h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        
-        .house-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .house-buttons a {
-            background: #b79f59;
-            color: white;
-            padding: 14px 32px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .info-box {
-            background: #e9e6e2;
-            max-width: 1100px;
-            margin: -80px auto 0;
-            padding: 60px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 10;
-        }
-        
-        .info-box span {
-            color: #b79f59;
-        }
-        
-        .standard-section,
-        .green-section,
-        .process-section {
-            background: #e9e6e2;
-            padding: 100px 20px;
-        }
-        
-        .standard-container,
-        .green-container,
-        .process-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .standard-content,
-        .green-content,
-        .process-text {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .standard-content h2,
-        .green-content h2,
-        .process-text h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .standard-content ul {
-            list-style: disc;
-            padding-left: 20px;
-            text-align: left;
-            display: inline-block;
-        }
-        
-        .benefits {
-            background: #f3f3f3;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            max-width: 1100px;
-            margin: auto;
-        }
-        
-        .benefit-icon {
-            width: 150px;
-            height: 150px;
-            background: black;
-            border: 10px solid #c9b06c;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: white;
-            margin: auto;
-            margin-bottom: 20px;
-        }
-        
-        .cta-section {
-            background: url('https://picsum.photos/1920/900?random=90') center/cover no-repeat;
-            position: relative;
-            padding: 120px 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-        }
-        
-        .cta-content {
-            position: relative;
-            max-width: 900px;
-            margin: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .house-hero-content h1 {
-                font-size: 36px;
-            }
-            .standard-container,
-            .green-container,
-            .process-container {
-                flex-direction: column;
-            }
-            .benefit-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        /* Pet Stain Removal Styles */
-        .pet-hero {
-            background: url('https://picsum.photos/1920/900?random=1') center/cover no-repeat;
-            padding: 140px 20px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .pet-hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .pet-hero-content {
-            position: relative;
-            max-width: 1000px;
-            margin: auto;
-        }
-        
-        .pet-hero h1 {
-            font-size: 64px;
-            margin-bottom: 30px;
-        }
-        
-        .highlight {
-            color: #c8a95a;
-            font-weight: bold;
-        }
-        
-        .pet-section {
-            padding: 120px 20px;
-            background: #f2f2f2;
-        }
-        
-        .pet-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .pet-text {
-            flex: 1;
-        }
-        
-        .pet-text h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .pet-image {
-            flex: 1;
-        }
-        
-        .pet-image img {
-            width: 100%;
-        }
-        
-        .process-list {
-            font-size: 20px;
-            line-height: 2;
-        }
-        
-        @media (max-width: 768px) {
-            .pet-hero h1 {
-                font-size: 36px;
-            }
-            .pet-container {
-                flex-direction: column;
+            
+            body {
+                background: white;
+                color: black;
             }
         }
     </style>
 </head>
 <body>
     <div class="siteWrapper">
-        <!-- Header -->
-        <div class="headerAndNavContainer">
-            <div class="headerAndNavContent">
-                <div class="headerAndNavContentInner">
-                    <div class="logo">
-                        <a href="#" onclick="showHome(); return false;">
-                            <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c3d6eac07a864eb8b2cc3848e658c6f6/1/5feFb8zhrk/mad%20dog.png?dpr=2" alt="Mad Dog Carpet & Tile">
-                        </a>
-                    </div>
-                    
-                    <!-- Mobile Menu Button -->
-                    <button class="mobile-menu-btn" onclick="toggleMenu()">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
-                    <!-- Navigation -->
-                    <div class="navContainer" id="mobileNav">
-                        <button class="close-menu" onclick="toggleMenu()">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        
-                        <!-- Mobile Call Buttons -->
-                        <div class="mobile-buttons">
-                            <a href="tel:9702007677" class="button" onclick="toggleMenu()">
-                                <i class="fas fa-phone-alt"></i> Call Us
-                            </a>
-                            <a href="#" onclick="showQuote(); toggleMenu(); return false;" class="button button-outline">
-                                Schedule
-                            </a>
-                        </div>
-
-                        <ul id="navTopLevel">
-                            <li><a href="#" onclick="showHome(); toggleMenu(); return false;">Home</a></li>
-                            <li><a href="#" onclick="showAbout(); toggleMenu(); return false;">About Us</a></li>
-                            <li class="has-dropdown">
-                                <span class="navLabel" onclick="toggleDropdown(this, event)">
-                                    Services <i class="fas fa-chevron-down"></i>
-                                </span>
-                                <ul class="subNav">
-                                    <li><a href="#" onclick="showTileFloorCleaning(); toggleMenu(); return false;">Tile Floor Cleaning</a></li>
-                                    <li><a href="#" onclick="showPetStainRemoval(); toggleMenu(); return false;">Pet Stain Removal</a></li>
-                                    <li><a href="#" onclick="showUpholsteryCleaning(); toggleMenu(); return false;">Upholstery Cleaning</a></li>
-                                    <li><a href="#" onclick="showDeepCleaning(); toggleMenu(); return false;">Deep Cleaning</a></li>
-                                    <li><a href="#" onclick="showAirDuctCleaning(); toggleMenu(); return false;">Air Duct Cleaning</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <span class="navLabel" onclick="toggleDropdown(this, event)">
-                                    Locations <i class="fas fa-chevron-down"></i>
-                                </span>
-                                <ul class="subNav">
-                                    <li><a href="#" onclick="showLocation('boulder'); toggleMenu(); return false;">Boulder</a></li>
-                                    <li><a href="#" onclick="showLocation('loveland'); toggleMenu(); return false;">Loveland</a></li>
-                                    <li><a href="#" onclick="showLocation('fort collins'); toggleMenu(); return false;">Fort Collins</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" onclick="showEmergency(); toggleMenu(); return false;">Emergency</a></li>
-                            <li><a href="#" onclick="showCommercialCleaning(); toggleMenu(); return false;">Commercial</a></li>
-                            <li><a href="#" onclick="showHouseCleaning(); toggleMenu(); return false;">House Cleaning</a></li>
-                            <li><a href="#" onclick="showReview(); toggleMenu(); return false;">Review</a></li>
-                            <li class="has-dropdown">
-                                <span class="navLabel" onclick="toggleDropdown(this, event)">
-                                    More <i class="fas fa-chevron-down"></i>
-                                </span>
-                                <ul class="subNav">
-                                    <li><a href="#" onclick="showBlog(); toggleMenu(); return false;">Blog</a></li>
-                                    <li><a href="#" onclick="showContact(); toggleMenu(); return false;">Contact Us</a></li>
-                                    <li><a href="#" onclick="showQuote(); toggleMenu(); return false;">Free Quote</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Overlay for mobile menu -->
-                    <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- HOME PAGE -->
-        <div id="home-page" class="page active">
-            <div class="hero-section">
-                <div class="container">
-                    <div class="hero-subtitle">OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</div>
-                    <h1 class="hero-title">MAD DOG CARPET & TILE<br>EXCEPTIONAL CUSTOMER SERVICE</h1>
-                    <p>Providing Professional Floor Cleaning Services in Loveland, Northern Colorado</p>
-                    <div class="hero-buttons">
-                        <a href="#" onclick="showQuote(); return false;" class="button">Get A Quote</a>
-                        <a href="tel:9702007677" class="button button-outline">Call Now</a>
-                        <a href="#" onclick="showSchedule(); return false;" class="button">Book Online</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Badges -->
-            <div class="feature-badges">
-                <div class="badge-item">
-                    <div class="percentage">20%</div>
-                    <div>DISCOUNT FOR VETERANS</div>
-                </div>
-                <div class="badge-item highlight">
-                    <div class="percentage">ECO-</div>
-                    <div>FRIENDLY</div>
-                </div>
-                <div class="badge-item">
-                    <div class="percentage">24/7</div>
-                    <div>EMERGENCY</div>
-                </div>
-                <div class="badge-item highlight">
-                    <div class="percentage">LOCAL</div>
-                    <div>OWNED</div>
-                </div>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="services-grid-section">
-                <h2 class="text-center" style="margin-bottom: 25px;">Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card" onclick="showDeepCleaning()">
-                        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=600&auto=format&fit=crop" alt="Deep Cleaning">
-                        <div class="overlay"><h3>Deep Cleaning</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showTileFloorCleaning()">
-                        <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=600&auto=format&fit=crop" alt="Tile Cleaning">
-                        <div class="overlay"><h3>Tile Cleaning</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showUpholsteryCleaning()">
-                        <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=600&auto=format&fit=crop" alt="Upholstery">
-                        <div class="overlay"><h3>Upholstery</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showAirDuctCleaning()">
-                        <img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=600&auto=format&fit=crop" alt="Air Duct">
-                        <div class="overlay"><h3>Air Duct</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showPetStainRemoval()">
-                        <img src="https://images.unsplash.com/photo-1601758228040-f896b34b9c7f?q=80&w=600&auto=format&fit=crop" alt="Pet Stain">
-                        <div class="overlay"><h3>Pet Stain</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showCommercialCleaning()">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop" alt="Commercial">
-                        <div class="overlay"><h3>Commercial</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showHouseCleaning()">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop" alt="House Cleaning">
-                        <div class="overlay"><h3>House Cleaning</h3></div>
-                    </div>
-                    <div class="service-card" onclick="showEmergency()">
-                        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?q=80&w=600&auto=format&fit=crop" alt="Emergency">
-                        <div class="overlay"><h3>Emergency</h3></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why Section -->
-            <section class="why-section">
-                <div class="container">
-                    <div class="why-container">
-                        <div class="why-text">
-                            <h2>Why Choose Us?</h2>
-                            <p>At Mad Dog Carpet & Tile, we take pride in offering the best cleaning services in the area. Our expert team uses advanced cleaning methods to remove dirt, stains, and allergens, restoring the freshness of your home.</p>
-                            <a href="#" class="call-btn" onclick="showSchedule(); return false;">Call Us to Schedule</a>
-                        </div>
-                        <div class="why-image">
-                            <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=900&auto=format&fit=crop" alt="cleaning">
+        <div class="siteInnerWrapper">
+            <div class="pageContainer">
+                <!-- Header -->
+                <div class="headerAndNavContainer">
+                    <div class="headerAndNavContent">
+                        <div class="headerAndNavContentInner">
+                            <div class="headerContainer">
+                                <header class="headerContent">
+                                    <h1 class="logo">
+                                        <a href="/" onclick="loadPage('home'); return false;">
+                                            <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c3d6eac07a864eb8b2cc3848e658c6f6/1/5feFb8zhrk/mad%20dog.png?dpr=3" alt="Mad Dog Carpet &amp; Tile">
+                                        </a>
+                                    </h1>
+                                </header>
+                            </div>
+                            <div class="navContainer">
+                                <nav class="navContent">
+                                    <ul id="navTopLevel">
+                                        <li><a href="#" onclick="loadPage('home'); return false;" class="selected" id="nav-home"><span class="currArrow">▸</span>Home</a></li>
+                                        <li><a href="#" onclick="loadPage('about'); return false;" id="nav-about">About Us</a></li>
+                                        <li>
+                                            <span class="navLabel">Services <span class="dropArrow">▾</span></span>
+                                            <ul class="subNav">
+                                                <li><a href="#" onclick="loadPage('tile'); return false;">Tile Floor Cleaning</a></li>
+                                                <li><a href="#" onclick="loadPage('pet'); return false;">Pet Stain Removal</a></li>
+                                                <li><a href="#" onclick="loadPage('upholstery'); return false;">Upholstery Cleaning</a></li>
+                                                <li><a href="#" onclick="loadPage('deep'); return false;">Deep Cleaning</a></li>
+                                                <li><a href="#" onclick="loadPage('airduct'); return false;">Air Duct Cleaning</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="navLabel">Locations <span class="dropArrow">▾</span></span>
+                                            <ul class="subNav">
+                                                <li><a href="#" onclick="loadPage('boulder'); return false;">Boulder</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" onclick="loadPage('emergency'); return false;" id="nav-emergency">Emergency</a></li>
+                                        <li><a href="#" onclick="loadPage('commercial'); return false;" id="nav-commercial">Commercial</a></li>
+                                        <li><a href="#" onclick="loadPage('house'); return false;" id="nav-house">House Cleaning</a></li>
+                                        <li>
+                                            <span class="navLabel">More <span class="dropArrow">▾</span></span>
+                                            <ul class="subNav">
+                                                <li><a href="#" onclick="loadPage('review'); return false;">Leave Review</a></li>
+                                                <li><a href="#" onclick="loadPage('blog'); return false;">Blog</a></li>
+                                                <li><a href="#" onclick="loadPage('contact'); return false;">Contact Us</a></li>
+                                                <li><a href="#" onclick="loadPage('quote'); return false;">Free Quote</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="tel:9702007677" class="button navButton">Call Us: (970) 200-7677</a></li>
+                                        <li><a href="https://clienthub.getjobber.com/booking/4aa92943-5cc0-4eea-ac3b-12e33b871a59" class="button navButton" target="_blank">Schedule Service</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- About Section -->
-            <section class="about-section">
-                <div class="container">
-                    <div class="about-container">
-                        <div class="about-image">
-                            <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=900&auto=format&fit=crop" alt="cleaning">
-                        </div>
-                        <div class="about-text">
-                            <h2>About Our Company</h2>
-                            <p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile is committed to delivering top-notch results that exceed expectations.</p>
-                            <a href="#" class="about-btn" onclick="showAbout(); return false;">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                <!-- Mobile Navigation Trigger -->
+                <a id="navTrigger" href="#" onclick="toggleMobileMenu(); return false;" aria-label="Menu">
+                    <span class="navIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="navIcon-svg--dotsVert" viewBox="0 0 164 32">
+                            <path class="path1" d="M31.299 15.65c0 8.643-7.007 15.65-15.65 15.65s-15.65-7.007-15.65-15.65c0-8.643 7.007-15.65 15.65-15.65s15.65 7.007 15.65 15.65z"></path>
+                            <path class="path2" d="M97.674 15.65c0 8.643-7.007 15.65-15.65 15.65s-15.65-7.007-15.65-15.65c0-8.643 7.007-15.65 15.65-15.65s15.65 7.007 15.65 15.65z"></path>
+                            <path class="path3" d="M164.399 15.65c0 8.643-7.007 15.65-15.65 15.65s-15.65-7.007-15.65-15.65c0-8.643 7.007-15.65 15.65-15.65s15.65 7.007 15.65 15.65z"></path>
+                        </svg>
+                    </span>
+                </a>
 
-            <!-- FAQ SECTION -->
-            <section class="faq-section">
-                <div class="container">
-                    <div class="faq-image">
-                        <div class="shape"></div>
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Cleaning">
-                        <div class="image-caption-overlay">
-                            <span>Mapleton Hill</span>
-                            <span>Van de Water</span>
-                        </div>
-                    </div>
-                    <div class="faq-content">
-                        <h2>Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
-                        <p class="desc">Get answers to common carpet cleaning questions in Loveland.</p>
-                        <div class="faq-item"><h4>What areas do you serve?</h4><p>We serve Loveland and all of Larimer County.</p></div>
-                        <div class="faq-item"><h4>How often should I clean my carpets?</h4><p>We recommend professional cleaning every 6-12 months.</p></div>
-                        <div class="faq-item"><h4>Do you use eco-friendly cleaning products?</h4><p>Yes, we use safe, eco-friendly solutions.</p></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Areas Section -->
-            <section class="areas-section">
-                <div class="container">
-                    <p class="text-center mb-4">We provide carpet cleaning in Loveland, CO, covering key neighborhoods.</p>
-                    <div class="areas-grid">
-                        <div class="area-card">
-                            <img src="https://picsum.photos/260/260?random=1" alt="Mapleton Hill">
-                            <h3>Mapleton Hill</h3>
-                        </div>
-                        <div class="area-card">
-                            <img src="https://picsum.photos/260/260?random=2" alt="Van de Water">
-                            <h3>Van de Water</h3>
-                        </div>
-                        <div class="area-card">
-                            <img src="https://picsum.photos/260/260?random=3" alt="Alford Meadows">
-                            <h3>Alford Meadows</h3>
-                        </div>
-                        <div class="area-card">
-                            <img src="https://picsum.photos/260/260?random=4" alt="The Lakes at Centerra">
-                            <h3>The Lakes at Centerra</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ABOUT PAGE -->
-        <div id="about-page" class="page">
-            <section class="about-hero">
-                <div class="overlay"></div>
-                <div class="about-content">
-                    <h1>About Mad Dog Carpet and Tile Cleaning – Your Trusted Cleaning Company in Loveland</h1>
-                    <p><span style="color:#d4af37">Mad Dog Carpet and Tile Cleaning</span> is the premier cleaning company in Loveland, dedicated to helping homeowners maintain clean, fresh, and allergen-free spaces.</p>
-                    <a href="#" onclick="showQuote(); return false;" class="quote-btn">Get a Quote</a>
-                    <div class="badges">
-                        <div class="badge">Serving Northern Colorado</div>
-                        <div class="badge">20% Discount For Veterans</div>
-                        <div class="badge">Locally Owned & Operated</div>
-                        <div class="badge">Eco Friendly Products</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mission-section">
-                <div class="container">
-                    <div class="stars">★★★★★</div>
-                    <p class="experience">5 STAR EXPERIENCE</p>
-                    <h2>Our Mission</h2>
-                    <p class="text">At Mad Dog Carpet & Tile, our mission is to bring luxury and sophistication to your home through our specialized floor cleaning services.</p>
-                    <h2 class="vision-title">Our Vision</h2>
-                    <p class="text">We envision a future where every home radiates elegance and comfort through impeccably maintained floors.</p>
-                </div>
-            </section>
-
-            <section class="commitment-section">
-                <div class="commitment-image">
-                    <img src="https://picsum.photos/900/800?random=2" alt="Cleaning commitment">
-                </div>
-                <div class="commitment-content">
-                    <h2>Our Commitment</h2>
-                    <p>We take pride in using environmentally safe products and innovative techniques to ensure thorough and impeccable cleaning.</p>
-                    <a href="#" onclick="showQuote(); return false;" class="quote-btn">Get A Quote</a>
-                </div>
-            </section>
-
-            <section class="schedule-section">
-                <div class="schedule-overlay"></div>
-                <div class="schedule-content">
-                    <h2>Schedule a Cleaning Today</h2>
-                    <p>Experience the difference of Mad Dog Carpet & Tile — where eco-friendly cleaning meets professional excellence.</p>
-                    <a href="#" onclick="showSchedule(); return false;" class="schedule-btn">Get A Quote</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- TILE FLOOR CLEANING PAGE -->
-        <div id="tile-floor-cleaning-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Tile Floor</span> Cleaning</h1>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=900&auto=format&fit=crop" alt="Tile cleaning" class="service-image">
-
-                <div class="service-description">
-                    <p>Professional tile and grout cleaning services in Loveland, Colorado. We restore the beauty of your tile floors with deep cleaning, stain removal, and sealing.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-border-all"></i></div>
-                        <h3>Deep Grout Cleaning</h3>
-                        <p>Powerful cleaning removes dirt and bacteria from grout lines.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-tint"></i></div>
-                        <h3>Stain Removal</h3>
-                        <p>Remove tough stains from oil, wine, coffee, and more.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Grout Sealing</h3>
-                        <p>Protect your grout from future stains and moisture.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3>Quick Drying</h3>
-                        <p>Most tile floors dry in under an hour.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Our Tile Cleaning Includes:</h3>
-                    <p>✓ Ceramic tile cleaning<br>✓ Porcelain tile cleaning<br>✓ Natural stone cleaning<br>✓ Grout cleaning & sealing<br>✓ Mold & mildew removal</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call for Free Estimate: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- PET STAIN REMOVAL PAGE -->
-        <div id="pet-stain-removal-page" class="page">
-            <div class="pet-hero">
-                <div class="pet-hero-content">
-                    <h1>EXPERT PET STAIN REMOVAL SERVICES IN LOVELAND, COLORADO</h1>
-                    <p>At <span class="highlight">Mad Dog Carpet & Tile</span>, we specialize in pet stain removal services ensuring your carpets stay fresh and odor free.</p>
-                    <p class="highlight">MAD DOG CARPET & TILE: #1 PET STAIN REMOVAL IN LOVELAND, CO</p>
-                    <div class="house-buttons">
-                        <a href="#" onclick="showQuote(); return false;" class="button">Get a Quote</a>
-                        <a href="tel:9702007677" class="button">Call Us to Schedule</a>
-                    </div>
-                </div>
-            </div>
-
-            <section class="pet-section">
-                <div class="pet-container">
-                    <div class="pet-text">
-                        <h2>Why Choose Our Pet Stain Removal Services?</h2>
-                        <ul>
-                            <li><b>Advanced Enzyme Cleaning Technology:</b> Removes urine, vomit and stains.</li>
-                            <li><b>Odor Neutralization:</b> Specialized odor eliminators remove smells.</li>
-                            <li><b>Safe for Pets & Family:</b> Non-toxic eco friendly cleaning products.</li>
-                            <li><b>Deep Carpet Cleaning:</b> Works on carpets, rugs and upholstery.</li>
-                            <li><b>Fast Drying Times:</b> Get back to a fresh home quickly.</li>
-                        </ul>
-                        <a href="tel:9702007677" class="button" style="margin-top:20px;">Call Us to Schedule</a>
-                    </div>
-                    <div class="pet-image">
-                        <img src="https://picsum.photos/800/600?random=2" alt="Pet stain removal">
-                    </div>
-                </div>
-            </section>
-
-            <section class="pet-section" style="background:#f5f5f5;">
-                <div class="pet-container">
-                    <div class="pet-image">
-                        <img src="https://picsum.photos/800/600?random=6" alt="Cleaning process">
-                    </div>
-                    <div class="pet-text">
-                        <h2>Our Comprehensive Pet Stain Cleaning Process</h2>
-                        <ol class="process-list">
-                            <li><b>Inspection</b> – Identify problem areas.</li>
-                            <li><b>Pre-Treatment</b> – Apply enzyme stain remover.</li>
-                            <li><b>Deep Cleaning</b> – Extraction removes stains.</li>
-                            <li><b>Odor Neutralization</b> – Eliminates pet smells.</li>
-                            <li><b>Final Review</b> – Ensure customer satisfaction.</li>
-                        </ol>
-                        <a href="tel:9702007677" class="button" style="margin-top:20px;">Call Us Today</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- UPHOLSTERY CLEANING PAGE -->
-        <div id="upholstery-cleaning-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Upholstery</span> Cleaning</h1>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=900&auto=format&fit=crop" alt="Upholstery cleaning" class="service-image">
-
-                <div class="service-description">
-                    <p>Professional upholstery cleaning for sofas, chairs, and all fabric furniture. We use safe, eco-friendly products to remove stains, dirt, and allergens.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-couch"></i></div>
-                        <h3>Fabric Safe</h3>
-                        <p>Gentle cleaning safe for all fabrics.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-dog"></i></div>
-                        <h3>Pet Stain Removal</h3>
-                        <p>Special enzyme treatments for pet stains.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                        <h3>Odor Elimination</h3>
-                        <p>Removes musty smells and pet odors.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3>Quick Drying</h3>
-                        <p>Most furniture dry in 2-3 hours.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Our Upholstery Cleaning Includes:</h3>
-                    <p>✓ Sofa & couch cleaning<br>✓ Chair & ottoman cleaning<br>✓ Fabric protection<br>✓ Stain removal<br>✓ Deodorizing</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call for Free Estimate: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- DEEP CLEANING PAGE -->
-        <div id="deep-cleaning-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Deep</span> Cleaning</h1>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=900&auto=format&fit=crop" alt="Deep cleaning" class="service-image">
-
-                <div class="service-description">
-                    <p>Our deep cleaning service goes beyond surface cleaning. We remove embedded dirt, allergens, and bacteria from carpets, upholstery, and hard-to-reach areas.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-broom"></i></div>
-                        <h3>Deep Extraction</h3>
-                        <p>Powerful truck-mounted units remove deep dirt.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-spray-can"></i></div>
-                        <h3>Pre-Treatment</h3>
-                        <p>Special solutions break down stubborn stains.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                        <h3>Fast Drying</h3>
-                        <p>Typically dry in 2-4 hours.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-                        <h3>Allergen Removal</h3>
-                        <p>Eliminates dust mites, pollen, and pet dander.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Our Deep Cleaning Includes:</h3>
-                    <p>✓ Carpet deep cleaning<br>✓ Upholstery deep cleaning<br>✓ Tile & grout deep cleaning<br>✓ Area rug cleaning<br>✓ Odor removal</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call for Free Estimate: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- AIR DUCT CLEANING PAGE -->
-        <div id="air-duct-cleaning-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Air Duct</span> Cleaning</h1>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1631778691031-164c3b6a2480?q=80&w=900&auto=format&fit=crop" alt="Air duct cleaning" class="service-image">
-
-                <div class="service-description">
-                    <p>Professional air duct cleaning improves indoor air quality and HVAC efficiency. Remove dust, allergens, and contaminants from your home's air system.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                        <h3>Improved Airflow</h3>
-                        <p>Better HVAC efficiency and lower energy bills.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-broom"></i></div>
-                        <h3>Debris Removal</h3>
-                        <p>Removes dust, pet hair, and construction debris.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-                        <h3>Allergen Reduction</h3>
-                        <p>Eliminates pollen, mold spores, and dust mites.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                        <h3>Eco-Friendly</h3>
-                        <p>Safe, non-toxic cleaning with HEPA filtration.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Our Air Duct Cleaning Includes:</h3>
-                    <p>✓ Supply & return duct cleaning<br>✓ Register & grille cleaning<br>✓ Dryer vent cleaning<br>✓ HVAC system cleaning<br>✓ Sanitization treatment</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call for Free Estimate: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- COMMERCIAL CLEANING PAGE -->
-        <div id="commercial-cleaning-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Commercial</span> Cleaning</h1>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop" alt="Commercial cleaning" class="service-image">
-
-                <div class="service-description">
-                    <p>Professional commercial cleaning services for offices, retail spaces, and businesses in Northern Colorado. We understand the unique needs of commercial environments and provide tailored cleaning solutions.</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-building"></i></div>
-                        <h3>Office Cleaning</h3>
-                        <p>Complete office cleaning services including workstations, break rooms, and restrooms.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-store"></i></div>
-                        <h3>Retail Spaces</h3>
-                        <p>Keep your store looking its best with regular cleaning.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3>Flexible Hours</h3>
-                        <p>We clean after business hours to avoid disruption.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Regular Maintenance</h3>
-                        <p>Scheduled cleaning programs tailored to your needs.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Our Commercial Services Include:</h3>
-                    <p>✓ Office cleaning<br>✓ Retail store cleaning<br>✓ Restaurant cleaning<br>✓ Industrial facility cleaning<br>✓ Janitorial services</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call for Commercial Quote: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- HOUSE CLEANING PAGE -->
-        <div id="house-cleaning-page" class="page">
-            <section class="house-hero">
-                <div class="house-hero-content">
-                    <h1>HOUSE CLEANING SERVICES IN LOVELAND, COLORADO</h1>
-                    <h3>Professional House Cleaning Services in Loveland, CO</h3>
-                    <p>Looking for top-rated house cleaning services in Loveland, Colorado? Mad Dog Carpet & Tile offers professional residential cleaning services.</p>
-                    <div class="house-buttons">
-                        <a href="#" onclick="showQuote(); return false;">Get a Quote</a>
-                        <a href="tel:9702007677">Call Us to Schedule</a>
-                    </div>
-                    <div class="badges" style="margin-top:40px;">
-                        <div class="badge">Serving<br>Northern Colorado</div>
-                        <div class="badge">20% Discount<br>For Veterans</div>
-                        <div class="badge">Locally Owned<br>& Operated</div>
-                        <div class="badge">Eco-Friendly<br>Products</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="info-section" style="margin-top:-80px; padding:80px 20px;">
-                <div class="info-box">
-                    <p>At <span>Mad Dog Carpet and Tile Cleaning</span>, we specialize in professional house cleaning services to residents in Loveland and across Larimer County.</p>
-                    <div class="house-buttons">
-                        <a href="#" onclick="showQuote(); return false;">Get A Quote</a>
-                        <a href="tel:9702007677">Call Us to Schedule</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="standard-section">
-                <div class="standard-container">
-                    <div class="standard-image" style="flex:1;">
-                        <img src="https://picsum.photos/800/600?random=20" style="width:100%; border-radius:20px;">
-                    </div>
-                    <div class="standard-content" style="flex:1;">
-                        <h2>Standard House Cleaning</h2>
-                        <p>Ideal for regular maintenance cleaning.</p>
-                        <ul style="margin:20px 0;">
-                            <li>Dusting and wiping surfaces</li>
-                            <li>Vacuuming and mopping floors</li>
-                            <li>Kitchen and bathroom sanitation</li>
-                            <li>Trash removal</li>
-                        </ul>
-                        <div class="house-buttons">
-                            <a href="tel:9702007677">Call Us Today</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="green-section">
-                <div class="green-container">
-                    <div class="green-content" style="flex:1;">
-                        <h2>Green Cleaning Services</h2>
-                        <p>Our green cleaning services use eco-friendly products that are safe for kids, pets, and the planet.</p>
-                        <div class="house-buttons">
-                            <a href="tel:9702007677">Call Us Today</a>
-                        </div>
-                    </div>
-                    <div class="green-image" style="flex:1;">
-                        <img src="https://picsum.photos/900/700?random=40" style="width:100%; border-radius:20px;">
-                    </div>
-                </div>
-            </section>
-
-            <section class="benefits">
-                <h2>Benefits of Choosing Us</h2>
-                <p>Here’s why homeowners trust our cleaning services.</p>
-                <div class="benefit-grid">
-                    <div class="benefit-box">
-                        <div class="benefit-icon">★</div>
-                        <h3>Durability</h3>
-                    </div>
-                    <div class="benefit-box">
-                        <div class="benefit-icon">⏰</div>
-                        <h3>Efficiency</h3>
-                    </div>
-                    <div class="benefit-box">
-                        <div class="benefit-icon">⚙</div>
-                        <h3>Customization</h3>
-                    </div>
-                    <div class="benefit-box">
-                        <div class="benefit-icon">🌿</div>
-                        <h3>Eco Friendly</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cta-section">
-                <div class="cta-content">
-                    <h2>Why Regular House Cleaning Matters</h2>
-                    <p>Regular cleaning improves air quality and keeps your home hygienic.</p>
-                    <div class="house-buttons">
-                        <a href="#" onclick="showQuote(); return false;">Get A Quote</a>
-                        <a href="tel:9702007677">Call Us</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- EMERGENCY PAGE -->
-        <div id="emergency-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>24/7 Emergency</span> Services</h1>
-                </div>
-
-                <div class="emergency-banner">
-                    <h2>OPEN 24/7/365</h2>
-                    <p style="font-size: 20px; margin-bottom: 30px;">For Emergency Flooding, Water Damage & Emergency Cleaning</p>
-                    <a href="tel:9702007677" class="button">
-                        <i class="fas fa-phone-alt"></i> Call Now: (970) 200-7677
-                    </a>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3>24/7 Availability</h3>
-                        <p>We're here anytime, day or night, 365 days a year.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-tint"></i></div>
-                        <h3>Water Extraction</h3>
-                        <p>Rapid water removal to prevent damage.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-fan"></i></div>
-                        <h3>Drying Services</h3>
-                        <p>Industrial drying equipment for quick results.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-shield"></i></div>
-                        <h3>Mold Prevention</h3>
-                        <p>Stop mold growth before it starts.</p>
-                    </div>
-                </div>
-
-                <div class="service-badge">
-                    <h3>Emergency Services Include:</h3>
-                    <p>✓ Flood damage restoration<br>✓ Burst pipe cleanup<br>✓ Sewage backup cleanup<br>✓ Storm damage cleanup<br>✓ Emergency carpet cleaning</p>
-                </div>
-
-                <div class="service-cta">
-                    <a href="tel:9702007677" class="button" style="font-size: 20px; padding: 20px 40px; background: #d32f2f;">
-                        <i class="fas fa-phone-alt"></i> Call Emergency Line: (970) 200-7677
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- REVIEW PAGE -->
-        <div id="review-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Leave a</span> Review</h1>
-                </div>
-
-                <div style="background: #f5f5f5; border-radius: 20px; padding: 40px; text-align: center; margin: 30px 15px;">
-                    <p style="font-size: 18px; margin-bottom: 30px;">We value your feedback! Please take a moment to review your experience with Mad Dog Carpet & Tile.</p>
-                    
-                    <div style="margin-bottom: 30px;">
-                        <a href="#" class="button" style="margin: 5px;">
-                            <i class="fab fa-google"></i> Google Review
-                        </a>
-                        <a href="#" class="button" style="margin: 5px;">
-                            <i class="fab fa-facebook"></i> Facebook Review
-                        </a>
-                        <a href="#" class="button" style="margin: 5px;">
-                            <i class="fas fa-star"></i> Yelp Review
-                        </a>
-                    </div>
-                    
-                    <p>Or call us directly: <strong><a href="tel:9702007677" style="color: #25D366;">(970) 200-7677</a></strong></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- BLOG PAGE -->
-        <div id="blog-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Our</span> Blog</h1>
-                </div>
-
-                <div style="text-align: center; padding: 50px; background: #f5f5f5; border-radius: 20px; margin: 30px 15px;">
-                    <p style="font-size: 18px;">Blog coming soon! Check back for cleaning tips, how-to guides, and company updates.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTACT PAGE -->
-        <div id="contact-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Contact</span> Us</h1>
-                </div>
-
-                <div style="background: #f5f5f5; border-radius: 20px; padding: 40px; margin: 30px 15px;">
-                    <h3 style="margin-bottom: 20px;">Get in Touch</h3>
-                    
-                    <p style="margin-bottom: 15px;">
-                        <i class="fas fa-phone" style="color: #25D366; width: 25px;"></i> 
-                        <a href="tel:9702007677" style="color: #333; text-decoration: none; font-size: 18px;">(970) 200-7677</a>
-                    </p>
-                    
-                    <p style="margin-bottom: 15px;">
-                        <i class="fas fa-map-marker-alt" style="color: #25D366; width: 25px;"></i> 
-                        5620 Wild Plum Dr, Loveland, CO 80537
-                    </p>
-                    
-                    <p style="margin-bottom: 15px;">
-                        <i class="fas fa-clock" style="color: #25D366; width: 25px;"></i> 
-                        Open 24/7/365 - Always Available
-                    </p>
-                    
-                    <p style="margin-bottom: 15px;">
-                        <i class="fas fa-envelope" style="color: #25D366; width: 25px;"></i> 
-                        info@maddogcarpet.com
-                    </p>
-                    
-                    <div style="margin-top: 30px;">
-                        <a href="tel:9702007677" class="button">
-                            <i class="fas fa-phone-alt"></i> Call Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUOTE PAGE -->
-        <div id="quote-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span>Free</span> Quote</h1>
-                </div>
-
-                <div style="background: #f5f5f5; border-radius: 20px; padding: 40px; margin: 30px 15px;">
-                    <h3 style="margin-bottom: 20px;">Get Your Free Estimate</h3>
-                    
-                    <p style="margin-bottom: 30px; font-size: 18px;">Call us today for a free, no-obligation quote on any of our cleaning services.</p>
-                    
-                    <div class="text-center">
-                        <a href="tel:9702007677" class="button" style="font-size: 24px; padding: 20px 40px;">
-                            <i class="fas fa-phone-alt"></i> Call Now: (970) 200-7677
-                        </a>
-                    </div>
-                    
-                    <p style="margin-top: 30px; color: #666;">We're available 24/7 to answer your questions and provide free estimates.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- LOCATION PAGE -->
-        <div id="location-page" class="page">
-            <div class="container">
-                <a href="#" onclick="showHome(); return false;" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                
-                <div class="page-header">
-                    <h1><span id="location-name">Location</span> Services</h1>
-                </div>
-
-                <div style="background: #f5f5f5; border-radius: 20px; padding: 40px; margin: 30px 15px;">
-                    <p id="location-description" style="margin-bottom: 30px; font-size: 18px;">Serving this area with professional cleaning services.</p>
-                    
-                    <div class="text-center">
-                        <a href="tel:9702007677" class="button">
-                            <i class="fas fa-phone-alt"></i> Call for Service
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footerContainer">
-            <div class="container">
-                <div class="socialIconsContainer">
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <div class="mobile-menu-close" onclick="toggleMobileMenu(); return false;">✕</div>
                     <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                        <li><a href="#" onclick="loadPage('home'); toggleMobileMenu(); return false;" class="selected">Home</a></li>
+                        <li><a href="#" onclick="loadPage('about'); toggleMobileMenu(); return false;">About Us</a></li>
+                        <li>
+                            <div class="navLabel-mobile" onclick="toggleMobileSubmenu(this)">
+                                Services <span class="dropArrow-mobile">▾</span>
+                            </div>
+                            <ul class="subNav-mobile">
+                                <li><a href="#" onclick="loadPage('tile'); toggleMobileMenu(); return false;">Tile Floor Cleaning</a></li>
+                                <li><a href="#" onclick="loadPage('pet'); toggleMobileMenu(); return false;">Pet Stain Removal</a></li>
+                                <li><a href="#" onclick="loadPage('upholstery'); toggleMobileMenu(); return false;">Upholstery Cleaning</a></li>
+                                <li><a href="#" onclick="loadPage('deep'); toggleMobileMenu(); return false;">Deep Cleaning</a></li>
+                                <li><a href="#" onclick="loadPage('airduct'); toggleMobileMenu(); return false;">Air Duct Cleaning</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="navLabel-mobile" onclick="toggleMobileSubmenu(this)">
+                                Locations <span class="dropArrow-mobile">▾</span>
+                            </div>
+                            <ul class="subNav-mobile">
+                                <li><a href="#" onclick="loadPage('boulder'); toggleMobileMenu(); return false;">Boulder</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" onclick="loadPage('emergency'); toggleMobileMenu(); return false;">Emergency Floor Cleaning</a></li>
+                        <li><a href="#" onclick="loadPage('commercial'); toggleMobileMenu(); return false;">Commercial Cleaning</a></li>
+                        <li><a href="#" onclick="loadPage('house'); toggleMobileMenu(); return false;">House Cleaning</a></li>
+                        <li>
+                            <div class="navLabel-mobile" onclick="toggleMobileSubmenu(this)">
+                                More <span class="dropArrow-mobile">▾</span>
+                            </div>
+                            <ul class="subNav-mobile">
+                                <li><a href="#" onclick="loadPage('review'); toggleMobileMenu(); return false;">Leave Review</a></li>
+                                <li><a href="#" onclick="loadPage('blog'); toggleMobileMenu(); return false;">Blog</a></li>
+                                <li><a href="#" onclick="loadPage('contact'); toggleMobileMenu(); return false;">Contact Us</a></li>
+                                <li><a href="#" onclick="loadPage('quote'); toggleMobileMenu(); return false;">Free Quote</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="tel:9702007677" class="button navButton" style="text-align: center;">Call Us: (970) 200-7677</a></li>
+                        <li><a href="https://clienthub.getjobber.com/booking/4aa92943-5cc0-4eea-ac3b-12e33b871a59" class="button navButton" style="text-align: center;" target="_blank">Schedule Service</a></li>
                     </ul>
                 </div>
+                <div class="overlay" id="overlay" onclick="toggleMobileMenu(); return false;"></div>
 
-                <div class="footer-links">
-                    <a href="#" onclick="showHome(); return false;">Home</a>
-                    <a href="#" onclick="showAbout(); return false;">About</a>
-                    <a href="#" onclick="showQuote(); return false;">Free Quote</a>
-                    <a href="#" onclick="showContact(); return false;">Contact</a>
+                <!-- Main Content Area -->
+                <div class="primaryAndSecondaryContainer">
+                    <div class="primaryAndSecondaryContent">
+                        <div class="primaryContentContainer">
+                            <section class="primaryContent" role="main" id="main-content">
+                                <!-- Content will be loaded dynamically -->
+                            </section>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="footer-info">
-                    <p>©2024 Mad Dog Carpet & Tile - All rights reserved.</p>
-                    <p>5620 Wild Plum Dr, Loveland, CO 80537</p>
-                    <p><a href="tel:9702007677">+1 970-200-7677</a></p>
+                <!-- Footer -->
+                <div class="footerContainer">
+                    <footer class="footerContent">
+                        <div class="footerInner">
+                            <div class="socialIconsContainer">
+                                <ul class="socialIcons">
+                                    <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MadDogCarpetandTileCleaning" class="zocial facebook" aria-label="facebook">f</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-links">
+                                <a href="#" onclick="loadPage('home'); return false;">Home</a> | 
+                                <a href="#" onclick="loadPage('quote'); return false;">Free Quote</a> | 
+                                <a href="#" onclick="loadPage('privacy'); return false;">Privacy Policy</a> | 
+                                <a href="#" onclick="loadPage('terms'); return false;">Terms and Conditions</a> | 
+                                <a href="#" onclick="loadPage('contact'); return false;">Contact</a>
+                            </div>
+                            <div class="copyright">
+                                <p>©2024 Mad Dog Carpet & Tile® - All rights reserved.</p>
+                            </div>
+                            <div class="footer-info">
+                                <p><a href="https://www.google.com/search?q=Mad+Dog+Carpet+and+Tile+Cleaning+address">Address</a>: 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+                                <p><a href="https://www.google.com/search?q=Mad+Dog+Carpet+and+Tile+Cleaning+hours">Hours</a>: </p>
+                                <ul class="unstyledList">
+                                    <li>Monday Open 24 hours</li>
+                                    <li>Tuesday Open 24 hours</li>
+                                    <li>Wednesday Open 24 hours</li>
+                                    <li>Thursday Open 24 hours</li>
+                                    <li>Friday Open 24 hours</li>
+                                    <li>Saturday Open 24 hours</li>
+                                    <li>Sunday Open 24 hours</li>
+                                </ul>
+                                <p><a href="https://www.google.com/search?q=Mad+Dog+Carpet+and+Tile+Cleaning+phone">Phone</a>: <a href="tel:9702007677">+1 970-200-7677</a></p>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
-
-        <!-- Floating Action Button -->
-        <a href="tel:9702007677" class="fab-top">
-            <i class="fas fa-phone-alt"></i>
-        </a>
     </div>
 
     <script>
-        // Mobile Menu Functions
-        function toggleMenu() {
-            const nav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('navOverlay');
-            nav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            
-            if (!nav.classList.contains('active')) {
-                document.querySelectorAll('.subNav.show').forEach(sub => {
-                    sub.classList.remove('show');
-                });
-                document.querySelectorAll('.navLabel.active').forEach(label => {
-                    label.classList.remove('active');
-                });
+        // Page content data
+        const pages = {
+            home: {
+                title: 'Carpet Cleaning Loveland - Mad Dog Carpet and Tile Cleaning',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Carpet Cleaning Loveland - Mad Dog Carpet & Tile Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Carpet Cleaning Near You In Loveland, CO</h2>
+                                <div class="blockInnerContent">
+                                    <p>Revitalize your carpets with expert <strong>carpet cleaning in Loveland, Larimer County</strong>. Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent gridView">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">Quality Floor Cleaning</h2>
+                                        <div class="itemInnerContent">
+                                            <p>
+                                                <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> 
+                                                <a href="tel:9702007677" class="button">Call Us to Schedule</a> 
+                                                <a href="tel:+19703291565" class="button">Emergency Service Call Now</a> 
+                                                <a href="https://clienthub.getjobber.com/booking/4aa92943-5cc0-4eea-ac3b-12e33b871a59/" class="button" target="_blank">Book Now</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b4d4605608524171a0ae4372c19b0857/1/4SoifmQp45JMgBnHm9g4L/Trust%20Badges%20RV%201.png?dpr=3" alt="trust badges"></div>
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">Open 24/7/365 for Emergency Floor Cleaning</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasVideo">
+                            <div class="blockImg"><iframe width="560" height="315" src="https://www.youtube.com/embed/d_ED0hpYT8o" title="YouTube video player" frameborder="0" allowfullscreen></iframe></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Providing Professional Floor Cleaning Services in Loveland, Northern Colorado</h2>
+                                <div class="blockInnerContent">
+                                    <p>Discover the exceptional difference of Mad Dog Carpet & Tile, your premier destination for eco-friendly floor cleaning services in Northern Colorado.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 Star"></div>
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">Our Floor Cleaning Services</h2>
+                                        <div class="itemInnerContent"><p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent imageGallery layoutA">
+                            <div class="blockImg">
+                                <div class="galleryWrapper">
+                                    <div class="imgGridItem">
+                                        <a href="#" onclick="loadPage('commercial'); return false;">
+                                            <div class="contentImg imgEffect">
+                                                <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ced4aca1c6d6480ea970f6b6a65c3517/1/4SoifmQp45JMgBnHiCNTW/all-the-desks-raise-and-lower.jpg?dpr=3" alt="Commercial Cleaning">
+                                                <div class="imgEffect-overlay"><div class="imgEffect-content"><h3>Commercial Cleaning</h3></div></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="imgGridItem">
+                                        <a href="#" onclick="loadPage('tile'); return false;">
+                                            <div class="contentImg imgEffect">
+                                                <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ef138729e0a54175a53d7e158b9e1719/1/4SoifmQp45JMgBnHiCNTW/CTA_Tile.jpg?dpr=3" alt="Tile Cleaning">
+                                                <div class="imgEffect-overlay"><div class="imgEffect-content"><h3>Tile Cleaning</h3></div></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="imgGridItem">
+                                        <a href="#" onclick="loadPage('house'); return false;">
+                                            <div class="contentImg imgEffect">
+                                                <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/defc359d706b43289be28575b73497f4/1/4SoifmQp45JMgBnHiCNTW/Why%20Choose%20Mad%20Dog%20image%204.jpg?dpr=3" alt="House Cleaning">
+                                                <div class="imgEffect-overlay"><div class="imgEffect-content"><h3>House Cleaning</h3></div></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="imgGridItem">
+                                        <a href="#" onclick="loadPage('emergency'); return false;">
+                                            <div class="contentImg imgEffect">
+                                                <img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae34d91498d94133b10c69208382c2df/1/4SoifmQp45JMgBnHiCNTW/Emergency%201.png?dpr=3" alt="Emergency">
+                                                <div class="imgEffect-overlay"><div class="imgEffect-content"><h3>Emergency</h3></div></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/fa5859852ac640328ce20cc003f87ac0/1/4SoifmQp45JMgBnHndfLg/Home_IMG-1.png?dpr=3" alt="man cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">About Our Floor Cleaning Company</h2>
+                                <div class="blockInnerContent">
+                                    <p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile is committed to delivering top-notch results.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutD hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c2e585c214f645d7b185f7bac7e8a8ab/1/4SoifmQp45JMgBnHndfLg/Home_IMG-2.png?dpr=3" alt="why choose us"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Why Choose Us</h2>
+                                <div class="blockInnerContent">
+                                    <p>Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention to detail, and dedication to customer satisfaction.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer faq-section">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae34d91498d94133b10c69208382c2df/1/4SoifmQp45JMgBnHndfLg/Emergency%201.png?dpr=3" alt="emergency"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
+                                <div class="blockInnerContent">
+                                    <p><strong>What areas do you serve?</strong></p>
+                                    <p>We serve Loveland and all of Larimer County.</p>
+                                    <p><strong>How often should I clean my carpets?</strong></p>
+                                    <p>We recommend professional cleaning every 6-12 months.</p>
+                                    <p><strong>Do you use eco-friendly cleaning products?</strong></p>
+                                    <p>Yes, we use safe, eco-friendly solutions for all our services.</p>
+                                    <p><strong>Can you remove tough stains?</strong></p>
+                                    <p>Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
+                                    <p><strong>How long does carpet cleaning take?</strong></p>
+                                    <p>Most jobs are completed within 2-4 hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Schedule a Cleaning Today</h2>
+                                <div class="blockInnerContent">
+                                    <p>We guarantee that you will be satisfied with the results.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer map-container">
+                        <div class="blockContent">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.267357351113!2d-105.15804159999999!3d40.35859579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4515a031ccb7d73f%3A0xb8e6bcb20642c223!2sMad%20Dog%20Carpet%20and%20Tile%20Cleaning!5e0!3m2!1sen!2sus!4v1741610310765!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                    </div>
+                `
+            },
+            about: {
+                title: 'About Us - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">About Mad Dog Carpet & Tile</h1>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">About Mad Dog Carpet and Tile Cleaning – Your Trusted Cleaning Company in Loveland</h2>
+                                        <div class="itemInnerContent">
+                                            <p>Mad Dog Carpet and Tile Cleaning is the premier cleaning company in Loveland, dedicated to helping small business owners and homeowners maintain clean, fresh, and allergen-free spaces.</p>
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b4d4605608524171a0ae4372c19b0857/1/4SoifmQp45JMgBnHm9g4L/Trust%20Badges%20RV%201.png?dpr=3" alt="trust badges"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cb8e0156982c466b8e40a2f527e1d003/1/GCuCv726gZycFxatR9epdr/5%20Star.png?dpr=3" alt="5 Star"></div>
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">Our Mission</h2>
+                                        <div class="itemInnerContent"><p>At Mad Dog Carpet & Tile, our mission is to bring a touch of luxury and sophistication to your home through our specialized floor cleaning services.</p></div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">Our Vision</h2>
+                                        <div class="itemInnerContent"><p>We envision a future where every home radiates elegance and comfort through impeccably maintained floors.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e6b27d39378d44b9b96b6a9e1945545a/1/4SoifmQp45JMgBnHndfLg/CTA_Area%20Rug.jpg?dpr=3" alt="pet stain"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Our Commitment</h2>
+                                <div class="blockInnerContent">
+                                    <p>We take pride in using environmentally safe products and innovative techniques to ensure thorough and impeccable cleaning for your floors.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Schedule a Cleaning Today</h2>
+                                <div class="blockInnerContent">
+                                    <p>Experience the difference of Mad Dog Carpet & Tile — where eco-friendly cleaning meets professional excellence.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            commercial: {
+                title: 'Commercial Cleaning Services - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Commercial Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Commercial cleaning services in Loveland, CO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b4d4605608524171a0ae4372c19b0857/1/4SoifmQp45JMgBnHm9g4L/Trust%20Badges%20RV%201.png?dpr=3" alt="trust badges"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p>Discover the exceptional difference of Mad Dog Carpet & Tile, your trusted provider of eco-friendly commercial cleaning services in Loveland, CO.</p>
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/eae6dbf7c56b416bb8d2f0ff651506e7/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning_IMG-1.png?dpr=3" alt="grout cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Comprehensive Cleaning Solutions</h2>
+                                <div class="blockInnerContent">
+                                    <p>At Mad Dog Carpet & Tile, we are your trusted partner for top-quality commercial cleaning services in Loveland, CO.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutD hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae007117a0bc49838f0dcd978a8092a0/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning%20IMG-2.png?dpr=3" alt="steaming carpets"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">All-Natural Carpet Cleaning Solutions for a Healthier Workplace</h2>
+                                <div class="blockInnerContent">
+                                    <p>We prioritize the health and well-being of your employees and clients by only using all-natural carpet cleaning solutions.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <h2 class="contentTitle">State-of-the-Art Cleaning Equipment</h2>
+                                        <div class="itemInnerContent">
+                                            <p>For consistent and exceptional results, we invest in the most advanced cleaning equipment.</p>
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/cf9c64a203484760bbd57e9a02fb961a/1/4SoifmQp45JMgBnHndfLg/Commercial%20Cleaning%203.png?dpr=3" alt="buffing tiles"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Customized Cleaning Solutions</h2>
+                                <div class="blockInnerContent">
+                                    <p>Our wide range of state-of-the-art tools is specifically designed to provide deep cleaning, faster drying times, and superior stain removal.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Schedule a Commercial Cleaning Today</h2>
+                                <div class="blockInnerContent">
+                                    <p>When you partner with Mad Dog Carpet & Tile for your commercial cleaning services in Loveland, CO, you can expect professionalism, reliability, and outstanding results.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            house: {
+                title: 'House Cleaning Services - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">House Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">House Cleaning Services in Loveland, Colorado</h2>
+                                <div class="blockInnerContent">
+                                    <p><strong>Professional House Cleaning Services in Loveland, CO</strong></p>
+                                    <p>Looking for top-rated house cleaning services in Loveland, Colorado? Mad Dog Carpet & Tile offers professional and reliable residential cleaning services to keep your home spotless.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b4d4605608524171a0ae4372c19b0857/1/4SoifmQp45JMgBnHm9g4L/Trust%20Badges%20RV%201.png?dpr=3" alt="trust badges"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p>At Mad Dog Carpet and Tile Cleaning, we specialize in providing top-notch house cleaning services to residents in Loveland and across Larimer County.</p>
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Our House Cleaning Services in Loveland, CO</h2>
+                                <div class="blockInnerContent">
+                                    <p>At Mad Dog Carpet & Tile, we take pride in delivering high-quality, detail-oriented cleaning services tailored to your home's needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e475439a4cd347adb3d68d60e38c48c3/1/4SoifmQp45JMgBnHndfLg/Untitled%20design%20%252823%2529.png?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Standard House Cleaning</h2>
+                                <div class="blockInnerContent">
+                                    <p>Ideal for regular maintenance, our standard cleaning includes:</p>
+                                    <ul style="margin-left: 20px;">
+                                        <li>Dusting and wiping surfaces</li>
+                                        <li>Vacuuming and mopping floors</li>
+                                        <li>Kitchen and bathroom sanitation</li>
+                                        <li>Trash removal</li>
+                                    </ul>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutD hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/dd081cf88e0a461ca56e82eafc898891/1/4SoifmQp45JMgBnHndfLg/deep-cleaning-services--no-people%20%25281%2529.jpg?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Deep Cleaning Services</h2>
+                                <div class="blockInnerContent">
+                                    <p>For homes that need extra care, our deep cleaning services include:</p>
+                                    <ul style="margin-left: 20px;">
+                                        <li>Baseboard and ceiling fan cleaning</li>
+                                        <li>Appliance deep cleaning</li>
+                                        <li>Upholstery and carpet cleaning</li>
+                                        <li>Grout and tile scrubbing</li>
+                                    </ul>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b5bcf5bdee8545ae8e1acc7dbc29eea4/1/4SoifmQp45JMgBnHndfLg/residential-cleaning-service--without-people-face.jpg?dpr=3" alt="move cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Move-In/Move-Out Cleaning</h2>
+                                <div class="blockInnerContent">
+                                    <p>Moving? Our move-out cleaning services ensure you leave your space spotless.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Ready to Transform Your Home? Call Us Today!</h2>
+                                <div class="blockInnerContent">
+                                    <p>Don't wait any longer to enjoy a clean, fresh, and inviting home. Call Mad Dog Carpet and Tile Cleaning today.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            emergency: {
+                title: 'Emergency Floor Cleaning - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Emergency Floor Cleaning Services</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Open 24/7/365 for Emergency Flooding Cleaning</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simpleList itemsCollectionContainer">
+                        <div class="blockContent layoutA">
+                            <div class="itemsCollectionContent">
+                                <div class="item itemPreview">
+                                    <div class="itemContent">
+                                        <div class="itemInnerContent">
+                                            <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us to Schedule</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item itemPreview hasImg">
+                                    <div class="itemImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/b4d4605608524171a0ae4372c19b0857/1/4SoifmQp45JMgBnHm9g4L/Trust%20Badges%20RV%201.png?dpr=3" alt="trust badges"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ae34d91498d94133b10c69208382c2df/1/4SoifmQp45JMgBnHndfLg/Emergency%201.png?dpr=3" alt="emergency"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Professional Team Ready to Assist You</h2>
+                                <div class="blockInnerContent">
+                                    <p>Our dedicated team at Mad Dog Carpet & Tile is committed to providing prompt and professional emergency floor cleaning services when you need them most.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutD hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/d4fa7b9406f74c38a08e3681f492ed4c/1/4SoifmQp45JMgBnHndfLg/Emergency%202.png?dpr=3" alt="emergency"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Comprehensive Emergency Floor Cleaning Solutions</h2>
+                                <div class="blockInnerContent">
+                                    <p>From water extraction and drying to sanitization and deodorization, our emergency floor cleaning services cover all aspects of restoring your space.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get A Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer parallax-section">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Contact Mad Dog Carpet & Tile for Emergency Floor Cleaning Services</h2>
+                                <div class="blockInnerContent">
+                                    <p>Don't wait until it's too late to address emergency floor cleaning needs. Contact Mad Dog Carpet & Tile today for immediate assistance.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            tile: {
+                title: 'Tile Floor Cleaning - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Tile Floor Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ef138729e0a54175a53d7e158b9e1719/1/4SoifmQp45JMgBnHiCNTW/CTA_Tile.jpg?dpr=3" alt="tile cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Professional Tile and Grout Cleaning</h2>
+                                <div class="blockInnerContent">
+                                    <p>Restore the beauty of your tile floors with our professional cleaning services. We remove dirt, grime, and mold from grout lines.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            pet: {
+                title: 'Pet Stain Removal - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Pet Stain and Odor Removal</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/e6b27d39378d44b9b96b6a9e1945545a/1/4SoifmQp45JMgBnHiCNTW/CTA_Area%20Rug.jpg?dpr=3" alt="pet stain"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Expert Pet Stain and Odor Removal</h2>
+                                <div class="blockInnerContent">
+                                    <p>Our specialized treatments neutralize pet odors and clean pet-related stains effectively.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            upholstery: {
+                title: 'Upholstery Cleaning - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Upholstery Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/ced4aca1c6d6480ea970f6b6a65c3517/1/4SoifmQp45JMgBnHiCNTW/all-the-desks-raise-and-lower.jpg?dpr=3" alt="upholstery"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Professional Upholstery Cleaning</h2>
+                                <div class="blockInnerContent">
+                                    <p>Extend the life of your furniture with our professional upholstery cleaning services.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            deep: {
+                title: 'Deep Cleaning - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Deep Cleaning Services</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/dd081cf88e0a461ca56e82eafc898891/1/4SoifmQp45JMgBnHndfLg/deep-cleaning-services--no-people%20%25281%2529.jpg?dpr=3" alt="deep cleaning"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Deep Cleaning Services</h2>
+                                <div class="blockInnerContent">
+                                    <p>Our deep cleaning services go beyond the surface to remove embedded dirt and allergens.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            airduct: {
+                title: 'Air Duct Cleaning - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Air Duct Cleaning</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/c439b94bbe714a17880e5f9ae3880182/1/4SoifmQp45JMgBnHiCNTW/Untitled%20design%20-%202024-05-07T123411.155.png?dpr=3" alt="air duct"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Air Duct Cleaning Services</h2>
+                                <div class="blockInnerContent">
+                                    <p>Improve your indoor air quality with our professional air duct cleaning services.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            boulder: {
+                title: 'Boulder Cleaning Services - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Boulder Cleaning Services</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutC hasImg">
+                            <div class="blockImg"><img src="https://static.mywebsites360.com/b451014a88c74047aa9fd50a564ef780/i/fdd0d773af4e49b5b5aa612e8d01f026/1/4SoifmQpDrHbZJ6Vx93rk/Mapleton%20Hill?dpr=3" alt="boulder"></div>
+                            <div class="blockText">
+                                <h2 class="contentTitle">Cleaning Services in Boulder, CO</h2>
+                                <div class="blockInnerContent">
+                                    <p>We provide professional cleaning services in Boulder and surrounding areas.</p>
+                                    <p><a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a> <a href="tel:9702007677" class="button">Call Us Today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            quote: {
+                title: 'Free Quote - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Get a Free Quote</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer jobber-form">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Request Your Free Quote Today</h2>
+                                <div class="blockInnerContent">
+                                    <p>Fill out the form below and we'll get back to you within 24 hours with a free quote for your cleaning needs.</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us: (970) 200-7677</a> <a href="#" onclick="loadPage('home'); return false;" class="button">Back to Home</a></p>
+                                    <div style="background: #f0f0f0; padding: 30px; border-radius: 10px; margin-top: 20px;">
+                                        <p style="text-align: center;">Quote request form would be embedded here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            contact: {
+                title: 'Contact Us - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Contact Us</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Get in Touch</h2>
+                                <div class="blockInnerContent">
+                                    <p><strong>Phone:</strong> <a href="tel:9702007677">(970) 200-7677</a></p>
+                                    <p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537</p>
+                                    <p><strong>Hours:</strong> Open 24/7/365</p>
+                                    <p><a href="tel:9702007677" class="button">Call Us Now</a> <a href="#" onclick="loadPage('quote'); return false;" class="button">Get a Quote</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blockContainer map-container">
+                        <div class="blockContent">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.267357351113!2d-105.15804159999999!3d40.35859579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4515a031ccb7d73f%3A0xb8e6bcb20642c223!2sMad%20Dog%20Carpet%20and%20Tile%20Cleaning!5e0!3m2!1sen!2sus!4v1741610310765!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                `
+            },
+            review: {
+                title: 'Leave a Review - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Leave a Review</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Share Your Experience</h2>
+                                <div class="blockInnerContent">
+                                    <p>We value your feedback! Please take a moment to leave us a review on Google or Facebook.</p>
+                                    <p><a href="https://www.facebook.com/MadDogCarpetandTileCleaning" target="_blank" class="button">Review on Facebook</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            blog: {
+                title: 'Blog - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Our Blog</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <h2 class="contentTitle">Latest Articles</h2>
+                                <div class="blockInnerContent">
+                                    <p>Check back soon for cleaning tips and company news!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            privacy: {
+                title: 'Privacy Policy - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Privacy Policy</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <div class="blockInnerContent">
+                                    <p>Your privacy is important to us. This policy outlines how we collect, use, and protect your personal information.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            terms: {
+                title: 'Terms and Conditions - Mad Dog Carpet & Tile',
+                content: `
+                    <div class="pageTitleContainer">
+                        <div class="blockContent">
+                            <h1 class="pageTitle">Terms and Conditions</h1>
+                        </div>
+                    </div>
+                    <div class="blockContainer">
+                        <div class="blockContent layoutA">
+                            <div class="blockText">
+                                <div class="blockInnerContent">
+                                    <p>Please read these terms and conditions carefully before using our services.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
             }
+        };
+
+        // Load page function
+        function loadPage(pageId) {
+            const page = pages[pageId];
+            if (page) {
+                document.title = page.title;
+                document.getElementById('main-content').innerHTML = page.content;
+                
+                // Update active state in navigation
+                updateActiveNav(pageId);
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            return false;
         }
 
-        function toggleDropdown(element, event) {
-            event.stopPropagation();
-            const subNav = element.nextElementSibling;
-            subNav.classList.toggle('show');
-            element.classList.toggle('active');
-        }
-
-        // Page Switching Functions
-        function showHome() {
-            hideAllPages();
-            document.getElementById('home-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showAbout() {
-            hideAllPages();
-            document.getElementById('about-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showTileFloorCleaning() {
-            hideAllPages();
-            document.getElementById('tile-floor-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showPetStainRemoval() {
-            hideAllPages();
-            document.getElementById('pet-stain-removal-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showUpholsteryCleaning() {
-            hideAllPages();
-            document.getElementById('upholstery-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showDeepCleaning() {
-            hideAllPages();
-            document.getElementById('deep-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showAirDuctCleaning() {
-            hideAllPages();
-            document.getElementById('air-duct-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showCommercialCleaning() {
-            hideAllPages();
-            document.getElementById('commercial-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showHouseCleaning() {
-            hideAllPages();
-            document.getElementById('house-cleaning-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showEmergency() {
-            hideAllPages();
-            document.getElementById('emergency-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showReview() {
-            hideAllPages();
-            document.getElementById('review-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showBlog() {
-            hideAllPages();
-            document.getElementById('blog-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showContact() {
-            hideAllPages();
-            document.getElementById('contact-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showQuote() {
-            hideAllPages();
-            document.getElementById('quote-page').classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function showSchedule() {
-            alert('Please call 970-200-7677 to schedule service');
-        }
-
-        function showLocation(loc) {
-            hideAllPages();
-            document.getElementById('location-page').classList.add('active');
-            
-            const locationName = document.getElementById('location-name');
-            const locationDesc = document.getElementById('location-description');
-            
-            locationName.textContent = loc.charAt(0).toUpperCase() + loc.slice(1);
-            locationDesc.textContent = `Mad Dog Carpet & Tile proudly serves ${loc} and surrounding areas with professional cleaning services. Call us today at (970) 200-7677 for a free quote!`;
-            
-            window.scrollTo(0, 0);
-        }
-
-        function hideAllPages() {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
+        // Update active navigation
+        function updateActiveNav(activePage) {
+            const navLinks = document.querySelectorAll('#navTopLevel > li > a');
+            navLinks.forEach(link => {
+                link.classList.remove('selected');
+                const span = link.querySelector('.currArrow');
+                if (span) span.remove();
             });
+            
+            const activeLink = document.getElementById(`nav-${activePage}`);
+            if (activeLink) {
+                activeLink.classList.add('selected');
+                activeLink.innerHTML = '<span class="currArrow">▸</span>' + activeLink.textContent;
+            }
         }
 
-        // Close menu on window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                const nav = document.getElementById('mobileNav');
-                const overlay = document.getElementById('navOverlay');
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-            }
-        });
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function toggleMobileSubmenu(element) {
+            element.classList.toggle('active');
+            const submenu = element.nextElementSibling;
+            submenu.classList.toggle('active');
+        }
+
+        // Load home page by default
+        window.onload = function() {
+            loadPage('home');
+        };
     </script>
 </body>
 </html>
