@@ -3,428 +3,775 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carpet Cleaning</title>
-
+<title>Mad Dog Carpet & Tile Cleaning</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
+/* ----- RESET & BASE ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, serif;
 }
 
-/* HEADER */
-
-header{
-background:#000;
-color:white;
+/* ----- HEADER ----- */
+header {
+  background: #000;
+  color: white;
+  position: relative;
+  z-index: 1000;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  flex-wrap: wrap;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+  background: #333; /* placeholder bg until image loads */
 }
 
-.nav-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px 40px;
-flex-wrap:wrap;
+/* ----- NAVBAR (desktop) ----- */
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  white-space: nowrap;
 }
 
-.logo img{
-height:60px;
+/* ----- DROPDOWN ----- */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #000;
+  min-width: 220px;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.dropdown-menu a {
+  padding: 12px 18px;
+  display: block;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+}
+.dropdown-menu a:hover {
+  background: #c8a85a;
+}
+.dropdown:hover .dropdown-menu {
+  display: flex;
 }
 
-/* NAVBAR */
-
-nav{
-display:flex;
-gap:25px;
-align-items:center;
+/* ----- MOBILE MENU BUTTON ----- */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
+/* ----- HERO SECTION ----- */
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  padding: 20px;
+}
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.hero h3 {
+  color: #c8a85a;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-buttons a {
+  background: #c8a85a;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-/* DROPDOWN */
-
-.dropdown{
-position:relative;
+/* ----- SERVICES INTRO (5 star) ----- */
+.services-intro {
+  background: #f5f5f5;
+  padding: 80px 20px;
+  text-align: center;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+.stars {
+  font-size: 40px;
+  color: #c8a85a;
+  letter-spacing: 10px;
+  margin-bottom: 10px;
+}
+.star-text {
+  color: #c8a85a;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+.services-intro h2 {
+  font-size: 42px;
+  margin-bottom: 25px;
+  color: #222;
+}
+.services-intro p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
 }
 
-.dropdown-menu{
-display:none;
-position:absolute;
-top:40px;
-left:0;
-background:#000;
-min-width:220px;
-flex-direction:column;
-border-radius:4px;
-overflow:hidden;
-z-index:9999;
+/* ----- SERVICE CARDS GRID ----- */
+.services-grid-section {
+  background: #f4f4f4;
+  padding: 60px 40px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+  max-width: 1300px;
+  margin: auto;
+}
+.service-card {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.service-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.3;
+  z-index: 2;
+  padding: 0 15px;
+  width: 100%;
+}
+.service-card:hover img {
+  transform: scale(1.1);
 }
 
-.dropdown-menu a{
-padding:12px 18px;
-display:block;
-color:white;
-border-bottom:1px solid rgba(255,255,255,0.1);
+/* ----- ABOUT SECTION (image left) ----- */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-content {
+  background: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 60px;
+}
+.about-box {
+  max-width: 520px;
+}
+.about-box h2 {
+  font-size: 46px;
+  color: #222;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+.about-box p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 35px;
+}
+.about-btn {
+  background: #a3925b;
+  color: white;
+  text-decoration: none;
+  padding: 15px 32px;
+  font-size: 20px;
+  display: inline-block;
+  font-weight: bold;
+  border: none;
 }
 
-.dropdown-menu a:hover{
-background:#c8a85a;
+/* ----- WHY CHOOSE US (text left, image right) ----- */
+.choose-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  background: #f3f3f3;
+}
+.choose-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  text-align: left;
+}
+.choose-text h2 {
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  color: #222;
+}
+.choose-text p {
+  font-size: 22px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 35px;
+}
+.choose-btn {
+  background: #a3925b;
+  color: white;
+  padding: 18px 40px;
+  font-size: 22px;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+  font-weight: bold;
+}
+.choose-images {
+  height: 100%;
+}
+.choose-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.dropdown:hover .dropdown-menu{
-display:block;
+/* ----- MOBILE & TABLET RESPONSIVE (combined) ----- */
+@media (max-width: 900px) {
+  /* header / nav */
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+    gap: 0;
+    background: #000;
+    padding: 10px 0;
+  }
+  nav.show {
+    display: flex;
+  }
+  nav a {
+    padding: 12px 20px;
+    width: 100%;
+    border-bottom: 1px solid #333;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .dropdown {
+    width: 100%;
+  }
+  .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    background: #222;
+  }
+  .dropdown.active .dropdown-menu {
+    display: flex !important;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: none; /* disable hover on mobile */
+  }
+  .dropdown-menu a {
+    padding-left: 40px;
+  }
+  
+  /* hero */
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  /* services intro */
+  .services-intro h2 {
+    font-size: 30px;
+  }
+  .services-intro p {
+    font-size: 16px;
+  }
+  .stars {
+    font-size: 30px;
+  }
+
+  /* service cards */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .service-text {
+    font-size: 24px;
+  }
+
+  /* about */
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .about-img {
+    height: 350px;
+  }
+  .about-content {
+    padding: 50px 25px;
+  }
+  .about-box h2 {
+    font-size: 32px;
+  }
+  .about-box p {
+    font-size: 17px;
+  }
+  .about-btn {
+    font-size: 18px;
+  }
+
+  /* choose */
+  .choose-section {
+    grid-template-columns: 1fr;
+  }
+  .choose-text {
+    padding: 50px 30px;
+    text-align: center;
+    align-items: center;
+  }
+  .choose-text h2 {
+    font-size: 34px;
+  }
+  .choose-text p {
+    font-size: 18px;
+  }
+  .choose-btn {
+    align-self: center;
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+  .choose-images {
+    height: 400px;
+  }
 }
 
-/* MOBILE MENU BUTTON */
-
-.menu-toggle{
-display:none;
-font-size:28px;
-color:white;
-cursor:pointer;
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-text {
+    font-size: 28px;
+  }
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+  .nav-container {
+    padding: 15px 20px;
+  }
 }
-
-/* HERO SECTION */
-
-.hero{
-position:relative;
-background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-}
-
-.hero-content{
-position:relative;
-max-width:900px;
-padding:20px;
-}
-
-.hero h1{
-font-size:50px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:20px;
-line-height:1.6;
-}
-
-.hero h3{
-color:#c8a85a;
-margin-bottom:20px;
-letter-spacing:2px;
-}
-
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.hero-buttons a{
-background:#c8a85a;
-padding:12px 18px;
-text-decoration:none;
-color:white;
-font-size:14px;
-}
-
-/* MOBILE */
-
-@media (max-width:900px){
-
-nav{
-display:none;
-flex-direction:column;
-width:100%;
-margin-top:15px;
-}
-
-nav.show{
-display:flex;
-}
-
-.menu-toggle{
-display:block;
-}
-
-/* MOBILE DROPDOWN */
-
-.dropdown-menu{
-position:static;
-}
-
-.dropdown:hover .dropdown-menu{
-display:none;
-}
-
-.dropdown.active .dropdown-menu{
-display:block;
-}
-
-.hero h1{
-font-size:32px;
-}
-
-.hero{
-height:auto;
-padding:80px 20px;
-}
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-.services{
-background:#f5f5f5;
-padding:80px 20px;
-text-align:center;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-}
-
-/* STAR ICON */
-
-.stars{
-font-size:40px;
-color:#c8a85a;
-letter-spacing:10px;
-margin-bottom:10px;
-}
-
-.star-text{
-color:#c8a85a;
-font-size:14px;
-letter-spacing:3px;
-margin-bottom:30px;
-}
-
-/* TITLE */
-
-.services h2{
-font-size:42px;
-margin-bottom:25px;
-color:#222;
-}
-
-/* TEXT */
-
-.services p{
-font-size:18px;
-color:#555;
-line-height:1.8;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.services{
-padding:60px 20px;
-}
-
-.services h2{
-font-size:30px;
-}
-
-.services p{
-font-size:16px;
-}
-
-.stars{
-font-size:30px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="nav-container">
+  <div class="nav-container">
+    <div class="logo">
+      <!-- Using placeholder text as fallback; image might be missing -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23333'/%3E%3Ctext x='10' y='68' fill='%23c8a85a' font-size='52' font-weight='bold' font-family='Georgia'%3EMD%3C/text%3E%3C/svg%3E" alt="Mad Dog Logo">
+    </div>
 
-<div class="logo">
-<img src="images/b.jpg" alt="Logo">
-</div>
+    <nav id="menu">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <div class="dropdown" onclick="toggleDropdown(this)">
+        <a href="#">Services ▼</a>
+        <div class="dropdown-menu">
+          <a href="#">Carpet Cleaning</a>
+          <a href="#">Tile Cleaning</a>
+          <a href="#">Upholstery Cleaning</a>
+          <a href="#">Pet Odor Removal</a>
+          <a href="#">Deep Steam Cleaning</a>
+        </div>
+      </div>
+      <a href="#">Locations</a>
+      <a href="#">Emergency Floor Cleaning</a>
+      <a href="#">Commercial Cleaning</a>
+      <a href="#">House Cleaning</a>
+      <a href="#">More</a>
+    </nav>
 
-<nav id="menu">
-
-<a href="#">Home</a>
-<a href="#">About Us</a>
-
-<div class="dropdown" onclick="toggleDropdown(this)">
-<a href="#">Services ▼</a>
-
-<div class="dropdown-menu">
-<a href="#">Carpet Cleaning</a>
-<a href="#">Tile Cleaning</a>
-<a href="#">Upholstery Cleaning</a>
-<a href="#">Pet Odor Removal</a>
-<a href="#">Deep Steam Cleaning</a>
-</div>
-
-</div>
-
-<a href="#">Locations</a>
-<a href="#">Emergency Floor Cleaning</a>
-<a href="#">Commercial Cleaning</a>
-<a href="#">House Cleaning</a>
-<a href="#">More</a>
-
-</nav>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </div>
 </header>
 
-
 <section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
+    <p>Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b> Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
+    <h3>QUALITY FLOOR CLEANING</h3>
+    <div class="hero-buttons">
+      <a href="#">Get a Quote</a>
+      <a href="#">Call Us to Schedule</a>
+      <a href="#">Emergency Service Call Now</a>
+      <a href="#">Book Now</a>
+    </div>
+  </div>
+</section>
 
-<div class="overlay"></div>
+<!-- Services intro (5 star) -->
+<section class="services-intro">
+  <div class="container">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <div class="star-text">5 STAR EXPERIENCE</div>
+    <h2>Our Floor Cleaning Services</h2>
+    <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
+  </div>
+</section>
 
-<div class="hero-content">
+<!-- Service cards grid -->
+<section class="services-grid-section">
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Couch cleaning">
+      <div class="service-text">Deep Cleaning for Sofas and Couches</div>
+    </div>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=800&q=80" alt="Stain removal">
+      <div class="service-text">Stain Removal</div>
+    </div>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" alt="Pet odor removal">
+      <div class="service-text">Pet Stain and Odor Removal</div>
+    </div>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80" alt="Tile cleaning">
+      <div class="service-text">Tile Cleaning</div>
+    </div>
+  </div>
+</section>
 
-<h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
+<!-- About section -->
+<section class="about">
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Carpet Cleaning">
+  </div>
+  <div class="about-content">
+    <div class="about-box">
+      <h2>About Our Floor Cleaning Company</h2>
+      <p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile is committed to delivering top-notch results that exceed expectations. We combine eco-friendly practices with innovative techniques to provide the best floor cleaning services.</p>
+      <a href="#" class="about-btn">Call Us Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us section -->
+<section class="choose-section">
+  <div class="choose-text">
+    <h2>Why Choose Us</h2>
+    <p>Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention to detail, and dedication to customer satisfaction. Experience the difference with our professional floor cleaners who deliver unmatched quality and reliability in every service.</p>
+    <a href="#" class="choose-btn">Call Us to Schedule</a>
+  </div>
+  <div class="choose-images">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Clean floors">
+  </div>
+</section>
+
+
+<section class="faq-section">
+
+<div class="faq-image">
+
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+
+</div>
+
+
+<div class="faq-content">
+
+<h2>Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
 
 <p>
-Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
-Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens
-for a fresher, healthier home.
+Get answers to common carpet cleaning questions in Loveland.
+Learn about cleaning methods, stain removal, and more from
+Mad Dog Carpet & Tile.
 </p>
 
-<h3>QUALITY FLOOR CLEANING</h3>
 
-<div class="hero-buttons">
-<a href="#">Get a Quote</a>
-<a href="#">Call Us to Schedule</a>
-<a href="#">Emergency Service Call Now</a>
-<a href="#">Book Now</a>
+<div class="faq-item">
+<h4>What areas do you serve?</h4>
+<p>We serve Loveland and all of Larimer County.</p>
+</div>
+
+<div class="faq-item">
+<h4>How often should I clean my carpets?</h4>
+<p>We recommend professional cleaning every 6-12 months.</p>
+</div>
+
+<div class="faq-item">
+<h4>Do you use eco-friendly cleaning products?</h4>
+<p>Yes, we use safe eco-friendly solutions for all services.</p>
+</div>
+
+<div class="faq-item">
+<h4>Can you remove tough stains?</h4>
+<p>Absolutely! Our advanced techniques remove even tough stains.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="services">
+<section class="cta-section">
+
+<div class="cta-content">
+
+<h2>Schedule a Cleaning Today</h2>
+
+<p>
+We guarantee that you will be satisfied with the results
+and that you will be happy to have chosen us.
+</p>
+
+<div class="cta-buttons">
+
+<a href="#" class="cta-btn">Get A Quote</a>
+
+<a href="#" class="cta-btn">Call Us to Schedule</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="neighborhoods">
 
 <div class="container">
 
-<div class="stars">
-★ ★ ★ ★ ★
-</div>
-
-<div class="star-text">
-5 STAR EXPERIENCE
-</div>
-
-<h2>Our Floor Cleaning Services</h2>
+<h2>Key neighborhoods where we offer carpet cleaning in Loveland, CO</h2>
 
 <p>
-At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe
-products to revitalize your floors, ensuring a clean and healthy home
-environment. Our professional floor cleaners are equipped to handle all
-your cleaning needs with precision and care. Our services include:
+We provide carpet cleaning in Loveland, CO, covering key neighborhoods
+like Downtown Loveland, Mariana Butte, Boyd Lake, and The Lakes at Centerra.
+Our commercial cleaning services and house cleaning services ensure fresh,
+spotless spaces.
+</p>
+
+
+<div class="neighborhood-grid">
+
+<div class="neighborhood-card">
+
+<div class="circle">
+<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+</div>
+
+<h3>Mapleton Hill</h3>
+
+<p>
+Historic Boulder neighborhood near Pearl Street. Close to Broadway and
+Mt. Sanitas trails.
 </p>
 
 </div>
 
-</section>
 
+<div class="neighborhood-card">
 
-<section class="services">
-
-<div class="services-grid">
-
-<div class="service-card">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="">
-<div class="service-text">
-Deep Cleaning for Sofas and Couches
-</div>
+<div class="circle">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
 </div>
 
-<div class="service-card">
-<img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="">
-<div class="service-text">
-Stain Removal
-</div>
-</div>
-
-<div class="service-card">
-<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee" alt="">
-<div class="service-text">
-Pet Stain and Odor Removal
-</div>
-</div>
-
-<div class="service-card">
-<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="">
-<div class="service-text">
-Tile Cleaning
-</div>
-</div>
-
-</div>
-
-</section>
-
-<section class="about">
-
-<div class="about-img">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Carpet Cleaning">
-</div>
-
-<div class="about-content">
-
-<div class="about-box">
-
-<h2>About Our Floor Cleaning Company</h2>
+<h3>Van de Water</h3>
 
 <p>
-With a focus on sustainability and excellence, Mad Dog Carpet & Tile is
-committed to delivering top-notch results that exceed expectations. We
-combine eco-friendly practices with innovative techniques to provide
-the best floor cleaning services.
+Van de Water Heights is a growing neighborhood in Loveland, CO near
+Highway 34 and I-25.
 </p>
 
-<a href="#" class="about-btn">Call Us Today</a>
+</div>
+
+
+<div class="neighborhood-card">
+
+<div class="circle">
+<img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c">
+</div>
+
+<h3>Alford Meadows Loveland, CO</h3>
+
+<p>
+Alford Meadows in Loveland offers easy access to Highway 287 and I-25.
+</p>
+
+</div>
+
+
+<div class="neighborhood-card">
+
+<div class="circle">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+</div>
+
+<h3>The Lakes at Centerra, Loveland</h3>
+
+<p>
+A beautiful neighborhood located near Highway 34 and I-25.
+</p>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<div class="social">
+●
+</div>
+
+<p class="copyright">
+©2024 Mad Dog Carpet & Tile® - All rights reserved.
+</p>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-right">
+
+<div class="footer-links">
+
+<a href="#">Home</a> |
+<a href="#">Free Quote</a> |
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms and Conditions</a> |
+<a href="#">Contact</a>
+
+</div>
+
+<p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+
+<div class="hours">
+
+<p><strong>Hours:</strong></p>
+
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+<p>Saturday Open 24 hours</p>
+<p>Sunday Open 24 hours</p>
+
+</div>
+
+<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+
+
 
 <style>
 
@@ -435,102 +782,279 @@ box-sizing:border-box;
 font-family:Georgia, serif;
 }
 
-.services{
-background:#f4f4f4;
-padding:60px 40px;
-}
+/* SECTION */
 
-/* GRID */
-
-.services-grid{
+.faq-section{
+background:#f2f2f2;
+padding:90px 60px;
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-max-width:1300px;
-margin:auto;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
 }
 
-/* CARD */
+/* IMAGE SIDE */
 
-.service-card{
+.faq-image{
 position:relative;
-height:350px;
-overflow:hidden;
-cursor:pointer;
 }
 
-.service-card img{
+.faq-image img{
 width:100%;
-height:100%;
+height:520px;
 object-fit:cover;
 display:block;
 }
 
+/* GOLD FRAME */
+
+.faq-image::before{
+content:"";
+position:absolute;
+top:-35px;
+left:-35px;
+width:70%;
+height:70%;
+border-top:35px solid #c8b46a;
+border-left:35px solid #c8b46a;
+}
+
+/* TEXT SIDE */
+
+.faq-content h2{
+font-size:48px;
+line-height:1.2;
+margin-bottom:25px;
+color:#222;
+}
+
+.faq-content p{
+font-size:20px;
+color:#555;
+line-height:1.8;
+margin-bottom:35px;
+}
+
+/* QUESTIONS */
+
+.faq-item{
+margin-bottom:30px;
+}
+
+.faq-item h4{
+font-size:22px;
+margin-bottom:10px;
+color:#333;
+}
+
+.faq-item p{
+font-size:19px;
+color:#666;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.faq-section{
+grid-template-columns:1fr;
+padding:60px 25px;
+}
+
+.faq-image img{
+height:350px;
+}
+
+.faq-content h2{
+font-size:34px;
+}
+
+.faq-content p{
+font-size:17px;
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* SECTION */
+
+.cta-section{
+position:relative;
+background:url("https://images.unsplash.com/photo-1604147706283-d7119b5b822c") center/cover no-repeat;
+padding:120px 20px;
+text-align:center;
+color:white;
+}
+
 /* DARK OVERLAY */
 
-.service-card::after{
+.cta-section::before{
 content:"";
 position:absolute;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.65);
 }
 
-/* TEXT */
+/* CONTENT */
 
-.service-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+.cta-content{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.cta-content h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.cta-content p{
+font-size:20px;
+margin-bottom:40px;
+color:#ddd;
+}
+
+/* BUTTONS */
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background:#a3925b;
 color:white;
-text-align:center;
-font-size:32px;
-line-height:1.3;
-z-index:2;
-padding:0 15px;
-}
-
-/* HOVER EFFECT */
-
-.service-card:hover img{
-transform:scale(1.1);
-transition:0.5s;
-}
-
-/* TABLET */
-
-@media(max-width:1000px){
-
-.services-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
+padding:16px 35px;
+text-decoration:none;
+font-size:20px;
+display:inline-block;
 }
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:768px){
 
-.services-grid{
-grid-template-columns:1fr;
+.cta-content h2{
+font-size:32px;
 }
 
-.service-text{
-font-size:26px;
+.cta-content p{
+font-size:17px;
+}
+
+.cta-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.cta-btn{
+width:220px;
+text-align:center;
 }
 
 }
 
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
 
+/* SECTION */
 
+.cta-section{
+position:relative;
+background:url("https://images.unsplash.com/photo-1604147706283-d7119b5b822c") center/cover no-repeat;
+padding:120px 20px;
+text-align:center;
+color:white;
+}
 
+/* DARK OVERLAY */
 
+.cta-section::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
 
+/* CONTENT */
 
+.cta-content{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.cta-content h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.cta-content p{
+font-size:20px;
+margin-bottom:40px;
+color:#ddd;
+}
+
+/* BUTTONS */
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background:#a3925b;
+color:white;
+padding:16px 35px;
+text-decoration:none;
+font-size:20px;
+display:inline-block;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.cta-content h2{
+font-size:32px;
+}
+
+.cta-content p{
+font-size:17px;
+}
+
+.cta-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.cta-btn{
+width:220px;
+text-align:center;
+}
+
+}
 
 
 
@@ -543,113 +1067,278 @@ font-family:Georgia, serif;
 
 /* SECTION */
 
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-min-height:520px;
+.neighborhoods{
+position:relative;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
+padding:120px 60px;
+color:white;
 }
 
-/* LEFT IMAGE */
-
-.about-img img{
+.neighborhoods::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
-object-fit:cover;
-display:block;
+background:rgba(0,0,0,0.65);
 }
 
-/* RIGHT CONTENT */
-
-.about-content{
-background:#efefef;
-display:flex;
-align-items:center;
-justify-content:center;
+.container{
+position:relative;
+max-width:1400px;
+margin:auto;
 text-align:center;
-padding:70px 60px;
-}
-
-.about-box{
-max-width:520px;
 }
 
 /* HEADING */
 
-.about-box h2{
-font-size:46px;
-color:#222;
+.container h2{
+font-size:52px;
+margin-bottom:20px;
+}
+
+.container p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:70px;
+color:#e0e0e0;
+}
+
+/* GRID */
+
+.neighborhood-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:50px;
+}
+
+/* CARD */
+
+.neighborhood-card{
+text-align:left;
+}
+
+.circle{
+width:260px;
+height:260px;
+border-radius:50%;
+overflow:hidden;
 margin-bottom:25px;
-line-height:1.2;
+}
+
+.circle img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* TEXT */
 
-.about-box p{
-font-size:20px;
-line-height:1.8;
-color:#555;
+.neighborhood-card h3{
+font-size:26px;
+margin-bottom:10px;
+}
+
+.neighborhood-card p{
+font-size:18px;
+line-height:1.7;
+color:#e0e0e0;
+}
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+.neighborhood-grid{
+grid-template-columns:repeat(2,1fr);
+text-align:center;
+}
+
+.neighborhood-card{
+text-align:center;
+}
+
+.circle{
+margin:auto auto 25px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.neighborhoods{
+padding:80px 25px;
+}
+
+.container h2{
+font-size:32px;
+}
+
+.container p{
+font-size:17px;
+}
+
+.neighborhood-grid{
+grid-template-columns:1fr;
+}
+
+.circle{
+width:220px;
+height:220px;
+margin:auto auto 20px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* FOOTER */
+
+.footer{
+background:#000;
+color:#ddd;
+padding:80px 60px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1400px;
+margin:auto;
+}
+
+/* LEFT */
+
+.footer-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.social{
+font-size:26px;
+color:#c8b46a;
+margin-bottom:30px;
+}
+
+.copyright{
+font-size:18px;
+}
+
+/* RIGHT */
+
+.footer-right{
+text-align:left;
+}
+
+.footer-links{
 margin-bottom:35px;
 }
 
-/* BUTTON */
-
-.about-btn{
-background:#a3925b;
-color:white;
+.footer-links a{
+color:#ddd;
 text-decoration:none;
-padding:15px 32px;
-font-size:20px;
-display:inline-block;
-font-weight:bold;
+margin-right:8px;
+}
+
+.footer-right p{
+font-size:18px;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.hours{
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.phone{
+margin-top:20px;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-.about{
+.footer{
+padding:60px 25px;
+}
+
+.footer-container{
 grid-template-columns:1fr;
+text-align:center;
 }
 
-.about-img{
-height:350px;
+.footer-right{
+text-align:center;
 }
 
-.about-content{
-padding:50px 25px;
-}
-
-.about-box h2{
-font-size:32px;
-}
-
-.about-box p{
-font-size:17px;
-}
-
-.about-btn{
-font-size:18px;
+.footer-links a{
+display:inline-block;
+margin:5px;
 }
 
 }
-
-
 
 </style>
 
 
+
 <script>
-
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+function toggleMenu() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("show");
 }
 
-function toggleDropdown(el){
-if(window.innerWidth < 900){
-el.classList.toggle("active");
-}
+function toggleDropdown(el) {
+  // Only for mobile (width < 900) we toggle manually; desktop uses hover.
+  if (window.innerWidth < 900) {
+    el.classList.toggle("active");
+  }
 }
 
+// Optional: close dropdown if clicked outside (good for mobile)
+document.addEventListener('click', function(e) {
+  var isDropdown = e.target.closest('.dropdown');
+  var isMenuToggle = e.target.closest('.menu-toggle');
+  if (window.innerWidth < 900 && !isDropdown && !isMenuToggle) {
+    // close all dropdowns
+    document.querySelectorAll('.dropdown').forEach(function(d) {
+      d.classList.remove('active');
+    });
+  }
+});
+
+// Prevent hover from interfering with mobile active class
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 900) {
+    // remove active class on desktop to avoid confusion
+    document.querySelectorAll('.dropdown').forEach(function(d) {
+      d.classList.remove('active');
+    });
+  }
+});
 </script>
 
 </body>
