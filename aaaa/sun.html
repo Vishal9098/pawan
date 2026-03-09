@@ -21,12 +21,18 @@ background:#000;
 color:white;
 }
 
+header{
+background:#000;
+color:white;
+position:relative;
+z-index:1000;
+}
+
 .nav-container{
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:15px 40px;
-flex-wrap:wrap;
 }
 
 .logo img{
@@ -49,6 +55,9 @@ font-size:16px;
 
 /* DROPDOWN */
 
+.dropdown-menu{
+top:100%;
+}
 .dropdown{
 position:relative;
 }
@@ -56,7 +65,7 @@ position:relative;
 .dropdown-menu{
 display:none;
 position:absolute;
-top:40px;
+top:100%;
 left:0;
 background:#000;
 min-width:220px;
@@ -64,6 +73,7 @@ flex-direction:column;
 border-radius:4px;
 overflow:hidden;
 z-index:9999;
+flex-direction:column;
 }
 
 .dropdown-menu a{
@@ -78,7 +88,8 @@ background:#c8a85a;
 }
 
 .dropdown:hover .dropdown-menu{
-display:block;
+display:flex;
+flex-direction:column;
 }
 
 /* MOBILE MENU BUTTON */
@@ -211,19 +222,16 @@ padding:80px 20px;
 <a href="index.html">Home</a>
 <a href="aboutus.html">About Us</a>
 
-<div class="dropdown" onclick="toggleDropdown(this)">
-<a href="#">Services ▼</a>
+<div class="dropdown">
+  <a href="#" onclick="toggleDropdown(this.parentElement)">Services ▼</a>
 
-<div class="dropdown-menu">
-<a href="#">Carpet Cleaning</a>
-<a href="#">Tile Cleaning</a>
-<a href="#">Upholstery Cleaning</a>
-<a href="#">Pet Odor Removal</a>
-<a href="#">Deep Steam Cleaning</a>
+  <div class="dropdown-menu">
+    <a href="tilefloorcleaning.html">Tile Cleaning</a>
+    <a href="UpholsteryCleaning.html">Upholstery Cleaning</a>
+    <a href="PetStainRemoval.html">Pet Odor Removal</a>
+    <a href="deepcleaning.html">Deep Steam Cleaning</a>
+  </div>
 </div>
-
-</div>
-
 <a href="#">Locations</a>
 <a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
 <a href="CommercialCleaning.html">Commercial Cleaning</a>
