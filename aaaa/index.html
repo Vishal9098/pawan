@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <!-- viewport meta – essential for mobile responsiveness -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Carpet Cleaning Loveland - Mad Dog Carpet & Tile</title>
+  <title>Mad Dog Carpet & Tile | Loveland CO</title>
   <style>
     /* ---------- RESET & BASE ---------- */
     * {
@@ -27,7 +27,7 @@
       display: block;
     }
 
-    /* ---------- TOP BAR (exactly like reference) ---------- */
+    /* ---------- TOP BAR (concise, no duplicates) ---------- */
     .topbar {
       background: #111;
       color: #fff;
@@ -77,7 +77,7 @@
       font-weight: 700;
     }
 
-    /* ---------- NAVBAR with hamburger (same as reference) ---------- */
+    /* ---------- NAVBAR with hamburger ---------- */
     .navbar {
       display: flex;
       align-items: center;
@@ -284,7 +284,7 @@
       font-size: 15px !important;
     }
 
-    /* Media Queries */
+    /* Media Queries for nav */
     @media (max-width: 1024px) {
       .desktop-nav {
         display: none;
@@ -327,7 +327,7 @@
       }
     }
 
-    /* ---------- HERO SECTION (unchanged) ---------- */
+    /* ---------- HERO SECTION ---------- */
     .hero {
       min-height: 70vh;
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -386,7 +386,7 @@
       font-size: 15px;
     }
 
-    /* ---------- FEATURES (unchanged) ---------- */
+    /* ---------- FEATURES ---------- */
     .features {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                   url('https://source.unsplash.com/1600x900/?clean-carpet,room');
@@ -422,7 +422,7 @@
       line-height: 1.4;
     }
 
-    /* ---------- SERVICES INTRO (unchanged) ---------- */
+    /* ---------- SERVICES INTRO ---------- */
     .services-intro {
       background: #f5f5f5;
       color: #333;
@@ -457,24 +457,23 @@
       color: #555;
     }
 
-    /* ---------- SERVICES GRID (unchanged) ---------- */
+    /* ---------- SERVICES GRID (consolidated, no duplicate images) ---------- */
     .services-grid {
       background: #f5f5f5;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       padding: 30px 20px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .service-card {
       position: relative;
-      height: 300px;
+      height: 280px;
       overflow: hidden;
       border-radius: 12px;
       cursor: pointer;
-      max-width: 600px;
-      margin: 0 auto;
-      width: 100%;
     }
 
     .service-card img {
@@ -482,6 +481,10 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.1);
     }
 
     .overlay {
@@ -497,129 +500,282 @@
 
     .overlay h3 {
       color: #fff;
-      font-size: clamp(24px, 7vw, 34px);
+      font-size: clamp(20px, 4vw, 28px);
       font-weight: 500;
       line-height: 1.3;
     }
 
-    /* ---------- TEAM SECTION (unchanged) ---------- */
-    .gold {
-      color: #a9975b;
-      font-weight: bold;
-    }
-
-    .gold-btn {
-      background: #a9975b;
-      color: #fff;
-      padding: 15px 35px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 30px;
-      font-weight: bold;
-    }
-
-    .team-section {
+    /* ---------- ABOUT SECTION (merged, no duplicates) ---------- */
+    .about-section {
       background: #f2f2f2;
-      padding: 100px 60px;
+      padding: 80px 20px;
     }
 
-    .team-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
       align-items: center;
       gap: 60px;
     }
 
-    .team-img img {
+    .about-image {
+      position: relative;
+      width: 50%;
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 20px;
+      width: 100%;
+      height: 100%;
+      border: 4px solid #b6a064;
+      z-index: 0;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-text {
+      width: 50%;
+      text-align: center;
+    }
+
+    .about-text h2 {
+      font-size: 48px;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #b6a064;
+      color: #fff;
+      padding: 15px 35px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #9f8a4e;
+    }
+
+    /* ---------- WHY CHOOSE US (cleaned) ---------- */
+    .why-section {
+      background: #fff;
+      padding: 80px 20px;
+    }
+
+    .why-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .why-text {
+      width: 50%;
+      text-align: center;
+    }
+
+    .why-text h2 {
+      font-size: 48px;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+    .why-text p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .why-images {
+      width: 50%;
+    }
+
+    .why-images img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* ---------- FAQ SECTION (consolidated) ---------- */
+    .faq-section {
+      background: #f2f2f2;
+      padding: 80px 20px;
+    }
+
+    .faq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .faq-image {
+      position: relative;
+      width: 50%;
+    }
+
+    .faq-image::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 150px;
+      height: 150px;
+      border-top: 4px solid #b6a064;
+      border-left: 4px solid #b6a064;
+    }
+
+    .faq-image img {
       width: 100%;
       height: 500px;
       object-fit: cover;
     }
 
-    .team-text {
-      text-align: center;
-    }
-
-    .team-text h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .team-text p {
-      font-size: 20px;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    /* ---------- EMERGENCY SECTION (unchanged) ---------- */
-    .emergency-section {
-      background: #f2f2f2;
-      padding: 100px 60px;
-    }
-
-    .emergency-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .emergency-text {
-      text-align: center;
-    }
-
-    .emergency-text h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .emergency-text p {
-      font-size: 20px;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    .emergency-images {
-      display: flex;
-      gap: 20px;
-    }
-
-    .emergency-images img {
+    .faq-content {
       width: 50%;
-      height: 500px;
-      object-fit: cover;
     }
 
-    /* ---------- CTA BANNER (unchanged) ---------- */
-    .emergency-cta {
-      background: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952");
-      background-size: cover;
-      background-position: center;
-      padding: 120px 20px;
-      text-align: center;
-      color: #fff;
-      position: relative;
+    .faq-content h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #222;
     }
 
-    .cta-overlay {
-      background: rgba(0,0,0,0.6);
-      padding: 80px 20px;
+    .faq-desc {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
 
-    .emergency-cta h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .emergency-cta p {
-      font-size: 20px;
-      line-height: 1.8;
-      max-width: 900px;
-      margin: auto;
+    .faq-item {
       margin-bottom: 20px;
     }
 
-    /* ---------- FOOTER (unchanged) ---------- */
+    .faq-item h4 {
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .faq-item p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* ---------- CTA SECTION (unique) ---------- */
+    .cta-section {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta-content p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #ddd;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- NEIGHBORHOODS ---------- */
+    .neighborhoods {
+      background: #111;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .neighborhoods h2 {
+      color: #d4af37;
+      font-size: 42px;
+      margin-bottom: 50px;
+    }
+
+    .circle-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .item {
+      width: 250px;
+    }
+
+    .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 3px solid #d4af37;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .item h3 {
+      color: #d4af37;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ---------- FOOTER ---------- */
     .footer {
       background: #000;
       color: #fff;
@@ -670,375 +826,82 @@
       }
     }
 
-    /* touch-friendly */
-    .dropdown-menu li a,
-    .buttons a,
-    .call-btn,
-    .schedule-btn {
-      touch-action: manipulation;
-    }
-
-    /* ===== MOBILE RESPONSIVE ADDITIONS - ONLY FOR SCREENS UNDER 768px ===== */
-    /* Kuch bhi change nahi kiya - sirf mobile ke liye styles add kiye */
-    
+    /* ---------- COMPREHENSIVE MOBILE STYLES (768px and below) ---------- */
     @media (max-width: 768px) {
-      
-      /* Hero Section Mobile */
-      .hero {
-        min-height: 50vh;
-        padding: 30px 15px;
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 15px 40px;
       }
-      
-      .hero h1 {
-        font-size: 28px;
+      .service-card {
+        height: 220px;
       }
-      
-      .hero p {
+      .about-container, .why-container, .faq-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .about-image, .about-text, .why-text, .why-images, .faq-image, .faq-content {
+        width: 100%;
+      }
+      .about-image::before {
+        display: none;
+      }
+      .faq-image::before {
+        width: 80px;
+        height: 80px;
+        top: -10px;
+        left: -10px;
+      }
+      .about-text h2, .why-text h2, .faq-content h2, .cta-content h2 {
+        font-size: 36px;
+      }
+      .about-text p, .why-text p, .faq-desc {
         font-size: 16px;
       }
-      
-      .hero .buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+      .why-images img {
+        height: 300px;
       }
-      
-      .hero .buttons a {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
+      .faq-image img {
+        height: 350px;
       }
-      
-      /* Features Mobile */
-      .features {
-        padding: 40px 15px;
+      .circle-wrapper {
+        gap: 30px;
       }
-      
-      .badges {
-        gap: 15px;
+      .item {
+        width: 220px;
       }
-      
+      .circle {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        height: 200px;
+      }
       .badges img {
         width: 70px;
         height: 70px;
         padding: 14px;
       }
-      
-      .features h2 {
-        font-size: 24px;
+      .buttons a {
+        flex: 1 1 100%;
       }
-      
-      /* Services Intro Mobile */
-      .services-intro {
-        padding: 50px 15px;
-      }
-      
-      .services-intro .stars {
-        font-size: 32px;
-      }
-      
-      .services-intro h2 {
-        font-size: 32px;
-      }
-      
-      .services-intro p {
-        font-size: 16px;
-      }
-      
-      /* Services Grid Mobile */
-      .services .container {
-        grid-template-columns: 1fr !important;
-        gap: 15px;
-        padding: 0 15px;
-      }
-      
-      .card {
-        height: 220px;
-        max-width: 400px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      
-      .overlay h3 {
-        font-size: 22px;
-      }
-      
-      /* About Section Mobile */
-      .about-section {
-        padding: 50px 15px !important;
-      }
-      
-      .about-container {
-        flex-direction: column !important;
-        gap: 30px !important;
-        width: 100% !important;
-        padding: 0 !important;
-      }
-      
-      .about-image {
-        width: 100% !important;
-      }
-      
-      .about-image:before {
-        left: -15px !important;
-        width: 10px !important;
-      }
-      
-      .about-image img {
-        height: 300px !important;
-      }
-      
-      .about-text {
-        width: 100% !important;
-        padding: 0 !important;
-      }
-      
-      .about-text h2 {
-        font-size: 32px !important;
-      }
-      
-      .about-text p {
-        font-size: 16px !important;
-      }
-      
-      /* Why Choose Us Mobile */
-      .why-section {
-        padding: 50px 15px !important;
-      }
-      
-      .why-container {
-        flex-direction: column !important;
-        gap: 30px !important;
-        width: 100% !important;
-        padding: 0 !important;
-      }
-      
-      .why-text {
-        width: 100% !important;
-      }
-      
-      .why-text h2 {
-        font-size: 32px !important;
-      }
-      
-      .why-text p {
-        font-size: 16px !important;
-      }
-      
-      .why-images {
-        width: 100% !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-      }
-      
-      .why-images img {
-        width: 100% !important;
-        height: 250px !important;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      /* FAQ Section Mobile */
-      .faq-section {
-        padding: 50px 15px !important;
-      }
-      
-      .faq-container {
-        flex-direction: column !important;
-        gap: 30px !important;
-        width: 100% !important;
-        padding: 0 !important;
-      }
-      
-      .faq-image {
-        width: 100% !important;
-      }
-      
-      .faq-image::before {
-        top: -20px !important;
-        left: -20px !important;
-        width: 120px !important;
-        height: 120px !important;
-        border-top: 30px solid #b6a064 !important;
-        border-left: 30px solid #b6a064 !important;
-      }
-      
-      .faq-image img {
-        height: 300px !important;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      .faq-content {
-        width: 100% !important;
-      }
-      
-      .faq-content h2 {
-        font-size: 32px !important;
-      }
-      
-      .faq-desc {
-        font-size: 16px !important;
-      }
-      
-      .faq-item h4 {
-        font-size: 18px !important;
-      }
-      
-      .faq-item p {
-        font-size: 15px !important;
-      }
-      
-      /* CTA Section Mobile */
-      .cta-section {
-        padding: 60px 15px !important;
-      }
-      
-      .cta-content h2 {
-        font-size: 32px !important;
-      }
-      
-      .cta-content p {
-        font-size: 16px !important;
-      }
-      
       .cta-buttons {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 12px !important;
+        flex-direction: column;
+        align-items: center;
       }
-      
       .cta-buttons .btn {
-        width: 100% !important;
-        max-width: 280px !important;
-        margin: 0 auto !important;
-        padding: 14px 20px !important;
-        font-size: 16px !important;
+        width: 100%;
+        max-width: 280px;
       }
-      
-      /* Neighborhoods Section Mobile */
-      .neighborhoods {
-        padding: 60px 15px !important;
-      }
-      
-      .neighborhoods .container {
-        padding: 0 !important;
-      }
-      
-      .circle-wrapper {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 30px !important;
-        overflow-x: visible !important;
-      }
-      
-      .circle-wrapper .item {
-        width: 100% !important;
-        max-width: 300px !important;
-        min-width: auto !important;
-        margin: 0 auto !important;
-      }
-      
-      .circle {
-        width: 200px !important;
-        height: 200px !important;
-        margin: 0 auto 15px !important;
-      }
-      
-      .item h3 {
-        font-size: 24px !important;
-      }
-      
-      .item p {
-        font-size: 15px !important;
-      }
-      
-      /* Button Mobile */
-      .btn {
-        padding: 14px 25px !important;
-        font-size: 16px !important;
-      }
-      
-      /* Footer Mobile */
-      .footer {
-        padding: 40px 15px !important;
-        gap: 25px !important;
-      }
-      
-      .footer-links {
-        gap: 12px 15px !important;
-      }
-      
-      .footer-links a {
-        font-size: 14px !important;
-      }
-      
-      .hours p {
-        font-size: 14px !important;
-      }
-    }
-    
-    /* Small Mobile (480px and below) */
-    @media (max-width: 480px) {
-      
-      .hero h1 {
-        font-size: 24px;
-      }
-      
-      .badges img {
-        width: 55px;
-        height: 55px;
-        padding: 11px;
-      }
-      
-      .card {
-        height: 200px;
-      }
-      
-      .overlay h3 {
-        font-size: 20px;
-      }
-      
-      .about-image img {
-        height: 250px !important;
-      }
-      
-      .about-text h2 {
-        font-size: 28px !important;
-      }
-      
-      .why-text h2 {
-        font-size: 28px !important;
-      }
-      
-      .why-images img {
-        height: 200px !important;
-      }
-      
-      .faq-image img {
-        height: 250px !important;
-      }
-      
-      .faq-content h2 {
-        font-size: 28px !important;
-      }
-      
-      .cta-content h2 {
-        font-size: 28px !important;
-      }
-      
-      .circle {
-        width: 160px !important;
-        height: 160px !important;
-      }
-      
-      .item h3 {
-        font-size: 22px !important;
-      }
-      
-      .btn {
-        padding: 12px 20px !important;
-        font-size: 15px !important;
+      .item {
+        width: 100%;
+        max-width: 280px;
       }
     }
   </style>
@@ -1047,36 +910,38 @@
 
 
 
-  <!-- NAVBAR with hamburger (exactly like reference) -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo" onclick="window.location.href='#'">MAD DOG</div>
     
-    <!-- Desktop Navigation (visible on large screens) -->
+    <!-- Desktop Navigation -->
     <div class="desktop-nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
         <li class="desktop-dropdown">
           <a href="#">Services</a>
           <ul class="desktop-dropdown-menu">
-            <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
-            <li><a href="#">Tile Cleaning</a></li>
+            <li><a href="#">Tile Floor Cleaning</a></li>
+            <li><a href="#">Carpet Cleaning</a></li>
             <li><a href="#">Upholstery Cleaning</a></li>
             <li><a href="#">Pet Stain Removal</a></li>
             <li><a href="#">Commercial Cleaning</a></li>
           </ul>
         </li>
         <li><a href="#">Locations</a></li>
-        <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
-        <li><a href="CommercialCleaning.html">Commercial</a></li>
-        <li><a href="#">House Cleaning</a></li>
-        <li><a href="#">More</a></li>
+        <li><a href="#">Emergency</a></li>
+        <li><a href="#">Commercial</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
     
-   
+    <!-- <div class="nav-btns">
+      <a href="tel:+19702007677" class="call-btn">Call</a>
+      <a href="#" class="schedule-btn">Schedule</a>
+    </div> -->
 
-    <!-- Hamburger Icon (mobile only) -->
+    <!-- Hamburger Icon -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -1084,44 +949,42 @@
     </div>
   </header>
 
-  <!-- Mobile Menu (hidden by default) -->
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
       <li class="mobile-dropdown" id="mobileServices">
         <div class="mobile-dropdown-header">
           <span>Services</span>
           <span class="arrow">▼</span>
         </div>
         <div class="mobile-dropdown-menu">
-          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
-          <a href="#">Tile Cleaning</a>
+          <a href="#">Tile Floor Cleaning</a>
+          <a href="#">Carpet Cleaning</a>
           <a href="#">Upholstery Cleaning</a>
           <a href="#">Pet Stain Removal</a>
           <a href="#">Commercial Cleaning</a>
         </div>
       </li>
       <li><a href="#">Locations</a></li>
-      <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
-      <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
-      <li><a href="#">House Cleaning</a></li>
-      <li><a href="#">More</a></li>
-      <li><a href="#">⭐ Leave Review</a></li>
+      <li><a href="#">Emergency</a></li>
+      <li><a href="#">Commercial</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
-      <p>Revitalize your carpets with expert carpet cleaning in Loveland, Larimer County. Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
+      <p>Revitalize your carpets with expert cleaning in Larimer County. Mad Dog removes dirt, stains, and allergens for a fresher, healthier home.</p>
       <h3>QUALITY FLOOR CLEANING</h3>
       <div class="buttons">
         <a href="#">Get a Quote</a>
-        <a href="tel:+19702007677">Call Us to Schedule</a>
-        <a href="#" onclick="alert('Emergency service would be dispatched')">Emergency Service</a>
-        <a href="#" onclick="alert('Booking form would open here')">Book Now</a>
+        <a href="tel:+19702007677">Call Us</a>
+        <a href="#" onclick="alert('Emergency service')">Emergency</a>
+        <a href="#" onclick="alert('Book now')">Book Now</a>
       </div>
     </div>
   </section>
@@ -1129,807 +992,130 @@
   <!-- FEATURES -->
   <section class="features">
     <div class="badges">
-      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Eco Friendly" onclick="alert('Learn about our eco-friendly cleaning')">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="24/7 Service" onclick="alert('We are available 24/7 for emergencies')">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Certified" onclick="alert('View our certifications')">
-      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png" alt="Satisfaction Guaranteed" onclick="alert('100% satisfaction guaranteed')">
+      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Eco Friendly">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="24/7 Service">
+      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Certified">
+      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png" alt="Satisfaction Guaranteed">
     </div>
     <h2>OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</h2>
   </section>
 
   <!-- SERVICES INTRO -->
   <section class="services-intro">
-    <div class="stars" onclick="alert('Read our 5-star reviews')">★★★★★</div>
+    <div class="stars">★★★★★</div>
     <div class="experience">5 STAR EXPERIENCE</div>
     <h2>Our Floor Cleaning Services</h2>
-    <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
+    <p>We use environmentally safe products to revitalize your floors. Our professional cleaners handle all your needs with precision and care.</p>
   </section>
-<!--  -->
-<section class="services">
-  <div class="container">
 
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Deep Cleaning for Sofas and Couches</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Stain Removal</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Pet Stain and Odor Removal</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Tile Cleaning</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Air Duct Cleaning</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>House Cleaning</h3>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/b.jpg">
-      <div class="overlay">
-        <h3>Upholstery Cleaning</h3>
-      </div>
-    </div>
-
+  <!-- SERVICES GRID (consolidated, unique images via Unsplash) -->
+  <div class="services-grid">
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600" alt="Carpet"><div class="overlay"><h3>Deep Carpet Cleaning</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600" alt="Tile"><div class="overlay"><h3>Tile & Grout</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1621870939236-8c0c5e3e0d0a?w=600" alt="Upholstery"><div class="overlay"><h3>Upholstery Cleaning</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1582727657635-c5b7b3f14e0b?w=600" alt="Pet Stain"><div class="overlay"><h3>Pet Stain Removal</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600" alt="Commercial"><div class="overlay"><h3>Commercial Cleaning</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600" alt="Air Duct"><div class="overlay"><h3>Air Duct Cleaning</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600" alt="House"><div class="overlay"><h3>House Cleaning</h3></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=600" alt="Odor"><div class="overlay"><h3>Odor Removal</h3></div></div>
   </div>
-</section>
 
-<section class="about-section">
+  <!-- ABOUT SECTION (single) -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800" alt="Team">
+      </div>
+      <div class="about-text">
+        <h2>About Our Company</h2>
+        <p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile delivers top-notch results. We combine eco-friendly practices with innovative techniques.</p>
+        <a href="#" class="btn">Call Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section">
+    <div class="why-container">
+      <div class="why-text">
+        <h2>Why Choose Us</h2>
+        <p>Eco-friendly approach, attention to detail, and dedication to customer satisfaction. Experience unmatched quality and reliability.</p>
+        <a href="#" class="btn">Call Us to Schedule</a>
+      </div>
+      <div class="why-images">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800" alt="Cleaning">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="faq-image">
+        <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800" alt="FAQ">
+      </div>
+      <div class="faq-content">
+        <h2>FAQs About Carpet Cleaning</h2>
+        <p class="faq-desc">Answers from Mad Dog Carpet & Tile.</p>
+        <div class="faq-item"><h4>What areas do you serve?</h4><p>Loveland and all of Larimer County.</p></div>
+        <div class="faq-item"><h4>How often to clean carpets?</h4><p>Every 6-12 months for optimal maintenance.</p></div>
+        <div class="faq-item"><h4>Eco-friendly products?</h4><p>Yes, we use safe, eco-friendly solutions.</p></div>
+        <div class="faq-item"><h4>Tough stains?</h4><p>Absolutely, our techniques tackle even the toughest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Schedule a Cleaning Today</h2>
+      <p>We guarantee you'll be satisfied with the results.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn">Get A Quote</a>
+        <a href="#" class="btn">Call Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="neighborhoods">
+    <h2>Neighborhoods We Serve</h2>
+    <div class="circle-wrapper">
+      <div class="item">
+        <div class="circle"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" alt="Mapleton Hill"></div>
+        <h3>Mapleton Hill</h3>
+        <p>Historic Boulder near Pearl Street.</p>
+      </div>
+      <div class="item">
+        <div class="circle"><img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=400" alt="Van de Water"></div>
+        <h3>Van de Water</h3>
+        <p>Growing Loveland neighborhood.</p>
+      </div>
+      <div class="item">
+        <div class="circle"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=400" alt="Alford Meadows"></div>
+        <h3>Alford Meadows</h3>
+        <p>Peaceful area near Hwy 287.</p>
+      </div>
+      <div class="item">
+        <div class="circle"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400" alt="Centerra"></div>
+        <h3>The Lakes at Centerra</h3>
+        <p>Lakeside views, modern homes.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="about-container">
-
-<div class="about-image">
-<img src="images/b.jpg" alt="">
-</div>
-
-<div class="about-text">
-<h2>About Our Floor Cleaning Company</h2>
-
-<p>
-With a focus on sustainability and excellence, Mad Dog Carpet & Tile is
-committed to delivering top-notch results that exceed expectations. We
-combine eco-friendly practices with innovative techniques to provide
-the best floor cleaning services.
-</p>
-
-<a href="#" class="btn">Call Us Today</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="why-section">
-
-<div class="why-container">
-
-<div class="why-text">
-
-<h2>Why Choose Us</h2>
-
-<p>
-Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention
-to detail, and dedication to customer satisfaction. Experience the
-difference with our professional floor cleaners who deliver unmatched
-quality and reliability in every service.
-</p>
-
-<a href="#" class="btn">Call Us to Schedule</a>
-
-</div>
-
-
-<div class="why-images">
-
-<img src="images/b.jpg">
-<!-- <img src="images/bathroom-tile.jpg"> -->
-
-</div>
-
-</div>
-
-</section>
-<section class="faq-section">
-
-<div class="faq-container">
-
-<div class="faq-image">
-<img src="images/b.jpg" alt="">
-</div>
-
-
-<div class="faq-content">
-
-<h2>Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
-
-<p class="faq-desc">
-Get answers to common carpet cleaning questions in Loveland. Learn about
-cleaning methods, stain removal, and more from Mad Dog Carpet & Tile.
-</p>
-
-
-<div class="faq-item">
-<h4>What areas do you serve?</h4>
-<p>We serve Loveland and all of Larimer County.</p>
-</div>
-
-<div class="faq-item">
-<h4>How often should I clean my carpets?</h4>
-<p>We recommend professional cleaning every 6-12 months for optimal maintenance.</p>
-</div>
-
-<div class="faq-item">
-<h4>Do you use eco-friendly cleaning products?</h4>
-<p>Yes, we use safe, eco-friendly solutions for all our services.</p>
-</div>
-
-<div class="faq-item">
-<h4>Can you remove tough stains?</h4>
-<p>Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
-</div>
-
-<div class="faq-item">
-<h4>How long does carpet cleaning take?</h4>
-<p>Most jobs are completed within 2-4 hours, depending on the size of the area.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="cta-section">
-
-<div class="cta-overlay"></div>
-
-<div class="cta-content">
-
-<h2>Schedule a Cleaning Today</h2>
-
-<p>
-We guarantee that you will be satisfied with the results and that you will be happy to have chosen us.
-</p>
-
-<div class="cta-buttons">
-<a href="#" class="btn">Get A Quote</a>
-<a href="#" class="btn">Call Us to Schedule</a>
-</div>
-
-</div>
-
-</section>
-
-<section class="neighborhoods">
-
-<div class="overlay"></div>
-
-<div class="container">
-
-<div class="circle-wrapper">
-
-<div class="item">
-<div class="circle">
-<img src="images/b.jpg">
-</div>
-<h3>Mapleton Hill</h3>
-<p>
-Historic Boulder neighborhood near Pearl Street. Close to Broadway
-(Highway 93), Mt. Sanitas trails, and scenic mountain views.
-</p>
-</div>
-
-<div class="item">
-<div class="circle">
-<img src="images/b.jpg">
-</div>
-<h3>Van de Water</h3>
-<p>
-Van de Water Heights is a growing neighborhood in Loveland, CO,
-near Highway 34 and I-25.
-</p>
-</div>
-
-<div class="item">
-<div class="circle">
-<img src="images/b.jpg">
-</div>
-<h3>Alford Meadows</h3>
-<p>
-Alford Meadows in Loveland, CO, is a peaceful neighborhood
-near Highway 287 and I-25.
-</p>
-</div>
-
-<div class="item">
-<div class="circle">
-<img src="images/b.jpg">
-</div>
-<h3>The Lakes at Centerra</h3>
-<p>
-The Lakes at Centerra is a beautiful neighborhood known
-for lakeside views and modern homes.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<style>
-  .cta-section{
-position:relative;
-padding:140px 20px;
-text-align:center;
-color:#fff;
-
-/* RANDOM IMAGE */
-background-image:url("images/b.jpg");
-
-background-size:cover;
-background-position:center;
-}
-
-/* DARK OVERLAY */
-
-.cta-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-}
-
-/* CONTENT */
-
-.cta-content{
-position:relative;
-z-index:2;
-max-width:900px;
-margin:auto;
-}
-
-.cta-content h2{
-font-size:56px;
-font-family:Georgia, serif;
-margin-bottom:20px;
-}
-
-.cta-content p{
-font-size:20px;
-color:#ddd;
-margin-bottom:40px;
-}
-
-/* BUTTONS */
-
-.cta-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#b6a064;
-color:#fff;
-padding:16px 35px;
-font-size:18px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#9f8a4e;
-}
- .neighborhoods{
-position:relative;
-padding:120px 20px;
-background-image:url("images/b.jpg");
-background-size:cover;
-background-position:center;
-color:#fff;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-}
-
-.container{
-position:relative;
-max-width:1400px;
-margin:auto;
-z-index:2;
-}
-
-/* HORIZONTAL */
-
-.circle-wrapper{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:40px;
-}
-
-.item{
-width:25%;
-}
-
-.circle{
-width:260px;
-height:260px;
-border-radius:50%;
-overflow:hidden;
-margin-bottom:25px;
-}
-
-.circle img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.item h3{
-font-size:28px;
-margin-bottom:10px;
-font-family:Georgia, serif;
-}
-
-.item p{
-font-size:18px;
-line-height:1.6;
-color:#ddd;
-}
-@media(max-width:1000px){
-
-.circle-wrapper{
-overflow-x:auto;
-}
-
-.item{
-min-width:260px;
-}
-
-}
-</style>
-
-
-
-
-
-
-
-
-<style>
-
-
-
-  .cta-section{
-background-image:url("https://source.unsplash.com/1600x900/?cleaning,floor,carpet");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-position:relative;
-text-align:center;
-}
-
-/* dark overlay */
-
-.cta-section::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-}
-
-.cta-content{
-position:relative;
-z-index:2;
-max-width:900px;
-margin:auto;
-color:#fff;
-}
-
-.cta-content h2{
-font-size:56px;
-margin-bottom:20px;
-font-family:Georgia, serif;
-}
-
-.cta-content p{
-font-size:20px;
-color:#ddd;
-margin-bottom:40px;
-}
-
-.cta-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#b6a064;
-color:#fff;
-padding:16px 35px;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-}
-  .cta-section{
-background-image:url("images/stone-bg.jpg");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-position:relative;
-text-align:center;
-}
-
-
-  body{
-margin:0;
-font-family:Georgia, serif;
-background:#f4f4f4;
-}
-
-.faq-section{
-padding:100px 0;
-}
-
-.faq-container{
-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-gap:80px;
-}
-
-/* LEFT IMAGE */
-
-.faq-image{
-position:relative;
-width:50%;
-}
-
-.faq-image::before{
-content:"";
-position:absolute;
-top:-40px;
-left:-40px;
-width:220px;
-height:220px;
-border-top:60px solid #b6a064;
-border-left:60px solid #b6a064;
-}
-
-.faq-image img{
-width:100%;
-height:650px;
-object-fit:cover;
-}
-
-/* RIGHT CONTENT */
-
-.faq-content{
-width:50%;
-}
-
-.faq-content h2{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.faq-desc{
-color:#666;
-font-size:18px;
-line-height:1.7;
-margin-bottom:40px;
-}
-
-.faq-item{
-margin-bottom:25px;
-}
-
-.faq-item h4{
-font-size:20px;
-margin-bottom:8px;
-color:#333;
-}
-
-.faq-item p{
-color:#666;
-font-size:17px;
-line-height:1.6;
-}
-@media(max-width:992px){
-
-.faq-container{
-flex-direction:column;
-width:90%;
-}
-
-.faq-image,
-.faq-content{
-width:100%;
-}
-
-.faq-image img{
-height:auto;
-}
-
-}
-  body{
-font-family: Georgia, serif;
-margin:0;
-background:#f4f4f4;
-}
-
-/* ABOUT SECTION */
-
-.about-section{
-padding:80px 0;
-}
-
-.about-container{
-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-gap:80px;
-}
-
-.about-image{
-position:relative;
-width:50%;
-}
-
-.about-image:before{
-content:"";
-position:absolute;
-left:-30px;
-top:0;
-height:100%;
-width:20px;
-background:#b6a064;
-}
-
-.about-image img{
-width:100%;
-height:450px;
-object-fit:cover;
-}
-
-.about-text{
-width:50%;
-text-align:center;
-}
-
-.about-text h2{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.about-text p{
-font-size:18px;
-color:#555;
-line-height:1.8;
-margin-bottom:30px;
-}
-
-.btn{
-background:#b6a064;
-color:#fff;
-padding:15px 35px;
-text-decoration:none;
-display:inline-block;
-font-weight:bold;
-}
-
-/* WHY CHOOSE US */
-
-.why-section{
-padding:100px 0;
-}
-
-.why-container{
-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-gap:80px;
-}
-
-.why-text{
-width:50%;
-text-align:center;
-}
-
-.why-text h2{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.why-text p{
-font-size:18px;
-color:#555;
-line-height:1.8;
-margin-bottom:30px;
-}
-
-.why-images{
-width:50%;
-display:flex;
-gap:20px;
-}
-
-.why-images img{
-width:50%;
-height:450px;
-object-fit:cover;
-}
-
-@media(max-width:992px){
-
-.about-container,
-.why-container{
-flex-direction:column;
-width:90%;
-}
-
-.about-text,
-.about-image,
-.why-text,
-.why-images{
-width:100%;
-}
-
-.why-images{
-flex-direction:column;
-}
-
-.why-images img{
-width:100%;
-}
-
-}
-  .services{
-padding:60px 0;
-background:#f5f5f5;
-}
-
-.container{
-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-}
-
-.card{
-position:relative;
-overflow:hidden;
-height:300px;
-cursor:pointer;
-}
-
-.card img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:0.4s;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
-
-.overlay h3{
-color:#fff;
-font-size:28px;
-font-family:serif;
-font-weight:500;
-}
-
-.card:hover img{
-transform:scale(1.1);
-}
-@media(max-width:992px){
-.container{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-@media(max-width:600px){
-.container{
-grid-template-columns:1fr;
-}
-}
-</style>
-
-
-
-
- 
-
-
-  
   <!-- FOOTER -->
   <footer class="footer">
-    <div>
-      <p>©2024 Mad Dog Carpet & Tile® - All rights reserved.</p>
-    </div>
+    <div>©2024 Mad Dog Carpet & Tile® - All rights reserved.</div>
     <div>
       <div class="footer-links">
         <a href="#">Home</a>
-        <a href="#" onclick="alert('Quote form')">Free Quote</a>
-        <a href="#" onclick="alert('Privacy policy')">Privacy Policy</a>
-        <a href="#" onclick="alert('Terms')">Terms</a>
-        <a href="#" onclick="alert('Contact')">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
       </div>
-      <p>Address: 5620 Wild Plum Dr, Loveland, CO 80537</p>
-      <div class="hours">
-        <p>Monday Open 24 hours</p>
-        <p>Tuesday Open 24 hours</p>
-        <p>Wednesday Open 24 hours</p>
-        <p>Thursday Open 24 hours</p>
-        <p>Friday Open 24 hours</p>
-        <p>Saturday Open 24 hours</p>
-        <p>Sunday Open 24 hours</p>
-      </div>
+      <p>5620 Wild Plum Dr, Loveland, CO 80537</p>
+      <div class="hours"><p>Open 24/7/365</p></div>
       <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
     </div>
   </footer>
@@ -1938,14 +1124,12 @@ grid-template-columns:1fr;
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    
     if (hamburger && mobileMenu) {
       hamburger.addEventListener('click', function() {
         mobileMenu.classList.toggle('active');
       });
     }
-    
-    // Mobile dropdown toggle
+    // Mobile dropdown
     const mobileServices = document.getElementById('mobileServices');
     if (mobileServices) {
       mobileServices.addEventListener('click', function(e) {
@@ -1953,13 +1137,9 @@ grid-template-columns:1fr;
         this.classList.toggle('active');
       });
     }
-    
-    // Close mobile menu when a link is clicked
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-      });
+    // Close menu on link click
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('active'));
     });
   </script>
 </body>
