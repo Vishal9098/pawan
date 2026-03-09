@@ -27,7 +27,7 @@
       display: block;
     }
 
-    /* ---------- TOP BAR ---------- */
+    /* ---------- TOP BAR (exactly like reference) ---------- */
     .topbar {
       background: #111;
       color: #fff;
@@ -77,7 +77,7 @@
       font-weight: 700;
     }
 
-    /* ---------- NAVBAR with hamburger ---------- */
+    /* ---------- NAVBAR with hamburger (same as reference) ---------- */
     .navbar {
       display: flex;
       align-items: center;
@@ -99,7 +99,7 @@
       cursor: pointer;
     }
 
-    /* Hamburger menu */
+    /* Hamburger menu (mobile only) */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -181,7 +181,32 @@
       display: flex;
     }
 
-    /* Mobile menu */
+    /* Action buttons */
+    .nav-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .call-btn, .schedule-btn {
+      padding: 8px 16px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .call-btn {
+      background: #c6a86b;
+    }
+
+    .schedule-btn {
+      background: #b79a5c;
+    }
+
+    /* Mobile menu (hidden by default) */
     .mobile-menu {
       display: none;
       width: 100%;
@@ -259,7 +284,50 @@
       font-size: 15px !important;
     }
 
-    /* ---------- HERO SECTION ---------- */
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .desktop-nav {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-btns .call-btn, 
+      .nav-btns .schedule-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .hamburger {
+        display: none !important;
+      }
+      .mobile-menu {
+        display: none !important;
+      }
+      .desktop-nav {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-left span {
+        display: none;
+      }
+      .topbar {
+        justify-content: center;
+        text-align: center;
+      }
+      .nav-btns .schedule-btn {
+        display: none;
+      }
+      .nav-btns .call-btn {
+        padding: 8px 18px;
+      }
+    }
+
+    /* ---------- HERO SECTION (unchanged) ---------- */
     .hero {
       min-height: 70vh;
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -318,10 +386,10 @@
       font-size: 15px;
     }
 
-    /* ---------- FEATURES ---------- */
+    /* ---------- FEATURES (unchanged) ---------- */
     .features {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+                  url('https://source.unsplash.com/1600x900/?clean-carpet,room');
       background-size: cover;
       background-position: center;
       text-align: center;
@@ -354,7 +422,7 @@
       line-height: 1.4;
     }
 
-    /* ---------- SERVICES INTRO ---------- */
+    /* ---------- SERVICES INTRO (unchanged) ---------- */
     .services-intro {
       background: #f5f5f5;
       color: #333;
@@ -389,360 +457,169 @@
       color: #555;
     }
 
-    /* ---------- SERVICES SECTION ---------- */
-    .services {
-      padding: 60px 0;
+    /* ---------- SERVICES GRID (unchanged) ---------- */
+    .services-grid {
       background: #f5f5f5;
-    }
-
-    .services .container {
-      max-width: 1400px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      padding: 0 20px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 30px 20px 50px;
     }
 
-    .card {
+    .service-card {
       position: relative;
-      overflow: hidden;
       height: 300px;
-      cursor: pointer;
+      overflow: hidden;
       border-radius: 12px;
+      cursor: pointer;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .card img {
+    .service-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: 0.4s;
-    }
-
-    .card:hover img {
-      transform: scale(1.1);
+      transition: transform 0.5s;
     }
 
     .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.45);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
     }
 
     .overlay h3 {
       color: #fff;
-      font-size: 28px;
-      font-family: serif;
+      font-size: clamp(24px, 7vw, 34px);
       font-weight: 500;
+      line-height: 1.3;
     }
 
-    /* ---------- ABOUT SECTION ---------- */
-    .about-section {
-      padding: 80px 0;
-      background: #f5f5f5;
+    /* ---------- TEAM SECTION (unchanged) ---------- */
+    .gold {
+      color: #a9975b;
+      font-weight: bold;
     }
 
-    .about-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 80px;
-      padding: 0 20px;
-    }
-
-    .about-image {
-      position: relative;
-      width: 50%;
-    }
-
-    .about-image:before {
-      content: "";
-      position: absolute;
-      left: -30px;
-      top: 0;
-      height: 100%;
-      width: 20px;
-      background: #b6a064;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-    }
-
-    .about-text {
-      width: 50%;
-      text-align: center;
-    }
-
-    .about-text h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .about-text p {
-      font-size: 18px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      background: #b6a064;
+    .gold-btn {
+      background: #a9975b;
       color: #fff;
       padding: 15px 35px;
       text-decoration: none;
       display: inline-block;
+      margin-top: 30px;
       font-weight: bold;
-      border-radius: 6px;
-      transition: 0.3s;
     }
 
-    .btn:hover {
-      background: #9f8a4e;
+    .team-section {
+      background: #f2f2f2;
+      padding: 100px 60px;
     }
 
-    /* ---------- WHY CHOOSE US ---------- */
-    .why-section {
-      padding: 100px 0;
-      background: #f5f5f5;
-    }
-
-    .why-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
+    .team-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 80px;
-      padding: 0 20px;
+      gap: 60px;
     }
 
-    .why-text {
-      width: 50%;
+    .team-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .team-text {
       text-align: center;
     }
 
-    .why-text h2 {
+    .team-text h2 {
       font-size: 48px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .why-text p {
-      font-size: 18px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
-
-    .why-images {
-      width: 50%;
-      display: flex;
-      gap: 20px;
-    }
-
-    .why-images img {
-      width: 50%;
-      height: 450px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    /* ---------- FAQ SECTION ---------- */
-    .faq-section {
-      padding: 100px 0;
-      background: #f5f5f5;
-    }
-
-    .faq-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 80px;
-      padding: 0 20px;
-    }
-
-    .faq-image {
-      position: relative;
-      width: 50%;
-    }
-
-    .faq-image::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      left: -40px;
-      width: 220px;
-      height: 220px;
-      border-top: 60px solid #b6a064;
-      border-left: 60px solid #b6a064;
-      z-index: 1;
-    }
-
-    .faq-image img {
-      width: 100%;
-      height: 650px;
-      object-fit: cover;
-      position: relative;
-      z-index: 2;
-    }
-
-    .faq-content {
-      width: 50%;
-    }
-
-    .faq-content h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .faq-desc {
-      color: #666;
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
-
-    .faq-item {
       margin-bottom: 25px;
     }
 
-    .faq-item h4 {
+    .team-text p {
       font-size: 20px;
-      margin-bottom: 8px;
-      color: #333;
+      line-height: 1.8;
+      margin-bottom: 15px;
     }
 
-    .faq-item p {
-      color: #666;
-      font-size: 17px;
-      line-height: 1.6;
+    /* ---------- EMERGENCY SECTION (unchanged) ---------- */
+    .emergency-section {
+      background: #f2f2f2;
+      padding: 100px 60px;
     }
 
-    /* ---------- CTA SECTION ---------- */
-    .cta-section {
-      position: relative;
-      padding: 140px 20px;
+    .emergency-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .emergency-text {
       text-align: center;
-      color: #fff;
-      background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
-      background-size: cover;
-      background-position: center;
     }
 
-    .cta-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.65);
+    .emergency-text h2 {
+      font-size: 48px;
+      margin-bottom: 25px;
     }
 
-    .cta-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .cta-content h2 {
-      font-size: 56px;
-      font-family: Georgia, serif;
-      margin-bottom: 20px;
-    }
-
-    .cta-content p {
+    .emergency-text p {
       font-size: 20px;
-      color: #ddd;
-      margin-bottom: 40px;
+      line-height: 1.8;
+      margin-bottom: 15px;
     }
 
-    .cta-buttons {
+    .emergency-images {
       display: flex;
-      justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
-    /* ---------- NEIGHBORHOODS SECTION ---------- */
-    .neighborhoods {
-      position: relative;
-      padding: 120px 20px;
-      background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-    }
-
-    .neighborhoods .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.65);
-    }
-
-    .neighborhoods .container {
-      position: relative;
-      max-width: 1400px;
-      margin: 0 auto;
-      z-index: 2;
-    }
-
-    .circle-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    .item {
-      width: 25%;
-      text-align: center;
-    }
-
-    .circle {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 25px;
-    }
-
-    .circle img {
-      width: 100%;
-      height: 100%;
+    .emergency-images img {
+      width: 50%;
+      height: 500px;
       object-fit: cover;
     }
 
-    .item h3 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      font-family: Georgia, serif;
+    /* ---------- CTA BANNER (unchanged) ---------- */
+    .emergency-cta {
+      background: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952");
+      background-size: cover;
+      background-position: center;
+      padding: 120px 20px;
+      text-align: center;
+      color: #fff;
+      position: relative;
     }
 
-    .item p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #ddd;
+    .cta-overlay {
+      background: rgba(0,0,0,0.6);
+      padding: 80px 20px;
     }
 
-    /* ---------- FOOTER ---------- */
+    .emergency-cta h2 {
+      font-size: 48px;
+      margin-bottom: 25px;
+    }
+
+    .emergency-cta p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- FOOTER (unchanged) ---------- */
     .footer {
       background: #000;
       color: #fff;
@@ -781,47 +658,58 @@
       text-decoration: none;
     }
 
-    /* ===== RESPONSIVE MEDIA QUERIES ===== */
+    @media (min-width: 900px) {
+      .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 80px 60px;
+      }
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    /* touch-friendly */
+    .dropdown-menu li a,
+    .buttons a,
+    .call-btn,
+    .schedule-btn {
+      touch-action: manipulation;
+    }
+
+    /* ===== MOBILE RESPONSIVE ADDITIONS (ONLY FOR SCREENS UNDER 768px) ===== */
+    /* Desktop layout remains COMPLETELY UNCHANGED above this line */
     
-    /* Large Desktop (1200px and above) */
-    @media (min-width: 1200px) {
+    @media (max-width: 768px) {
+      
+      /* Services Section */
       .services .container {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    /* Desktop and Tablet Landscape (992px to 1199px) */
-    @media (max-width: 1199px) {
-      .services .container {
-        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        padding: 0 15px;
+        gap: 15px;
       }
       
-      .circle-wrapper {
-        flex-wrap: wrap;
-        justify-content: center;
+      .card {
+        height: 250px;
       }
       
-      .item {
-        width: 45%;
-        margin-bottom: 40px;
-      }
-    }
-
-    /* Tablet Portrait (768px to 991px) */
-    @media (max-width: 991px) {
-      /* Global */
-      h2 {
-        font-size: 36px !important;
+      .overlay h3 {
+        font-size: 22px;
       }
       
       /* About Section */
-      .about-container {
-        flex-direction: column;
-        gap: 40px;
+      .about-section {
+        padding: 50px 0;
       }
       
-      .about-image,
-      .about-text {
+      .about-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .about-image {
         width: 100%;
       }
       
@@ -831,143 +719,39 @@
       }
       
       .about-image img {
-        height: 400px;
-      }
-      
-      /* Why Choose Us */
-      .why-container {
-        flex-direction: column;
-        gap: 40px;
-      }
-      
-      .why-text,
-      .why-images {
-        width: 100%;
-      }
-      
-      .why-images img {
-        height: 350px;
-      }
-      
-      /* FAQ Section */
-      .faq-container {
-        flex-direction: column;
-        gap: 40px;
-      }
-      
-      .faq-image,
-      .faq-content {
-        width: 100%;
-      }
-      
-      .faq-image::before {
-        top: -20px;
-        left: -20px;
-        width: 150px;
-        height: 150px;
-        border-top: 40px solid #b6a064;
-        border-left: 40px solid #b6a064;
-      }
-      
-      .faq-image img {
-        height: 450px;
-      }
-      
-      /* Services */
-      .services .container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      /* CTA Section */
-      .cta-content h2 {
-        font-size: 42px;
-      }
-      
-      .cta-content p {
-        font-size: 18px;
-      }
-    }
-
-    /* Mobile Landscape (576px to 767px) */
-    @media (max-width: 767px) {
-      /* Navbar */
-      .desktop-nav {
-        display: none;
-      }
-      
-      .hamburger {
-        display: flex;
-      }
-      
-      /* Hero Section */
-      .hero {
-        min-height: 60vh;
-        padding: 30px 15px;
-      }
-      
-      .hero h1 {
-        font-size: 32px;
-      }
-      
-      .hero .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .hero .buttons a {
-        width: 100%;
-        max-width: 280px;
-      }
-      
-      /* Features */
-      .badges {
-        gap: 15px;
-      }
-      
-      .badges img {
-        width: 70px;
-        height: 70px;
-        padding: 14px;
-      }
-      
-      /* Services */
-      .services .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .card {
-        height: 250px;
-      }
-      
-      .overlay h3 {
-        font-size: 24px;
-      }
-      
-      /* About Section */
-      .about-section {
-        padding: 50px 0;
-      }
-      
-      .about-image img {
         height: 300px;
       }
       
+      .about-text {
+        width: 100%;
+        padding: 0;
+      }
+      
       .about-text h2 {
-        font-size: 32px !important;
+        font-size: 32px;
       }
       
       .about-text p {
         font-size: 16px;
       }
       
-      /* Why Choose Us */
+      /* Why Choose Us Section */
       .why-section {
         padding: 50px 0;
       }
       
+      .why-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .why-text {
+        width: 100%;
+      }
+      
       .why-text h2 {
-        font-size: 32px !important;
+        font-size: 32px;
       }
       
       .why-text p {
@@ -975,11 +759,11 @@
       }
       
       .why-images {
-        flex-direction: column;
+        width: 100%;
+        gap: 10px;
       }
       
       .why-images img {
-        width: 100%;
         height: 250px;
       }
       
@@ -988,12 +772,35 @@
         padding: 50px 0;
       }
       
+      .faq-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .faq-image {
+        width: 100%;
+      }
+      
+      .faq-image::before {
+        top: -20px;
+        left: -20px;
+        width: 120px;
+        height: 120px;
+        border-top: 30px solid #b6a064;
+        border-left: 30px solid #b6a064;
+      }
+      
       .faq-image img {
         height: 350px;
       }
       
+      .faq-content {
+        width: 100%;
+      }
+      
       .faq-content h2 {
-        font-size: 32px !important;
+        font-size: 32px;
       }
       
       .faq-desc {
@@ -1004,13 +811,17 @@
         font-size: 18px;
       }
       
+      .faq-item p {
+        font-size: 15px;
+      }
+      
       /* CTA Section */
       .cta-section {
         padding: 80px 20px;
       }
       
       .cta-content h2 {
-        font-size: 32px !important;
+        font-size: 36px;
       }
       
       .cta-content p {
@@ -1025,11 +836,17 @@
       .cta-buttons .btn {
         width: 100%;
         max-width: 280px;
+        padding: 14px 25px;
+        font-size: 16px;
       }
       
-      /* Neighborhoods */
+      /* Neighborhoods Section */
       .neighborhoods {
-        padding: 60px 20px;
+        padding: 80px 20px;
+      }
+      
+      .neighborhoods .container {
+        padding: 0;
       }
       
       .circle-wrapper {
@@ -1038,62 +855,49 @@
         gap: 30px;
       }
       
-      .item {
+      .circle-wrapper .item {
         width: 100%;
         max-width: 300px;
-      }
-      
-      .circle {
-        width: 200px;
-        height: 200px;
-      }
-      
-      .item h3 {
-        font-size: 24px;
-      }
-      
-      .item p {
-        font-size: 15px;
-      }
-      
-      /* Footer */
-      .footer {
-        padding: 40px 20px;
-      }
-      
-      .btn {
-        padding: 14px 25px;
-        font-size: 16px;
-      }
-    }
-
-    /* Mobile Portrait (575px and below) */
-    @media (max-width: 575px) {
-      /* Top Bar */
-      .topbar-left span {
-        display: none;
-      }
-      
-      .topbar {
-        justify-content: center;
         text-align: center;
       }
       
-      /* Hero */
-      .hero h1 {
-        font-size: 28px;
+      .circle-wrapper .circle {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 15px;
       }
       
-      /* Features */
-      .badges img {
-        width: 60px;
-        height: 60px;
-        padding: 12px;
-      }
-      
-      .features h2 {
+      .circle-wrapper h3 {
         font-size: 24px;
       }
+      
+      .circle-wrapper p {
+        font-size: 15px;
+      }
+      
+      /* Button styles */
+      .btn {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+      
+      /* Fix any horizontal overflow */
+      body {
+        overflow-x: hidden;
+      }
+      
+      section {
+        overflow-x: hidden;
+      }
+      
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+      }
+    }
+    
+    /* Small mobile devices (under 480px) */
+    @media (max-width: 480px) {
       
       /* Services */
       .card {
@@ -1104,116 +908,78 @@
         font-size: 20px;
       }
       
-      /* About */
+      /* About Section */
       .about-image img {
         height: 250px;
       }
       
       .about-text h2 {
-        font-size: 28px !important;
+        font-size: 28px;
       }
       
       /* Why Choose Us */
       .why-text h2 {
-        font-size: 28px !important;
+        font-size: 28px;
+      }
+      
+      .why-images {
+        flex-direction: column;
       }
       
       .why-images img {
-        height: 200px;
+        width: 100%;
+        height: 220px;
       }
       
-      /* FAQ */
+      /* FAQ Section */
       .faq-image img {
         height: 280px;
       }
       
       .faq-content h2 {
-        font-size: 28px !important;
+        font-size: 28px;
       }
       
-      .faq-image::before {
-        width: 100px;
-        height: 100px;
-        border-top: 30px solid #b6a064;
-        border-left: 30px solid #b6a064;
+      .faq-item h4 {
+        font-size: 17px;
       }
       
-      /* CTA */
+      /* CTA Section */
+      .cta-content h2 {
+        font-size: 28px;
+      }
+      
       .cta-section {
         padding: 60px 15px;
       }
       
-      .cta-content h2 {
-        font-size: 28px !important;
-      }
-      
       /* Neighborhoods */
-      .circle {
+      .circle-wrapper .circle {
         width: 160px;
         height: 160px;
       }
       
-      .item h3 {
+      .circle-wrapper h3 {
         font-size: 22px;
       }
       
       /* Buttons */
       .btn {
-        padding: 12px 20px;
+        padding: 12px 25px;
         font-size: 15px;
       }
-      
-      /* Footer */
-      .footer {
-        padding: 30px 15px;
-      }
-      
-      .footer-links a {
-        font-size: 13px;
-      }
-    }
-
-    /* Fix for 1000px neighborhood scroll */
-    @media (max-width: 1000px) and (min-width: 768px) {
-      .circle-wrapper {
-        overflow-x: auto;
-        padding-bottom: 20px;
-      }
-      
-      .item {
-        min-width: 260px;
-      }
-    }
-
-    /* touch-friendly */
-    .dropdown-menu li a,
-    .buttons a,
-    .call-btn,
-    .schedule-btn,
-    .btn {
-      touch-action: manipulation;
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="topbar-left">
-      <span>★★★★★ 5 STAR RATED</span>
-      <a href="tel:+19702007677">📞 (970) 200-7677</a>
-    </div>
-    <div class="topbar-right">
-      <a href="#">⭐ Leave Review</a>
-      <a href="#" class="call-now-btn">CALL NOW</a>
-    </div>
-  </div>
 
-  <!-- NAVBAR with hamburger -->
+
+  <!-- NAVBAR with hamburger (exactly like reference) -->
   <header class="navbar">
     <div class="logo" onclick="window.location.href='#'">MAD DOG</div>
     
-    <!-- Desktop Navigation -->
+    <!-- Desktop Navigation (visible on large screens) -->
     <div class="desktop-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -1236,7 +1002,9 @@
       </ul>
     </div>
     
-    <!-- Hamburger Icon -->
+   
+
+    <!-- Hamburger Icon (mobile only) -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -1244,7 +1012,7 @@
     </div>
   </header>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu (hidden by default) -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -1304,168 +1072,769 @@
     <h2>Our Floor Cleaning Services</h2>
     <p>At Mad Dog Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
   </section>
+<!--  -->
+<section class="services">
+  <div class="container">
 
-  <!-- SERVICES SECTION -->
-  <section class="services">
-    <div class="container">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Deep Cleaning">
-        <div class="overlay">
-          <h3>Deep Cleaning for Sofas and Couches</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Stain Removal">
-        <div class="overlay">
-          <h3>Stain Removal</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Pet Stain">
-        <div class="overlay">
-          <h3>Pet Stain and Odor Removal</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Tile Cleaning">
-        <div class="overlay">
-          <h3>Tile Cleaning</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Air Duct">
-        <div class="overlay">
-          <h3>Air Duct Cleaning</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="House Cleaning">
-        <div class="overlay">
-          <h3>House Cleaning</h3>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Upholstery">
-        <div class="overlay">
-          <h3>Upholstery Cleaning</h3>
-        </div>
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Deep Cleaning for Sofas and Couches</h3>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-section">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="About Us">
-      </div>
-      <div class="about-text">
-        <h2>About Our Floor Cleaning Company</h2>
-        <p>With a focus on sustainability and excellence, Mad Dog Carpet & Tile is committed to delivering top-notch results that exceed expectations. We combine eco-friendly practices with innovative techniques to provide the best floor cleaning services.</p>
-        <a href="#" class="btn">Call Us Today</a>
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Stain Removal</h3>
       </div>
     </div>
-  </section>
 
-  <!-- WHY CHOOSE US SECTION -->
-  <section class="why-section">
-    <div class="why-container">
-      <div class="why-text">
-        <h2>Why Choose Us</h2>
-        <p>Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention to detail, and dedication to customer satisfaction. Experience the difference with our professional floor cleaners who deliver unmatched quality and reliability in every service.</p>
-        <a href="#" class="btn">Call Us to Schedule</a>
-      </div>
-      <div class="why-images">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Why Us 1">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Why Us 2">
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Pet Stain and Odor Removal</h3>
       </div>
     </div>
-  </section>
 
-  <!-- FAQ SECTION -->
-  <section class="faq-section">
-    <div class="faq-container">
-      <div class="faq-image">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="FAQ">
-      </div>
-      <div class="faq-content">
-        <h2>Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
-        <p class="faq-desc">Get answers to common carpet cleaning questions in Loveland. Learn about cleaning methods, stain removal, and more from Mad Dog Carpet & Tile.</p>
-        
-        <div class="faq-item">
-          <h4>What areas do you serve?</h4>
-          <p>We serve Loveland and all of Larimer County.</p>
-        </div>
-        <div class="faq-item">
-          <h4>How often should I clean my carpets?</h4>
-          <p>We recommend professional cleaning every 6-12 months for optimal maintenance.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Do you use eco-friendly cleaning products?</h4>
-          <p>Yes, we use safe, eco-friendly solutions for all our services.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Can you remove tough stains?</h4>
-          <p>Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
-        </div>
-        <div class="faq-item">
-          <h4>How long does carpet cleaning take?</h4>
-          <p>Most jobs are completed within 2-4 hours, depending on the size of the area.</p>
-        </div>
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Tile Cleaning</h3>
       </div>
     </div>
-  </section>
 
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <div class="cta-overlay"></div>
-    <div class="cta-content">
-      <h2>Schedule a Cleaning Today</h2>
-      <p>We guarantee that you will be satisfied with the results and that you will be happy to have chosen us.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn">Get A Quote</a>
-        <a href="#" class="btn">Call Us to Schedule</a>
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Air Duct Cleaning</h3>
       </div>
     </div>
-  </section>
 
-  <!-- NEIGHBORHOODS SECTION -->
-  <section class="neighborhoods">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="circle-wrapper">
-        <div class="item">
-          <div class="circle">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Mapleton Hill">
-          </div>
-          <h3>Mapleton Hill</h3>
-          <p>Historic Boulder neighborhood near Pearl Street. Close to Broadway (Highway 93), Mt. Sanitas trails, and scenic mountain views.</p>
-        </div>
-        <div class="item">
-          <div class="circle">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Van de Water">
-          </div>
-          <h3>Van de Water</h3>
-          <p>Van de Water Heights is a growing neighborhood in Loveland, CO, near Highway 34 and I-25.</p>
-        </div>
-        <div class="item">
-          <div class="circle">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Alford Meadows">
-          </div>
-          <h3>Alford Meadows</h3>
-          <p>Alford Meadows in Loveland, CO, is a peaceful neighborhood near Highway 287 and I-25.</p>
-        </div>
-        <div class="item">
-          <div class="circle">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="The Lakes at Centerra">
-          </div>
-          <h3>The Lakes at Centerra</h3>
-          <p>The Lakes at Centerra is a beautiful neighborhood known for lakeside views and modern homes.</p>
-        </div>
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>House Cleaning</h3>
       </div>
     </div>
-  </section>
 
+    <div class="card">
+      <img src="images/b.jpg">
+      <div class="overlay">
+        <h3>Upholstery Cleaning</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about-section">
+
+<div class="about-container">
+
+<div class="about-image">
+<img src="images/b.jpg" alt="">
+</div>
+
+<div class="about-text">
+<h2>About Our Floor Cleaning Company</h2>
+
+<p>
+With a focus on sustainability and excellence, Mad Dog Carpet & Tile is
+committed to delivering top-notch results that exceed expectations. We
+combine eco-friendly practices with innovative techniques to provide
+the best floor cleaning services.
+</p>
+
+<a href="#" class="btn">Call Us Today</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="why-section">
+
+<div class="why-container">
+
+<div class="why-text">
+
+<h2>Why Choose Us</h2>
+
+<p>
+Choose Mad Dog Carpet & Tile for our eco-friendly approach, attention
+to detail, and dedication to customer satisfaction. Experience the
+difference with our professional floor cleaners who deliver unmatched
+quality and reliability in every service.
+</p>
+
+<a href="#" class="btn">Call Us to Schedule</a>
+
+</div>
+
+
+<div class="why-images">
+
+<img src="images/b.jpg">
+<!-- <img src="images/bathroom-tile.jpg"> -->
+
+</div>
+
+</div>
+
+</section>
+<section class="faq-section">
+
+<div class="faq-container">
+
+<div class="faq-image">
+<img src="images/b.jpg" alt="">
+</div>
+
+
+<div class="faq-content">
+
+<h2>Frequently Asked Questions About Carpet Cleaning in Loveland</h2>
+
+<p class="faq-desc">
+Get answers to common carpet cleaning questions in Loveland. Learn about
+cleaning methods, stain removal, and more from Mad Dog Carpet & Tile.
+</p>
+
+
+<div class="faq-item">
+<h4>What areas do you serve?</h4>
+<p>We serve Loveland and all of Larimer County.</p>
+</div>
+
+<div class="faq-item">
+<h4>How often should I clean my carpets?</h4>
+<p>We recommend professional cleaning every 6-12 months for optimal maintenance.</p>
+</div>
+
+<div class="faq-item">
+<h4>Do you use eco-friendly cleaning products?</h4>
+<p>Yes, we use safe, eco-friendly solutions for all our services.</p>
+</div>
+
+<div class="faq-item">
+<h4>Can you remove tough stains?</h4>
+<p>Absolutely! Our advanced techniques can tackle even the toughest stains.</p>
+</div>
+
+<div class="faq-item">
+<h4>How long does carpet cleaning take?</h4>
+<p>Most jobs are completed within 2-4 hours, depending on the size of the area.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta-section">
+
+<div class="cta-overlay"></div>
+
+<div class="cta-content">
+
+<h2>Schedule a Cleaning Today</h2>
+
+<p>
+We guarantee that you will be satisfied with the results and that you will be happy to have chosen us.
+</p>
+
+<div class="cta-buttons">
+<a href="#" class="btn">Get A Quote</a>
+<a href="#" class="btn">Call Us to Schedule</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="neighborhoods">
+
+<div class="overlay"></div>
+
+<div class="container">
+
+<div class="circle-wrapper">
+
+<div class="item">
+<div class="circle">
+<img src="images/b.jpg">
+</div>
+<h3>Mapleton Hill</h3>
+<p>
+Historic Boulder neighborhood near Pearl Street. Close to Broadway
+(Highway 93), Mt. Sanitas trails, and scenic mountain views.
+</p>
+</div>
+
+<div class="item">
+<div class="circle">
+<img src="images/b.jpg">
+</div>
+<h3>Van de Water</h3>
+<p>
+Van de Water Heights is a growing neighborhood in Loveland, CO,
+near Highway 34 and I-25.
+</p>
+</div>
+
+<div class="item">
+<div class="circle">
+<img src="images/b.jpg">
+</div>
+<h3>Alford Meadows</h3>
+<p>
+Alford Meadows in Loveland, CO, is a peaceful neighborhood
+near Highway 287 and I-25.
+</p>
+</div>
+
+<div class="item">
+<div class="circle">
+<img src="images/b.jpg">
+</div>
+<h3>The Lakes at Centerra</h3>
+<p>
+The Lakes at Centerra is a beautiful neighborhood known
+for lakeside views and modern homes.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+  .cta-section{
+position:relative;
+padding:140px 20px;
+text-align:center;
+color:#fff;
+
+/* RANDOM IMAGE */
+background-image:url("images/b.jpg");
+
+background-size:cover;
+background-position:center;
+}
+
+/* DARK OVERLAY */
+
+.cta-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+/* CONTENT */
+
+.cta-content{
+position:relative;
+z-index:2;
+max-width:900px;
+margin:auto;
+}
+
+.cta-content h2{
+font-size:56px;
+font-family:Georgia, serif;
+margin-bottom:20px;
+}
+
+.cta-content p{
+font-size:20px;
+color:#ddd;
+margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+background:#b6a064;
+color:#fff;
+padding:16px 35px;
+font-size:18px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#9f8a4e;
+}
+ .neighborhoods{
+position:relative;
+padding:120px 20px;
+background-image:url("images/b.jpg");
+background-size:cover;
+background-position:center;
+color:#fff;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.container{
+position:relative;
+max-width:1400px;
+margin:auto;
+z-index:2;
+}
+
+/* HORIZONTAL */
+
+.circle-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:40px;
+}
+
+.item{
+width:25%;
+}
+
+.circle{
+width:260px;
+height:260px;
+border-radius:50%;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+.circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.item h3{
+font-size:28px;
+margin-bottom:10px;
+font-family:Georgia, serif;
+}
+
+.item p{
+font-size:18px;
+line-height:1.6;
+color:#ddd;
+}
+@media(max-width:1000px){
+
+.circle-wrapper{
+overflow-x:auto;
+}
+
+.item{
+min-width:260px;
+}
+
+}
+</style>
+
+
+
+
+
+
+
+
+<style>
+
+
+
+  .cta-section{
+background-image:url("https://source.unsplash.com/1600x900/?cleaning,floor,carpet");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+position:relative;
+text-align:center;
+}
+
+/* dark overlay */
+
+.cta-section::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.cta-content{
+position:relative;
+z-index:2;
+max-width:900px;
+margin:auto;
+color:#fff;
+}
+
+.cta-content h2{
+font-size:56px;
+margin-bottom:20px;
+font-family:Georgia, serif;
+}
+
+.cta-content p{
+font-size:20px;
+color:#ddd;
+margin-bottom:40px;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+background:#b6a064;
+color:#fff;
+padding:16px 35px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+}
+  .cta-section{
+background-image:url("images/stone-bg.jpg");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+position:relative;
+text-align:center;
+}
+
+
+  body{
+margin:0;
+font-family:Georgia, serif;
+background:#f4f4f4;
+}
+
+.faq-section{
+padding:100px 0;
+}
+
+.faq-container{
+width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:80px;
+}
+
+/* LEFT IMAGE */
+
+.faq-image{
+position:relative;
+width:50%;
+}
+
+.faq-image::before{
+content:"";
+position:absolute;
+top:-40px;
+left:-40px;
+width:220px;
+height:220px;
+border-top:60px solid #b6a064;
+border-left:60px solid #b6a064;
+}
+
+.faq-image img{
+width:100%;
+height:650px;
+object-fit:cover;
+}
+
+/* RIGHT CONTENT */
+
+.faq-content{
+width:50%;
+}
+
+.faq-content h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.faq-desc{
+color:#666;
+font-size:18px;
+line-height:1.7;
+margin-bottom:40px;
+}
+
+.faq-item{
+margin-bottom:25px;
+}
+
+.faq-item h4{
+font-size:20px;
+margin-bottom:8px;
+color:#333;
+}
+
+.faq-item p{
+color:#666;
+font-size:17px;
+line-height:1.6;
+}
+@media(max-width:992px){
+
+.faq-container{
+flex-direction:column;
+width:90%;
+}
+
+.faq-image,
+.faq-content{
+width:100%;
+}
+
+.faq-image img{
+height:auto;
+}
+
+}
+  body{
+font-family: Georgia, serif;
+margin:0;
+background:#f4f4f4;
+}
+
+/* ABOUT SECTION */
+
+.about-section{
+padding:80px 0;
+}
+
+.about-container{
+width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:80px;
+}
+
+.about-image{
+position:relative;
+width:50%;
+}
+
+.about-image:before{
+content:"";
+position:absolute;
+left:-30px;
+top:0;
+height:100%;
+width:20px;
+background:#b6a064;
+}
+
+.about-image img{
+width:100%;
+height:450px;
+object-fit:cover;
+}
+
+.about-text{
+width:50%;
+text-align:center;
+}
+
+.about-text h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.about-text p{
+font-size:18px;
+color:#555;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+background:#b6a064;
+color:#fff;
+padding:15px 35px;
+text-decoration:none;
+display:inline-block;
+font-weight:bold;
+}
+
+/* WHY CHOOSE US */
+
+.why-section{
+padding:100px 0;
+}
+
+.why-container{
+width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:80px;
+}
+
+.why-text{
+width:50%;
+text-align:center;
+}
+
+.why-text h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.why-text p{
+font-size:18px;
+color:#555;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.why-images{
+width:50%;
+display:flex;
+gap:20px;
+}
+
+.why-images img{
+width:50%;
+height:450px;
+object-fit:cover;
+}
+
+@media(max-width:992px){
+
+.about-container,
+.why-container{
+flex-direction:column;
+width:90%;
+}
+
+.about-text,
+.about-image,
+.why-text,
+.why-images{
+width:100%;
+}
+
+.why-images{
+flex-direction:column;
+}
+
+.why-images img{
+width:100%;
+}
+
+}
+  .services{
+padding:60px 0;
+background:#f5f5f5;
+}
+
+.container{
+width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+height:300px;
+cursor:pointer;
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.4s;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.overlay h3{
+color:#fff;
+font-size:28px;
+font-family:serif;
+font-weight:500;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+@media(max-width:992px){
+.container{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:600px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+
+
+
+ 
+
+
+  
   <!-- FOOTER -->
   <footer class="footer">
     <div>
