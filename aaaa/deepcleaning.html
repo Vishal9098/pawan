@@ -1,1065 +1,1256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Professional Deep Cleaning Services |  Xyz Upholstery Cleaners  Carpet & Tile</title>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ===== RESET & VARIABLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #b39a58;
-            --gold-dark: #9c854a;
-            --gold-light: #d4b87a;
-            --dark: #1a1a1a;
-            --darker: #0a0a0a;
-            --light: #f9f9f9;
-            --gray: #666;
-            --light-gray: #f5f5f5;
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: var(--light);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== BUTTON STYLES ===== */
-        .btn {
-            display: inline-block;
-            background: var(--gold);
-            color: white !important;
-            padding: 14px 32px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-radius: 50px;
-            margin: 8px;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(179, 154, 88, 0.3);
-        }
-
-        .btn:hover {
-            background: var(--gold-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(179, 154, 88, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold) !important;
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: var(--gold);
-            color: white !important;
-        }
-
-        .btn-emergency {
-            background: #d32f2f;
-            animation: pulse 2s infinite;
-        }
-
-        .btn-emergency:hover {
-            background: #b71c1c;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); }
-        }
-
-        /* ===== BACK TO HOME LINK ===== */
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            z-index: 10;
-            position: relative;
-        }
-
-        .back-home:hover {
-            transform: translateX(-5px);
-            color: var(--gold-dark);
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                        url('https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 100px 20px;
-            position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 1000px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 64px;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-
-        .gold {
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 22px;
-            display: block;
-            margin: 20px 0;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== SECTION STYLES ===== */
-        .section {
-            padding: 100px 20px;
-        }
-
-        .section-light {
-            background: #ffffff;
-        }
-
-        .section-gray {
-            background: var(--light-gray);
-        }
-
-        .section-dark {
-            background: var(--dark);
-            color: white;
-        }
-
-        /* ===== TWO COLUMN LAYOUT ===== */
-        .flex-container {
-            display: flex;
-            gap: 60px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .text-col {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .text-col h2 {
-            font-size: 42px;
-            margin-bottom: 25px;
-            color: var(--dark);
-            line-height: 1.3;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .text-col h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .text-col p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .text-col ul, .text-col ol {
-            font-size: 18px;
-            line-height: 2;
-            padding-left: 25px;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        .text-col li {
-            margin-bottom: 10px;
-        }
-
-        .text-col li::marker {
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        .image-col {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .image-col img {
-            width: 100%;
-            transition: transform 0.8s ease;
-        }
-
-        .image-col:hover img {
-            transform: scale(1.05);
-        }
-
-        /* ===== CENTER SECTION ===== */
-        .center {
-            text-align: center;
-            background: var(--light-gray);
-        }
-
-        .center h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .center h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .center p {
-            font-size: 18px;
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        /* ===== BADGES ===== */
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .badge-item {
-            text-align: center;
-        }
-
-        .badge-item img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            padding: 5px;
-            transition: var(--transition);
-            object-fit: cover;
-        }
-
-        .badge-item:hover img {
-            transform: scale(1.1) rotate(5deg);
-            border-color: var(--gold-dark);
-        }
-
-        .badge-item span {
-            display: block;
-            margin-top: 10px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        /* ===== FEATURE BOX ===== */
-        .feature-box {
-            max-width: 900px;
-            margin: 50px auto 0;
-            background: linear-gradient(135deg, #ffffff, #f8f5ef);
-            padding: 60px;
-            text-align: center;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(179, 154, 88, 0.2);
-        }
-
-        .feature-box p {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        .feature-box .gold {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        /* ===== PROCESS STYLES ===== */
-        .process-list {
-            list-style: none;
-            counter-reset: process-counter;
-        }
-
-        .process-list li {
-            counter-increment: process-counter;
-            margin-bottom: 20px;
-            padding-left: 50px;
-            position: relative;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .process-list li:before {
-            content: counter(process-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 35px;
-            height: 35px;
-            background: var(--gold);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        /* ===== STATS SECTION ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(179, 154, 88, 0.15);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* ===== SERVICES GRID ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 40px 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(179, 154, 88, 0.15);
-            border-color: var(--gold);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(179, 154, 88, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 36px;
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--gold);
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: linear-gradient(135deg, var(--dark), #2a2a2a);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(179, 154, 88, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-section h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-section .btn {
-            font-size: 24px;
-            padding: 18px 50px;
-            background: var(--gold);
-        }
-
-        /* ===== FLOATING CALL BUTTON ===== */
-        .floating-call {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            text-decoration: none;
-            transition: var(--transition);
-            animation: callPulse 2s infinite;
-        }
-
-        @keyframes callPulse {
-            0% { transform: scale(1); }
-            70% { transform: scale(1.1); box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6); }
-            100% { transform: scale(1); }
-        }
-
-        .floating-call:hover {
-            transform: scale(1.15) rotate(10deg);
-            background: #20b358;
-        }
-
-        /* ===== FEATURE BADGES ===== */
-        .feature-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .feature-badge {
-            background: var(--gold);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 5px 0;
-            }
-            
-            .text-col h2 {
-                font-size: 32px;
-            }
-            
-            .center h2 {
-                font-size: 32px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .feature-box {
-                padding: 30px 20px;
-            }
-            
-            .badges {
-                gap: 20px;
-            }
-            
-            .badge-item img {
-                width: 90px;
-                height: 90px;
-            }
-            
-            .flex-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero-buttons .btn {
-                font-size: 14px;
-                padding: 12px 20px;
-            }
-            
-            .text-col h2 {
-                font-size: 26px;
-            }
-            
-            .text-col ul, .text-col ol {
-                font-size: 16px;
-            }
-            
-            .cta-section h2 {
-                font-size: 28px;
-            }
-            
-            .cta-section .btn {
-                font-size: 18px;
-                padding: 15px 30px;
-            }
-            
-            .floating-call {
-                width: 55px;
-                height: 55px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .process-list li {
-                font-size: 16px;
-            }
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpet Cleaning</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* HEADER */
+
+header{
+background:#000;
+color:white;
+}
+
+header{
+background:#000;
+color:white;
+position:relative;
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+.logo img{
+height:60px;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu{
+top:100%;
+}
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#000;
+min-width:220px;
+flex-direction:column;
+border-radius:4px;
+overflow:hidden;
+z-index:9999;
+flex-direction:column;
+}
+
+.dropdown-menu a{
+padding:12px 18px;
+display:block;
+color:white;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-menu a:hover{
+background:#c8a85a;
+}
+
+.dropdown:hover .dropdown-menu{
+display:flex;
+flex-direction:column;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* HERO SECTION */
+
+.hero{
+position:relative;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.hero h3{
+color:#c8a85a;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+background:#c8a85a;
+padding:12px 18px;
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+nav{
+display:none;
+flex-direction:column;
+width:100%;
+margin-top:15px;
+}
+
+nav.show{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+/* MOBILE DROPDOWN */
+
+.dropdown-menu{
+position:static;
+}
+
+.dropdown:hover .dropdown-menu{
+display:none;
+}
+
+.dropdown.active .dropdown-menu{
+display:block;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero{
+height:auto;
+padding:80px 20px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Back to Home Link -->
-    <a href="#" onclick="window.location.href='index.html'; return false;" class="back-home">
-        <i class="fas fa-arrow-left"></i> Back to Home
-    </a>
+<header>
+<div class="nav-container">
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>PROFESSIONAL DEEP CLEANING SERVICES IN LOVELAND, CO</h1>
-            <p>Are you looking for expert <b>deep cleaning services</b> in Loveland, CO? At <span class="gold"> Xyz Upholstery Cleaners  Carpet & Tile</span>, we specialize in thorough professional cleaning solutions for homes and businesses.</p>
-            <p class="gold">⭐ DEEP CLEANING SERVICES IN LOVELAND, CO -  Xyz Upholstery Cleaners  CARPET & TILE ⭐</p>
-            
-            <div class="hero-buttons">
-                <a href="#" onclick="alert('Please call 970-200-7677 for a free quote'); return false;" class="btn">
-                    <i class="fas fa-calculator"></i> Get a Quote
-                </a>
-                <a href="tel:9702007677" class="btn">
-                    <i class="fas fa-phone-alt"></i> Call Us: (970) 200-7677
-                </a>
-                <a href="#" onclick="alert('Emergency Service: Call 970-200-7677'); return false;" class="btn btn-emergency">
-                    <i class="fas fa-exclamation-triangle"></i> 24/7 Emergency
-                </a>
-                <a href="#" onclick="alert('Please call 970-200-7677 to schedule'); return false;" class="btn btn-outline">
-                    <i class="fas fa-calendar-check"></i> Book Now
-                </a>
-            </div>
-        </div>
-    </section>
+<div class="logo">
+<img src="images/b.jpg" alt="Logo">
+</div>
 
-    <!-- WHY CHOOSE SECTION -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="flex-container">
-                <div class="text-col">
-                    <h2>Why Choose Our Deep Cleaning Services?</h2>
-                    <ul>
-                        <li><b>Comprehensive Cleaning:</b> Kitchens, bathrooms, carpets, and upholstery</li>
-                        <li><b>Eco-Friendly Products:</b> Safe for family, kids, and pets</li>
-                        <li><b>Experienced Professionals:</b> Trained, certified, and insured cleaners</li>
-                        <li><b>Custom Cleaning Plans:</b> Tailored to your specific needs</li>
-                        <li><b>Affordable Rates:</b> Premium service at competitive prices</li>
-                        <li><b>Satisfaction Guaranteed:</b> 100% money-back guarantee</li>
-                    </ul>
-                    
-                    <div class="feature-badges">
-                        <span class="feature-badge"><i class="fas fa-check"></i> Licensed</span>
-                        <span class="feature-badge"><i class="fas fa-check"></i> Insured</span>
-                        <span class="feature-badge"><i class="fas fa-check"></i> Bonded</span>
-                    </div>
-                    
-                    <a href="tel:9702007677" class="btn">
-                        <i class="fas fa-phone-alt"></i> Call Us to Schedule
-                    </a>
-                </div>
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=800&auto=format&fit=crop" alt="Deep cleaning service">
-                </div>
-            </div>
-        </div>
-    </section>
+<nav id="menu">
 
-    <!-- SERVICES OVERVIEW -->
-    <section class="section section-gray">
-        <div class="container center">
-            <h2>Our Deep Cleaning Services</h2>
-            <p>Comprehensive cleaning solutions for every part of your home or business</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Kitchen Deep Cleaning</h3>
-                    <p>Degreasing cabinets, appliances, countertops, and sinks. Remove built-up grime.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bath"></i>
-                    </div>
-                    <h3>Bathroom Deep Cleaning</h3>
-                    <p>Scrub tiles, sanitize toilets, remove mold, and restore shine to fixtures.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-couch"></i>
-                    </div>
-                    <h3>Carpet & Upholstery</h3>
-                    <p>Deep extraction cleaning for carpets, sofas, and chairs. Remove stains and odors.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Commercial Cleaning</h3>
-                    <p>Office spaces, restaurants, retail stores. Customized commercial solutions.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
-                    </div>
-                    <h3>Move In/Out Cleaning</h3>
-                    <p>Complete cleaning for vacating or new homes. Make a great impression.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer"></i>
-                    </div>
-                    <h3>Post Renovation</h3>
-                    <p>Remove construction dust, debris, and residue after renovations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
 
-    <!-- RESIDENTIAL SECTION -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="flex-container">
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=800&auto=format&fit=crop" alt="Residential deep cleaning">
-                </div>
-                <div class="text-col">
-                    <h2>Residential Deep Cleaning</h2>
-                    <p>Our home deep cleaning services are perfect for maintaining a healthy living space. We go beyond surface cleaning to remove hidden dirt, allergens, and bacteria.</p>
-                    
-                    <ul>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Kitchen Deep Cleaning</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Bathroom Deep Cleaning</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Carpet Cleaning</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Sofa & Upholstery Cleaning</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Hardwood Floor Cleaning</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Baseboards & Window Tracks</li>
-                    </ul>
-                    
-                    <a href="tel:9702007677" class="btn" style="margin-top: 20px;">
-                        <i class="fas fa-phone-alt"></i> Schedule Residential Cleaning
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="dropdown">
+  <a href="#" onclick="toggleDropdown(this.parentElement)">Services ▼</a>
 
-    <!-- COMMERCIAL SECTION -->
-    <section class="section section-gray">
-        <div class="container">
-            <div class="flex-container">
-                <div class="text-col">
-                    <h2>Commercial & Office Deep Cleaning</h2>
-                    <p>Our office deep cleaning services include dusting, sanitization, and disinfection of workspaces, break rooms, and restrooms. We work around your business hours.</p>
-                    
-                    <ul>
-                        <li>Office cubicles & workstations</li>
-                        <li>Conference rooms</li>
-                        <li>Break rooms & kitchens</li>
-                        <li>Restrooms & locker rooms</li>
-                        <li>Reception areas</li>
-                    </ul>
-                    
-                    <a href="tel:9702007677" class="btn">
-                        <i class="fas fa-phone-alt"></i> Call for Commercial Quote
-                    </a>
-                </div>
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Commercial cleaning">
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="dropdown-menu">
+    <a href="tilefloorcleaning.html">Tile Cleaning</a>
+    <a href="UpholsteryCleaning.html">Upholstery Cleaning</a>
+    <a href="PetStainRemoval.html">Pet Odor Removal</a>
+    <a href="deepcleaning.html">Deep Steam Cleaning</a>
+  </div>
+</div>
+<a href="#">Locations</a>
+<a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
+<a href="CommercialCleaning.html">Commercial Cleaning</a>
+<a href="house-cleaning.html">House Cleaning</a>
+<a href="#">More</a>
 
-    <!-- MOVE IN/OUT SECTION -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="flex-container">
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" alt="Move in out cleaning">
-                </div>
-                <div class="text-col">
-                    <h2>Move-In & Move-Out Deep Cleaning</h2>
-                    <p>Moving is stressful enough. Let us handle the cleaning! Our move-in and move-out deep cleaning ensures your home is spotless and ready for the next occupant.</p>
-                    
-                    <ul>
-                        <li>Empty home/apt deep clean</li>
-                        <li>Cabinet & drawer cleaning</li>
-                        <li>Appliance cleaning (inside/out)</li>
-                        <li>Window & track cleaning</li>
-                        <li>Light fixtures & ceiling fans</li>
-                    </ul>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="tel:9702007677" class="btn">
-                            <i class="fas fa-phone-alt"></i> Get Move-Out Quote
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</nav>
 
-    <!-- SPECIALTY SECTION -->
-    <section class="section section-gray">
-        <div class="container">
-            <div class="flex-container">
-                <div class="text-col">
-                    <h2>Specialty Deep Cleaning Services</h2>
-                    
-                    <ul>
-                        <li>Restaurant Deep Cleaning</li>
-                        <li>Apartment Cleaning</li>
-                        <li>Bathroom Mold Remediation</li>
-                        <li>Kitchen Degreasing</li>
-                        <li>Post Renovation Cleaning</li>
-                        <li>Deep Carpet Cleaning</li>
-                        <li>Grout & Tile Deep Cleaning</li>
-                        <li>Air Duct Cleaning</li>
-                    </ul>
-                    
-                    <a href="tel:9702007677" class="btn" style="margin-top: 20px;">
-                        <i class="fas fa-phone-alt"></i> Discuss Your Needs
-                    </a>
-                </div>
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1581851232674-80b5d5125a5b?q=80&w=800&auto=format&fit=crop" alt="Specialty cleaning">
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <!-- BADGES + BOX -->
-    <section class="section section-light">
-        <div class="container center">
-            <div class="badges">
-                <div class="badge-item">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=200&auto=format&fit=crop" alt="Badge">
-                    <span>Certified</span>
-                </div>
-                <div class="badge-item">
-                    <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=200&auto=format&fit=crop" alt="Badge">
-                    <span>Eco-Friendly</span>
-                </div>
-                <div class="badge-item">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=200&auto=format&fit=crop" alt="Badge">
-                    <span>Insured</span>
-                </div>
-                <div class="badge-item">
-                    <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=200&auto=format&fit=crop" alt="Badge">
-                    <span>5-Star Rated</span>
-                </div>
-            </div>
+</div>
+</header>
 
-            <div class="feature-box">
-                <p class="gold"><i class="fas fa-quote-left"></i>  Xyz Upholstery Cleaners  Carpet & Tile <i class="fas fa-quote-right"></i></p>
-                <p>At <span class="gold"> Xyz Upholstery Cleaners  Carpet & Tile</span>, we understand the challenges of maintaining a clean home environment. Our deep cleaning services are designed to tackle the toughest dirt and grime, leaving your space fresh and healthy.</p>
-                <p>We serve Loveland, Fort Collins, Boulder, Greeley, and all of Northern Colorado.</p>
-                
-                <div style="margin-top: 30px;">
-                    <a href="#" onclick="alert('Please call 970-200-7677 for a free quote'); return false;" class="btn">
-                        <i class="fas fa-calculator"></i> Get A Quote
-                    </a>
-                    <a href="tel:9702007677" class="btn btn-outline">
-                        <i class="fas fa-phone-alt"></i> Call Us to Schedule
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- STATS SECTION -->
-    <section class="section section-gray">
-        <div class="container center">
-            <h2>Why Loveland Trusts Us</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">5000+</div>
-                    <div class="stat-label">Homes Deep Cleaned</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Customer Satisfaction</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- <section class="hero">
 
-    <!-- PROCESS SECTION -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="flex-container">
-                <div class="text-col">
-                    <h2>Our Comprehensive Deep Cleaning Process</h2>
-                    <p>Here's how our professional deep cleaning works:</p>
-                    
-                    <ol class="process-list">
-                        <li><b>Inspection:</b> We assess all areas to be cleaned and identify trouble spots</li>
-                        <li><b>Pre-Treatment:</b> Apply eco-friendly solutions to break down stubborn stains</li>
-                        <li><b>Deep Cleaning:</b> Advanced equipment removes embedded dirt and grime</li>
-                        <li><b>Sanitization:</b> Hospital-grade disinfectants kill bacteria and germs</li>
-                        <li><b>Final Check:</b> Thorough inspection ensures spotless results</li>
-                    </ol>
-                    
-                    <a href="tel:9702007677" class="btn" style="margin-top: 30px;">
-                        <i class="fas fa-phone-alt"></i> Schedule Your Deep Clean
-                    </a>
-                </div>
-                <div class="image-col">
-                    <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?q=80&w=800&auto=format&fit=crop" alt="Cleaning process">
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="overlay"></div>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready for a Deeper Clean?</h2>
-            <p>Call us today for a free estimate or to schedule your deep cleaning service.</p>
-            <a href="tel:9702007677" class="btn">
-                <i class="fas fa-phone-alt"></i> (970) 200-7677
-            </a>
-            <p style="margin-top: 20px; font-size: 16px; opacity: 0.8;">Available 24/7 for emergencies • Free estimates</p>
-        </div>
-    </section>
+<div class="hero-content">
 
-    <!-- Floating Call Button -->
-    <a href="tel:9702007677" class="floating-call">
-        <i class="fas fa-phone-alt"></i>
-    </a>
+<h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
 
-    <script>
-        // Function to handle back to home
-        function goHome() {
-            window.location.href = 'index.html';
-        }
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+<p>
+Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
+Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens
+for a fresher, healthier home.
+</p>
+
+<h3>QUALITY FLOOR CLEANING</h3>
+
+<div class="hero-buttons">
+<a href="#">Get a Quote</a>
+<a href="#">Call Us to Schedule</a>
+<a href="#">Emergency Service Call Now</a>
+<a href="#">Book Now</a>
+</div>
+
+</div>
+
+</section> -->
+
+<section class="deep-clean-section">
+
+<div class="deep-clean-content">
+
+<div class="deep-clean-box">
+
+<h2>Why Choose Our Deep Cleaning Services?</h2>
+
+<ul>
+
+<li>
+<b>Comprehensive Cleaning:</b> We cover all areas, including kitchens,
+bathrooms, carpets, upholstery, and hard-to-reach spots.
+</li>
+
+<li>
+<b>Eco-Friendly Products:</b> Our cleaning solutions are safe for your
+family, pets, and the environment.
+</li>
+
+<li>
+<b>Experienced Professionals:</b> Our trained and certified cleaners
+guarantee top-quality service.
+</li>
+
+<li>
+<b>Custom Cleaning Plans:</b> We tailor our services to meet your specific
+cleaning needs.
+</li>
+
+<li>
+<b>Affordable Rates:</b> Get premium deep cleaning at competitive prices.
+</li>
+
+</ul>
+
+<a href="#" class="deep-btn">Call Us to Schedule</a>
+
+</div>
+
+</div>
+
+
+<div class="deep-clean-image">
+
+<img src="images/b.jpg" alt="Deep Cleaning">
+
+</div>
+
+</section>
+    <section class="residential-clean-section">
+
+<div class="residential-image">
+<img src="images/a.jpg" alt="Residential Deep Cleaning">
+</div>
+
+<div class="residential-content">
+
+<div class="residential-box">
+
+<h2>Residential Deep Cleaning</h2>
+
+<p>
+Our <b>home deep cleaning services</b> are perfect for maintaining a healthy
+and hygienic living space. Whether you need a <b>one-time deep house
+cleaning</b> or regular maintenance, we have you covered.
+</p>
+
+<h3>Included Services:</h3>
+
+<ul>
+
+<li><b>Kitchen Deep Cleaning:</b> Scrubbing countertops, sinks, cabinets, and appliances.</li>
+
+<li><b>Bathroom Deep Cleaning:</b> Disinfection of sinks, showers, toilets, and tile surfaces.</li>
+
+<li><b>Carpet Deep Cleaning:</b> Removing dirt, stains, and allergens.</li>
+
+<li><b>Sofa and Upholstery Cleaning:</b> Eliminating dust, pet dander, and odors.</li>
+
+<li><b>Hardwood and Tile Floor Deep Cleaning:</b> Intensive scrubbing and polishing.</li>
+
+</ul>
+
+</div>
+</div>
+
+</section>
+
+<section class="specialty-clean">
+
+<div class="specialty-content">
+
+<div class="specialty-box">
+
+<h2>Specialty Deep Cleaning Services</h2>
+
+<ul>
+
+<li><b>Restaurant Deep Cleaning Services</b> – Maintain cleanliness and hygiene in your food establishment.</li>
+
+<li><b>Apartment Deep Cleaning Services</b> – Ideal for landlords and tenants.</li>
+
+<li><b>Bathroom Deep Cleaning Services</b> – Targeting mold, mildew, and soap scum buildup.</li>
+
+<li><b>Kitchen Deep Cleaning</b> – Degreasing, scrubbing, and sanitization.</li>
+
+<li><b>Post-Renovation Deep Cleaning</b> – Removing dust and debris from construction projects.</li>
+
+<li><b>Deep Carpet Cleaning</b> – Professional stain and odor removal.</li>
+
+</ul>
+
+<a href="#" class="specialty-btn">Call Us Today</a>
+
+</div>
+</div>
+
+<div class="specialty-image">
+<img src="images/b.jpg" alt="Kitchen Cleaning">
+</div>
+
+</section>
+<section class="specialty-clean">
+
+<div class="specialty-content">
+
+<div class="specialty-box">
+
+<h2>Specialty Deep Cleaning Services</h2>
+
+<ul>
+
+<li><b>Restaurant Deep Cleaning Services</b> – Maintain cleanliness and hygiene in your food establishment.</li>
+
+<li><b>Apartment Deep Cleaning Services</b> – Ideal for landlords and tenants.</li>
+
+<li><b>Bathroom Deep Cleaning Services</b> – Targeting mold, mildew, and soap scum buildup.</li>
+
+<li><b>Kitchen Deep Cleaning</b> – Degreasing, scrubbing, and sanitization.</li>
+
+<li><b>Post-Renovation Deep Cleaning</b> – Removing dust and debris from construction projects.</li>
+
+<li><b>Deep Carpet Cleaning</b> – Professional stain and odor removal.</li>
+
+</ul>
+
+<a href="#" class="specialty-btn">Call Us Today</a>
+
+</div>
+</div>
+
+<div class="specialty-image">
+<img src="images/a.jpg" alt="Kitchen Cleaning">
+</div>
+
+</section>
+<section class="cta-deep-clean">
+
+<div class="cta-overlay"></div>
+
+<div class="cta-content">
+
+<h2>Book Your Deep Cleaning Service Today!</h2>
+
+<p>
+If you're looking for the best <b>deep cleaning services near me</b>,
+Mad Dog Carpet & Tile is your go-to choice in Loveland, CO.
+Our expert cleaners ensure your home or business stays immaculate.
+</p>
+
+<div class="cta-buttons">
+
+<a href="#" class="cta-btn">Get A Quote</a>
+
+<a href="#" class="cta-btn">Call Us to Schedule</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<div class="social">
+●
+</div>
+
+<p class="copyright">
+©2024 Mad Dog Carpet & Tile® - All rights reserved.
+</p>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-right">
+
+<div class="footer-links">
+
+<a href="#">Home</a> |
+<a href="#">Free Quote</a> |
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms and Conditions</a> |
+<a href="#">Contact</a>
+
+</div>
+
+<p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+
+<div class="hours">
+
+<p><strong>Hours:</strong></p>
+
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+<p>Saturday Open 24 hours</p>
+<p>Sunday Open 24 hours</p>
+
+</div>
+
+<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<style>
+/* SECTION */
+
+.cta-deep-clean{
+position:relative;
+background:url("images/b.jpg") center/cover no-repeat;
+padding:140px 20px;
+text-align:center;
+color:white;
+}
+
+/* OVERLAY */
+
+.cta-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+/* CONTENT */
+
+.cta-content{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+/* HEADING */
+
+.cta-content h2{
+font-size:48px;
+margin-bottom:25px;
+}
+
+/* TEXT */
+
+.cta-content p{
+font-size:20px;
+line-height:1.9;
+color:#eee;
+margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background:#a3925b;
+color:white;
+padding:16px 35px;
+font-size:18px;
+text-decoration:none;
+display:inline-block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.cta-deep-clean{
+padding:90px 20px;
+}
+
+.cta-content h2{
+font-size:32px;
+}
+
+.cta-content p{
+font-size:17px;
+}
+
+.cta-buttons{
+flex-direction:column;
+gap:12px;
+}
+
+}
+
+    .tips-clean{
+display:grid;
+grid-template-columns:55% 45%;
+background:#efefef;
+align-items:center;
+}
+
+.tips-image{
+height:520px;
+overflow:hidden;
+}
+
+.tips-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.tips-content{
+padding:80px 60px;
+display:flex;
+justify-content:center;
+text-align:center;
+}
+
+.tips-box{
+max-width:550px;
+}
+
+.tips-box h2{
+font-size:46px;
+margin-bottom:30px;
+color:#222;
+}
+
+.tips-box ol{
+padding-left:25px;
+}
+
+.tips-box li{
+font-size:20px;
+line-height:1.8;
+color:#555;
+margin-bottom:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.tips-clean{
+grid-template-columns:1fr;
+}
+
+.tips-image{
+height:320px;
+}
+
+.tips-content{
+padding:50px 25px;
+}
+
+.tips-box h2{
+font-size:32px;
+}
+
+.tips-box li{
+font-size:17px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+    .specialty-clean{
+display:grid;
+grid-template-columns:55% 45%;
+background:#efefef;
+align-items:center;
+}
+
+.specialty-content{
+padding:80px 60px;
+display:flex;
+justify-content:center;
+}
+
+.specialty-box{
+max-width:550px;
+}
+
+.specialty-box h2{
+font-size:46px;
+margin-bottom:30px;
+color:#222;
+}
+
+.specialty-box ul{
+list-style:disc;
+padding-left:25px;
+margin-bottom:40px;
+}
+
+.specialty-box li{
+font-size:20px;
+line-height:1.8;
+color:#555;
+margin-bottom:10px;
+}
+
+.specialty-btn{
+background:#a3925b;
+color:white;
+padding:16px 35px;
+font-size:18px;
+text-decoration:none;
+display:inline-block;
+}
+
+.specialty-image{
+height:520px;
+overflow:hidden;
+}
+
+.specialty-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.specialty-clean{
+grid-template-columns:1fr;
+}
+
+.specialty-content{
+padding:50px 25px;
+text-align:center;
+}
+
+.specialty-box h2{
+font-size:32px;
+}
+
+.specialty-box li{
+font-size:17px;
+}
+
+.specialty-image{
+height:320px;
+}
+
+}
+
+/* SECTION */
+
+.residential-clean-section{
+display:grid;
+grid-template-columns:55% 45%;
+background:#efefef;
+align-items:center;
+}
+
+/* IMAGE */
+
+.residential-image{
+height:520px;
+overflow:hidden;
+}
+
+.residential-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* CONTENT */
+
+.residential-content{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:80px 60px;
+}
+
+.residential-box{
+max-width:550px;
+}
+
+/* HEADING */
+
+.residential-box h2{
+font-size:48px;
+margin-bottom:25px;
+color:#222;
+}
+
+/* TEXT */
+
+.residential-box p{
+font-size:20px;
+line-height:1.9;
+color:#555;
+margin-bottom:30px;
+}
+
+/* SUBTITLE */
+
+.residential-box h3{
+font-size:22px;
+margin-bottom:20px;
+color:#333;
+}
+
+/* LIST */
+
+.residential-box ul{
+list-style:none;
+padding:0;
+}
+
+.residential-box li{
+font-size:20px;
+line-height:1.8;
+color:#555;
+margin-bottom:10px;
+position:relative;
+padding-left:22px;
+}
+
+.residential-box li::before{
+content:"•";
+position:absolute;
+left:0;
+color:#666;
+font-size:26px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.residential-clean-section{
+grid-template-columns:1fr;
+}
+
+.residential-image{
+height:320px;
+}
+
+.residential-content{
+padding:50px 25px;
+}
+
+.residential-box h2{
+font-size:32px;
+}
+
+.residential-box p,
+.residential-box li{
+font-size:17px;
+}
+
+}
+    /* SECTION */
+
+.deep-clean-section{
+display:grid;
+grid-template-columns: 50% 50%;
+align-items:center;
+background:#efefef;
+}
+
+/* TEXT SIDE */
+
+.deep-clean-content{
+padding:80px 70px;
+display:flex;
+justify-content:center;
+}
+
+.deep-clean-box{
+max-width:600px;
+}
+
+/* HEADING */
+
+.deep-clean-box h2{
+font-size:48px;
+margin-bottom:30px;
+color:#222;
+text-align:center;
+}
+
+/* LIST */
+
+.deep-clean-box ul{
+list-style:disc;
+padding-left:25px;
+margin-bottom:40px;
+}
+
+.deep-clean-box li{
+font-size:20px;
+line-height:1.9;
+color:#555;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+
+.deep-btn{
+display:inline-block;
+background:#a3925b;
+color:white;
+padding:16px 35px;
+text-decoration:none;
+font-size:18px;
+}
+
+/* IMAGE */
+
+.deep-clean-image{
+height:520px;
+overflow:hidden;
+}
+
+.deep-clean-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.deep-clean-section{
+grid-template-columns:1fr;
+}
+
+.deep-clean-content{
+padding:50px 25px;
+text-align:center;
+}
+
+.deep-clean-box h2{
+font-size:32px;
+}
+
+.deep-clean-box li{
+font-size:17px;
+}
+
+.deep-clean-image{
+height:320px;
+}
+
+}
+    /* FOOTER */
+
+.footer{
+background:#000;
+color:#ddd;
+padding:80px 60px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1400px;
+margin:auto;
+}
+
+/* LEFT */
+
+.footer-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.social{
+font-size:26px;
+color:#c8b46a;
+margin-bottom:30px;
+}
+
+.copyright{
+font-size:18px;
+}
+
+/* RIGHT */
+
+.footer-right{
+text-align:left;
+}
+
+.footer-links{
+margin-bottom:35px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+margin-right:8px;
+}
+
+.footer-right p{
+font-size:18px;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.hours{
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.phone{
+margin-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer{
+padding:60px 25px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-right{
+text-align:center;
+}
+
+.footer-links a{
+display:inline-block;
+margin:5px;
+}
+
+}
+
+</style>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+function toggleDropdown(el){
+if(window.innerWidth < 900){
+el.classList.toggle("active");
+}
+}
+
+</script>
+
+</body>
+</html>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<div class="social">
+●
+</div>
+
+<p class="copyright">
+©2024 Mad Dog Carpet & Tile® - All rights reserved.
+</p>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-right">
+
+<div class="footer-links">
+
+<a href="#">Home</a> |
+<a href="#">Free Quote</a> |
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms and Conditions</a> |
+<a href="#">Contact</a>
+
+</div>
+
+<p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+
+<div class="hours">
+
+<p><strong>Hours:</strong></p>
+
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+<p>Saturday Open 24 hours</p>
+<p>Sunday Open 24 hours</p>
+
+</div>
+
+<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<style>
+    /* FOOTER */
+
+.footer{
+background:#000;
+color:#ddd;
+padding:80px 60px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1400px;
+margin:auto;
+}
+
+/* LEFT */
+
+.footer-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.social{
+font-size:26px;
+color:#c8b46a;
+margin-bottom:30px;
+}
+
+.copyright{
+font-size:18px;
+}
+
+/* RIGHT */
+
+.footer-right{
+text-align:left;
+}
+
+.footer-links{
+margin-bottom:35px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+margin-right:8px;
+}
+
+.footer-right p{
+font-size:18px;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.hours{
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.phone{
+margin-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer{
+padding:60px 25px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-right{
+text-align:center;
+}
+
+.footer-links a{
+display:inline-block;
+margin:5px;
+}
+
+}
+
+</style>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+function toggleDropdown(el){
+if(window.innerWidth < 900){
+el.classList.toggle("active");
+}
+}
+
+</script>
+
 </body>
 </html>

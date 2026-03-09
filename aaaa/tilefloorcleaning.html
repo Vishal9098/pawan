@@ -1,11 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- viewport meta – essential for mobile responsiveness -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Carpet Cleaning Loveland - Xyz Upholstery Cleaners Carpet & Tile</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpet Cleaning</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* HEADER */
+
+header{
+background:#000;
+color:white;
+}
+
+header{
+background:#000;
+color:white;
+position:relative;
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+.logo img{
+height:60px;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu{
+top:100%;
+}
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#000;
+min-width:220px;
+flex-direction:column;
+border-radius:4px;
+overflow:hidden;
+z-index:9999;
+flex-direction:column;
+}
+
+.dropdown-menu a{
+padding:12px 18px;
+display:block;
+color:white;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-menu a:hover{
+background:#c8a85a;
+}
+
+.dropdown:hover .dropdown-menu{
+display:flex;
+flex-direction:column;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* HERO SECTION */
+
+.hero{
+position:relative;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.hero h3{
+color:#c8a85a;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+background:#c8a85a;
+padding:12px 18px;
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+nav{
+display:none;
+flex-direction:column;
+width:100%;
+margin-top:15px;
+}
+
+nav.show{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+/* MOBILE DROPDOWN */
+
+.dropdown-menu{
+position:static;
+}
+
+.dropdown:hover .dropdown-menu{
+display:none;
+}
+
+.dropdown.active .dropdown-menu{
+display:block;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero{
+height:auto;
+padding:80px 20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav-container">
+
+<div class="logo">
+<img src="images/b.jpg" alt="Logo">
+</div>
+
+<nav id="menu">
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+
+<div class="dropdown">
+  <a href="#" onclick="toggleDropdown(this.parentElement)">Services ▼</a>
+
+  <div class="dropdown-menu">
+    <a href="tilefloorcleaning.html">Tile Cleaning</a>
+    <a href="UpholsteryCleaning.html">Upholstery Cleaning</a>
+    <a href="PetStainRemoval.html">Pet Odor Removal</a>
+    <a href="deepcleaning.html">Deep Steam Cleaning</a>
+  </div>
+</div>
+<a href="#">Locations</a>
+<a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
+<a href="CommercialCleaning.html">Commercial Cleaning</a>
+<a href="house-cleaning.html">House Cleaning</a>
+<a href="#">More</a>
+
+</nav>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</div>
+</header>
+
+
+<!-- <section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
+
+<p>
+Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
+Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens
+for a fresher, healthier home.
+</p>
+
+<h3>QUALITY FLOOR CLEANING</h3>
+
+<div class="hero-buttons">
+<a href="#">Get a Quote</a>
+<a href="#">Call Us to Schedule</a>
+<a href="#">Emergency Service Call Now</a>
+<a href="#">Book Now</a>
+</div>
+
+</div>
+
+</section> -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
+      <p>Revitalize your carpets with expert carpet cleaning in Loveland, Larimer County. Xyz Upholstery Cleaners Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
+      <h3>QUALITY FLOOR CLEANING</h3>
+      <div class="buttons">
+        <a href="#">Get a Quote</a>
+        <a href="tel:+19702007677">Call Us to Schedule</a>
+        <a href="#" onclick="alert('Emergency service would be dispatched')">Emergency Service</a>
+        <a href="#" onclick="alert('Booking form would open here')">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="badges">
+      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Eco Friendly" onclick="alert('Learn about our eco-friendly cleaning')">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="24/7 Service" onclick="alert('We are available 24/7 for emergencies')">
+      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Certified" onclick="alert('View our certifications')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png" alt="Satisfaction Guaranteed" onclick="alert('100% satisfaction guaranteed')">
+    </div>
+    <h2>OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</h2>
+  </section>
+
+  <!-- SERVICES INTRO -->
+  <section class="services-intro">
+    <div class="stars" onclick="alert('Read our 5-star reviews')">★★★★★</div>
+    <div class="experience">5 STAR EXPERIENCE</div>
+    <h2>Our Floor Cleaning Services</h2>
+    <p>At Xyz Upholstery Cleaners Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
+  </section>
+
+  <!-- SERVICES GRID -->
+
+
+  <!-- TILE SECTIONS (unchanged) -->
+  <section class="tile-section">
+    <div class="tile-container">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Tile Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Expert tile floor cleaning by trained professionals</h2>
+        <p>At Xyz Upholstery Cleaners Carpet & Tile, we pride ourselves on our team of highly skilled and experienced professionals who are experts in tile floor cleaning services. Our technicians undergo rigorous training to ensure they are well-versed in the latest techniques and technologies for tile cleaning.</p>
+        <p>When you choose our services, you can rest assured that your tile floors are in the hands of knowledgeable professionals who will treat them with the care and attention they deserve.</p>
+        <a href="#" class="tile-btn">Call Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-section grey">
+    <div class="tile-container reverse">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Tile Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Personalized tile floor cleaning for outstanding results</h2>
+        <p>We understand that every tile floor is different, and what works for one may not work for another. That's why at Xyz Upholstery Cleaners Carpet & Tile, we offer customized tile floor cleaning services tailored to meet the unique needs of your floors.</p>
+        <p>Our technicians will assess the condition of your tile flooring, identify problem areas, and develop a personalized cleaning plan to ensure the best results.</p>
+        <a href="#" class="tile-btn dark">Call Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-section">
+    <div class="tile-container">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Eco Cleaning">
+      </div>
+      <div class="tile-text">
+        <h2>Eco-friendly technology for safe and effective tile cleaning</h2>
+        <p>To deliver superior tile cleaning service, we utilize advanced equipment and high-quality, eco-friendly cleaning products. Our state-of-the-art cleaning tools and technology allow us to remove dirt, grime, and stains from your tile floors effectively without causing any damage.</p>
+        <p>Additionally, our eco-friendly cleaning products are safe for your family, pets, and the environment, ensuring a healthy and sustainable cleaning solution for your home.</p>
+        <a href="#" class="tile-btn">Call Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-section grey">
+    <div class="tile-container reverse">
+      <div class="tile-img">
+        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" alt="Customer Service">
+      </div>
+      <div class="tile-text">
+        <h2>Xyz Upholstery Cleaners Exceptional Customer Service</h2>
+        <p>At Xyz Upholstery Cleaners Carpet & Tile, we believe in providing exceptional customer service to ensure a seamless and satisfying experience for our clients. From your initial inquiry to the completion of the tile cleaning service, our team is dedicated to addressing your needs and exceeding your expectations.</p>
+        <p>We strive to build long-lasting relationships with our customers based on trust, reliability, and quality service. When you choose Xyz Upholstery Cleaners Carpet & Tile, you can expect professionalism and commitment to excellence every step of the way.</p>
+        <a href="#" class="tile-btn dark">Schedule a Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CLEANING -->
+  <section class="cta-cleaning">
+    <div class="cta-overlay">
+      <h2>Schedule a Tile Floor Cleaning Today</h2>
+      <p>Xyz Upholstery Cleaners Carpet & Tile is your trusted partner for top-notch tile floor cleaning services in the Loveland/Berthoud area. We guarantee a cleaning experience that will leave your tile floors looking immaculate. Say goodbye to dull, dirty tile floors and hello to a fresh, rejuvenated look for your home.</p>
+      <p><span>Contact</span> Xyz Upholstery Cleaners Carpet & Tile today to schedule your tile floor cleaning service and discover the difference our commitment to quality can make for your floors.</p>
+      <a href="#" class="cta-btn">Get A Free Quote</a>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<div class="social">
+●
+</div>
+
+<p class="copyright">
+©2024 Mad Dog Carpet & Tile® - All rights reserved.
+</p>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-right">
+
+<div class="footer-links">
+
+<a href="#">Home</a> |
+<a href="#">Free Quote</a> |
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms and Conditions</a> |
+<a href="#">Contact</a>
+
+</div>
+
+<p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+
+<div class="hours">
+
+<p><strong>Hours:</strong></p>
+
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+<p>Saturday Open 24 hours</p>
+<p>Sunday Open 24 hours</p>
+
+</div>
+
+<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<style>
+    /* FOOTER */
+
+.footer{
+background:#000;
+color:#ddd;
+padding:80px 60px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1400px;
+margin:auto;
+}
+
+/* LEFT */
+
+.footer-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.social{
+font-size:26px;
+color:#c8b46a;
+margin-bottom:30px;
+}
+
+.copyright{
+font-size:18px;
+}
+
+/* RIGHT */
+
+.footer-right{
+text-align:left;
+}
+
+.footer-links{
+margin-bottom:35px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+margin-right:8px;
+}
+
+.footer-right p{
+font-size:18px;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.hours{
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.phone{
+margin-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer{
+padding:60px 25px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-right{
+text-align:center;
+}
+
+.footer-links a{
+display:inline-block;
+margin:5px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* ---------- RESET & BASE ---------- */
     * {
       margin: 0;
@@ -689,248 +1247,23 @@
     .schedule-btn {
       touch-action: manipulation;
     }
-  </style>
-</head>
-<body>
-
-  <!-- TOP BAR (exactly like reference) -->
-  <div class="topbar">
-    <div class="topbar-left">
-      <span>📍 5620 Wild Plum Dr, Loveland</span>
-      <span>⏰ Open 24/7</span>
-    </div>
-    <div class="topbar-right">
-      <a href="#">⭐ Leave Review</a>
-      <a href="tel:+19702007677" class="call-now-btn">📞 (970) 200-7677</a>
-    </div>
-  </div>
-
-  <!-- NAVBAR with hamburger (exactly like reference) -->
-  <header class="navbar">
-    <div class="logo" onclick="window.location.href='#'">Xyz Upholstery Cleaners</div>
-    
-    <!-- Desktop Navigation (visible on large screens) -->
-    <div class="desktop-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li class="desktop-dropdown">
-          <a href="#">Services</a>
-          <ul class="desktop-dropdown-menu">
-            <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
-            <li><a href="#">Tile Cleaning</a></li>
-            <li><a href="#">Upholstery Cleaning</a></li>
-            <li><a href="#">Pet Stain Removal</a></li>
-            <li><a href="#">Commercial Cleaning</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Locations</a></li>
-        <li><a href="#">Emergency Floor Cleaning</a></li>
-        <li><a href="#">Commercial Cleaning</a></li>
-        <li><a href="#">House Cleaning</a></li>
-        <li><a href="#">More</a></li>
-      </ul>
-    </div>
-    
-    <!-- Action Buttons -->
-    <div class="nav-btns">
-      <a class="call-btn" href="tel:+19702007677">📞 Call</a>
-      <a class="schedule-btn" href="#" onclick="alert('Schedule service form would open here')">📅 Schedule</a>
-    </div>
-
-    <!-- Hamburger Icon (mobile only) -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
-
-  <!-- Mobile Menu (hidden by default) -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li class="mobile-dropdown" id="mobileServices">
-        <div class="mobile-dropdown-header">
-          <span>Services</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="mobile-dropdown-menu">
-          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
-          <a href="#">Tile Cleaning</a>
-          <a href="#">Upholstery Cleaning</a>
-          <a href="#">Pet Stain Removal</a>
-          <a href="#">Commercial Cleaning</a>
-        </div>
-      </li>
-      <li><a href="#">Locations</a></li>
-      <li><a href="#">Emergency Floor Cleaning</a></li>
-      <li><a href="#">Commercial Cleaning</a></li>
-      <li><a href="#">House Cleaning</a></li>
-      <li><a href="#">More</a></li>
-      <li><a href="#">⭐ Leave Review</a></li>
-    </ul>
-  </div>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
-      <p>Revitalize your carpets with expert carpet cleaning in Loveland, Larimer County. Xyz Upholstery Cleaners Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
-      <h3>QUALITY FLOOR CLEANING</h3>
-      <div class="buttons">
-        <a href="#">Get a Quote</a>
-        <a href="tel:+19702007677">Call Us to Schedule</a>
-        <a href="#" onclick="alert('Emergency service would be dispatched')">Emergency Service</a>
-        <a href="#" onclick="alert('Booking form would open here')">Book Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="badges">
-      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Eco Friendly" onclick="alert('Learn about our eco-friendly cleaning')">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="24/7 Service" onclick="alert('We are available 24/7 for emergencies')">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Certified" onclick="alert('View our certifications')">
-      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png" alt="Satisfaction Guaranteed" onclick="alert('100% satisfaction guaranteed')">
-    </div>
-    <h2>OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</h2>
-  </section>
-
-  <!-- SERVICES INTRO -->
-  <section class="services-intro">
-    <div class="stars" onclick="alert('Read our 5-star reviews')">★★★★★</div>
-    <div class="experience">5 STAR EXPERIENCE</div>
-    <h2>Our Floor Cleaning Services</h2>
-    <p>At Xyz Upholstery Cleaners Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
-  </section>
-
-  <!-- SERVICES GRID -->
 
 
-  <!-- TILE SECTIONS (unchanged) -->
-  <section class="tile-section">
-    <div class="tile-container">
-      <div class="tile-img">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Tile Cleaning">
-      </div>
-      <div class="tile-text">
-        <h2>Expert tile floor cleaning by trained professionals</h2>
-        <p>At Xyz Upholstery Cleaners Carpet & Tile, we pride ourselves on our team of highly skilled and experienced professionals who are experts in tile floor cleaning services. Our technicians undergo rigorous training to ensure they are well-versed in the latest techniques and technologies for tile cleaning.</p>
-        <p>When you choose our services, you can rest assured that your tile floors are in the hands of knowledgeable professionals who will treat them with the care and attention they deserve.</p>
-        <a href="#" class="tile-btn">Call Us Today</a>
-      </div>
-    </div>
-  </section>
+</style>
 
-  <section class="tile-section grey">
-    <div class="tile-container reverse">
-      <div class="tile-img">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Tile Cleaning">
-      </div>
-      <div class="tile-text">
-        <h2>Personalized tile floor cleaning for outstanding results</h2>
-        <p>We understand that every tile floor is different, and what works for one may not work for another. That's why at Xyz Upholstery Cleaners Carpet & Tile, we offer customized tile floor cleaning services tailored to meet the unique needs of your floors.</p>
-        <p>Our technicians will assess the condition of your tile flooring, identify problem areas, and develop a personalized cleaning plan to ensure the best results.</p>
-        <a href="#" class="tile-btn dark">Call Us Today</a>
-      </div>
-    </div>
-  </section>
+<script>
 
-  <section class="tile-section">
-    <div class="tile-container">
-      <div class="tile-img">
-        <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Eco Cleaning">
-      </div>
-      <div class="tile-text">
-        <h2>Eco-friendly technology for safe and effective tile cleaning</h2>
-        <p>To deliver superior tile cleaning service, we utilize advanced equipment and high-quality, eco-friendly cleaning products. Our state-of-the-art cleaning tools and technology allow us to remove dirt, grime, and stains from your tile floors effectively without causing any damage.</p>
-        <p>Additionally, our eco-friendly cleaning products are safe for your family, pets, and the environment, ensuring a healthy and sustainable cleaning solution for your home.</p>
-        <a href="#" class="tile-btn">Call Us Today</a>
-      </div>
-    </div>
-  </section>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
 
-  <section class="tile-section grey">
-    <div class="tile-container reverse">
-      <div class="tile-img">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" alt="Customer Service">
-      </div>
-      <div class="tile-text">
-        <h2>Xyz Upholstery Cleaners Exceptional Customer Service</h2>
-        <p>At Xyz Upholstery Cleaners Carpet & Tile, we believe in providing exceptional customer service to ensure a seamless and satisfying experience for our clients. From your initial inquiry to the completion of the tile cleaning service, our team is dedicated to addressing your needs and exceeding your expectations.</p>
-        <p>We strive to build long-lasting relationships with our customers based on trust, reliability, and quality service. When you choose Xyz Upholstery Cleaners Carpet & Tile, you can expect professionalism and commitment to excellence every step of the way.</p>
-        <a href="#" class="tile-btn dark">Schedule a Service</a>
-      </div>
-    </div>
-  </section>
+function toggleDropdown(el){
+if(window.innerWidth < 900){
+el.classList.toggle("active");
+}
+}
 
-  <!-- CTA CLEANING -->
-  <section class="cta-cleaning">
-    <div class="cta-overlay">
-      <h2>Schedule a Tile Floor Cleaning Today</h2>
-      <p>Xyz Upholstery Cleaners Carpet & Tile is your trusted partner for top-notch tile floor cleaning services in the Loveland/Berthoud area. We guarantee a cleaning experience that will leave your tile floors looking immaculate. Say goodbye to dull, dirty tile floors and hello to a fresh, rejuvenated look for your home.</p>
-      <p><span>Contact</span> Xyz Upholstery Cleaners Carpet & Tile today to schedule your tile floor cleaning service and discover the difference our commitment to quality can make for your floors.</p>
-      <a href="#" class="cta-btn">Get A Free Quote</a>
-    </div>
-  </section>
+</script>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div>
-      <p>©2024 Xyz Upholstery Cleaners Carpet & Tile® - All rights reserved.</p>
-    </div>
-    <div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#" onclick="alert('Quote form')">Free Quote</a>
-        <a href="#" onclick="alert('Privacy policy')">Privacy Policy</a>
-        <a href="#" onclick="alert('Terms')">Terms</a>
-        <a href="#" onclick="alert('Contact')">Contact</a>
-      </div>
-      <p>Address: 5620 Wild Plum Dr, Loveland, CO 80537</p>
-      <div class="hours">
-        <p>Monday Open 24 hours</p>
-        <p>Tuesday Open 24 hours</p>
-        <p>Wednesday Open 24 hours</p>
-        <p>Thursday Open 24 hours</p>
-        <p>Friday Open 24 hours</p>
-        <p>Saturday Open 24 hours</p>
-        <p>Sunday Open 24 hours</p>
-      </div>
-      <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-      });
-    }
-    
-    // Mobile dropdown toggle
-    const mobileServices = document.getElementById('mobileServices');
-    if (mobileServices) {
-      mobileServices.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-      });
-    }
-    
-    // Close mobile menu when a link is clicked
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
