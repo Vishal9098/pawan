@@ -1,900 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- viewport meta – essential for mobile responsiveness -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Carpet Cleaning Loveland -  Xyz Upholstery Cleaners  Carpet & Tile</title>
-  <style>
-    /* ---------- RESET & BASE ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-
-    body {
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ---------- TOP BAR (exactly like reference) ---------- */
-    .topbar {
-      background: #111;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 20px;
-      font-size: 14px;
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .topbar-left span {
-      color: #d4af37;
-      font-size: 13px;
-    }
-
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .topbar a {
-      color: #d4af37;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-      font-size: 13px;
-    }
-
-    .call-now-btn {
-      background: #d4af37;
-      color: #000 !important;
-      padding: 5px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* ---------- NAVBAR with hamburger (same as reference) ---------- */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      background: #000;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      color: #d4af37;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Hamburger menu (mobile only) */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 20px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 100%;
-      height: 3px;
-      background: #d4af37;
-      border-radius: 3px;
-      transition: 0.3s;
-    }
-
-    /* Desktop navigation */
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .desktop-nav ul {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-    }
-
-    .desktop-nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 15px;
-      transition: color 0.3s;
-      white-space: nowrap;
-    }
-
-    .desktop-nav a:hover {
-      color: #d4af37;
-    }
-
-    /* Desktop dropdown */
-    .desktop-dropdown {
-      position: relative;
-    }
-
-    .desktop-dropdown > a::after {
-      content: " ▾";
-      font-size: 12px;
-    }
-
-    .desktop-dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #111;
-      list-style: none;
-      padding: 8px 0;
-      min-width: 200px;
-      display: none;
-      flex-direction: column;
-      border: 1px solid #333;
-      border-radius: 6px;
-      z-index: 1001;
-    }
-
-    .desktop-dropdown-menu li {
-      padding: 8px 20px;
-    }
-
-    .desktop-dropdown-menu a {
-      font-size: 14px;
-      display: block;
-    }
-
-    .desktop-dropdown:hover .desktop-dropdown-menu {
-      display: flex;
-    }
-
-    /* Action buttons */
-    .nav-btns {
-      display: flex;
-      gap: 10px;
-    }
-
-    .call-btn, .schedule-btn {
-      padding: 8px 16px;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.3s;
-      white-space: nowrap;
-    }
-
-    .call-btn {
-      background: #c6a86b;
-    }
-
-    .schedule-btn {
-      background: #b79a5c;
-    }
-
-    /* Mobile menu (hidden by default) */
-    .mobile-menu {
-      display: none;
-      width: 100%;
-      background: #111;
-      border-radius: 12px;
-      margin-top: 12px;
-      padding: 8px 0;
-    }
-
-    .mobile-menu.active {
-      display: block;
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-    }
-
-    .mobile-menu li {
-      border-bottom: 1px solid #222;
-    }
-
-    .mobile-menu li:last-child {
-      border-bottom: none;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 16px 20px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .mobile-menu a:active {
-      background: #222;
-      color: #d4af37;
-    }
-
-    /* Mobile dropdown */
-    .mobile-dropdown-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      cursor: pointer;
-    }
-
-    .mobile-dropdown-header span {
-      color: #fff;
-      font-size: 16px;
-    }
-
-    .mobile-dropdown-header .arrow {
-      color: #d4af37;
-      font-size: 14px;
-      transition: transform 0.3s;
-    }
-
-    .mobile-dropdown.active .arrow {
-      transform: rotate(180deg);
-    }
-
-    .mobile-dropdown-menu {
-      display: none;
-      background: #1a1a1a;
-      padding: 5px 0;
-    }
-
-    .mobile-dropdown.active .mobile-dropdown-menu {
-      display: block;
-    }
-
-    .mobile-dropdown-menu a {
-      padding-left: 35px !important;
-      font-size: 15px !important;
-    }
-
-    /* Media Queries */
-    @media (max-width: 1024px) {
-      .desktop-nav {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .nav-btns .call-btn, 
-      .nav-btns .schedule-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-      }
-    }
-
-    @media (min-width: 1025px) {
-      .hamburger {
-        display: none !important;
-      }
-      .mobile-menu {
-        display: none !important;
-      }
-      .desktop-nav {
-        display: flex;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .topbar-left span {
-        display: none;
-      }
-      .topbar {
-        justify-content: center;
-        text-align: center;
-      }
-      .nav-btns .schedule-btn {
-        display: none;
-      }
-      .nav-btns .call-btn {
-        padding: 8px 18px;
-      }
-    }
-
-    /* ---------- HERO SECTION (unchanged) ---------- */
-    .hero {
-      min-height: 70vh;
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-                  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      width: 100%;
-    }
-
-    .hero-content {
-      width: 100%;
-      max-width: 900px;
-    }
-
-    .hero h1 {
-      font-size: clamp(28px, 8vw, 60px);
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: clamp(16px, 4vw, 18px);
-      line-height: 1.7;
-    }
-
-    .hero h3 {
-      color: #d4af37;
-      margin-bottom: 25px;
-      letter-spacing: 2px;
-      font-size: clamp(14px, 3vw, 18px);
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .buttons a {
-      background: #b79a5c;
-      padding: 14px 20px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: 0.3s;
-      flex: 1 1 170px;
-      font-size: 15px;
-    }
-
-    /* ---------- FEATURES (unchanged) ---------- */
-    .features {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('https://source.unsplash.com/1600x900/?clean-carpet,room');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .badges img {
-      width: 90px;
-      height: 90px;
-      background: #d4af37;
-      padding: 18px;
-      border-radius: 50%;
-      transition: transform 0.3s;
-      cursor: pointer;
-      max-width: 100%;
-    }
-
-    .features h2 {
-      color: #d4af37;
-      font-size: clamp(24px, 6vw, 36px);
-      letter-spacing: 2px;
-      line-height: 1.4;
-    }
-
-    /* ---------- SERVICES INTRO (unchanged) ---------- */
-    .services-intro {
-      background: #f5f5f5;
-      color: #333;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .services-intro .stars {
-      color: #d4af37;
-      font-size: 40px;
-      letter-spacing: 6px;
-      margin-bottom: 10px;
-    }
-
-    .services-intro .experience {
-      color: #d4af37;
-      font-size: 14px;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
-    }
-
-    .services-intro h2 {
-      font-size: clamp(32px, 7vw, 48px);
-      margin-bottom: 20px;
-    }
-
-    .services-intro p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: clamp(16px, 4vw, 20px);
-      line-height: 1.7;
-      color: #555;
-    }
-
-    /* ---------- SERVICES GRID (unchanged) ---------- */
-    .services-grid {
-      background: #f5f5f5;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 30px 20px 50px;
-    }
-
-    .service-card {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      max-width: 600px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 15px;
-    }
-
-    .overlay h3 {
-      color: #fff;
-      font-size: clamp(24px, 7vw, 34px);
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    /* ---------- TEAM SECTION (unchanged) ---------- */
-    .gold {
-      color: #a9975b;
-      font-weight: bold;
-    }
-
-    .gold-btn {
-      background: #a9975b;
-      color: #fff;
-      padding: 15px 35px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 30px;
-      font-weight: bold;
-    }
-
-    .team-section {
-      background: #f2f2f2;
-      padding: 100px 60px;
-    }
-
-    .team-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .team-img img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-    }
-
-    .team-text {
-      text-align: center;
-    }
-
-    .team-text h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .team-text p {
-      font-size: 20px;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    /* ---------- EMERGENCY SECTION (unchanged) ---------- */
-    .emergency-section {
-      background: #f2f2f2;
-      padding: 100px 60px;
-    }
-
-    .emergency-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .emergency-text {
-      text-align: center;
-    }
-
-    .emergency-text h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .emergency-text p {
-      font-size: 20px;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    .emergency-images {
-      display: flex;
-      gap: 20px;
-    }
-
-    .emergency-images img {
-      width: 50%;
-      height: 500px;
-      object-fit: cover;
-    }
-
-    /* ---------- CTA BANNER (unchanged) ---------- */
-    .emergency-cta {
-      background: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952");
-      background-size: cover;
-      background-position: center;
-      padding: 120px 20px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-
-    .cta-overlay {
-      background: rgba(0,0,0,0.6);
-      padding: 80px 20px;
-    }
-
-    .emergency-cta h2 {
-      font-size: 48px;
-      margin-bottom: 25px;
-    }
-
-    .emergency-cta p {
-      font-size: 20px;
-      line-height: 1.8;
-      max-width: 900px;
-      margin: auto;
-      margin-bottom: 20px;
-    }
-
-    /* ---------- FOOTER (unchanged) ---------- */
-    .footer {
-      background: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-      padding: 50px 20px;
-      border-top: 1px solid #d4af37;
-      text-align: center;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px 20px;
-      margin-bottom: 20px;
-    }
-
-    .footer-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    .footer-links a:hover {
-      color: #d4af37;
-    }
-
-    .hours p {
-      margin: 5px 0;
-    }
-
-    .footer a[href^="tel"] {
-      color: #d4af37;
-      text-decoration: none;
-    }
-
-    @media (min-width: 900px) {
-      .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        padding: 80px 60px;
-      }
-      .footer-links {
-        justify-content: flex-start;
-      }
-    }
-
-    /* touch-friendly */
-    .dropdown-menu li a,
-    .buttons a,
-    .call-btn,
-    .schedule-btn {
-      touch-action: manipulation;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpet Cleaning</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* HEADER */
+
+header{
+background:#000;
+color:white;
+}
+
+.nav-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+flex-wrap:wrap;
+}
+
+.logo img{
+height:60px;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:40px;
+left:0;
+background:#000;
+min-width:220px;
+flex-direction:column;
+border-radius:4px;
+overflow:hidden;
+z-index:9999;
+}
+
+.dropdown-menu a{
+padding:12px 18px;
+display:block;
+color:white;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-menu a:hover{
+background:#c8a85a;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* HERO SECTION */
+
+.hero{
+position:relative;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.hero h3{
+color:#c8a85a;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+background:#c8a85a;
+padding:12px 18px;
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+nav{
+display:none;
+flex-direction:column;
+width:100%;
+margin-top:15px;
+}
+
+nav.show{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+/* MOBILE DROPDOWN */
+
+.dropdown-menu{
+position:static;
+}
+
+.dropdown:hover .dropdown-menu{
+display:none;
+}
+
+.dropdown.active .dropdown-menu{
+display:block;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero{
+height:auto;
+padding:80px 20px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
+<header>
+<div class="nav-container">
 
+<div class="logo">
+<img src="images/b.jpg" alt="Logo">
+</div>
 
-  <!-- NAVBAR with hamburger (exactly like reference) -->
-  <header class="navbar">
-    <div class="logo" onclick="window.location.href='#'"> Xyz Upholstery Cleaners </div>
-    
-    <!-- Desktop Navigation (visible on large screens) -->
-    <div class="desktop-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li class="desktop-dropdown">
-          <a href="#">Services</a>
-          <ul class="desktop-dropdown-menu">
-            <li><a href="tilefloorcleaning.html">Tile Floor Cleaning</a></li>
-            <li><a href="#">Tile Cleaning</a></li>
-            <li><a href="#">Upholstery Cleaning</a></li>
-            <li><a href="#">Pet Stain Removal</a></li>
-            <li><a href="#">Commercial Cleaning</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Locations</a></li>
-        <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
-        <li><a href="CommercialCleaning.html">Commercial</a></li>
-        <li><a href="#">House Cleaning</a></li>
-        <li><a href="#">More</a></li>
-      </ul>
-    </div>
-    
-   
+<nav id="menu">
 
-    <!-- Hamburger Icon (mobile only) -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
 
-  <!-- Mobile Menu (hidden by default) -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="aboutus.html">About Us</a></li>
-      <li class="mobile-dropdown" id="mobileServices">
-        <div class="mobile-dropdown-header">
-          <span>Services</span>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="mobile-dropdown-menu">
-          <a href="tilefloorcleaning.html">Tile Floor Cleaning</a>
-          <a href="#">Tile Cleaning</a>
-          <a href="#">Upholstery Cleaning</a>
-          <a href="#">Pet Stain Removal</a>
-          <a href="#">Commercial Cleaning</a>
-        </div>
-      </li>
-      <li><a href="#">Locations</a></li>
-      <li><a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a></li>
-      <li><a href="CommercialCleaning.html">Commercial Cleaning</a></li>
-      <li><a href="#">House Cleaning</a></li>
-      <li><a href="#">More</a></li>
-      <li><a href="#">⭐ Leave Review</a></li>
-    </ul>
-  </div>
+<div class="dropdown" onclick="toggleDropdown(this)">
+<a href="#">Services ▼</a>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
-      <p>Revitalize your carpets with expert carpet cleaning in Loveland, Larimer County.  Xyz Upholstery Cleaners  Carpet and Tile Cleaning removes dirt, stains, and allergens for a fresher, healthier home.</p>
-      <h3>QUALITY FLOOR CLEANING</h3>
-      <div class="buttons">
-        <a href="#">Get a Quote</a>
-        <a href="tel:+19702007677">Call Us to Schedule</a>
-        <a href="#" onclick="alert('Emergency service would be dispatched')">Emergency Service</a>
-        <a href="#" onclick="alert('Booking form would open here')">Book Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="badges">
-      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Eco Friendly" onclick="alert('Learn about our eco-friendly cleaning')">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="24/7 Service" onclick="alert('We are available 24/7 for emergencies')">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Certified" onclick="alert('View our certifications')">
-      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909766.png" alt="Satisfaction Guaranteed" onclick="alert('100% satisfaction guaranteed')">
-    </div>
-    <h2>OPEN 24/7/365 FOR EMERGENCY FLOOR CLEANING</h2>
-  </section>
-
-  <!-- SERVICES INTRO -->
-  <section class="services-intro">
-    <div class="stars" onclick="alert('Read our 5-star reviews')">★★★★★</div>
-    <div class="experience">5 STAR EXPERIENCE</div>
-    <h2>Our Floor Cleaning Services</h2>
-    <p>At  Xyz Upholstery Cleaners  Carpet & Tile, we pride ourselves on using environmentally safe products to revitalize your floors, ensuring a clean and healthy home environment. Our professional floor cleaners are equipped to handle all your cleaning needs with precision and care. Our services include:</p>
-  </section>
-
-  <section class="assist-section">
-
-<div class="assist-container">
-
-<div class="assist-image">
-
-<div class="gold-bar"></div>
-
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="water floor">
+<div class="dropdown-menu">
+<a href="EmergencyFloorCleaningService.html">Carpet Cleaning</a>
+<a href="#">Tile Cleaning</a>
+<a href="#">Upholstery Cleaning</a>
+<a href="#">Pet Odor Removal</a>
+<a href="#">Deep Steam Cleaning</a>
+</div>
 
 </div>
 
+<a href="#">Locations</a>
+<a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
+<a href="CommercialCleaning.html">Commercial Cleaning</a>
+<a href="house-cleaning.html">House Cleaning</a>
+<a href="#">More</a>
 
-<div class="assist-text">
+</nav>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</div>
+</header>
+
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>CARPET CLEANING NEAR YOU IN LOVELAND, CO</h1>
+
+<p>
+Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
+Mad Dog Carpet and Tile Cleaning removes dirt, stains, and allergens
+for a fresher, healthier home.
+</p>
+
+<h3>QUALITY FLOOR CLEANING</h3>
+
+<div class="hero-buttons">
+<a href="#">Get a Quote</a>
+<a href="#">Call Us to Schedule</a>
+<a href="#">Emergency Service Call Now</a>
+<a href="#">Book Now</a>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="team-section">
+
+<div class="team-image">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+</div>
+
+<div class="team-content">
+
+<div class="team-box">
 
 <h2>Professional Team Ready to Assist You</h2>
 
 <p>
-<span class="highlight">Our dedicated team</span> at Xyz Upholstery Cleaners Carpet & Tile is committed to providing prompt and professional emergency floor cleaning services when you need them most. We understand the importance of acting quickly to minimize damage and ensure the safety of your property. Whether you're dealing with a burst pipe, sewage backup, or natural disaster, you can trust us to deliver expert solutions tailored to your specific needs.
+<span>Our dedicated team</span> at Mad Dog Carpet & Tile is committed to
+providing prompt and professional emergency floor cleaning services when
+you need them most. We understand the importance of acting quickly to
+minimize damage and ensure the safety of your property.
 </p>
 
-<a href="#" class="assist-btn">Call Us Today</a>
+<a href="#" class="team-btn">Call Us Today</a>
 
 </div>
 
 </div>
 
 </section>
+
+
 <section class="emergency-section">
 
-<div class="emergency-container">
+<div class="emergency-content">
 
-<!-- LEFT TEXT -->
-
-<div class="emergency-text">
+<div class="emergency-box">
 
 <h2>Comprehensive Emergency Floor Cleaning Solutions</h2>
 
 <p>
-From water extraction and drying to sanitization and deodorization, our emergency floor cleaning services cover all aspects of restoring your space after a flooding incident. We use advanced equipment and techniques to remove excess water, dry affected areas, and prevent mold growth, ensuring a thorough and effective cleanup process. Our goal is to restore your property to a safe and healthy condition as quickly as possible.
+From water extraction and drying to sanitization and deodorization,
+our emergency floor cleaning services cover all aspects of restoring
+your space after a flooding incident. We use advanced equipment and
+techniques to remove excess water, dry affected areas, and prevent
+mold growth.
 </p>
 
-<a href="#" class="gold-btn">Get A Quote</a>
+<a href="#" class="emergency-btn">Get A Quote</a>
 
 </div>
 
-
-<!-- RIGHT IMAGES -->
-
-<div class="emergency-images">
-
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-
-<img src="https://images.unsplash.com/photo-1581094794329-c8112c4e5190">
-
 </div>
+
+<div class="emergency-image">
+
+<img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
 
 </div>
 
 </section>
 
-<section class="cta-wrapper">
 
-<div class="cta-box">
+
+<section class="experts-section">
+
+<div class="experts-box">
 
 <h2>Emergency Floor Cleaning Experts You Can Depend On</h2>
 
 <p>
-At Xyz Upholstery Cleaners Carpet & Tile, we take pride in our ability to provide reliable and efficient emergency floor cleaning services 24/7 in Northern Colorado. Our team is dedicated to delivering exceptional results and peace of mind during challenging times. When you choose us for your emergency flooding cleaning needs, you can rest assured that you're in capable hands.
+At Mad Dog Carpet & Tile, we take pride in our ability to provide reliable and
+efficient emergency floor cleaning services 24/7 in Northern Colorado. Our team
+is dedicated to delivering exceptional results and peace of mind during
+challenging times.
 </p>
 
-<a href="#" class="cta-btn">Call Us Today</a>
+<a href="#" class="experts-btn">Call Us Today</a>
 
 </div>
 
 </section>
 
-<section class="contact-emergency">
 
-<div class="contact-overlay">
+<section class="contact-section">
 
-<h2>
-Contact Xyz Upholstery Cleaners Carpet & Tile for Emergency<br>
-Floor Cleaning Services
-</h2>
+<div class="contact-content">
+
+<h2>Contact Mad Dog Carpet & Tile for Emergency Floor Cleaning Services</h2>
 
 <p>
-Don't wait until it's too late to address emergency floor cleaning needs. 
-<span class="highlight">Contact</span> Xyz Upholstery Cleaners Carpet & Tile today for immediate assistance and professional solutions to restore your space after a flooding incident. Our 24/7 emergency services ensure that help is always just a phone call away. Trust us to handle your emergency floor cleaning needs with speed, expertise, and care.
+Don't wait until it's too late to address emergency floor cleaning needs.
+<span>Contact</span> Mad Dog Carpet & Tile today for immediate assistance and
+professional solutions to restore your space after a flooding incident.
 </p>
 
-<a href="tel:+19702007677" class="contact-btn">
-Call Us: (970) 200-7677
-</a>
+<a href="#" class="contact-btn">Call Us: (970) 200-7677</a>
 
 </div>
 
 </section>
 
 
+<footer class="footer">
 
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<div class="social">
+●
+</div>
+
+<p class="copyright">
+©2024 Mad Dog Carpet & Tile® - All rights reserved.
+</p>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-right">
+
+<div class="footer-links">
+
+<a href="#">Home</a> |
+<a href="#">Free Quote</a> |
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms and Conditions</a> |
+<a href="#">Contact</a>
+
+</div>
+
+<p><strong>Address:</strong> 5620 Wild Plum Dr, Loveland, CO 80537, United States</p>
+
+<div class="hours">
+
+<p><strong>Hours:</strong></p>
+
+<p>Monday Open 24 hours</p>
+<p>Tuesday Open 24 hours</p>
+<p>Wednesday Open 24 hours</p>
+<p>Thursday Open 24 hours</p>
+<p>Friday Open 24 hours</p>
+<p>Saturday Open 24 hours</p>
+<p>Sunday Open 24 hours</p>
+
+</div>
+
+<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
+
+</div>
+
+</div>
+
+</footer>
 <style>
-.contact-emergency{
-background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952");
-background-size:cover;
-background-position:center;
-padding:140px 20px;
-position:relative;
-text-align:center;
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
 }
 
-/* dark overlay */
+/* SECTION */
 
-.contact-emergency::before{
+.contact-section{
+position:relative;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
+padding:140px 20px;
+text-align:center;
+color:white;
+}
+
+/* DARK OVERLAY */
+
+.contact-section::before{
 content:"";
 position:absolute;
 top:0;
@@ -904,136 +453,45 @@ height:100%;
 background:rgba(0,0,0,0.65);
 }
 
-.contact-overlay{
+/* CONTENT */
+
+.contact-content{
 position:relative;
-max-width:1000px;
+max-width:900px;
 margin:auto;
-color:#fff;
 }
 
-/* heading */
+/* HEADING */
 
-.contact-overlay h2{
+.contact-content h2{
 font-size:48px;
 margin-bottom:25px;
 line-height:1.2;
-}
-
-/* paragraph */
-
-.contact-overlay p{
-font-size:20px;
-line-height:1.8;
-margin-bottom:40px;
-color:#e0e0e0;
-}
-
-.highlight{
-color:#c7b26a;
-}
-
-/* button */
-
-.contact-btn{
-background:#9f8d57;
-color:#fff;
-padding:18px 40px;
-text-decoration:none;
-font-weight:bold;
-font-size:20px;
-display:inline-block;
-}
-
-/* responsive */
-
-@media(max-width:900px){
-
-.contact-overlay h2{
-font-size:32px;
-}
-
-.contact-overlay p{
-font-size:18px;
-}
-
-}
-
-
-
-
-
-
-
-  .assist-section{
-background:#eee;
-padding:80px 0;
-}
-
-.assist-container{
-max-width:1300px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-}
-
-.assist-image{
-position:relative;
-}
-
-.assist-image img{
-width:100%;
-height:550px;
-object-fit:cover;
-}
-
-/* GOLD BAR */
-
-.gold-bar{
-position:absolute;
-left:0;
-top:0;
-width:70px;
-height:100%;
-background:#c7b26a;
-z-index:2;
 }
 
 /* TEXT */
 
-.assist-text{
-padding:60px;
-text-align:center;
-}
-
-.assist-text h2{
-font-size:48px;
-color:#222;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-.assist-text p{
+.contact-content p{
 font-size:20px;
-line-height:1.8;
-color:#555;
+line-height:1.9;
 margin-bottom:40px;
+color:#ddd;
 }
 
-.highlight{
-color:#b79a5c;
-font-weight:600;
+/* GOLD WORD */
+
+.contact-content span{
+color:#c8a85a;
 }
 
 /* BUTTON */
 
-.assist-btn{
-background:#9f8d57;
-color:#fff;
-padding:16px 40px;
+.contact-btn{
+background:#a3925b;
+color:white;
+padding:16px 36px;
+font-size:20px;
 text-decoration:none;
-font-weight:bold;
-font-size:18px;
 display:inline-block;
 }
 
@@ -1041,223 +499,457 @@ display:inline-block;
 
 @media(max-width:900px){
 
-.assist-container{
-grid-template-columns:1fr;
-}
-
-.assist-text{
-padding:40px 20px;
-}
-
-.assist-text h2{
+.contact-content h2{
 font-size:32px;
 }
 
-.assist-image img{
-height:350px;
+.contact-content p{
+font-size:17px;
+}
+
+.contact-section{
+padding:90px 20px;
 }
 
 }
-.emergency-section{
-background:#eee;
-padding:100px 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
 }
 
-.emergency-container{
-max-width:1300px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-}
+/* SECTION BACKGROUND */
 
-/* TEXT */
-
-.emergency-text{
-padding:60px;
-text-align:center;
-}
-
-.emergency-text h2{
-font-size:48px;
-color:#222;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-.emergency-text p{
-font-size:20px;
-line-height:1.8;
-color:#555;
-margin-bottom:40px;
-max-width:650px;
-margin-left:auto;
-margin-right:auto;
-}
-
-/* BUTTON */
-
-.gold-btn{
-background:#9f8d57;
-color:#fff;
-padding:16px 40px;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-display:inline-block;
-}
-
-/* RIGHT IMAGE AREA */
-
-.emergency-images{
-background:#000;
-padding:40px;
-display:flex;
-gap:30px;
-justify-content:center;
-}
-
-.emergency-images img{
-width:260px;
-height:500px;
-object-fit:cover;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.emergency-container{
-grid-template-columns:1fr;
-}
-
-.emergency-images{
-margin-top:40px;
-}
-
-.emergency-images img{
-height:350px;
-width:100%;
-}
-
-}
-.cta-wrapper{
+.experts-section{
 background:#000;
 padding:120px 20px;
 display:flex;
 justify-content:center;
 }
 
-.cta-box{
-background:#e8e5df;
-max-width:1100px;
-padding:80px 80px;
+/* CENTER BOX */
+
+.experts-box{
+background:#efebe6;
+max-width:900px;
 text-align:center;
+padding:70px 60px;
 }
 
-.cta-box h2{
+/* HEADING */
+
+.experts-box h2{
 font-size:48px;
 color:#222;
 margin-bottom:25px;
 line-height:1.2;
 }
 
-.cta-box p{
+/* TEXT */
+
+.experts-box p{
 font-size:20px;
+line-height:1.9;
 color:#555;
-line-height:1.8;
-max-width:850px;
-margin:auto;
 margin-bottom:40px;
 }
 
-.cta-btn{
-background:#9f8d57;
-color:#fff;
-padding:16px 40px;
+/* BUTTON */
+
+.experts-btn{
+background:#a3925b;
+color:white;
+padding:16px 36px;
+font-size:20px;
 text-decoration:none;
-font-weight:bold;
-font-size:18px;
 display:inline-block;
 }
 
-/* responsive */
+/* MOBILE */
 
 @media(max-width:900px){
 
-.cta-box{
-padding:50px 25px;
+.experts-box{
+padding:50px 30px;
 }
 
-.cta-box h2{
+.experts-box h2{
 font-size:32px;
 }
 
-.cta-box p{
+.experts-box p{
+font-size:17px;
+}
+
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* SECTION */
+
+.emergency-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#f3f3f3;
+}
+
+/* LEFT TEXT */
+
+.emergency-content{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:80px 60px;
+}
+
+.emergency-box{
+max-width:620px;
+}
+
+.emergency-box h2{
+font-size:52px;
+margin-bottom:25px;
+color:#222;
+line-height:1.2;
+}
+
+.emergency-box p{
+font-size:20px;
+line-height:1.9;
+color:#555;
+margin-bottom:40px;
+}
+
+/* BUTTON */
+
+.emergency-btn{
+background:#a3925b;
+color:white;
+padding:16px 36px;
+font-size:20px;
+text-decoration:none;
+display:inline-block;
+}
+
+/* IMAGE SIDE */
+
+.emergency-image{
+position:relative;
+}
+
+.emergency-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* BLACK BARS */
+
+.emergency-image::before{
+content:"";
+position:absolute;
+left:30%;
+top:0;
+width:40px;
+height:100%;
+background:black;
+}
+
+.emergency-image::after{
+content:"";
+position:absolute;
+right:15%;
+top:0;
+width:40px;
+height:100%;
+background:black;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.emergency-section{
+grid-template-columns:1fr;
+}
+
+.emergency-image{
+height:400px;
+order:-1;
+}
+
+.emergency-box h2{
+font-size:32px;
+}
+
+.emergency-box p{
+font-size:17px;
+}
+
+.emergency-content{
+padding:50px 25px;
+}
+
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* FOOTER */
+
+.footer{
+background:#000;
+color:#ddd;
+padding:80px 60px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1400px;
+margin:auto;
+}
+
+/* LEFT */
+
+.footer-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.social{
+font-size:26px;
+color:#c8b46a;
+margin-bottom:30px;
+}
+
+.copyright{
 font-size:18px;
 }
 
+/* RIGHT */
+
+.footer-right{
+text-align:left;
 }
+
+.footer-links{
+margin-bottom:35px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+margin-right:8px;
+}
+
+.footer-right p{
+font-size:18px;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.hours{
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.phone{
+margin-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer{
+padding:60px 25px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-right{
+text-align:center;
+}
+
+.footer-links a{
+display:inline-block;
+margin:5px;
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+/* SECTION */
+
+.team-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#f3f3f3;
+}
+
+/* IMAGE SIDE */
+
+.team-image{
+position:relative;
+padding:60px;
+}
+
+.team-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* GOLD FRAME */
+
+.team-image::before{
+content:"";
+position:absolute;
+left:20px;
+top:40px;
+width:25px;
+height:80%;
+background:#c8b46a;
+}
+
+/* CONTENT */
+
+.team-content{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:80px 60px;
+}
+
+.team-box{
+max-width:550px;
+}
+
+/* HEADING */
+
+.team-box h2{
+font-size:48px;
+margin-bottom:25px;
+color:#222;
+}
+
+/* TEXT */
+
+.team-box p{
+font-size:20px;
+line-height:1.9;
+color:#555;
+margin-bottom:40px;
+}
+
+.team-box span{
+color:#c8b46a;
+font-weight:bold;
+}
+
+/* BUTTON */
+
+.team-btn{
+background:#a3925b;
+color:white;
+padding:16px 35px;
+font-size:20px;
+text-decoration:none;
+display:inline-block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.team-section{
+grid-template-columns:1fr;
+}
+
+.team-image{
+padding:40px 20px;
+}
+
+.team-image::before{
+left:10px;
+}
+
+.team-box h2{
+font-size:32px;
+}
+
+.team-box p{
+font-size:17px;
+}
+
+.team-content{
+padding:50px 25px;
+}
+
+}
+
+
 </style>
 
- 
 
+<script>
 
-  
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div>
-      <p>©2024 Xyz Upholstery Cleaners Carpet & Tile® - All rights reserved.</p>
-    </div>
-    <div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#" onclick="alert('Quote form')">Free Quote</a>
-        <a href="#" onclick="alert('Privacy policy')">Privacy Policy</a>
-        <a href="#" onclick="alert('Terms')">Terms</a>
-        <a href="#" onclick="alert('Contact')">Contact</a>
-      </div>
-      <p>Address: 5620 Wild Plum Dr, Loveland, CO 80537</p>
-      <div class="hours">
-        <p>Monday Open 24 hours</p>
-        <p>Tuesday Open 24 hours</p>
-        <p>Wednesday Open 24 hours</p>
-        <p>Thursday Open 24 hours</p>
-        <p>Friday Open 24 hours</p>
-        <p>Saturday Open 24 hours</p>
-        <p>Sunday Open 24 hours</p>
-      </div>
-      <p>Phone: <a href="tel:+19702007677">+1 970-200-7677</a></p>
-    </div>
-  </footer>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
 
-  <script>
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-      });
-    }
-    
-    // Mobile dropdown toggle
-    const mobileServices = document.getElementById('mobileServices');
-    if (mobileServices) {
-      mobileServices.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-      });
-    }
-    
-    // Close mobile menu when a link is clicked
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-      });
-    });
-  </script>
+function toggleDropdown(el){
+if(window.innerWidth < 900){
+el.classList.toggle("active");
+}
+}
+
+</script>
+
 </body>
 </html>
