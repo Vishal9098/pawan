@@ -21,12 +21,18 @@ background:#000;
 color:white;
 }
 
+header{
+background:#000;
+color:white;
+position:relative;
+z-index:1000;
+}
+
 .nav-container{
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:15px 40px;
-flex-wrap:wrap;
 }
 
 .logo img{
@@ -49,6 +55,9 @@ font-size:16px;
 
 /* DROPDOWN */
 
+.dropdown-menu{
+top:100%;
+}
 .dropdown{
 position:relative;
 }
@@ -60,6 +69,7 @@ top:100%;
 left:0;
 background:#000;
 min-width:220px;
+flex-direction:column;
 border-radius:4px;
 overflow:hidden;
 z-index:9999;
@@ -78,7 +88,8 @@ background:#c8a85a;
 }
 
 .dropdown:hover .dropdown-menu{
-display:block;
+display:flex;
+flex-direction:column;
 }
 
 /* MOBILE MENU BUTTON */
@@ -211,30 +222,31 @@ padding:80px 20px;
 <a href="index.html">Home</a>
 <a href="aboutus.html">About Us</a>
 
-<div class="dropdown" onclick="toggleDropdown(this)">
-<a href="#">Services ▼</a>
+<div class="dropdown">
+  <a href="#" onclick="toggleDropdown(this.parentElement)">Services ▼</a>
 
-<div class="dropdown-menu">
- <a href="tilefloorcleaning.html">Tile Cleaning</a>
- <a href="Air Duct Cleaning SERVICES.html"> Air Duct Cleaning</a>
- <a href="deepcleaning.html">Deep Steam Cleaning</a>
+  <div class="dropdown-menu">
+    <a href="tilefloorcleaning.html">Tile Cleaning</a>
+    <a href="UpholsteryCleaning.html">Upholstery Cleaning</a>
+    <a href="PetStainRemoval.html">Pet Odor Removal</a>
+    <a href="deepcleaning.html">Deep Steam Cleaning</a>
+  </div>
 </div>
-
-</div>
-
 <a href="#">Locations</a>
 <a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
 <a href="CommercialCleaning.html">Commercial Cleaning</a>
-<a href="#">House Cleaning</a>
+<a href="house-cleaning.html">House Cleaning</a>
 <!-- <a href="#">More</a> -->
-     <div class="dropdown">
+
+<div class="dropdown">
   <a href="#" onclick="toggleDropdown(this.parentElement)">More ▼</a>
 
   <div class="dropdown-menu">
     <a href="blog.html">Blog</a>
-    <a href="contactus.html">Contact Us</a>
+    <a href="contactus.html">Upholstery Cleaning</a>
   </div>
 </div>
+
 </nav>
 
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -242,7 +254,7 @@ padding:80px 20px;
 </div>
 </header>
 
-
+<!-- 
 <section class="hero">
 
 <div class="overlay"></div>
@@ -268,90 +280,76 @@ for a fresher, healthier home.
 
 </div>
 
-</section>
+</section> -->
+<section class="blog-section">
 
+<div class="blog-container">
 
-<section class="mission-section">
+<h1>Why Professional Air Duct Cleaning Is Important for a Healthy Home</h1>
 
-<div class="mission-container">
-
-<div class="stars">
-★ ★ ★ ★ ★
-</div>
-
-<div class="star-text">
-5 STAR EXPERIENCE
-</div>
-
-<h2>Our Mission</h2>
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Air duct cleaning">
 
 <p>
-At Xyz Upholstery Cleaners Carpet & Tile, our mission is to bring a touch of luxury and
-sophistication to your home through our specialized floor cleaning services.
-With a focus on sustainable practices and meticulous attention to detail,
-we strive to exceed your expectations every time.
+Keeping your home clean goes beyond vacuuming floors or wiping surfaces. One area that many homeowners overlook is their <strong>air duct system</strong>. Over time, dust, allergens, and debris build up inside your ductwork, affecting the air quality inside your home. Professional air duct cleaning helps remove these contaminants and ensures that the air circulating in your home is clean and healthy.
 </p>
 
-<h2>Our Vision</h2>
+<h2>1. Improve Indoor Air Quality</h2>
+
+<img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a" alt="Indoor air quality">
 
 <p>
-We envision a future where every home radiates elegance and comfort through
-impeccably maintained floors. As industry leaders, we set new standards in
-quality, sustainability, and customer satisfaction, transforming homes and
-businesses with innovative cleaning solutions.
+Your HVAC system circulates air throughout your entire home. If your air ducts are filled with dust, pet dander, pollen, and other particles, those contaminants can spread through the air you breathe every day. Professional duct cleaning removes these pollutants, helping create a healthier indoor environment for your family.
 </p>
 
-</div>
+<h2>2. Reduce Allergies and Respiratory Issues</h2>
 
-</section>
-
-
-<section class="commitment-section">
-
-<div class="commitment-img">
-<img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987">
-</div>
-
-<div class="commitment-content">
-
-<div class="commitment-box">
-
-<h2>Our Commitment</h2>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Healthy home">
 
 <p>
-We take pride in using environmentally safe products and innovative
-techniques to ensure thorough and impeccable cleaning for your floors.
-Trust our professional floor cleaners to transform your living space
-with care and expertise.
+Dirty air ducts can trigger allergies and breathing problems, especially for people with asthma or sensitive respiratory systems. Dust and allergens trapped in ductwork can continuously circulate in your home. By cleaning your air ducts regularly, you reduce the amount of airborne irritants and make your home safer for everyone.
 </p>
 
-<a href="#" class="commitment-btn">Get A Quote</a>
+<h2>3. Increase HVAC Efficiency</h2>
 
-</div>
-
-</div>
-
-</section>
-
-<section class="schedule-section">
-
-<div class="schedule-content">
-
-<h2>Schedule a Cleaning Today</h2>
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64" alt="HVAC system">
 
 <p>
-Experience the difference of Xyz Upholstery Cleaners Carpet & Tile — where eco-friendly
-cleaning meets professional excellence.
+When debris accumulates inside your air ducts, it forces your HVAC system to work harder to push air through the vents. This reduces efficiency and can increase energy costs. Clean air ducts allow your heating and cooling system to operate more smoothly, improving energy efficiency and lowering your utility bills.
 </p>
 
-<a href="#" class="schedule-btn">Get A Quote</a>
+<h2>4. Eliminate Unpleasant Odors</h2>
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Clean living room">
+
+<p>
+Dust, mold, and other contaminants inside air ducts can cause unpleasant smells in your home. These odors often circulate whenever the HVAC system runs. Professional cleaning removes the source of these smells, leaving your home fresher and more comfortable.
+</p>
+
+<h2>5. Extend the Life of Your HVAC System</h2>
+
+<img src="https://images.unsplash.com/photo-1581092160607-ee22731e9f02" alt="HVAC maintenance">
+
+<p>
+Your HVAC system is a major investment in your home. Keeping the ductwork clean reduces strain on the system, helping it last longer and operate more effectively. Regular maintenance and cleaning can help prevent costly repairs in the future.
+</p>
+
+<h2>How Often Should Air Ducts Be Cleaned?</h2>
+
+<p>
+Experts generally recommend professional air duct cleaning <strong>every 3–5 years</strong>, depending on factors such as pets, allergies, recent renovations, or heavy dust buildup. Homes with pets or family members who suffer from allergies may benefit from more frequent cleanings.
+</p>
+
+<h2>Schedule Your Air Duct Cleaning Today</h2>
+
+<p>
+A clean home starts with clean air. Professional air duct cleaning removes hidden contaminants, improves airflow, and helps create a healthier living space. If you're looking for reliable and affordable air duct cleaning services, our experienced team is here to help.
+</p>
+
+<a href="#" class="blog-btn">Contact Us Today</a>
 
 </div>
 
 </section>
-
-
-
 
 <footer class="footer">
 
@@ -410,298 +408,76 @@ cleaning meets professional excellence.
 
 </footer>
 
-
-
-
-
-
-
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
+    .blog-section{
+background:#f4f4f4;
+padding:80px 20px;
 }
 
-/* SECTION */
-
-.schedule-section{
-position:relative;
-background:url("images/b.jpg") center/cover no-repeat;
-padding:140px 20px;
-text-align:center;
-color:white;
-}
-
-/* DARK OVERLAY */
-
-.schedule-section::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-}
-
-/* CONTENT */
-
-.schedule-content{
-position:relative;
+.blog-container{
 max-width:900px;
 margin:auto;
-}
-
-.schedule-content h2{
-font-size:52px;
-margin-bottom:25px;
-}
-
-.schedule-content p{
-font-size:22px;
-line-height:1.8;
-margin-bottom:40px;
-color:#ddd;
-}
-
-/* BUTTON */
-
-.schedule-btn{
-background:#c8b46a;
-color:black;
-padding:16px 40px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-font-weight:bold;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.schedule-section{
-padding:90px 25px;
-}
-
-.schedule-content h2{
-font-size:32px;
-}
-
-.schedule-content p{
-font-size:17px;
-}
-
-.schedule-btn{
-padding:14px 28px;
-font-size:18px;
-}
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.commitment-section{
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-background:#efefef;
-}
-
-/* IMAGE SIDE */
-
-.commitment-img{
-display:flex;
-justify-content:center;
+background:white;
 padding:60px;
 }
 
-.commitment-img img{
-width:80%;
-max-width:420px;
-height:auto;
-border-radius:6px;
-}
-
-/* TEXT SIDE */
-
-.commitment-content{
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:80px 60px;
-}
-
-.commitment-box{
-max-width:500px;
-}
-
-/* HEADING */
-
-.commitment-box h2{
-font-size:48px;
+.blog-container h1{
+font-size:40px;
 margin-bottom:25px;
-color:#222;
 }
 
-/* TEXT */
+.blog-container h2{
+font-size:28px;
+margin-top:40px;
+margin-bottom:15px;
+}
 
-.commitment-box p{
-font-size:20px;
-line-height:1.9;
+.blog-container p{
+font-size:18px;
+line-height:1.8;
 color:#555;
-margin-bottom:40px;
+margin-bottom:20px;
 }
 
-/* BUTTON */
+.blog-container img{
+width:100%;
+margin:25px 0;
+border-radius:4px;
+}
 
-.commitment-btn{
+.blog-btn{
+display:inline-block;
+margin-top:30px;
 background:#a3925b;
 color:white;
-padding:16px 35px;
-font-size:20px;
+padding:14px 28px;
 text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.commitment-section{
-grid-template-columns:1fr;
-}
-
-.commitment-img{
-padding:40px 20px;
-}
-
-.commitment-img img{
-width:90%;
-max-width:350px;
-}
-
-.commitment-box h2{
-font-size:32px;
-}
-
-.commitment-box p{
-font-size:17px;
-}
-
-.commitment-content{
-padding:40px 25px;
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-  *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.mission-section{
-background:#f3f3f3;
-padding:100px 20px;
-text-align:center;
-}
-
-/* CONTAINER */
-
-.mission-container{
-max-width:900px;
-margin:auto;
-}
-
-/* STARS */
-
-.stars{
-font-size:40px;
-color:#c8b46a;
-letter-spacing:10px;
-margin-bottom:10px;
-}
-
-.star-text{
-color:#c8b46a;
-letter-spacing:3px;
-font-size:14px;
-margin-bottom:40px;
-}
-
-/* HEADINGS */
-
-.mission-container h2{
-font-size:48px;
-margin-bottom:20px;
-color:#222;
-}
-
-/* PARAGRAPH */
-
-.mission-container p{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:60px;
+font-size:16px;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.mission-section{
-padding:70px 25px;
+.blog-container{
+padding:35px 20px;
 }
 
-.mission-container h2{
-font-size:32px;
-}
-
-.mission-container p{
-font-size:17px;
-}
-
-.stars{
+.blog-container h1{
 font-size:28px;
 }
 
+.blog-container h2{
+font-size:22px;
 }
 
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
+.blog-container p{
+font-size:16px;
 }
 
-/* FOOTER */
+}
+    /* FOOTER */
 
 .footer{
 background:#000;
@@ -793,7 +569,6 @@ margin:5px;
 }
 
 </style>
-
 
 <script>
 
