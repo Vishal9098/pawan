@@ -677,6 +677,298 @@
     .schedule-btn {
       touch-action: manipulation;
     }
+
+    /* ===== MOBILE RESPONSIVE ADDITIONS (ONLY FOR SCREENS UNDER 768px) ===== */
+    /* Desktop layout remains COMPLETELY UNCHANGED above this line */
+    
+    @media (max-width: 768px) {
+      
+      /* Services Section */
+      .services .container {
+        width: 100%;
+        padding: 0 15px;
+        gap: 15px;
+      }
+      
+      .card {
+        height: 250px;
+      }
+      
+      .overlay h3 {
+        font-size: 22px;
+      }
+      
+      /* About Section */
+      .about-section {
+        padding: 50px 0;
+      }
+      
+      .about-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .about-image {
+        width: 100%;
+      }
+      
+      .about-image:before {
+        left: -15px;
+        width: 10px;
+      }
+      
+      .about-image img {
+        height: 300px;
+      }
+      
+      .about-text {
+        width: 100%;
+        padding: 0;
+      }
+      
+      .about-text h2 {
+        font-size: 32px;
+      }
+      
+      .about-text p {
+        font-size: 16px;
+      }
+      
+      /* Why Choose Us Section */
+      .why-section {
+        padding: 50px 0;
+      }
+      
+      .why-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .why-text {
+        width: 100%;
+      }
+      
+      .why-text h2 {
+        font-size: 32px;
+      }
+      
+      .why-text p {
+        font-size: 16px;
+      }
+      
+      .why-images {
+        width: 100%;
+        gap: 10px;
+      }
+      
+      .why-images img {
+        height: 250px;
+      }
+      
+      /* FAQ Section */
+      .faq-section {
+        padding: 50px 0;
+      }
+      
+      .faq-container {
+        width: 100%;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      
+      .faq-image {
+        width: 100%;
+      }
+      
+      .faq-image::before {
+        top: -20px;
+        left: -20px;
+        width: 120px;
+        height: 120px;
+        border-top: 30px solid #b6a064;
+        border-left: 30px solid #b6a064;
+      }
+      
+      .faq-image img {
+        height: 350px;
+      }
+      
+      .faq-content {
+        width: 100%;
+      }
+      
+      .faq-content h2 {
+        font-size: 32px;
+      }
+      
+      .faq-desc {
+        font-size: 16px;
+      }
+      
+      .faq-item h4 {
+        font-size: 18px;
+      }
+      
+      .faq-item p {
+        font-size: 15px;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 20px;
+      }
+      
+      .cta-content h2 {
+        font-size: 36px;
+      }
+      
+      .cta-content p {
+        font-size: 16px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 25px;
+        font-size: 16px;
+      }
+      
+      /* Neighborhoods Section */
+      .neighborhoods {
+        padding: 80px 20px;
+      }
+      
+      .neighborhoods .container {
+        padding: 0;
+      }
+      
+      .circle-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      
+      .circle-wrapper .item {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+      
+      .circle-wrapper .circle {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 15px;
+      }
+      
+      .circle-wrapper h3 {
+        font-size: 24px;
+      }
+      
+      .circle-wrapper p {
+        font-size: 15px;
+      }
+      
+      /* Button styles */
+      .btn {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+      
+      /* Fix any horizontal overflow */
+      body {
+        overflow-x: hidden;
+      }
+      
+      section {
+        overflow-x: hidden;
+      }
+      
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+      }
+    }
+    
+    /* Small mobile devices (under 480px) */
+    @media (max-width: 480px) {
+      
+      /* Services */
+      .card {
+        height: 200px;
+      }
+      
+      .overlay h3 {
+        font-size: 20px;
+      }
+      
+      /* About Section */
+      .about-image img {
+        height: 250px;
+      }
+      
+      .about-text h2 {
+        font-size: 28px;
+      }
+      
+      /* Why Choose Us */
+      .why-text h2 {
+        font-size: 28px;
+      }
+      
+      .why-images {
+        flex-direction: column;
+      }
+      
+      .why-images img {
+        width: 100%;
+        height: 220px;
+      }
+      
+      /* FAQ Section */
+      .faq-image img {
+        height: 280px;
+      }
+      
+      .faq-content h2 {
+        font-size: 28px;
+      }
+      
+      .faq-item h4 {
+        font-size: 17px;
+      }
+      
+      /* CTA Section */
+      .cta-content h2 {
+        font-size: 28px;
+      }
+      
+      .cta-section {
+        padding: 60px 15px;
+      }
+      
+      /* Neighborhoods */
+      .circle-wrapper .circle {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .circle-wrapper h3 {
+        font-size: 22px;
+      }
+      
+      /* Buttons */
+      .btn {
+        padding: 12px 25px;
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -887,7 +1179,7 @@ quality and reliability in every service.
 <div class="why-images">
 
 <img src="images/b.jpg">
-<img src="images/bathroom-tile.jpg">
+<!-- <img src="images/bathroom-tile.jpg"> -->
 
 </div>
 
