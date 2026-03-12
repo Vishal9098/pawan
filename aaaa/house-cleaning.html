@@ -2,1390 +2,801 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carpet Cleaning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>House Cleaning — XYZ Upholstery Cleaners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
+/* ═══════════════════════════════
+   ROOT & RESET
+═══════════════════════════════ */
+:root {
+  --black:       #080808;
+  --black-mid:   #111111;
+  --black-soft:  #1a1a1a;
+  --charcoal:    #222222;
+  --gold:        #c8a85a;
+  --gold-light:  #e4c97a;
+  --white:       #ffffff;
+  --off-white:   #f9f5ee;
+  --cream:       #f3ead8;
+  --muted:       #888888;
+  --border:      rgba(200,168,90,.2);
+  --border-soft: rgba(200,168,90,.08);
 }
 
-/* HEADER */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
-header{
-background:#000;
-color:white;
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-.nav-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px 40px;
-flex-wrap:wrap;
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.3;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
 }
 
-.logo img{
-height:60px;
+img { display:block; width:100%; }
+a  { text-decoration:none; color:inherit; }
+
+.container { max-width:1300px; margin:0 auto; padding:0 48px; }
+
+/* Gold decorative line */
+.gold-line {
+  width:56px; height:1px; background:var(--gold);
+  display:inline-block; margin-bottom:18px;
+}
+.gold-line-c { display:block; margin:0 auto 18px; }
+
+/* Shared section title */
+.sec-eyebrow {
+  font-size:11px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; display:block; margin-bottom:14px;
 }
 
-/* NAVBAR */
-
-nav{
-display:flex;
-gap:25px;
-align-items:center;
+/* ═══════════════════════════════
+   HEADER / NAVBAR
+═══════════════════════════════ */
+header {
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  transition:background .45s,border .45s,padding .45s;
+}
+header.scrolled {
+  background:rgba(8,8,8,.96); backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--border); padding-bottom:0;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
+.nav-wrap {
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1300px; margin:0 auto; padding:22px 48px;
 }
 
-/* DROPDOWN */
-
-.dropdown{
-position:relative;
+.logo-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+  line-height:1.1; text-decoration:none; color:var(--white);
+}
+.logo-text em {
+  font-style:normal; color:var(--gold);
+  display:block; font-size:9px; letter-spacing:4px;
+  font-family:'Montserrat',sans-serif; font-weight:400; margin-top:3px;
 }
 
-.dropdown-menu{
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#000;
-min-width:220px;
-border-radius:4px;
-overflow:hidden;
-z-index:9999;
-flex-direction:column;
+/* Desktop nav */
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links > li > a {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  font-weight:500; color:rgba(255,255,255,.7); transition:color .3s;
+  position:relative; padding:4px 0;
+}
+.nav-links > li > a::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:1px; background:var(--gold); transition:width .3s;
+}
+.nav-links > li > a:hover { color:var(--gold); }
+.nav-links > li > a:hover::after { width:100%; }
+
+/* Dropdown */
+.has-dd { position:relative; }
+.dd-menu {
+  position:absolute; top:calc(100% + 16px); left:50%;
+  transform:translateX(-50%); min-width:200px;
+  background:var(--black-soft); border:1px solid var(--border);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:all .3s; list-style:none;
+}
+.dd-menu::before {
+  content:''; position:absolute; top:-6px; left:50%;
+  transform:translateX(-50%) rotate(45deg);
+  width:11px; height:11px; background:var(--black-soft);
+  border-left:1px solid var(--border); border-top:1px solid var(--border);
+}
+.has-dd:hover .dd-menu { opacity:1; visibility:visible; pointer-events:all; top:calc(100% + 12px); }
+.dd-menu li a {
+  display:block; padding:12px 22px;
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.55); border-bottom:1px solid var(--border-soft);
+  transition:all .3s;
+}
+.dd-menu li:last-child a { border:none; }
+.dd-menu li a:hover { color:var(--gold); padding-left:28px; }
+
+.nav-cta {
+  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  font-weight:600; padding:11px 24px; border:1px solid var(--gold);
+  color:var(--gold) !important; transition:all .35s !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--gold) !important; color:var(--black) !important; }
+
+/* Hamburger */
+.menu-toggle {
+  display:none; flex-direction:column; gap:5px;
+  cursor:pointer; width:32px; padding:3px 0;
+}
+.menu-toggle span { display:block; height:1px; background:var(--gold); transition:all .4s; }
+.menu-toggle.open span:nth-child(1){ transform:rotate(45deg) translate(4px,4px); }
+.menu-toggle.open span:nth-child(2){ opacity:0; }
+.menu-toggle.open span:nth-child(3){ transform:rotate(-45deg) translate(4px,-4px); }
+
+/* Mobile drawer */
+.mob-menu {
+  position:fixed; top:0; right:-100%; bottom:0; width:min(320px,88vw);
+  background:var(--black-soft); border-left:1px solid var(--border);
+  padding:90px 36px 60px; z-index:999; overflow-y:auto;
+  transition:right .5s cubic-bezier(.4,0,.2,1);
+}
+.mob-menu.open { right:0; }
+.mob-menu ul { list-style:none; }
+.mob-menu ul li { border-bottom:1px solid var(--border-soft); }
+.mob-menu ul li a {
+  display:block; padding:14px 0;
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.7); transition:color .3s;
+}
+.mob-menu ul li a:hover { color:var(--gold); }
+.mob-sub { padding-left:14px; }
+.mob-sub li a { font-size:10px; color:rgba(255,255,255,.45); }
+
+.mob-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,.7); backdrop-filter:blur(4px); z-index:998;
+}
+.mob-overlay.open { display:block; }
+
+/* ═══════════════════════════════
+   HERO
+═══════════════════════════════ */
+.hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1600&q=80') center/cover no-repeat;
+}
+.hero-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(8,8,8,.7) 0%,rgba(8,8,8,.45) 40%,rgba(8,8,8,.82) 100%);
+}
+.hero-content {
+  position:relative; z-index:2; max-width:820px; padding:0 24px;
+}
+.hero-pre {
+  font-size:11px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:28px; font-weight:500;
+  display:flex; align-items:center; justify-content:center; gap:14px;
+}
+.hero-pre::before,.hero-pre::after {
+  content:''; flex:1; max-width:54px; height:1px; background:var(--gold); opacity:.5;
+}
+.hero-content h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,8vw,86px); font-weight:300;
+  line-height:1.05; letter-spacing:-1px; margin-bottom:22px;
+}
+.hero-content h1 em { font-style:italic; color:var(--gold-light); }
+.hero-content p {
+  font-size:16px; color:rgba(255,255,255,.72); max-width:540px;
+  margin:0 auto 44px; line-height:1.9; font-weight:300;
+}
+.hero-btns { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+
+.btn-gold {
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--gold); color:var(--black);
+  padding:15px 32px; font-size:10px; letter-spacing:2.5px;
+  text-transform:uppercase; font-weight:700; transition:all .35s;
+}
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:9px;
+  background:transparent; color:var(--white);
+  padding:15px 32px; font-size:10px; letter-spacing:2.5px;
+  text-transform:uppercase; font-weight:600;
+  border:1px solid rgba(255,255,255,.3); transition:all .35s;
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+.hero-scroll {
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+  z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.35);
+}
+.scroll-bar {
+  width:1px; height:38px;
+  background:linear-gradient(to bottom,rgba(200,168,90,.7),transparent);
+  animation:scrollAnim 2s ease-in-out infinite;
+}
+@keyframes scrollAnim {
+  0%  { transform:scaleY(0); transform-origin:top; }
+  50% { transform:scaleY(1); transform-origin:top; }
+  51% { transform:scaleY(1); transform-origin:bottom; }
+  100%{ transform:scaleY(0); transform-origin:bottom; }
 }
 
-.dropdown-menu a{
-padding:12px 18px;
-display:block;
-color:white;
-border-bottom:1px solid rgba(255,255,255,0.1);
+/* ═══════════════════════════════
+   SERVICE SPLIT SECTIONS
+   Alternating: image-left / image-right
+═══════════════════════════════ */
+.split-section {
+  display:grid; grid-template-columns:1fr 1fr; min-height:520px;
+  position:relative;
+}
+/* alternate order */
+.split-section.img-right .split-img  { order:2; }
+.split-section.img-right .split-text { order:1; }
+
+.split-img { position:relative; overflow:hidden; }
+.split-img img { width:100%; height:100%; object-fit:cover; transition:transform .8s ease; }
+.split-section:hover .split-img img { transform:scale(1.04); }
+.split-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(200,168,90,.08),transparent 60%);
+  pointer-events:none;
 }
 
-.dropdown-menu a:hover{
-background:#c8a85a;
+/* Light bg variant */
+.split-section.light .split-text { background:var(--off-white); color:var(--black); }
+.split-section.light .split-text h2 { color:var(--black); }
+.split-section.light .split-text p,
+.split-section.light .split-text li { color:#555; }
+.split-section.light .sec-eyebrow { color:var(--gold); }
+.split-section.light .feat-icon { border-color:rgba(200,168,90,.35); color:var(--gold); background:rgba(200,168,90,.07); }
+.split-section.light .split-divider { background:rgba(200,168,90,.25); }
+
+/* Dark bg variant */
+.split-section.dark .split-text { background:var(--black-soft); }
+
+.split-text {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:80px 72px;
+}
+.split-text h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,3.5vw,48px); font-weight:400;
+  line-height:1.15; margin-bottom:18px;
+}
+.split-text h2 em { font-style:italic; color:var(--gold); }
+.split-text > p {
+  font-size:15px; line-height:1.9; font-weight:300; margin-bottom:32px;
+  color:rgba(255,255,255,.65);
+}
+.split-divider { width:48px; height:1px; background:rgba(200,168,90,.4); margin-bottom:28px; }
+
+/* Feature list */
+.feat-list { list-style:none; margin-bottom:36px; }
+.feat-list li {
+  display:flex; align-items:flex-start; gap:14px;
+  padding:13px 0; border-bottom:1px solid var(--border-soft); font-size:14px;
+  font-weight:300; color:rgba(255,255,255,.65);
+}
+.split-section.light .feat-list li { color:#555; border-color:rgba(200,168,90,.15); }
+.feat-list li:last-child { border:none; }
+.feat-icon {
+  width:34px; height:34px; flex-shrink:0; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:13px; background:rgba(200,168,90,.06); margin-top:1px;
 }
 
-.dropdown:hover .dropdown-menu{
-display:block;
+.split-btns { display:flex; gap:12px; flex-wrap:wrap; }
+
+/* ═══════════════════════════════
+   WHY CHOOSE US
+═══════════════════════════════ */
+.why-section {
+  background:var(--off-white); color:var(--black);
+  padding:110px 48px; text-align:center;
+  position:relative;
+}
+.why-section::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.why-section h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,56px); font-weight:400; margin-bottom:20px; color:var(--black);
+}
+.why-intro {
+  font-size:16px; color:#666; line-height:1.85; max-width:700px;
+  margin:0 auto 50px; font-weight:300;
+}
+.why-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:28px; max-width:1300px; margin:0 auto 50px;
+}
+.why-card {
+  background:var(--white); padding:40px 28px; text-align:center;
+  border:1px solid rgba(200,168,90,.15);
+  transition:all .35s; position:relative; overflow:hidden;
+}
+.why-card::before {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0); transition:transform .4s;
+}
+.why-card:hover { transform:translateY(-6px); box-shadow:0 24px 50px rgba(0,0,0,.1); }
+.why-card:hover::before { transform:scaleX(1); }
+.why-card-icon {
+  width:52px; height:52px; border:1px solid rgba(200,168,90,.4);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:20px; margin:0 auto 20px;
+}
+.why-card h4 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:500; color:var(--black); margin-bottom:10px;
+}
+.why-card p { font-size:13px; color:#777; line-height:1.7; font-weight:300; }
+.why-bottom {
+  font-size:16px; color:#666; line-height:1.85;
+  max-width:700px; margin:0 auto 40px; font-weight:300;
 }
 
-/* MOBILE MENU BUTTON */
-
-.menu-toggle{
-display:none;
-font-size:28px;
-color:white;
-cursor:pointer;
+/* ═══════════════════════════════
+   CTA SECTION
+═══════════════════════════════ */
+.cta-section {
+  position:relative; padding:130px 20px; text-align:center;
+  background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80') center/cover no-repeat;
 }
-
-/* HERO SECTION */
-
-.hero{
-position:relative;
-background:url("images/house.jpg") center/cover no-repeat;
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
+.cta-section::before {
+  content:''; position:absolute; inset:0; background:rgba(8,8,8,.75);
 }
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
+.cta-content { position:relative; z-index:1; max-width:760px; margin:0 auto; }
+.cta-content h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,5.5vw,68px); font-weight:300; line-height:1.1; margin-bottom:18px;
 }
-
-.hero-content{
-position:relative;
-max-width:900px;
-padding:20px;
+.cta-content h2 em { font-style:italic; color:var(--gold); }
+.cta-content p {
+  font-size:16px; color:rgba(255,255,255,.7); margin-bottom:44px;
+  line-height:1.85; font-weight:300;
 }
+.cta-btns { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
 
-.hero h1{
-font-size:50px;
-margin-bottom:20px;
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer {
+  background:var(--black-soft); padding:80px 48px 40px;
+  border-top:1px solid var(--border); position:relative;
 }
-
-.hero p{
-font-size:18px;
-margin-bottom:20px;
-line-height:1.6;
+footer::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-
-.hero h3{
-color:#c8a85a;
-margin-bottom:20px;
-letter-spacing:2px;
+.footer-grid {
+  display:grid; grid-template-columns:1.2fr 1fr 1.2fr;
+  gap:56px; max-width:1300px; margin:0 auto 60px;
 }
-
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
+.f-brand .logo-text { font-size:20px; display:inline-block; margin-bottom:18px; }
+.f-brand p { font-size:12px; color:rgba(255,255,255,.4); line-height:1.8; max-width:270px; margin-bottom:26px; font-weight:300; }
+.soc-row { display:flex; gap:10px; }
+.soc-row a {
+  width:36px; height:36px; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; color:rgba(255,255,255,.45); transition:all .3s;
 }
-
-.hero-buttons a{
-background:#c8a85a;
-padding:12px 18px;
-text-decoration:none;
-color:white;
-font-size:14px;
+.soc-row a:hover { border-color:var(--gold); color:var(--gold); }
+.f-col h4 {
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:22px; font-weight:600;
 }
-
-/* MOBILE */
-
-@media (max-width:900px){
-
-nav{
-display:none;
-flex-direction:column;
-width:100%;
-margin-top:15px;
+.f-col ul { list-style:none; }
+.f-col ul li { margin-bottom:10px; }
+.f-col ul li a, .f-col ul li span {
+  font-size:12px; color:rgba(255,255,255,.4); font-weight:300;
+  display:flex; align-items:center; gap:10px; transition:color .3s;
 }
-
-nav.show{
-display:flex;
+.f-col ul li a:hover { color:var(--gold); }
+.f-col ul li i { color:var(--gold); width:13px; font-size:11px; flex-shrink:0; }
+.f-bottom {
+  border-top:1px solid var(--border-soft); padding-top:28px;
+  max-width:1300px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:14px;
 }
+.f-bottom p { font-size:11px; color:rgba(255,255,255,.28); letter-spacing:.4px; font-weight:300; }
+.f-links { display:flex; gap:18px; flex-wrap:wrap; }
+.f-links a { font-size:10px; color:rgba(255,255,255,.3); letter-spacing:.5px; transition:color .3s; }
+.f-links a:hover { color:var(--gold); }
 
-.menu-toggle{
-display:block;
+/* ═══════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════ */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.from-left  { transform:translateX(-28px); }
+.reveal.from-right { transform:translateX(28px); }
+.reveal.visible { opacity:1 !important; transform:translate(0,0) !important; }
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media (max-width:1100px) {
+  .why-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .footer-grid .f-brand { grid-column:1/-1; }
 }
-
-/* MOBILE DROPDOWN */
-
-.dropdown-menu{
-position:static;
+@media (max-width:900px) {
+  .nav-wrap { padding:18px 24px; }
+  .nav-links { display:none; }
+  .menu-toggle { display:flex; }
+  .split-section { grid-template-columns:1fr; }
+  .split-section.img-right .split-img  { order:0; }
+  .split-section.img-right .split-text { order:1; }
+  .split-img { height:360px; }
+  .split-text { padding:56px 36px; }
+  .container { padding:0 24px; }
+  .why-section { padding:80px 24px; }
+  footer { padding:60px 24px 32px; }
 }
-
-.dropdown:hover .dropdown-menu{
-display:none;
+@media (max-width:768px) {
+  .why-grid { grid-template-columns:1fr; }
+  .hero-btns { flex-direction:column; align-items:center; }
+  .btn-gold,.btn-outline { width:100%; max-width:280px; justify-content:center; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .split-btns { flex-direction:column; }
+  .split-btns .btn-gold, .split-btns .btn-outline { max-width:260px; }
+  .footer-grid { grid-template-columns:1fr; gap:36px; }
+  .f-bottom { flex-direction:column; text-align:center; }
 }
-
-.dropdown.active .dropdown-menu{
-display:block;
+@media (max-width:480px) {
+  .split-text { padding:44px 22px; }
+  .split-img { height:280px; }
+  .cta-section { padding:90px 20px; }
 }
-
-.hero h1{
-font-size:32px;
-}
-
-.hero{
-height:auto;
-padding:80px 20px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="nav-container">
-
-<div class="logo">
-<img src="images/b.jpg" alt="Logo">
+<!-- Overlay + mobile drawer -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMenu()"></div>
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="index.html"   onclick="closeMenu()">Home</a></li>
+    <li><a href="aboutus.html" onclick="closeMenu()">About Us</a></li>
+    <li><a href="#"            onclick="closeMenu()">Services</a></li>
+    <ul class="mob-sub">
+      <li><a href="tilefloorcleaning.html" onclick="closeMenu()">Tile Cleaning</a></li>
+      <li><a href="#"                      onclick="closeMenu()">Air Duct Cleaning</a></li>
+      <li><a href="deepcleaning.html"      onclick="closeMenu()">Deep Steam Cleaning</a></li>
+    </ul>
+    <li><a href="#"                              onclick="closeMenu()">Locations</a></li>
+    <li><a href="EmergencyFloorCleaningService.html" onclick="closeMenu()">Emergency Floor Cleaning</a></li>
+    <li><a href="CommercialCleaning.html"        onclick="closeMenu()">Commercial Cleaning</a></li>
+    <li><a href="house-cleaning.html"            onclick="closeMenu()">House Cleaning</a></li>
+    <li><a href="blog.html"                      onclick="closeMenu()">Blog</a></li>
+    <li><a href="contactus.html"                 onclick="closeMenu()">Contact Us</a></li>
+  </ul>
 </div>
 
-<nav id="menu">
+<!-- ═══ HEADER ═══ -->
+<header id="header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo-text">
+      XYZ Upholstery
+      <em>Carpet &amp; Tile Cleaning</em>
+    </a>
 
-<a href="index.html">Home</a>
-<a href="aboutus.html">About Us</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li class="has-dd">
+        <a href="#">Services <i class="fas fa-chevron-down" style="font-size:8px;margin-left:3px"></i></a>
+        <ul class="dd-menu">
+          <li><a href="tilefloorcleaning.html">Tile Cleaning</a></li>
+          <li><a href="#">Air Duct Cleaning</a></li>
+          <li><a href="deepcleaning.html">Deep Steam Cleaning</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Locations</a></li>
+      <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
+      <li><a href="CommercialCleaning.html">Commercial</a></li>
+      <li class="has-dd">
+        <a href="#">More <i class="fas fa-chevron-down" style="font-size:8px;margin-left:3px"></i></a>
+        <ul class="dd-menu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="contactus.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
 
-<div class="dropdown" onclick="toggleDropdown(this)">
-<a href="#">Services ▼</a>
-
-<div class="dropdown-menu">
- <a href="tilefloorcleaning.html">Tile Cleaning</a>
- <a href="Air Duct Cleaning SERVICES.html"> Air Duct Cleaning</a>
- <a href="deepcleaning.html">Deep Steam Cleaning</a>
-</div>
-
-</div>
-
-
-<a href="#">Locations</a>
-<a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
-<a href="CommercialCleaning.html">Commercial Cleaning</a>
-<a href="house-cleaning.html">House Cleaning</a>
-<!-- <a href="#">More</a> -->
-      <div class="dropdown">
-  <a href="#" onclick="toggleDropdown(this.parentElement)">More</a>
-
-  <div class="dropdown-menu">
-    <a href="blog.html">Blog</a>
-    <a href="contactus.html">Contact Us</a>
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
-</div>
-
-</nav>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-</div>
 </header>
 
-
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>HOUSE CLEANING NEAR YOU IN MP , BHOPAL</h1>
-
-<p>
-Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
-Xyz Upholstery Cleaners Carpet and Tile Cleaning removes dirt, stains, and allergens
-for a fresher, healthier home.
-</p>
-
-<h3>QUALITY FLOOR CLEANING</h3>
-
-<div class="hero-buttons">
-<a href="#">Get a Quote</a>
-<a href="#">Call Us to Schedule</a>
-<a href="#">Emergency Service Call Now</a>
-<a href="#">Book Now</a>
-</div>
-
-</div>
-
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-pre">Premium Cleaning Services</div>
+    <h1>House Cleaning<br><em>Near You</em> in<br>MP, Bhopal</h1>
+    <p>Revitalize your home with expert cleaning. XYZ Upholstery Cleaners removes dirt, stains, and allergens for a fresher, healthier living space.</p>
+    <div class="hero-btns">
+      <a href="contactus.html" class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Free Quote</a>
+      <a href="tel:+19702007677"  class="btn-outline"><i class="fas fa-phone"></i> Call to Schedule</a>
+      <a href="EmergencyFloorCleaningService.html" class="btn-outline"><i class="fas fa-bolt"></i> Emergency Service</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-bar"></div><span>Scroll</span></div>
 </section>
 
-<section class="house-section">
-
-<div class="house-image">
-<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
-</div>
-
-<div class="house-content">
-
-<div class="house-box">
-
-<h2>Standard House Cleaning</h2>
-
-<p>Ideal for regular maintenance, our standard cleaning includes:</p>
-
-<ul>
-<li>Dusting and wiping surfaces</li>
-<li>Vacuuming and mopping floors</li>
-<li>Kitchen and bathroom sanitation</li>
-<li>Trash removal</li>
-</ul>
-
-<div class="house-buttons">
-<a href="#" class="house-btn">Call Us Today</a>
-<a href="#" class="house-btn">Get a Quote</a>
-</div>
-
-</div>
-
-</div>
-
+<!-- ═══ STANDARD HOUSE CLEANING ═══ -->
+<section class="split-section light reveal">
+  <div class="split-img">
+    <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=900&q=80" alt="Standard House Cleaning">
+  </div>
+  <div class="split-text">
+    <span class="sec-eyebrow">01 — Standard</span>
+    <div class="gold-line"></div>
+    <h2>Standard House Cleaning</h2>
+    <p>Ideal for regular maintenance, our standard cleaning keeps your home consistently pristine and inviting.</p>
+    <div class="split-divider"></div>
+    <ul class="feat-list">
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Dusting and wiping all surfaces</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Vacuuming and mopping floors</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Kitchen and bathroom sanitation</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Trash removal and disposal</li>
+    </ul>
+    <div class="split-btns">
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+      <a href="contactus.html"   class="btn-outline"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
 </section>
 
-<section class="deep-section">
-
-<div class="deep-content">
-
-<h2>Deep Cleaning Services</h2>
-
-<p>
-For homes that need extra care, our <b>deep cleaning services</b> include:
-</p>
-
-<ul>
-<li>Baseboard and ceiling fan cleaning</li>
-<li>Appliance deep cleaning</li>
-<li>Upholstery and <b>carpet cleaning</b></li>
-<li>Grout and tile scrubbing</li>
-</ul>
-
-<div class="deep-buttons">
-<a href="#" class="btn">Call Us Today</a>
-<a href="#" class="btn">Get a Quote</a>
-</div>
-
-</div>
-
-<div class="deep-image">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-</div>
-
-</section>
-<section class="move-section">
-
-<div class="move-image">
-<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-</div>
-
-<div class="move-content">
-
-<h2>Move-In/Move-Out Cleaning</h2>
-
-<p>
-Moving? Our <b>move-out cleaning services</b> ensure you leave your space spotless. Includes:
-</p>
-
-<ul>
-<li>Thorough scrubbing of all surfaces</li>
-<li>Cabinet and drawer cleaning</li>
-<li><b>Window cleaning</b> (inside and outside)</li>
-<li>Floor stain removal</li>
-</ul>
-
-<div class="move-buttons">
-<a href="#" class="btn">Call Us Today</a>
-<a href="#" class="btn">Get a Quote</a>
-</div>
-
-</div>
-
+<!-- ═══ DEEP CLEANING ═══ -->
+<section class="split-section dark img-right reveal">
+  <div class="split-img">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80" alt="Deep Cleaning">
+  </div>
+  <div class="split-text">
+    <span class="sec-eyebrow">02 — Deep Clean</span>
+    <div class="gold-line"></div>
+    <h2>Deep Cleaning <em>Services</em></h2>
+    <p>For homes that need extra care, our deep cleaning goes into every corner — restoring freshness at a cellular level.</p>
+    <div class="split-divider"></div>
+    <ul class="feat-list">
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Baseboard and ceiling fan cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Appliance deep cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Upholstery and carpet cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Grout and tile scrubbing</li>
+    </ul>
+    <div class="split-btns">
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+      <a href="contactus.html"   class="btn-outline"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
 </section>
 
-<section class="rug-section">
-
-<div class="rug-content">
-
-<h2>Professional Carpet & Rug Cleaning</h2>
-
-<p>
-Our expert <b>carpet cleaners</b> remove dirt, allergens, and pet stains
-using advanced steam cleaning technology. 
-<b>Best carpet cleaner company near me?</b>
-You've found it!
-</p>
-
-<div class="rug-buttons">
-<a href="#" class="btn">Call Us Today</a>
-<a href="#" class="btn">Get a Quote</a>
-</div>
-
-</div>
-
-<div class="rug-image">
-<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
-</div>
-
+<!-- ═══ MOVE-IN / MOVE-OUT ═══ -->
+<section class="split-section light reveal">
+  <div class="split-img">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80" alt="Move-In Move-Out Cleaning">
+  </div>
+  <div class="split-text">
+    <span class="sec-eyebrow">03 — Moving</span>
+    <div class="gold-line"></div>
+    <h2>Move-In / Move-Out <em>Cleaning</em></h2>
+    <p>Moving? Our thorough move-out cleaning ensures you leave your space spotless — and your new home feels brand new.</p>
+    <div class="split-divider"></div>
+    <ul class="feat-list">
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Thorough scrubbing of all surfaces</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Cabinet and drawer cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Window cleaning (inside &amp; outside)</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Floor stain removal</li>
+    </ul>
+    <div class="split-btns">
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+      <a href="contactus.html"   class="btn-outline"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
 </section>
 
-<section class="window-section">
-
-<div class="window-image">
-<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-</div>
-
-<div class="window-content">
-
-<h2>Window Cleaning Services</h2>
-
-<p>
-We provide <b>residential window cleaning</b> to enhance your home's curb
-appeal. Our window cleaning service includes:
-</p>
-
-<ul>
-<li>Interior and exterior glass cleaning</li>
-<li>Window frame and track cleaning</li>
-<li>Screen washing</li>
-</ul>
-
-<div class="window-buttons">
-<a href="#" class="btn">Call Us Today</a>
-<a href="#" class="btn">Get a Quote</a>
-</div>
-
-</div>
-
+<!-- ═══ CARPET & RUG ═══ -->
+<section class="split-section dark img-right reveal">
+  <div class="split-img">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Carpet and Rug Cleaning">
+  </div>
+  <div class="split-text">
+    <span class="sec-eyebrow">04 — Carpets &amp; Rugs</span>
+    <div class="gold-line"></div>
+    <h2>Professional Carpet &amp; <em>Rug Cleaning</em></h2>
+    <p>Our expert carpet cleaners remove dirt, allergens, and pet stains using advanced steam cleaning technology. The best carpet cleaning company near you — and you've found it.</p>
+    <div class="split-divider"></div>
+    <ul class="feat-list">
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Hot water extraction cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Pet stain and odor elimination</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Allergen and dust mite removal</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Rug protection treatment</li>
+    </ul>
+    <div class="split-btns">
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+      <a href="contactus.html"   class="btn-outline"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
 </section>
+
+<!-- ═══ WINDOW CLEANING ═══ -->
+<section class="split-section light reveal">
+  <div class="split-img">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80" alt="Window Cleaning">
+  </div>
+  <div class="split-text">
+    <span class="sec-eyebrow">05 — Windows</span>
+    <div class="gold-line"></div>
+    <h2>Window Cleaning <em>Services</em></h2>
+    <p>We provide residential window cleaning to enhance your home's curb appeal — crystal-clear results, every time.</p>
+    <div class="split-divider"></div>
+    <ul class="feat-list">
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Interior and exterior glass cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Window frame and track cleaning</li>
+      <li><div class="feat-icon"><i class="fas fa-check"></i></div>Screen washing and inspection</li>
+    </ul>
+    <div class="split-btns">
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+      <a href="contactus.html"   class="btn-outline"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY CHOOSE US ═══ -->
 <section class="why-section">
-
-<div class="why-container">
-
-<h2>Why Choose Us for House Cleaning in Loveland?</h2>
-
-<p class="why-intro">
-When it comes to <i>house cleaning in Loveland</i>, 
-<b>Xyz Upholstery Cleaners Carpet and Tile Cleaning</b> stands out for several reasons:
-</p>
-
-<ul class="why-list">
-
-<li>
-<b>Expertise:</b> Our team is trained in the latest cleaning techniques and uses advanced equipment to deliver exceptional results.
-</li>
-
-<li>
-<b>Quality:</b> We don’t just clean – we transform your home into a sparkling, fresh space you’ll love.
-</li>
-
-<li>
-<b>Affordability:</b> Our services are competitively priced, ensuring you get the best value for your money.
-</li>
-
-<li>
-<b>Customer Satisfaction:</b> Your happiness is our priority. We go above and beyond to meet your expectations.
-</li>
-
-</ul>
-
-<p class="why-bottom">
-Whether you need a one-time <i>deep cleaning service</i> or regular 
-<i>residential cleaning</i>, we tailor our services to fit your needs.
-</p>
-
-<a href="#" class="why-btn">Get Your Free Quote Today</a>
-
-</div>
-
+  <div class="gold-line-c gold-line"></div>
+  <h2 class="reveal">Why Choose Us for House Cleaning?</h2>
+  <p class="why-intro reveal">When it comes to house cleaning in MP, Bhopal, XYZ Upholstery Cleaners stands out for several compelling reasons.</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-card-icon"><i class="fas fa-award"></i></div>
+      <h4>Expertise</h4>
+      <p>Trained in the latest techniques with advanced equipment delivering exceptional results every time.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.1s">
+      <div class="why-card-icon"><i class="fas fa-star"></i></div>
+      <h4>Quality</h4>
+      <p>We don't just clean — we transform your home into a sparkling, fresh space you'll love.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.2s">
+      <div class="why-card-icon"><i class="fas fa-tag"></i></div>
+      <h4>Affordability</h4>
+      <p>Competitively priced services ensuring you get the best value and quality for your money.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.3s">
+      <div class="why-card-icon"><i class="fas fa-heart"></i></div>
+      <h4>Satisfaction</h4>
+      <p>Your happiness is our priority. We go above and beyond to exceed every expectation.</p>
+    </div>
+  </div>
+  <p class="why-bottom reveal">Whether you need a one-time deep cleaning service or regular residential cleaning, we tailor our services to fit your exact needs.</p>
+  <a href="contactus.html" class="btn-gold reveal"><i class="fas fa-file-invoice"></i> Get Your Free Quote Today</a>
 </section>
 
-
-
-
-<section class="cleaning-cta">
-
-<div class="cleaning-overlay"></div>
-
-<div class="cleaning-content">
-
-<h2>Why Regular House Cleaning Matters</h2>
-
-<p>
-Regular <b>home cleaning</b> prevents dust accumulation, reduces allergens,
-and improves indoor air quality. Studies show that a clean home boosts
-mental well-being and productivity. Our <b>professional cleaning services</b>
-ensure a hygienic and comfortable living space.
-</p>
-
-<div class="cleaning-buttons">
-<a href="#" class="btn">Get A Quote</a>
-<a href="#" class="btn">Call Us to Schedule</a>
-</div>
-
-</div>
-
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-content reveal">
+    <div class="gold-line gold-line-c"></div>
+    <h2>Why Regular House <em>Cleaning Matters</em></h2>
+    <p>Regular home cleaning prevents dust accumulation, reduces allergens, and improves indoor air quality. Studies show a clean home boosts mental well-being and productivity. Our professional services ensure a hygienic, comfortable living space.</p>
+    <div class="cta-btns">
+      <a href="contactus.html"    class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+      <a href="tel:+19702007677"  class="btn-outline"><i class="fas fa-phone"></i> Call to Schedule</a>
+    </div>
+  </div>
 </section>
 
-<footer class="footer">
-
-<div class="footer-container">
-
-<!-- LEFT -->
-
-<div class="footer-left">
-
-<div class="social">
-●
-</div>
-
-<p class="copyright">
-©2024 Xyz Upholstery Cleaners Carpet & Tile® - All rights reserved.
-</p>
-
-</div>
-
-
-<!-- RIGHT -->
-
-<div class="footer-right">
-
-<div class="footer-links">
-
-<a href="#">Home</a> |
-<a href="#">Free Quote</a> |
-<a href="#">Privacy Policy</a> |
-<a href="#">Terms and Conditions</a> |
-<a href="#">Contact</a>
-
-</div>
-
-<p><strong>Address:</strong> 5620 Wild Plum Dr, MP , BHOPAL 80537, United States</p>
-
-<div class="hours">
-
-<p><strong>Hours:</strong></p>
-
-<p>Monday Open 24 hours</p>
-<p>Tuesday Open 24 hours</p>
-<p>Wednesday Open 24 hours</p>
-<p>Thursday Open 24 hours</p>
-<p>Friday Open 24 hours</p>
-<p>Saturday Open 24 hours</p>
-<p>Sunday Open 24 hours</p>
-
-</div>
-
-<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
-
-</div>
-
-</div>
-
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand reveal">
+      <a href="index.html" class="logo-text">
+        XYZ Upholstery
+        <em>Carpet &amp; Tile Cleaning</em>
+      </a>
+      <p>Creating cleaner, healthier homes with eco-friendly techniques and unmatched attention to detail in MP, Bhopal.</p>
+      <div class="soc-row">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="f-col reveal" style="transition-delay:.1s">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i>Home</a></li>
+        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i>About Us</a></li>
+        <li><a href="tilefloorcleaning.html"><i class="fas fa-chevron-right"></i>Tile Cleaning</a></li>
+        <li><a href="deepcleaning.html"><i class="fas fa-chevron-right"></i>Deep Cleaning</a></li>
+        <li><a href="CommercialCleaning.html"><i class="fas fa-chevron-right"></i>Commercial</a></li>
+        <li><a href="blog.html"><i class="fas fa-chevron-right"></i>Blog</a></li>
+        <li><a href="contactus.html"><i class="fas fa-chevron-right"></i>Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col reveal" style="transition-delay:.2s">
+      <h4>Contact &amp; Hours</h4>
+      <ul>
+        <li><span><i class="fas fa-phone"></i>+1 970-200-7677</span></li>
+        <li><span><i class="fas fa-map-marker-alt"></i>5620 Wild Plum Dr, MP, Bhopal</span></li>
+        <li><span><i class="fas fa-envelope"></i>info@xyzupholstery.com</span></li>
+        <li><span><i class="fas fa-clock"></i>Mon – Sun: Open 24 Hours</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© 2026 XYZ Upholstery Cleaners Carpet &amp; Tile® — All rights reserved.</p>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="contactus.html">Free Quote</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
-<style>
-  /* SECTION */
-
-.cleaning-cta{
-position:relative;
-background:url("https://images.unsplash.com/photo-1505691938895-1758d7feb511")
-center/cover no-repeat;
-padding:140px 20px;
-text-align:center;
-color:white;
-}
-
-/* OVERLAY */
-
-.cleaning-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-}
-
-/* CONTENT */
-
-.cleaning-content{
-position:relative;
-max-width:900px;
-margin:auto;
-}
-
-/* HEADING */
-
-.cleaning-content h2{
-font-size:48px;
-margin-bottom:25px;
-}
-
-/* TEXT */
-
-.cleaning-content p{
-font-size:20px;
-line-height:1.9;
-color:#ddd;
-margin-bottom:40px;
-}
-
-/* BUTTONS */
-
-.cleaning-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#a3925b;
-color:white;
-padding:15px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.cleaning-cta{
-padding:90px 20px;
-}
-
-.cleaning-content h2{
-font-size:32px;
-}
-
-.cleaning-content p{
-font-size:17px;
-}
-
-.cleaning-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-  /* SECTION */
-
-.why-section{
-background:#efefef;
-padding:100px 20px;
-}
-
-/* CONTAINER */
-
-.why-container{
-max-width:900px;
-margin:auto;
-text-align:center;
-}
-
-/* HEADING */
-
-.why-container h2{
-font-size:48px;
-margin-bottom:25px;
-color:#222;
-}
-
-/* INTRO TEXT */
-
-.why-intro{
-font-size:20px;
-color:#555;
-line-height:1.8;
-margin-bottom:40px;
-}
-
-/* LIST */
-
-.why-list{
-text-align:left;
-max-width:800px;
-margin:0 auto 40px auto;
-}
-
-.why-list li{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:15px;
-}
-
-/* BOTTOM TEXT */
-
-.why-bottom{
-font-size:20px;
-color:#555;
-line-height:1.8;
-margin-bottom:40px;
-}
-
-/* BUTTON */
-
-.why-btn{
-background:#a3925b;
-color:white;
-padding:16px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.why-section{
-padding:70px 20px;
-}
-
-.why-container h2{
-font-size:32px;
-}
-
-.why-intro,
-.why-bottom,
-.why-list li{
-font-size:17px;
-}
-
-}
-  /* SECTION */
-
-.window-section{
-display:grid;
-grid-template-columns:50% 50%;
-align-items:center;
-background:#efefef;
-max-width:1300px;
-margin:80px auto;
-}
-
-/* IMAGE */
-
-.window-image{
-height:420px;
-overflow:hidden;
-}
-
-.window-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* CONTENT */
-
-.window-content{
-text-align:center;
-padding:80px 60px;
-}
-
-.window-content h2{
-font-size:48px;
-margin-bottom:20px;
-color:#222;
-}
-
-.window-content p{
-font-size:20px;
-color:#555;
-margin-bottom:30px;
-}
-
-/* LIST */
-
-.window-content ul{
-list-style:none;
-margin-bottom:40px;
-}
-
-.window-content li{
-font-size:20px;
-color:#555;
-line-height:2;
-position:relative;
-padding-left:18px;
-}
-
-.window-content li::before{
-content:"•";
-position:absolute;
-left:0;
-font-size:26px;
-color:#666;
-}
-
-/* BUTTONS */
-
-.window-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#a3925b;
-color:white;
-padding:15px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.window-section{
-grid-template-columns:1fr;
-}
-
-.window-image{
-height:260px;
-}
-
-.window-content{
-padding:50px 20px;
-}
-
-.window-content h2{
-font-size:32px;
-}
-
-.window-content p,
-.window-content li{
-font-size:17px;
-}
-
-.window-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-  /* SECTION */
-
-.rug-section{
-display:grid;
-grid-template-columns:50% 50%;
-align-items:center;
-background:#efefef;
-max-width:1300px;
-margin:80px auto;
-}
-
-/* LEFT CONTENT */
-
-.rug-content{
-text-align:center;
-padding:80px 60px;
-}
-
-.rug-content h2{
-font-size:50px;
-margin-bottom:25px;
-color:#222;
-}
-
-.rug-content p{
-font-size:20px;
-color:#555;
-line-height:1.8;
-margin-bottom:40px;
-}
-
-/* BUTTONS */
-
-.rug-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#a3925b;
-color:white;
-padding:15px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* IMAGE */
-
-.rug-image{
-height:420px;
-overflow:hidden;
-}
-
-.rug-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.rug-section{
-grid-template-columns:1fr;
-}
-
-.rug-image{
-height:260px;
-}
-
-.rug-content{
-padding:50px 20px;
-}
-
-.rug-content h2{
-font-size:32px;
-}
-
-.rug-content p{
-font-size:17px;
-}
-
-.rug-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-  /* SECTION */
-
-.move-section{
-display:grid;
-grid-template-columns:50% 50%;
-align-items:center;
-background:#efefef;
-max-width:1300px;
-margin:80px auto;
-}
-
-/* IMAGE */
-
-.move-image{
-height:420px;
-overflow:hidden;
-}
-
-.move-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* CONTENT */
-
-.move-content{
-text-align:center;
-padding:80px 60px;
-}
-
-.move-content h2{
-font-size:48px;
-margin-bottom:20px;
-color:#222;
-}
-
-.move-content p{
-font-size:20px;
-color:#555;
-margin-bottom:30px;
-}
-
-/* LIST */
-
-.move-content ul{
-list-style:none;
-margin-bottom:40px;
-}
-
-.move-content li{
-font-size:20px;
-color:#555;
-line-height:2;
-position:relative;
-padding-left:18px;
-}
-
-.move-content li::before{
-content:"•";
-position:absolute;
-left:0;
-font-size:26px;
-color:#666;
-}
-
-/* BUTTONS */
-
-.move-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#a3925b;
-color:white;
-padding:15px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.move-section{
-grid-template-columns:1fr;
-}
-
-.move-image{
-height:260px;
-}
-
-.move-content{
-padding:50px 20px;
-}
-
-.move-content h2{
-font-size:32px;
-}
-
-.move-content p,
-.move-content li{
-font-size:17px;
-}
-
-.move-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-
-  /* SECTION */
-
-.deep-section{
-display:grid;
-grid-template-columns:50% 50%;
-align-items:center;
-background:#efefef;
-max-width:1300px;
-margin:80px auto;
-}
-
-/* LEFT CONTENT */
-
-.deep-content{
-text-align:center;
-padding:80px 60px;
-}
-
-.deep-content h2{
-font-size:50px;
-margin-bottom:20px;
-color:#222;
-}
-
-.deep-content p{
-font-size:20px;
-color:#555;
-margin-bottom:30px;
-}
-
-/* LIST */
-
-.deep-content ul{
-list-style:none;
-margin-bottom:40px;
-}
-
-.deep-content li{
-font-size:20px;
-color:#555;
-line-height:2;
-position:relative;
-padding-left:18px;
-}
-
-.deep-content li::before{
-content:"•";
-position:absolute;
-left:0;
-font-size:26px;
-color:#666;
-}
-
-/* BUTTONS */
-
-.deep-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-background:#a3925b;
-color:white;
-padding:15px 35px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* IMAGE */
-
-.deep-image{
-height:420px;
-overflow:hidden;
-}
-
-.deep-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.deep-section{
-grid-template-columns:1fr;
-}
-
-.deep-image{
-order:2;
-height:260px;
-}
-
-.deep-content{
-padding:50px 20px;
-}
-
-.deep-content h2{
-font-size:32px;
-}
-
-.deep-content p,
-.deep-content li{
-font-size:17px;
-}
-
-.deep-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-/* HOUSE CLEANING SECTION */
-
-.house-section{
-display:grid;
-grid-template-columns: 50% 50%;
-background:#efefef;
-align-items:center;
-max-width:1300px;
-margin:80px auto;
-gap:40px;
-padding:0 20px;
-}
-
-/* IMAGE SIDE */
-
-.house-image{
-height:380px; /* image smaller */
-overflow:hidden;
-border-radius:4px;
-}
-
-.house-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* CONTENT */
-
-.house-content{
-text-align:center;
-padding:20px 40px;
-}
-
-.house-content h2{
-font-size:46px;
-margin-bottom:20px;
-color:#222;
-}
-
-.house-content p{
-font-size:19px;
-color:#555;
-margin-bottom:30px;
-}
-
-/* LIST */
-
-.house-content ul{
-list-style:none;
-margin-bottom:40px;
-}
-
-.house-content li{
-font-size:19px;
-color:#555;
-line-height:2;
-position:relative;
-padding-left:18px;
-}
-
-.house-content li::before{
-content:"•";
-position:absolute;
-left:0;
-color:#666;
-font-size:24px;
-}
-
-/* BUTTONS */
-
-.house-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.house-btn{
-background:#a3925b;
-color:white;
-padding:14px 30px;
-font-size:18px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.house-section{
-grid-template-columns:1fr;
-margin:50px auto;
-}
-
-.house-image{
-height:260px; /* smaller mobile image */
-}
-
-.house-content{
-padding:30px 15px;
-}
-
-.house-content h2{
-font-size:32px;
-}
-
-.house-content p,
-.house-content li{
-font-size:17px;
-}
-
-.house-buttons{
-flex-direction:column;
-gap:12px;
-}
-
-}
-    /* FOOTER */
-
-.footer{
-background:#000;
-color:#ddd;
-padding:80px 60px;
-}
-
-.footer-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-max-width:1400px;
-margin:auto;
-}
-
-/* LEFT */
-
-.footer-left{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-
-.social{
-font-size:26px;
-color:#c8b46a;
-margin-bottom:30px;
-}
-
-.copyright{
-font-size:18px;
-}
-
-/* RIGHT */
-
-.footer-right{
-text-align:left;
-}
-
-.footer-links{
-margin-bottom:35px;
-}
-
-.footer-links a{
-color:#ddd;
-text-decoration:none;
-margin-right:8px;
-}
-
-.footer-right p{
-font-size:18px;
-margin-bottom:18px;
-line-height:1.7;
-}
-
-.hours{
-margin-top:25px;
-margin-bottom:25px;
-}
-
-.phone{
-margin-top:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.footer{
-padding:60px 25px;
-}
-
-.footer-container{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.footer-right{
-text-align:center;
-}
-
-.footer-links a{
-display:inline-block;
-margin:5px;
-}
-
-}
-
-</style>
-
 <script>
+/* Navbar scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+});
 
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+/* Mobile menu */
+function toggleMenu() {
+  const m = document.getElementById('mobMenu');
+  const o = document.getElementById('mobOverlay');
+  const t = document.getElementById('menuToggle');
+  const isOpen = m.classList.contains('open');
+  m.classList.toggle('open', !isOpen);
+  o.classList.toggle('open', !isOpen);
+  t.classList.toggle('open', !isOpen);
+  document.body.style.overflow = isOpen ? '' : 'hidden';
 }
+function closeMenu() {
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('mobOverlay').classList.remove('open');
+  document.getElementById('menuToggle').classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 
-function toggleDropdown(el){
-if(window.innerWidth < 900){
-el.classList.toggle("active");
-}
-}
-
+/* Scroll reveal */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
-
 </body>
 </html>

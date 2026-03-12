@@ -2,1056 +2,772 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carpet Cleaning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>Commercial Cleaning — XYZ Upholstery Cleaners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
+/* ═══════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════ */
+:root {
+  --black:        #080808;
+  --black-mid:    #111111;
+  --black-soft:   #1a1a1a;
+  --gold:         #c8a85a;
+  --gold-light:   #e4c97a;
+  --white:        #ffffff;
+  --off-white:    #f9f5ee;
+  --border:       rgba(200,168,90,0.2);
+  --border-light: rgba(200,168,90,0.08);
 }
 
-/* HEADER */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
-header{
-background:#000;
-color:white;
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:'Montserrat', sans-serif;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
 }
 
-.nav-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px 40px;
-flex-wrap:wrap;
+img { display:block; }
+a   { text-decoration:none; color:inherit; }
+
+.gold-line        { width:60px; height:1px; background:var(--gold); display:inline-block; margin-bottom:20px; }
+.gold-line-center { display:block; margin:0 auto 20px; }
+
+/* ═══════════════════════════════════════
+   NAVBAR — identical to index
+═══════════════════════════════════════ */
+header {
+  position:fixed; top:0; left:0; width:100%; z-index:1000; transition:all .5s ease;
+}
+header.scrolled {
+  background:rgba(8,8,8,.96); backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-wrap {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 48px; max-width:1320px; margin:0 auto;
+}
+.logo-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; line-height:1.1;
+}
+.logo-text em {
+  font-style:normal; color:var(--gold); display:block;
+  font-size:10px; letter-spacing:4px;
+  font-family:'Montserrat',sans-serif; font-weight:400; margin-top:2px;
+}
+.nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+.nav-links > li > a {
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  font-weight:500; color:rgba(255,255,255,.7);
+  transition:color .3s; position:relative; padding:4px 0;
+}
+.nav-links > li > a::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:1px; background:var(--gold); transition:width .3s;
+}
+.nav-links > li > a:hover,
+.nav-links > li > a.active { color:var(--gold); }
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after { width:100%; }
+
+.has-dropdown { position:relative; }
+.dropdown-menu {
+  position:absolute; top:calc(100% + 18px); left:50%;
+  transform:translateX(-50%); min-width:220px;
+  background:var(--black-soft); border:1px solid var(--border);
+  opacity:0; visibility:hidden; transition:all .3s ease;
+  pointer-events:none; list-style:none;
+}
+.dropdown-menu::before {
+  content:''; position:absolute; top:-6px; left:50%;
+  width:12px; height:12px; background:var(--black-soft);
+  border-left:1px solid var(--border); border-top:1px solid var(--border);
+  transform:translateX(-50%) rotate(45deg);
+}
+.has-dropdown:hover .dropdown-menu {
+  opacity:1; visibility:visible; pointer-events:all; top:calc(100% + 14px);
+}
+.dropdown-menu li a {
+  display:block; padding:13px 22px;
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.6); border-bottom:1px solid var(--border-light); transition:all .3s;
+}
+.dropdown-menu li:last-child a { border-bottom:none; }
+.dropdown-menu li a:hover { color:var(--gold); padding-left:28px; }
+
+.nav-cta {
+  font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
+  font-weight:600; padding:12px 26px;
+  border:1px solid var(--gold); color:var(--gold) !important; transition:all .35s !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--gold) !important; color:var(--black) !important; }
+
+.menu-toggle {
+  display:none; flex-direction:column; gap:5px; cursor:pointer; width:36px; padding:4px 0;
+}
+.menu-toggle span { display:block; height:1px; background:var(--gold); transition:all .4s ease; }
+.menu-toggle.open span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
+.menu-toggle.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.menu-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
+
+.mobile-menu {
+  position:fixed; top:0; right:-100%; bottom:0; width:min(340px,90vw);
+  background:var(--black-soft); z-index:999;
+  padding:100px 40px 60px; transition:right .5s cubic-bezier(.4,0,.2,1);
+  border-left:1px solid var(--border); overflow-y:auto;
+}
+.mobile-menu.open { right:0; }
+.mobile-menu ul { list-style:none; }
+.mobile-menu ul li { border-bottom:1px solid var(--border-light); }
+.mobile-menu ul li a {
+  display:block; padding:16px 0;
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  font-weight:500; color:rgba(255,255,255,.7); transition:color .3s;
+}
+.mobile-menu ul li a:hover { color:var(--gold); }
+.mobile-sub { padding-left:18px; }
+.mobile-sub li a { font-size:11px; color:rgba(255,255,255,.5); }
+.m-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,.7); z-index:998; backdrop-filter:blur(4px);
+}
+.m-overlay.open { display:block; }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80') center/cover no-repeat;
+}
+.hero-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(8,8,8,.78) 0%,rgba(8,8,8,.5) 40%,rgba(8,8,8,.85) 100%);
+}
+.hero-content { position:relative; z-index:2; max-width:860px; padding:0 24px; }
+.hero-pre {
+  font-size:11px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:28px; font-weight:500;
+  display:flex; align-items:center; justify-content:center; gap:16px;
+}
+.hero-pre::before,.hero-pre::after {
+  content:''; flex:1; max-width:60px; height:1px; background:var(--gold); opacity:.5;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,8vw,88px); font-weight:300;
+  line-height:1.05; letter-spacing:-1px; margin-bottom:24px;
+}
+.hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero p {
+  font-size:16px; color:rgba(255,255,255,.75);
+  max-width:580px; margin:0 auto 44px; line-height:1.85; font-weight:300;
+}
+.hero-buttons { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+
+.btn-gold {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--gold); color:var(--black);
+  padding:16px 34px; font-size:11px; letter-spacing:2.5px;
+  text-transform:uppercase; font-weight:700; transition:all .35s;
+}
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:10px;
+  background:transparent; color:var(--white);
+  padding:16px 34px; font-size:11px; letter-spacing:2.5px;
+  text-transform:uppercase; font-weight:600;
+  border:1px solid rgba(255,255,255,.35); transition:all .35s;
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+.hero-scroll {
+  position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+  z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.4);
+}
+.scroll-line {
+  width:1px; height:40px;
+  background:linear-gradient(to bottom,rgba(200,168,90,.8),transparent);
+  animation:scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0%  { transform:scaleY(0); transform-origin:top; }
+  50% { transform:scaleY(1); transform-origin:top; }
+  51% { transform:scaleY(1); transform-origin:bottom; }
+  100%{ transform:scaleY(0); transform-origin:bottom; }
 }
 
-.logo img{
-height:60px;
+/* ═══════════════════════════════════════
+   SPLIT SECTIONS
+═══════════════════════════════════════ */
+.split {
+  display:grid; grid-template-columns:1fr 1fr; min-height:560px;
+}
+.split.img-right .s-img  { order:2; }
+.split.img-right .s-text { order:1; }
+
+.s-img { position:relative; overflow:hidden; }
+.s-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .8s ease;
+}
+.split:hover .s-img img { transform:scale(1.04); }
+.s-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(200,168,90,.08),transparent 60%);
+  pointer-events:none;
+}
+/* gold left-bar accent */
+.s-img.bar::before {
+  content:''; position:absolute; left:0; top:10%; bottom:10%;
+  width:3px; background:var(--gold); z-index:2;
 }
 
-/* NAVBAR */
+/* Light text panel */
+.s-text.light {
+  background:var(--off-white); color:var(--black);
+  display:flex; align-items:center; justify-content:center; padding:80px 72px;
+}
+.s-text.light h2    { color:var(--black); }
+.s-text.light > p,
+.s-text.light .s-inner > p { color:#555; }
+.s-text.light .eyebrow { color:var(--gold); }
+.s-text.light .divider { background:rgba(200,168,90,.3); }
+.s-text.light .feat-list li { color:#555; border-color:rgba(200,168,90,.15); }
+.s-text.light .f-icon { border-color:rgba(200,168,90,.35); background:rgba(200,168,90,.07); }
 
-nav{
-display:flex;
-gap:25px;
-align-items:center;
+/* Dark text panel */
+.s-text.dark {
+  background:var(--black-soft);
+  display:flex; align-items:center; justify-content:center; padding:80px 72px;
+}
+.s-text.dark > p,
+.s-text.dark .s-inner > p { color:rgba(255,255,255,.65); }
+.s-text.dark .divider { background:rgba(200,168,90,.3); }
+
+.s-inner { max-width:500px; width:100%; }
+.eyebrow {
+  font-size:11px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; display:block; margin-bottom:14px;
+}
+.s-inner h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.5vw,48px); font-weight:400; line-height:1.15; margin-bottom:18px;
+}
+.s-inner h2 em { font-style:italic; color:var(--gold); }
+.divider { width:50px; height:1px; margin-bottom:24px; }
+.s-inner > p { font-size:15px; line-height:1.9; font-weight:300; margin-bottom:34px; }
+
+.feat-list { list-style:none; margin-bottom:36px; }
+.feat-list li {
+  display:flex; align-items:flex-start; gap:14px;
+  padding:13px 0; border-bottom:1px solid var(--border-light);
+  font-size:14px; font-weight:300; color:rgba(255,255,255,.65);
+}
+.feat-list li:last-child { border:none; }
+.f-icon {
+  width:34px; height:34px; flex-shrink:0; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:13px; background:rgba(200,168,90,.06); margin-top:1px;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
+/* ═══════════════════════════════════════
+   NATURAL / DUAL IMAGE SECTION
+   Text left + 2-image grid right (on black bg)
+═══════════════════════════════════════ */
+.natural-section {
+  display:grid; grid-template-columns:1fr 1fr; min-height:600px;
+}
+.nat-text {
+  background:var(--black-soft);
+  display:flex; align-items:center; justify-content:center;
+  padding:80px 72px;
+}
+.nat-text .s-inner > p { color:rgba(255,255,255,.65); }
+.nat-text .divider { background:rgba(200,168,90,.3); }
+.nat-text em { font-style:normal; color:var(--gold); font-weight:600; }
+
+.nat-images {
+  display:grid; grid-template-columns:1fr 1fr; gap:3px;
+  background:var(--black-mid);
+}
+.nat-images img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .7s ease; filter:brightness(.85);
+}
+.nat-images img:hover { transform:scale(1.04); filter:brightness(1); }
+
+/* ═══════════════════════════════════════
+   EQUIPMENT CARD — dark bg + centre card
+═══════════════════════════════════════ */
+.equipment-section {
+  position:relative; padding:110px 48px;
+  background:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80') center/cover no-repeat;
+  display:flex; justify-content:center; align-items:center;
+}
+.equipment-section::before {
+  content:''; position:absolute; inset:0; background:rgba(8,8,8,.82);
+}
+.equipment-card {
+  position:relative; z-index:1;
+  background:var(--off-white); color:var(--black);
+  max-width:920px; width:100%; text-align:center;
+  padding:72px 72px;
+}
+.equipment-card::before {
+  content:''; position:absolute; top:-3px; left:8%; right:8%; height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.equipment-card::after {
+  content:''; position:absolute; bottom:-3px; left:8%; right:8%; height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.equipment-card .eyebrow { margin-bottom:14px; }
+.equipment-card h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4vw,50px); font-weight:400; color:var(--black);
+  line-height:1.15; margin-bottom:22px;
+}
+.equipment-card p {
+  font-size:16px; color:#555; line-height:1.9; font-weight:300;
+  max-width:700px; margin:0 auto 40px;
 }
 
-/* DROPDOWN */
-
-.dropdown{
-position:relative;
+/* Equipment features row */
+.equip-features {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px; margin-bottom:44px;
 }
-
-.dropdown-menu{
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#000;
-min-width:220px;
-border-radius:4px;
-overflow:hidden;
-z-index:9999;
-flex-direction:column;
+.ef-item {
+  padding:28px 20px; border:1px solid rgba(200,168,90,.2);
+  background:rgba(200,168,90,.04); text-align:center;
+  transition:all .35s;
 }
-
-.dropdown-menu a{
-padding:12px 18px;
-display:block;
-color:white;
-border-bottom:1px solid rgba(255,255,255,0.1);
+.ef-item:hover { background:rgba(200,168,90,.1); transform:translateY(-4px); }
+.ef-icon {
+  width:44px; height:44px; border:1px solid rgba(200,168,90,.4);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:18px; margin:0 auto 14px;
 }
+.ef-item h4 { font-size:13px; letter-spacing:1px; font-weight:600; color:var(--black); margin-bottom:8px; }
+.ef-item p  { font-size:12px; color:#666; line-height:1.6; font-weight:300; margin:0; }
 
-.dropdown-menu a:hover{
-background:#c8a85a;
+/* ═══════════════════════════════════════
+   SCHEDULE / CTA — same as index cta
+═══════════════════════════════════════ */
+.cta-section {
+  position:relative; padding:130px 20px; text-align:center;
+  background:url('https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?w=1600&q=80') center/cover no-repeat;
 }
-
-.dropdown:hover .dropdown-menu{
-display:block;
+.cta-section::before {
+  content:''; position:absolute; inset:0; background:rgba(8,8,8,.78);
 }
-
-/* MOBILE MENU BUTTON */
-
-.menu-toggle{
-display:none;
-font-size:28px;
-color:white;
-cursor:pointer;
+.cta-content { position:relative; z-index:1; max-width:800px; margin:0 auto; }
+.cta-content h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,6vw,68px); font-weight:300; line-height:1.1; margin-bottom:20px;
 }
-
-/* HERO SECTION */
-
-.hero{
-position:relative;
-background:url("images/co.jpg") center/cover no-repeat;
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
+.cta-content h2 em { font-style:italic; color:var(--gold); }
+.cta-content p {
+  font-size:17px; color:rgba(255,255,255,.7);
+  margin-bottom:44px; line-height:1.85; font-weight:300;
 }
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
+.cta-btns { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+.btn-phone {
+  display:inline-flex; align-items:center; gap:10px;
+  background:transparent; color:var(--gold);
+  padding:16px 34px; font-size:11px; letter-spacing:2.5px;
+  text-transform:uppercase; font-weight:700;
+  border:1px solid var(--gold); transition:all .35s;
 }
+.btn-phone:hover { background:var(--gold); color:var(--black); transform:translateY(-2px); }
 
-.hero-content{
-position:relative;
-max-width:900px;
-padding:20px;
+/* ═══════════════════════════════════════
+   FOOTER — identical to index
+═══════════════════════════════════════ */
+footer {
+  background:var(--black-soft); padding:80px 48px 40px;
+  border-top:1px solid var(--border); position:relative;
 }
-
-.hero h1{
-font-size:50px;
-margin-bottom:20px;
+footer::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-
-.hero p{
-font-size:18px;
-margin-bottom:20px;
-line-height:1.6;
+.footer-grid {
+  display:grid; grid-template-columns:1.2fr 1fr 1.2fr; gap:60px;
+  max-width:1320px; margin:0 auto 60px;
 }
-
-.hero h3{
-color:#c8a85a;
-margin-bottom:20px;
-letter-spacing:2px;
+.footer-brand .logo-text { font-size:22px; margin-bottom:20px; display:inline-block; }
+.footer-brand p {
+  font-size:13px; color:rgba(255,255,255,.45); line-height:1.8;
+  max-width:280px; margin-bottom:28px; font-weight:300;
 }
-
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
+.social-row { display:flex; gap:12px; }
+.social-row a {
+  width:38px; height:38px; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; color:rgba(255,255,255,.5); transition:all .3s;
 }
-
-.hero-buttons a{
-background:#c8a85a;
-padding:12px 18px;
-text-decoration:none;
-color:white;
-font-size:14px;
+.social-row a:hover { border-color:var(--gold); color:var(--gold); }
+.footer-col h4 {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:24px; font-weight:600;
 }
-
-/* MOBILE */
-
-@media (max-width:900px){
-
-nav{
-display:none;
-flex-direction:column;
-width:100%;
-margin-top:15px;
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:12px; }
+.footer-col ul li a, .footer-col ul li span {
+  font-size:13px; color:rgba(255,255,255,.45); font-weight:300;
+  transition:color .3s; display:flex; align-items:center; gap:10px;
 }
-
-nav.show{
-display:flex;
+.footer-col ul li a:hover { color:var(--gold); }
+.footer-col ul li i { color:var(--gold); width:14px; font-size:12px; flex-shrink:0; }
+.footer-bottom {
+  border-top:1px solid var(--border-light); padding-top:32px;
+  max-width:1320px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:16px;
 }
+.footer-bottom p { font-size:12px; color:rgba(255,255,255,.3); letter-spacing:.5px; font-weight:300; }
+.footer-links-row { display:flex; gap:20px; flex-wrap:wrap; }
+.footer-links-row a { font-size:11px; color:rgba(255,255,255,.35); letter-spacing:.5px; transition:color .3s; }
+.footer-links-row a:hover { color:var(--gold); }
 
-.menu-toggle{
-display:block;
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal { opacity:0; transform:translateY(32px); transition:opacity .75s ease,transform .75s ease; }
+.reveal.left  { transform:translateX(-32px); }
+.reveal.right { transform:translateX(32px); }
+.reveal.visible { opacity:1 !important; transform:translate(0,0) !important; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width:1100px) {
+  .equip-features { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .footer-grid .footer-brand { grid-column:1/-1; }
 }
+@media (max-width:900px) {
+  .nav-wrap  { padding:18px 24px; }
+  .nav-links { display:none; }
+  .menu-toggle { display:flex; }
 
-/* MOBILE DROPDOWN */
+  .split { grid-template-columns:1fr; }
+  .split.img-right .s-img  { order:0; }
+  .split.img-right .s-text { order:1; }
+  .s-img { height:360px; }
+  .s-text.light,
+  .s-text.dark { padding:56px 36px; }
 
-.dropdown-menu{
-position:static;
+  .natural-section { grid-template-columns:1fr; }
+  .nat-text { padding:56px 36px; }
+  .nat-images { grid-template-columns:1fr 1fr; height:320px; }
+
+  .equipment-section { padding:80px 24px; }
+  .equipment-card { padding:52px 36px; }
 }
-
-.dropdown:hover .dropdown-menu{
-display:none;
+@media (max-width:768px) {
+  .hero-buttons { flex-direction:column; align-items:center; }
+  .btn-gold,.btn-outline,.btn-phone { width:100%; max-width:280px; justify-content:center; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .equip-features { grid-template-columns:1fr; }
+  footer { padding:60px 24px 32px; }
+  .footer-grid { grid-template-columns:1fr; gap:40px; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+  .nat-images { height:260px; }
 }
-
-.dropdown.active .dropdown-menu{
-display:block;
+@media (max-width:480px) {
+  .s-text.light,
+  .s-text.dark { padding:44px 22px; }
+  .s-img { height:280px; }
+  .nat-text { padding:44px 22px; }
+  .equipment-card { padding:40px 22px; }
 }
-
-.hero h1{
-font-size:32px;
-}
-
-.hero{
-height:auto;
-padding:80px 20px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="nav-container">
+<div class="m-overlay" id="mOverlay" onclick="closeMenu()"></div>
 
-<div class="logo">
-<img src="images/b.jpg" alt="Logo">
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html"    onclick="closeMenu()">Home</a></li>
+    <li><a href="aboutus.html"  onclick="closeMenu()">About Us</a></li>
+    <li><a href="#"             onclick="closeMenu()">Services</a></li>
+    <ul class="mobile-sub">
+      <li><a href="tilefloorcleaning.html"           onclick="closeMenu()">Tile Cleaning</a></li>
+      <li><a href="#"                                onclick="closeMenu()">Air Duct Cleaning</a></li>
+      <li><a href="deepcleaning.html"                onclick="closeMenu()">Deep Steam Cleaning</a></li>
+    </ul>
+    <li><a href="#"                                  onclick="closeMenu()">Locations</a></li>
+    <li><a href="EmergencyFloorCleaningService.html" onclick="closeMenu()">Emergency Floor Cleaning</a></li>
+    <li><a href="CommercialCleaning.html"            onclick="closeMenu()">Commercial Cleaning</a></li>
+    <li><a href="house-cleaning.html"                onclick="closeMenu()">House Cleaning</a></li>
+    <li><a href="blog.html"                          onclick="closeMenu()">Blog</a></li>
+    <li><a href="contactus.html"                     onclick="closeMenu()">Contact Us</a></li>
+  </ul>
 </div>
 
-<nav id="menu">
-
-<a href="index.html">Home</a>
-<a href="aboutus.html">About Us</a>
-
-<div class="dropdown" onclick="toggleDropdown(this)">
-<a href="#">Services ▼</a>
-
-<div class="dropdown-menu">
- <a href="tilefloorcleaning.html">Tile Cleaning</a>
- <a href="Air Duct Cleaning SERVICES.html"> Air Duct Cleaning</a>
- <a href="deepcleaning.html">Deep Steam Cleaning</a>
-</div>
-
-</div>
-
-<a href="#">Locations</a>
-<a href="EmergencyFloorCleaningService.html">Emergency Floor Cleaning</a>
-<a href="CommercialCleaning.html">Commercial Cleaning</a>
-<a href="house-cleaning.html">House Cleaning</a>
-<!-- <a href="#">More</a> -->
-      <div class="dropdown">
-  <a href="#" onclick="toggleDropdown(this.parentElement)">More ▼</a>
-
-  <div class="dropdown-menu">
-    <a href="blog.html">Blog</a>
-    <a href="contactus.html">Contact Us</a>
+<!-- ══ HEADER ══ -->
+<header id="header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo-text">
+      XYZ Upholstery
+      <em>Carpet &amp; Tile Cleaning</em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="#">Services <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="tilefloorcleaning.html">Tile Cleaning</a></li>
+          <li><a href="#">Air Duct Cleaning</a></li>
+          <li><a href="deepcleaning.html">Deep Steam Cleaning</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Locations</a></li>
+      <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
+      <li><a href="CommercialCleaning.html" class="active">Commercial</a></li>
+      <li class="has-dropdown">
+        <a href="#">More <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="contactus.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
-</div>
-
-</nav>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-</div>
 </header>
 
-
+<!-- ══ HERO ══ -->
 <section class="hero">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>COMMERCIAL  CLEANING NEAR YOU IN MP , BHOPAL</h1>
-
-<p>
-Revitalize your carpets with expert <b>carpet cleaning in Loveland, Larimer County.</b>
-Xyz Upholstery Cleaners Carpet and Tile Cleaning removes dirt, stains, and allergens
-for a fresher, healthier home.
-</p>
-
-<h3>QUALITY FLOOR CLEANING</h3>
-
-<div class="hero-buttons">
-<a href="#">Get a Quote</a>
-<a href="#">Call Us to Schedule</a>
-<a href="#">Emergency Service Call Now</a>
-<a href="#">Book Now</a>
-</div>
-
-</div>
-
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-pre">Commercial Cleaning Services</div>
+    <h1>Commercial<br>Cleaning <em>Near You</em><br>in MP, Bhopal</h1>
+    <p>Your trusted partner for top-quality commercial floor cleaning in MP, Bhopal. Tailored solutions for every commercial property — delivered with precision and care.</p>
+    <div class="hero-buttons">
+      <a href="contactus.html"   class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Free Quote</a>
+      <a href="tel:+19702007677" class="btn-outline"><i class="fas fa-phone"></i> Call to Schedule</a>
+      <a href="EmergencyFloorCleaningService.html" class="btn-outline"><i class="fas fa-bolt"></i> Emergency Service</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
-
-<section class="cleaning-section">
-
-<div class="cleaning-image">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-</div>
-
-<div class="cleaning-content">
-
-<div class="cleaning-box">
-
-<h2>Comprehensive Cleaning Solutions</h2>
-
-<p>
-At <span>Xyz Upholstery Cleaners Carpet & Tile</span>, we are your trusted partner for
-top-quality commercial cleaning services in MP , BHOPAL. Our experienced
-team specializes in providing comprehensive floor cleaning solutions
-tailored to the unique needs of commercial properties.
-</p>
-
-<a href="#" class="cleaning-btn">Call Us Today</a>
-
-</div>
-
-</div>
-
+<!-- ══ 01 — COMPREHENSIVE CLEANING SOLUTIONS ══ -->
+<section class="split reveal">
+  <div class="s-img bar">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80" alt="Comprehensive Cleaning">
+  </div>
+  <div class="s-text light">
+    <div class="s-inner">
+      <span class="eyebrow">01 — Solutions</span>
+      <div class="gold-line"></div>
+      <h2>Comprehensive Cleaning <em>Solutions</em></h2>
+      <div class="divider"></div>
+      <p>At XYZ Upholstery Cleaners Carpet &amp; Tile, we are your trusted partner for top-quality commercial cleaning services in MP, Bhopal. Our experienced team specialises in providing comprehensive floor cleaning solutions tailored to the unique needs of commercial properties.</p>
+      <ul class="feat-list">
+        <li><div class="f-icon"><i class="fas fa-building"></i></div>Offices, retail spaces &amp; warehouses</li>
+        <li><div class="f-icon"><i class="fas fa-calendar-check"></i></div>Flexible scheduling — day or night</li>
+        <li><div class="f-icon"><i class="fas fa-award"></i></div>Certified, background-checked technicians</li>
+      </ul>
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+    </div>
+  </div>
 </section>
 
-
-<section class="natural-section">
-
-<div class="natural-content">
-
-<div class="natural-box">
-
-<h2>All-Natural Carpet Cleaning Solutions for a Healthier Workplace</h2>
-
-<p>
-We prioritize the health and well-being of your employees and clients by
-only using all-natural carpet cleaning solutions that are safe for the
-environment and free of harsh chemicals.
-<span>Our sustainable approach</span> to commercial cleaning ensures
-that your workplace remains clean, fresh, and free of allergens.
-</p>
-
-<a href="#" class="natural-btn">Call Us Today</a>
-
-</div>
-
-</div>
-
-<div class="natural-images">
-
-<img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
-
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-
-</div>
-
+<!-- ══ 02 — ALL-NATURAL SOLUTIONS ══ -->
+<section class="natural-section reveal">
+  <div class="nat-text">
+    <div class="s-inner">
+      <span class="eyebrow">02 — Eco-Friendly</span>
+      <div class="gold-line"></div>
+      <h2>All-Natural Solutions for a <em>Healthier Workplace</em></h2>
+      <div class="divider"></div>
+      <p>We prioritise the health and well-being of your employees and clients by only using all-natural carpet cleaning solutions that are safe for the environment and free of harsh chemicals. <em>Our sustainable approach</em> to commercial cleaning ensures your workplace remains clean, fresh, and free of allergens.</p>
+      <ul class="feat-list">
+        <li><div class="f-icon"><i class="fas fa-leaf"></i></div>Zero harsh chemicals — safe for everyone</li>
+        <li><div class="f-icon"><i class="fas fa-recycle"></i></div>Fully sustainable cleaning processes</li>
+        <li><div class="f-icon"><i class="fas fa-lungs"></i></div>Allergen-free, improved air quality</li>
+      </ul>
+      <a href="contactus.html" class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+    </div>
+  </div>
+  <div class="nat-images">
+    <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?w=700&q=80" alt="Eco Cleaning">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="Natural Solutions">
+  </div>
 </section>
 
+<!-- ══ 03 — STATE-OF-THE-ART EQUIPMENT ══ -->
 <section class="equipment-section">
-
-<div class="equipment-box">
-
-<h2>State-of-the-Art Cleaning Equipment</h2>
-
-<p>
-For consistent and exceptional results, we invest in the most advanced
-cleaning equipment. Our tools are designed to provide deep cleaning,
-faster drying times, and superior stain removal to restore the
-cleanliness of your workspace.
-</p>
-
-<a href="#" class="equipment-btn">Get A Quote</a>
-
-</div>
-
+  <div class="equipment-card reveal">
+    <span class="eyebrow" style="color:var(--gold)">03 — Equipment</span>
+    <div class="gold-line gold-line-center"></div>
+    <h2>State-of-the-Art Cleaning Equipment</h2>
+    <p>For consistent and exceptional results, we invest in the most advanced cleaning equipment. Our tools are designed to provide deep cleaning, faster drying times, and superior stain removal to restore the cleanliness of your workspace.</p>
+    <div class="equip-features">
+      <div class="ef-item">
+        <div class="ef-icon"><i class="fas fa-tint"></i></div>
+        <h4>Hot Water Extraction</h4>
+        <p>Deep-cleaning at the fibre level, removing embedded dirt and allergens.</p>
+      </div>
+      <div class="ef-item">
+        <div class="ef-icon"><i class="fas fa-wind"></i></div>
+        <h4>Rapid Dry Technology</h4>
+        <p>Industrial air movers for minimal downtime — floors dry in hours, not days.</p>
+      </div>
+      <div class="ef-item">
+        <div class="ef-icon"><i class="fas fa-magic"></i></div>
+        <h4>Advanced Stain Removal</h4>
+        <p>Specialised spotting agents that eliminate even the toughest commercial stains.</p>
+      </div>
+    </div>
+    <a href="contactus.html" class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Free Quote</a>
+  </div>
 </section>
 
-<section class="custom-section">
-
-<div class="custom-image">
-<img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
-</div>
-
-<div class="custom-content">
-
-<div class="custom-box">
-
-<h2>Customized Cleaning Solutions</h2>
-
-<p>
-For consistent and exceptional results, we invest in the most advanced
-cleaning equipment. Our tools are designed to provide deep cleaning,
-faster drying times, and superior stain removal. At MP , BHOPAL,
-we deliver top-tier commercial cleaning services that keep your
-workspace spotless and professional.
-</p>
-
-<a href="#" class="custom-btn">Call Us Today</a>
-
-</div>
-
-</div>
-
+<!-- ══ 04 — CUSTOMISED SOLUTIONS ══ -->
+<section class="split img-right reveal">
+  <div class="s-img">
+    <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?w=900&q=80" alt="Customised Solutions">
+  </div>
+  <div class="s-text dark">
+    <div class="s-inner">
+      <span class="eyebrow">04 — Custom Plans</span>
+      <div class="gold-line"></div>
+      <h2>Customised Cleaning <em>Solutions</em></h2>
+      <div class="divider"></div>
+      <p>We invest in the most advanced cleaning equipment to deliver exceptional results. Our tools provide deep cleaning, faster drying times, and superior stain removal. In MP, Bhopal, we deliver top-tier commercial cleaning services that keep your workspace spotless and professional.</p>
+      <ul class="feat-list">
+        <li><div class="f-icon"><i class="fas fa-sliders-h"></i></div>Tailored plans for every business size</li>
+        <li><div class="f-icon"><i class="fas fa-clock"></i></div>After-hours cleaning — no disruption</li>
+        <li><div class="f-icon"><i class="fas fa-shield-alt"></i></div>Consistent results, guaranteed every visit</li>
+      </ul>
+      <a href="tel:+19702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Us Today</a>
+    </div>
+  </div>
 </section>
 
-
-
-<section class="schedule-section">
-
-<div class="schedule-content">
-
-<h2>Schedule a Commercial Cleaning Today</h2>
-
-<p>
-When you partner with Xyz Upholstery Cleaners Carpet & Tile for your commercial cleaning
-services in MP , BHOPAL, you can expect professionalism, reliability,
-and outstanding results. Our team is committed to delivering superior
-floor cleaning solutions that enhance the beauty and cleanliness of
-your commercial space.
-</p>
-
-<a href="#" class="schedule-btn">Call Us: (970) 200-7677</a>
-
-</div>
-
+<!-- ══ CTA SCHEDULE ══ -->
+<section class="cta-section">
+  <div class="cta-content reveal">
+    <div class="gold-line gold-line-center"></div>
+    <h2>Schedule a Commercial Cleaning <em>Today</em></h2>
+    <p>When you partner with XYZ Upholstery Cleaners for your commercial cleaning in MP, Bhopal, you can expect professionalism, reliability, and outstanding results — every single time.</p>
+    <div class="cta-btns">
+      <a href="tel:+19702007677" class="btn-phone"><i class="fas fa-phone"></i> Call: (970) 200-7677</a>
+      <a href="contactus.html"   class="btn-gold"><i class="fas fa-file-invoice"></i> Get a Free Quote</a>
+    </div>
+  </div>
 </section>
 
-
-
-
-<footer class="footer">
-
-<div class="footer-container">
-
-<!-- LEFT -->
-
-<div class="footer-left">
-
-<div class="social">
-●
-</div>
-
-<p class="copyright">
-©2024 Xyz Upholstery Cleaners Carpet & Tile® - All rights reserved.
-</p>
-
-</div>
-
-
-<!-- RIGHT -->
-
-<div class="footer-right">
-
-<div class="footer-links">
-
-<a href="#">Home</a> |
-<a href="#">Free Quote</a> |
-<a href="#">Privacy Policy</a> |
-<a href="#">Terms and Conditions</a> |
-<a href="#">Contact</a>
-
-</div>
-
-<p><strong>Address:</strong> 5620 Wild Plum Dr, MP , BHOPAL 80537, United States</p>
-
-<div class="hours">
-
-<p><strong>Hours:</strong></p>
-
-<p>Monday Open 24 hours</p>
-<p>Tuesday Open 24 hours</p>
-<p>Wednesday Open 24 hours</p>
-<p>Thursday Open 24 hours</p>
-<p>Friday Open 24 hours</p>
-<p>Saturday Open 24 hours</p>
-<p>Sunday Open 24 hours</p>
-
-</div>
-
-<p class="phone"><strong>Phone:</strong> +1 970-200-7677</p>
-
-</div>
-
-</div>
-
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand reveal">
+      <a href="index.html" class="logo-text">
+        XYZ Upholstery
+        <em>Carpet &amp; Tile Cleaning</em>
+      </a>
+      <p>Creating cleaner, healthier spaces with eco-friendly techniques and unmatched attention to detail in MP, Bhopal.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.1s">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="tilefloorcleaning.html"><i class="fas fa-chevron-right"></i> Tile Cleaning</a></li>
+        <li><a href="deepcleaning.html"><i class="fas fa-chevron-right"></i> Deep Cleaning</a></li>
+        <li><a href="CommercialCleaning.html"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+        <li><a href="contactus.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.2s">
+      <h4>Contact &amp; Hours</h4>
+      <ul>
+        <li><span><i class="fas fa-phone"></i> +1 970-200-7677</span></li>
+        <li><span><i class="fas fa-map-marker-alt"></i> 5620 Wild Plum Dr, MP, Bhopal</span></li>
+        <li><span><i class="fas fa-envelope"></i> info@xyzupholstery.com</span></li>
+        <li><span><i class="fas fa-clock"></i> Mon – Sun: Open 24 Hours</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 XYZ Upholstery Cleaners Carpet &amp; Tile® — All rights reserved.</p>
+    <div class="footer-links-row">
+      <a href="index.html">Home</a>
+      <a href="contactus.html">Free Quote</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.schedule-section{
-position:relative;
-background:url("https://images.unsplash.com/photo-1603712725038-e9334ae8f39f") center/cover no-repeat;
-padding:140px 20px;
-text-align:center;
-color:white;
-}
-
-/* DARK OVERLAY */
-
-.schedule-section::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-}
-
-/* CONTENT */
-
-.schedule-content{
-position:relative;
-max-width:900px;
-margin:auto;
-}
-
-/* HEADING */
-
-.schedule-content h2{
-font-size:48px;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-/* TEXT */
-
-.schedule-content p{
-font-size:20px;
-line-height:1.9;
-color:#ddd;
-margin-bottom:40px;
-}
-
-/* BUTTON */
-
-.schedule-btn{
-background:#a3925b;
-color:white;
-padding:16px 36px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.schedule-section{
-padding:90px 20px;
-}
-
-.schedule-content h2{
-font-size:32px;
-}
-
-.schedule-content p{
-font-size:17px;
-}
-
-}
-
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.custom-section{
-display:grid;
-grid-template-columns:1fr 1fr;
-background:#f2f2f2;
-}
-
-/* IMAGE */
-
-.custom-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* CONTENT */
-
-.custom-content{
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:80px 60px;
-}
-
-.custom-box{
-max-width:560px;
-}
-
-/* HEADING */
-
-.custom-box h2{
-font-size:48px;
-margin-bottom:25px;
-color:#222;
-}
-
-/* TEXT */
-
-.custom-box p{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:40px;
-}
-
-/* BUTTON */
-
-.custom-btn{
-background:#a3925b;
-color:white;
-padding:16px 36px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.custom-section{
-grid-template-columns:1fr;
-}
-
-.custom-image{
-height:350px;
-}
-
-.custom-box h2{
-font-size:32px;
-}
-
-.custom-box p{
-font-size:17px;
-}
-
-.custom-content{
-padding:50px 25px;
-}
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.equipment-section{
-background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
-padding:120px 20px;
-display:flex;
-justify-content:center;
-}
-
-/* CENTER BOX */
-
-.equipment-box{
-background:#efebe6;
-max-width:950px;
-text-align:center;
-padding:70px 60px;
-}
-
-/* HEADING */
-
-.equipment-box h2{
-font-size:48px;
-color:#222;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-/* TEXT */
-
-.equipment-box p{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:40px;
-}
-
-/* BUTTON */
-
-.equipment-btn{
-background:#a3925b;
-color:white;
-padding:16px 36px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.equipment-box{
-padding:50px 30px;
-}
-
-.equipment-box h2{
-font-size:32px;
-}
-
-.equipment-box p{
-font-size:17px;
-}
-
-.equipment-section{
-padding:80px 20px;
-}
-
-}
-    /* FOOTER */
-
-.footer{
-background:#000;
-color:#ddd;
-padding:80px 60px;
-}
-
-.footer-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-max-width:1400px;
-margin:auto;
-}
-
-/* LEFT */
-
-.footer-left{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-
-.social{
-font-size:26px;
-color:#c8b46a;
-margin-bottom:30px;
-}
-
-.copyright{
-font-size:18px;
-}
-
-/* RIGHT */
-
-.footer-right{
-text-align:left;
-}
-
-.footer-links{
-margin-bottom:35px;
-}
-
-.footer-links a{
-color:#ddd;
-text-decoration:none;
-margin-right:8px;
-}
-
-.footer-right p{
-font-size:18px;
-margin-bottom:18px;
-line-height:1.7;
-}
-
-.hours{
-margin-top:25px;
-margin-bottom:25px;
-}
-
-.phone{
-margin-top:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.footer{
-padding:60px 25px;
-}
-
-.footer-container{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.footer-right{
-text-align:center;
-}
-
-.footer-links a{
-display:inline-block;
-margin:5px;
-}
-
-}
-
-
-
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.cleaning-section{
-display:grid;
-grid-template-columns:1fr 1fr;
-background:#f2f2f2;
-}
-
-/* IMAGE SIDE */
-
-.cleaning-image{
-position:relative;
-padding:70px 40px;
-}
-
-.cleaning-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* GOLD FRAME */
-
-.cleaning-image::before{
-content:"";
-position:absolute;
-left:10px;
-top:50px;
-width:35px;
-height:80%;
-background:#c8b46a;
-z-index:0;
-}
-
-/* TEXT SIDE */
-
-.cleaning-content{
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:80px 60px;
-}
-
-.cleaning-box{
-max-width:560px;
-}
-
-/* HEADING */
-
-.cleaning-box h2{
-font-size:48px;
-color:#222;
-margin-bottom:25px;
-}
-
-/* TEXT */
-
-.cleaning-box p{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:40px;
-}
-
-.cleaning-box span{
-color:#b79d54;
-}
-
-/* BUTTON */
-
-.cleaning-btn{
-background:#a3925b;
-color:white;
-padding:16px 36px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.cleaning-section{
-grid-template-columns:1fr;
-}
-
-.cleaning-image{
-padding:40px 20px;
-}
-
-.cleaning-image::before{
-left:5px;
-height:85%;
-}
-
-.cleaning-box h2{
-font-size:32px;
-}
-
-.cleaning-box p{
-font-size:17px;
-}
-
-.cleaning-content{
-padding:50px 25px;
-}
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* SECTION */
-
-.natural-section{
-display:grid;
-grid-template-columns:1fr 1fr;
-background:#f4f4f4;
-}
-
-/* TEXT SIDE */
-
-.natural-content{
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:80px 60px;
-}
-
-.natural-box{
-max-width:560px;
-}
-
-/* HEADING */
-
-.natural-box h2{
-font-size:48px;
-color:#222;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-/* TEXT */
-
-.natural-box p{
-font-size:20px;
-line-height:1.9;
-color:#555;
-margin-bottom:40px;
-}
-
-.natural-box span{
-color:#a3925b;
-}
-
-/* BUTTON */
-
-.natural-btn{
-background:#a3925b;
-color:white;
-padding:16px 36px;
-font-size:20px;
-text-decoration:none;
-display:inline-block;
-}
-
-/* IMAGE SIDE */
-
-.natural-images{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
-padding:60px 40px;
-background:#000;
-}
-
-.natural-images img{
-width:100%;
-height:520px;
-object-fit:cover;
-display:block;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.natural-section{
-grid-template-columns:1fr;
-}
-
-.natural-images{
-padding:30px 20px;
-}
-
-.natural-images img{
-height:350px;
-}
-
-.natural-box h2{
-font-size:32px;
-}
-
-.natural-box p{
-font-size:17px;
-}
-
-.natural-content{
-padding:50px 25px;
-}
-
-}
-
-
-</style>
-
 <script>
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+});
 
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const o = document.getElementById('mOverlay');
+  const t = document.getElementById('menuToggle');
+  const open = m.classList.contains('open');
+  m.classList.toggle('open',!open);
+  o.classList.toggle('open',!open);
+  t.classList.toggle('open',!open);
+  document.body.style.overflow = open ? '' : 'hidden';
 }
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mOverlay').classList.remove('open');
+  document.getElementById('menuToggle').classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 
-function toggleDropdown(el){
-if(window.innerWidth < 900){
-el.classList.toggle("active");
-}
-}
-
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  });
+}, { threshold:0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
-
 </body>
 </html>
