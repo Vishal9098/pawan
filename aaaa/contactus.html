@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Good Will Bharat Upholstery Cleaners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --black:#080808;--black-mid:#111111;--black-soft:#1a1a1a;
+  --gold:#c8a85a;--gold-light:#e4c97a;--gold-pale:#f2e0a8;
+  --white:#ffffff;--off-white:#f9f5ee;--muted:#888888;
+  --border:rgba(200,168,90,0.2);--border-light:rgba(200,168,90,0.08);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;overflow-x:hidden;line-height:1.6;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");}
+img{display:block;}a{text-decoration:none;color:inherit;}
+.gold-line{width:60px;height:1px;background:var(--gold);display:inline-block;margin-bottom:20px;}
+.gold-line-center{display:block;margin:0 auto 20px;}
+
+/* ── NAV ── */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .5s ease;}
+header.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;max-width:1320px;margin:0 auto;}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;line-height:1.1;}
+.logo-text em{font-style:normal;color:var(--gold);display:block;font-size:10px;letter-spacing:4px;font-family:'Montserrat',sans-serif;font-weight:400;margin-top:2px;}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none;}
+.nav-links>li>a{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:rgba(255,255,255,.7);transition:color .3s;position:relative;padding:4px 0;white-space:nowrap;}
+.nav-links>li>a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-links>li>a:hover{color:var(--gold);}
+.nav-links>li>a:hover::after{width:100%;}
+.has-dropdown{position:relative;}
+.dropdown-menu{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);min-width:220px;background:var(--black-soft);border:1px solid var(--border);opacity:0;visibility:hidden;transition:all .3s ease;pointer-events:none;list-style:none;}
+.dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;width:12px;height:12px;background:var(--black-soft);border-left:1px solid var(--border);border-top:1px solid var(--border);transform:translateX(-50%) rotate(45deg);}
+.has-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:all;top:calc(100% + 14px);}
+.dropdown-menu li a{display:block;padding:13px 22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);border-bottom:1px solid var(--border-light);transition:all .3s;}
+.dropdown-menu li:last-child a{border-bottom:none;}
+.dropdown-menu li a:hover{color:var(--gold);padding-left:28px;}
+.nav-cta{font-size:11px !important;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding:12px 26px;border:1px solid var(--gold);color:var(--gold) !important;transition:all .35s !important;}
+.nav-cta::after{display:none !important;}
+.nav-cta:hover{background:var(--gold) !important;color:var(--black) !important;}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;width:36px;padding:4px 0;}
+.menu-toggle span{display:block;height:1px;background:var(--gold);transition:all .4s ease;}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.menu-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+.mobile-menu{position:fixed;top:0;right:-100%;bottom:0;width:min(340px,90vw);background:var(--black-soft);z-index:999;padding:100px 40px 60px;transition:right .5s cubic-bezier(.4,0,.2,1);border-left:1px solid var(--border);overflow-y:auto;}
+.mobile-menu.open{right:0;}
+.mobile-menu ul{list-style:none;}
+.mobile-menu>ul>li{border-bottom:1px solid var(--border-light);}
+.mobile-menu>ul>li>a{display:block;padding:16px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:rgba(255,255,255,.7);transition:color .3s;}
+.mobile-menu>ul>li>a:hover{color:var(--gold);}
+.mobile-sub{padding-left:18px;list-style:none;display:none;}
+.mobile-sub.show{display:block;}
+.mobile-sub li a{display:block;padding:12px 0;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);border-bottom:1px solid var(--border-light);}
+.mobile-sub li:last-child a{border-bottom:none;}
+.mobile-sub li a:hover{color:var(--gold);}
+.menu-item-with-sub{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:16px 0;}
+.menu-item-with-sub span{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:rgba(255,255,255,.7);}
+.menu-item-with-sub .sub-arrow{color:var(--gold);font-size:12px;transition:transform .3s;}
+.menu-item-with-sub.open .sub-arrow{transform:rotate(180deg);}
+.m-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:998;backdrop-filter:blur(4px);}
+.m-overlay.open{display:block;}
+
+/* ── HERO ── */
+.contact-hero{position:relative;height:60vh;display:flex;align-items:flex-end;padding-bottom:70px;overflow:hidden;}
+.contact-hero-bg{position:absolute;inset:0;}
+.contact-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3);}
+.contact-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.98) 0%,rgba(8,8,8,.3) 60%,transparent 100%);}
+.contact-hero-content{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;}
+.contact-hero-pre{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.contact-hero-pre::before{content:'';width:40px;height:1px;background:var(--gold);opacity:.5;}
+.contact-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,8vw,84px);font-weight:300;line-height:1.05;letter-spacing:-1px;}
+.contact-hero h1 em{font-style:italic;color:var(--gold-light);}
+
+/* ── QUICK INFO BAR ── */
+.info-bar{background:var(--black-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;}
+.info-item{flex:1;display:flex;align-items:center;gap:18px;padding:28px 36px;border-right:1px solid var(--border);transition:background .3s;}
+.info-item:last-child{border-right:none;}
+.info-item:hover{background:rgba(200,168,90,.04);}
+.info-icon{width:44px;height:44px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0;}
+.info-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.info-value{font-size:14px;font-weight:500;color:var(--white);}
+.info-value a{color:var(--white);transition:color .3s;}
+.info-value a:hover{color:var(--gold);}
+
+/* ── MAIN CONTACT SECTION ── */
+.contact-main{display:grid;grid-template-columns:1fr 1fr;min-height:700px;}
+
+/* Form side */
+.contact-form-wrap{background:var(--off-white);color:var(--black);padding:80px 72px;}
+.contact-form-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.15;color:var(--black);margin-bottom:10px;}
+.contact-form-wrap h2 em{font-style:italic;color:var(--gold);}
+.contact-form-wrap>p{font-size:15px;color:#666;line-height:1.8;margin-bottom:40px;font-weight:300;}
+
+.form-group{margin-bottom:22px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#666;font-weight:600;margin-bottom:8px;}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;padding:14px 16px;
+  background:#fff;border:1px solid rgba(200,168,90,.3);
+  color:var(--black);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:400;
+  outline:none;transition:border-color .3s;
+  appearance:none;-webkit-appearance:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gold);}
+.form-group textarea{resize:vertical;min-height:130px;}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c8a85a' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;}
+.form-submit{background:var(--gold);color:var(--black);border:none;padding:16px 40px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s;display:inline-flex;align-items:center;gap:10px;margin-top:8px;}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);}
+.form-note{font-size:11px;color:#999;margin-top:16px;line-height:1.6;}
+
+/* Map/Info side */
+.contact-info-wrap{background:var(--black-soft);padding:80px 72px;display:flex;flex-direction:column;gap:44px;}
+.contact-info-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,44px);font-weight:300;line-height:1.15;margin-bottom:4px;}
+.contact-info-wrap h2 em{font-style:italic;color:var(--gold);}
+.contact-info-wrap>p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;font-weight:300;}
+
+.contact-detail-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.contact-detail-list li{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-bottom:1px solid var(--border-light);}
+.contact-detail-list li:last-child{border-bottom:none;}
+.cd-icon{width:42px;height:42px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;flex-shrink:0;margin-top:2px;}
+.cd-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:5px;}
+.cd-value{font-size:14px;color:var(--white);line-height:1.5;}
+.cd-value a{color:var(--gold);transition:opacity .3s;}
+.cd-value a:hover{opacity:.75;}
+
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);}
+.hours-row{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border-light);font-size:12px;}
+.hours-row:nth-last-child(-n+2){border-bottom:none;}
+.hours-day{color:rgba(255,255,255,.55);font-weight:400;}
+.hours-time{color:var(--gold);font-weight:600;}
+
+.map-embed{margin-top:4px;}
+.map-embed iframe{width:100%;height:220px;border:1px solid var(--border);filter:grayscale(1) invert(1) contrast(.85) brightness(.8);display:block;}
+
+/* ── SERVICES QUICK LIST ── */
+.contact-services{background:var(--black-mid);padding:80px 48px;}
+.contact-services-inner{max-width:1320px;margin:0 auto;}
+.contact-services-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.1;margin-bottom:12px;}
+.contact-services-inner h2 em{font-style:italic;color:var(--gold);}
+.contact-services-inner>p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:50px;font-weight:300;}
+.services-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.sq-item{background:var(--black-soft);padding:28px 24px;border-bottom:2px solid transparent;transition:all .3s;display:flex;align-items:center;gap:14px;}
+.sq-item:hover{border-color:var(--gold);background:rgba(200,168,90,.04);}
+.sq-icon{font-size:1.4rem;flex-shrink:0;}
+.sq-name{font-size:13px;font-weight:500;letter-spacing:.5px;}
+
+/* ── CTA ── */
+.contact-cta{position:relative;padding:110px 20px;text-align:center;}
+.contact-cta-bg{position:absolute;inset:0;}
+.contact-cta-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.contact-cta-bg::after{content:'';position:absolute;inset:0;background:rgba(8,8,8,.82);}
+.contact-cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.contact-cta-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5.5vw,62px);font-weight:300;line-height:1.1;margin-bottom:16px;}
+.contact-cta-inner h2 em{font-style:italic;color:var(--gold);}
+.contact-cta-inner p{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:38px;line-height:1.8;font-weight:300;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+/* BUTTONS */
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);padding:16px 34px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;transition:all .35s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);padding:16px 34px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;border:1px solid rgba(255,255,255,.35);transition:all .35s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--black-soft);padding:80px 48px 40px;border-top:1px solid var(--border);position:relative;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;gap:60px;max-width:1320px;margin:0 auto 60px;}
+.footer-brand .logo-text{font-size:22px;margin-bottom:20px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;max-width:280px;margin-bottom:28px;font-weight:300;}
+.social-row{display:flex;gap:12px;}
+.social-row a{width:38px;height:38px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.5);transition:all .3s;}
+.social-row a:hover{border-color:var(--gold);color:var(--gold);}
+.footer-col h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:600;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col ul li a,.footer-col ul li span{font-size:13px;color:rgba(255,255,255,.45);font-weight:300;transition:color .3s;display:flex;align-items:center;gap:10px;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-col ul li i{color:var(--gold);width:14px;font-size:12px;flex-shrink:0;}
+.hours-list-foot li{margin-bottom:6px !important;}
+.footer-bottom{border-top:1px solid var(--border-light);padding-top:32px;max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.5px;font-weight:300;}
+.footer-links-row{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links-row a{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.5px;transition:color .3s;}
+.footer-links-row a:hover{color:var(--gold);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.left{transform:translateX(-28px);}
+.reveal.right{transform:translateX(28px);}
+.reveal.visible{opacity:1 !important;transform:translate(0,0) !important;}
+
+/* SUCCESS MSG */
+.form-success{display:none;background:rgba(200,168,90,.1);border:1px solid var(--gold);padding:20px 24px;margin-top:20px;font-size:14px;color:var(--gold);text-align:center;}
+.form-success.show{display:block;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}.nav-links{gap:12px;}.services-quick-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){
+  .nav-wrap{padding:18px 24px;}.nav-links{display:none;}.menu-toggle{display:flex;}
+  .contact-main{grid-template-columns:1fr;}
+  .contact-form-wrap{padding:60px 36px;}
+  .contact-info-wrap{padding:60px 36px;}
+  .info-bar{flex-direction:column;}
+  .info-item{border-right:none;border-bottom:1px solid var(--border);}
+  .info-item:last-child{border-bottom:none;}
+  .contact-hero-content{padding:0 24px;}
+  .contact-services{padding:60px 24px;}
+}
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr;}
+  .contact-form-wrap{padding:50px 24px;}
+  .contact-info-wrap{padding:50px 24px;}
+  .services-quick-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:36px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .footer-links-row{justify-content:center;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .hours-grid{grid-template-columns:1fr;}
+  .hours-row:nth-last-child(-n+2){border-bottom:1px solid var(--border-light);}
+  .hours-row:last-child{border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="m-overlay" id="mOverlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="aboutus.html" onclick="closeMenu()">About Us</a></li>
+    <li>
+      <div class="menu-item-with-sub" onclick="toggleMobileSub(this)">
+        <span>Services</span><i class="fas fa-chevron-down sub-arrow"></i>
+      </div>
+      <ul class="mobile-sub">
+        <li><a href="sofa-cleaning.html" onclick="closeMenu()">Sofa Cleaning</a></li>
+        <li><a href="carpet-cleaning.html" onclick="closeMenu()">Carpet Cleaning</a></li>
+        <li><a href="chair-cleaning.html" onclick="closeMenu()">Chair Cleaning</a></li>
+        <li><a href="mattress-cleaning.html" onclick="closeMenu()">Mattress Cleaning</a></li>
+        <li><a href="blinds-cleaning.html" onclick="closeMenu()">Window Blinds Cleaning</a></li>
+        <li><a href="curtain-cleaning.html" onclick="closeMenu()">Curtain Cleaning</a></li>
+        <li><a href="post-construction-cleaning.html" onclick="closeMenu()">Post-Construction Cleaning</a></li>
+        <li><a href="occupied-house-cleaning.html" onclick="closeMenu()">Occupied House Cleaning</a></li>
+        <li><a href="apartment-cleaning.html" onclick="closeMenu()">Flat &amp; Apartment Cleaning</a></li>
+        <li><a href="kitchen-cleaning.html" onclick="closeMenu()">Kitchen Deep Cleaning</a></li>
+        <li><a href="bathroom-cleaning.html" onclick="closeMenu()">Bathroom Deep Cleaning</a></li>
+        <li><a href="floor-cleaning.html" onclick="closeMenu()">Floor Cleaning</a></li>
+        <li><a href="water-tank-cleaning.html" onclick="closeMenu()">Water Tank Cleaning</a></li>
+        <li><a href="glass-cleaning.html" onclick="closeMenu()">Glass Cleaning</a></li>
+      </ul>
+    </li>
+    <li><a href="contactus.html" onclick="closeMenu()">Contact Us</a></li>
+    <li><a href="EmergencyFloorCleaningService.html" onclick="closeMenu()">Emergency</a></li>
+    <li><a href="house-cleaning.html" onclick="closeMenu()">House</a></li>
+    <li><a href="CommercialCleaning.html" onclick="closeMenu()">Commercial</a></li>
+    <li>
+      <div class="menu-item-with-sub" onclick="toggleMobileSub(this)">
+        <span>More</span><i class="fas fa-chevron-down sub-arrow"></i>
+      </div>
+      <ul class="mobile-sub">
+        <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+        <li><a href="contactus.html" onclick="closeMenu()">Contact Us</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<header id="header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo-text">GOOD WILL BHARAT Upholstery<em>Carpet &amp; Tile Cleaning</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="#">Services <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="sofa-cleaning.html">Sofa Cleaning</a></li>
+          <li><a href="carpet-cleaning.html">Carpet Cleaning</a></li>
+          <li><a href="chair-cleaning.html">Chair Cleaning</a></li>
+          <li><a href="mattress-cleaning.html">Mattress Cleaning</a></li>
+          <li><a href="blinds-cleaning.html">Window Blinds Cleaning</a></li>
+          <li><a href="curtain-cleaning.html">Curtain Cleaning</a></li>
+          <li><a href="post-construction-cleaning.html">Post-Construction Cleaning</a></li>
+          <li><a href="occupied-house-cleaning.html">Occupied House Cleaning</a></li>
+          <li><a href="apartment-cleaning.html">Flat &amp; Apartment Cleaning</a></li>
+          <li><a href="kitchen-cleaning.html">Kitchen Deep Cleaning</a></li>
+          <li><a href="bathroom-cleaning.html">Bathroom Deep Cleaning</a></li>
+          <li><a href="floor-cleaning.html">Floor Cleaning</a></li>
+          <li><a href="water-tank-cleaning.html">Water Tank Cleaning</a></li>
+          <li><a href="glass-cleaning.html">Glass Cleaning</a></li>
+        </ul>
+      </li>
+      <li><a href="contactus.html">Contact Us</a></li>
+      <li><a href="EmergencyFloorCleaningService.html">Emergency</a></li>
+      <li><a href="house-cleaning.html">House</a></li>
+      <li><a href="CommercialCleaning.html">Commercial</a></li>
+      <li class="has-dropdown">
+        <a href="#">More <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="contactus.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="contact-hero">
+  <div class="contact-hero-bg">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80" alt="Contact Us" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80'">
+  </div>
+  <div class="contact-hero-content">
+    <div class="contact-hero-pre">Get In Touch</div>
+    <h1>Contact <em>Us</em></h1>
+  </div>
+</section>
+
+<!-- ══ QUICK INFO BAR ══ -->
+<div class="info-bar reveal">
+  <div class="info-item">
+    <div class="info-icon"><i class="fas fa-phone"></i></div>
+    <div>
+      <div class="info-label">Call Us</div>
+      <div class="info-value"><a href="tel:+919702007677">+91 970-200-7677</a></div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+    <div>
+      <div class="info-label">Email Us</div>
+      <div class="info-value"><a href="mailto:info@goodwillbharat.com">info@goodwillbharat.com</a></div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+    <div>
+      <div class="info-label">Our Location</div>
+      <div class="info-value">Madhya Pradesh, Bhopal</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon"><i class="fas fa-clock"></i></div>
+    <div>
+      <div class="info-label">Working Hours</div>
+      <div class="info-value">Mon – Sun: Open 24 Hours</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN CONTACT ══ -->
+<section class="contact-main">
+
+  <!-- FORM -->
+  <div class="contact-form-wrap reveal left">
+    <div class="gold-line"></div>
+    <h2>Send Us a <em>Message</em></h2>
+    <p>Fill in the form and our team will get back to you within a few hours. For urgent needs, call us directly.</p>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" placeholder="e.g. Rahul Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" placeholder="+91 98765 43210" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Service Required *</label>
+        <select required>
+          <option value="" disabled selected>Select a service...</option>
+          <option>Sofa Cleaning</option>
+          <option>Carpet Cleaning</option>
+          <option>Chair Cleaning</option>
+          <option>Mattress Cleaning</option>
+          <option>Window Blinds Cleaning</option>
+          <option>Curtain Cleaning</option>
+          <option>Post-Construction Cleaning</option>
+          <option>Occupied House Cleaning</option>
+          <option>Flat &amp; Apartment Cleaning</option>
+          <option>Kitchen Deep Cleaning</option>
+          <option>Bathroom Deep Cleaning</option>
+          <option>Floor Cleaning</option>
+          <option>Water Tank Cleaning</option>
+          <option>Glass Cleaning</option>
+          <option>Emergency Service</option>
+          <option>Other / Multiple Services</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Preferred Time</label>
+          <select>
+            <option value="" disabled selected>Select time slot...</option>
+            <option>Morning (8 AM – 12 PM)</option>
+            <option>Afternoon (12 PM – 4 PM)</option>
+            <option>Evening (4 PM – 8 PM)</option>
+            <option>Flexible / Any Time</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Your Address / Area in Bhopal</label>
+        <input type="text" placeholder="e.g. Arera Colony, Bhopal">
+      </div>
+      <div class="form-group">
+        <label>Message / Special Requirements</label>
+        <textarea placeholder="Tell us about your cleaning requirements, size of the area, any specific concerns..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+      <p class="form-note">* We will call you back within 2–4 hours to confirm your booking.</p>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <i class="fas fa-check-circle" style="font-size:1.2rem;margin-right:8px"></i>
+      Thank you! We've received your message and will call you back within 2–4 hours.
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="contact-info-wrap reveal right">
+    <div>
+      <div class="gold-line"></div>
+      <h2>Our <em>Details</em></h2>
+      <p>We're always ready to help. Reach us by phone, email, or visit us in Bhopal.</p>
+    </div>
+
+    <ul class="contact-detail-list">
+      <li>
+        <div class="cd-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <div class="cd-label">Phone / WhatsApp</div>
+          <div class="cd-value">
+            <a href="tel:+919702007677">+91 970-200-7677</a><br>
+            <a href="https://wa.me/919702007677" target="_blank" style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;display:inline-flex;align-items:center;gap:6px;">
+              <i class="fab fa-whatsapp" style="color:#25D366"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="cd-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <div class="cd-label">Email Address</div>
+          <div class="cd-value"><a href="mailto:info@goodwillbharat.com">info@goodwillbharat.com</a></div>
+        </div>
+      </li>
+      <li>
+        <div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <div class="cd-label">Service Area</div>
+          <div class="cd-value" style="color:rgba(255,255,255,.8);">Bhopal &amp; all areas of<br>Madhya Pradesh</div>
+        </div>
+      </li>
+      <li>
+        <div class="cd-icon"><i class="fas fa-bolt"></i></div>
+        <div>
+          <div class="cd-label">Emergency Service</div>
+          <div class="cd-value">
+            <a href="EmergencyFloorCleaningService.html" style="color:var(--gold)">Available 24/7</a>
+            <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:3px;">Flood, water damage &amp; urgent cleaning</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Hours -->
+    <div>
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;">Working Hours</div>
+      <div class="hours-grid">
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">Open 24 hrs</span></div>
+        <div class="hours-row"><span class="hours-day" style="color:var(--gold)">Emergency</span><span class="hours-time">Always Available</span></div>
+      </div>
+    </div>
+
+    <!-- Google Map embed -->
+    <div class="map-embed">
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;">Find Us</div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117832.08038046!2d77.3218!3d23.2599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bhopal Location">
+      </iframe>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;">Follow Us</div>
+      <div style="display:flex;gap:10px;">
+        <a href="#" style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);transition:all .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(200,168,90,0.2)';this.style.color='rgba(255,255,255,.5)'" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);transition:all .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(200,168,90,0.2)';this.style.color='rgba(255,255,255,.5)'" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919702007677" target="_blank" style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);transition:all .3s;" onmouseover="this.style.borderColor='#25D366';this.style.color='#25D366'" onmouseout="this.style.borderColor='rgba(200,168,90,0.2)';this.style.color='rgba(255,255,255,.5)'" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);transition:all .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(200,168,90,0.2)';this.style.color='rgba(255,255,255,.5)'" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES QUICK LIST ══ -->
+<section class="contact-services reveal">
+  <div class="contact-services-inner">
+    <div class="gold-line"></div>
+    <h2>Services We <em>Offer</em></h2>
+    <p>Click any service below to learn more or get a quote</p>
+    <div class="services-quick-grid">
+      <a href="sofa-cleaning.html" class="sq-item"><span class="sq-icon">🛋️</span><span class="sq-name">Sofa Cleaning</span></a>
+      <a href="carpet-cleaning.html" class="sq-item"><span class="sq-icon">🪭</span><span class="sq-name">Carpet Cleaning</span></a>
+      <a href="chair-cleaning.html" class="sq-item"><span class="sq-icon">🪑</span><span class="sq-name">Chair Cleaning</span></a>
+      <a href="mattress-cleaning.html" class="sq-item"><span class="sq-icon">🛏️</span><span class="sq-name">Mattress Cleaning</span></a>
+      <a href="blinds-cleaning.html" class="sq-item"><span class="sq-icon">🪟</span><span class="sq-name">Window Blinds</span></a>
+      <a href="curtain-cleaning.html" class="sq-item"><span class="sq-icon">🎭</span><span class="sq-name">Curtain Cleaning</span></a>
+      <a href="post-construction-cleaning.html" class="sq-item"><span class="sq-icon">🏗️</span><span class="sq-name">Post-Construction</span></a>
+      <a href="occupied-house-cleaning.html" class="sq-item"><span class="sq-icon">🏠</span><span class="sq-name">House Cleaning</span></a>
+      <a href="apartment-cleaning.html" class="sq-item"><span class="sq-icon">🏢</span><span class="sq-name">Apartment Cleaning</span></a>
+      <a href="kitchen-cleaning.html" class="sq-item"><span class="sq-icon">🍳</span><span class="sq-name">Kitchen Deep Clean</span></a>
+      <a href="bathroom-cleaning.html" class="sq-item"><span class="sq-icon">🚿</span><span class="sq-name">Bathroom Deep Clean</span></a>
+      <a href="floor-cleaning.html" class="sq-item"><span class="sq-icon">💎</span><span class="sq-name">Floor Cleaning</span></a>
+      <a href="water-tank-cleaning.html" class="sq-item"><span class="sq-icon">💧</span><span class="sq-name">Water Tank Cleaning</span></a>
+      <a href="glass-cleaning.html" class="sq-item"><span class="sq-icon">🪞</span><span class="sq-name">Glass Cleaning</span></a>
+      <a href="EmergencyFloorCleaningService.html" class="sq-item" style="border-color:rgba(200,168,90,.4)"><span class="sq-icon">🚨</span><span class="sq-name" style="color:var(--gold)">Emergency Service</span></a>
+      <a href="CommercialCleaning.html" class="sq-item"><span class="sq-icon">🏬</span><span class="sq-name">Commercial Cleaning</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="contact-cta">
+  <div class="contact-cta-bg">
+    <img src="https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=1600&q=80" alt="CTA" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80'">
+  </div>
+  <div class="contact-cta-inner reveal">
+    <div class="gold-line gold-line-center"></div>
+    <h2>Need <em>Emergency</em> Cleaning?</h2>
+    <p>We are available 24/7 for urgent cleaning situations — flood damage, water leaks, or any cleaning emergency.</p>
+    <div class="cta-btns">
+      <a href="tel:+919702007677" class="btn-gold"><i class="fas fa-phone"></i> Call Now — 24/7</a>
+      <a href="https://wa.me/919702007677" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand reveal">
+      <div class="logo-text">GOOD WILL BHARAT Upholstery<em>Carpet &amp; Tile Cleaning</em></div>
+      <p>Creating cleaner, healthier spaces with eco-friendly techniques and unmatched attention to detail in Madhya Pradesh, Bhopal.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919702007677" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.1s">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="sofa-cleaning.html"><i class="fas fa-chevron-right"></i> Sofa Cleaning</a></li>
+        <li><a href="carpet-cleaning.html"><i class="fas fa-chevron-right"></i> Carpet Cleaning</a></li>
+        <li><a href="kitchen-cleaning.html"><i class="fas fa-chevron-right"></i> Kitchen Cleaning</a></li>
+        <li><a href="bathroom-cleaning.html"><i class="fas fa-chevron-right"></i> Bathroom Cleaning</a></li>
+        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+        <li><a href="contactus.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.2s">
+      <h4>Contact &amp; Hours</h4>
+      <ul>
+        <li><span><i class="fas fa-phone"></i> +91 970-200-7677</span></li>
+        <li><span><i class="fas fa-map-marker-alt"></i> Madhya Pradesh, Bhopal</span></li>
+        <li><span><i class="fas fa-envelope"></i> info@goodwillbharat.com</span></li>
+      </ul>
+      <ul class="hours-list-foot" style="margin-top:20px">
+        <li><span><i class="fas fa-clock"></i> Mon – Sun: Open 24 Hours</span></li>
+        <li><span style="padding-left:24px;font-size:12px;color:rgba(255,255,255,.3)">Emergency calls welcome anytime</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 GOOD WILL BHARAT Upholstery Cleaners Carpet &amp; Tile® — All rights reserved.</p>
+    <div class="footer-links-row">
+      <a href="index.html">Home</a>
+      <a href="contactus.html">Free Quote</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('header').classList.toggle('scrolled',window.scrollY>60);
+});
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu'),o=document.getElementById('mOverlay'),t=document.getElementById('menuToggle');
+  const open=m.classList.contains('open');
+  m.classList.toggle('open',!open);o.classList.toggle('open',!open);t.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mOverlay').classList.remove('open');
+  document.getElementById('menuToggle').classList.remove('open');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMenu();});
+function toggleMobileSub(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('show');}
+
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.form-submit');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled=true;
+  setTimeout(()=>{
+    e.target.style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+  },1500);
+}
+
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
